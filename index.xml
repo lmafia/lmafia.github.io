@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>lmafia 的博客</title>
+        <title>L_MaFia&#39;s Blog</title>
         <link>https://lmafia.github.io/</link>
-        <description>Hugo DoIt 主题官方文档</description>
+        <description>L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
             <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</lastBuildDate>
             <atom:link href="https://lmafia.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -12,6 +12,6 @@
     <pubDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</pubDate><author>
         <name>lmafia</name>
     </author><guid>https://lmafia.github.io/blog-init/</guid>
-    <description><![CDATA[1 为什么创建博客主要是因为我没有博客, 所以我想搭一个, 哈哈哈. 我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 COVID-19，都]]></description>
+    <description><![CDATA[为什么创建博客主要是因为我没有博客, 所以我想搭一个, 哈哈哈. 我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 COVID-19，都困]]></description>
 </item></channel>
 </rss>
