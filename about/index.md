@@ -1,6 +1,8 @@
-# About
+# 关于
+
 
 ## 关于我
+
 Hi, 我是 L_Mafia
 
 毕业于 [SCAU](https://www.scau.edu.cn/) EE 专业
@@ -12,6 +14,7 @@ Hi, 我是 L_Mafia
 欢迎大家找我一起玩
 
 ## 后端
+
 - Java
 - Spring Boot, Spring Cloud
 - Maven, Gradle
@@ -20,23 +23,28 @@ Hi, 我是 L_Mafia
 - Kafka, Pulsar, RabbitMQ
 
 ## 前端
+
 - Vue3
 - Tailwind CSS
 - HTML5
 - CSS3
 
 ## DevOps
+
 - Docker
 - Git, GitHub, GitLab
 - Jenkins
 - Grafana
 
 ## 开发工具
+
 - IDEA
 - VS Code
 - Postman
 
 ## 其他
+
 - Ubuntu, CentOS
 - markdown
 - logseq
+

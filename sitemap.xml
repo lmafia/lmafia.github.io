@@ -2,11 +2,35 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://lmafia.github.io/</loc><lastmod>2023-10-06T19:12:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://lmafia.github.io/posts/</loc><lastmod>2023-10-06T19:12:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://lmafia.github.io/blog-init/</loc><lastmod>2023-10-06T19:12:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://lmafia.github.io/about/</loc><lastmod>2023-10-06T19:27:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://lmafia.github.io/authors/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://lmafia.github.io/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://lmafia.github.io/series/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://lmafia.github.io/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+            <loc>https://lmafia.github.io/first-page/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/emoji-support/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/blog/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/categories/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/posts/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/about/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/authors/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/diagram/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/markdown/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/authors/pcloud/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/create-diagrams/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/pwa/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/pwa-support/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/authors/dillon/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/shortcodes/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/theme-documentation-extended-shortcodes/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/theme-documentation-built-in-shortcodes/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/theme-documentation-content/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/theme-documentation-basics/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/html/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/basic-markdown-syntax/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/emoji/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/series/how-to-doit/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/installation/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/series/getting-start/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/content/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/tags/configuration/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/categories/life/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/categories/documentation/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://lmafia.github.io/series/</loc><lastmod>2023-10-06T22:46:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>

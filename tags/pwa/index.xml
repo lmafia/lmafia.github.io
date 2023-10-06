@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PWA - 标签 - L_MaFia&#39;s Blog</title>
+        <link>https://lmafia.github.io/tags/pwa/</link>
+        <description>PWA - 标签 - L_MaFia&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
+            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 May 2021 16:21:41 &#43;0100</lastBuildDate><atom:link href="https://lmafia.github.io/tags/pwa/" rel="self" type="application/rss+xml" /><item>
+    <title>PWA 支持</title>
+    <link>https://lmafia.github.io/pwa-support/</link>
+    <pubDate>Mon, 10 May 2021 16:21:41 &#43;0100</pubDate><author>
+                    <name>PCloud</name>
+                </author><guid>https://lmafia.github.io/pwa-support/</guid>
+    <description><![CDATA[<p>了解如何在 DoIt 主题中配置渐进式网络应用程序 (PWA).</p>]]></description>
+</item></channel>
+</rss>
