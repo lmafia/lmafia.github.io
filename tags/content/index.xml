@@ -5,13 +5,14 @@
         <description>内容 - 标签 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
             <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://lmafia.github.io/tags/content/" rel="self" type="application/rss+xml" /><item>
-    <title>主题文档 - 内容</title>
-    <link>https://lmafia.github.io/theme-documentation-content/</link>
-    <pubDate>Wed, 04 Mar 2020 16:30:05 &#43;0800</pubDate><author>
-                    <name>Dillon</name>
-                </author><author>
-                    <name>PCloud</name>
-                </author><guid>https://lmafia.github.io/theme-documentation-content/</guid>
-    <description><![CDATA[<p>了解如何在 <strong>DoIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
+    <title>第一篇博客</title>
+    <link>https://lmafia.github.io/first-page/</link>
+    <pubDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</pubDate><author>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://lmafia.github.io/first-page/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/first-page/image.png" referrerpolicy="no-referrer">
+            </div><h2 id="为什么创建博客" class="headerLink">
+    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e5%88%9b%e5%bb%ba%e5%8d%9a%e5%ae%a2" class="header-mark"></a>为什么创建博客</h2><p>主要是因为我没有博客, 所以我想搭一个, 哈哈哈.
+我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。那会的毕业设计算是接了一个坑，是一个 ROS+SLAM 的机器人，老师给了我一个没有任何中文资料的激光雷达，我又去买了一个刚出树莓派 4B 来做系统。当时的中文资料比较有限，只能靠着自己摸索，和翻墙找资料，最后一点一点填出来。我当时想着既然没有啥中文资料，那不如自己写一个，就在 CSDN 上发了一篇关于在树莓派 4B 搭建 ROS 的博客。</p>]]></description>
 </item></channel>
 </rss>

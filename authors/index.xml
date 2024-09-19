@@ -1,22 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Authors - 作者 - L_MaFia&#39;s Blog</title>
+        <title>作者 - 作者 - L_MaFia&#39;s Blog</title>
         <link>https://lmafia.github.io/authors/</link>
-        <description>Authors - 作者 - L_MaFia&#39;s Blog</description>
+        <description>作者 - 作者 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
-            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 28 Feb 2022 14:27:14 &#43;0000</lastBuildDate><atom:link href="https://lmafia.github.io/authors/" rel="self" type="application/rss+xml" /><item>
-    <title>PCloud</title>
-    <link>https://lmafia.github.io/authors/pcloud/</link>
-    <pubDate>Mon, 28 Feb 2022 14:27:14 &#43;0000</pubDate><author>
+            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://lmafia.github.io/authors/" rel="self" type="application/rss+xml" /><item>
+    <title>L_MaFia</title>
+    <link>https://lmafia.github.io/authors/l_mafia/</link>
+    <pubDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</pubDate><author>
         <name>lmafia</name>
-    </author><guid>https://lmafia.github.io/authors/pcloud/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Dillon</title>
-    <link>https://lmafia.github.io/authors/dillon/</link>
-    <pubDate>Fri, 06 Mar 2020 16:29:59 &#43;0800</pubDate><author>
-        <name>lmafia</name>
-    </author><guid>https://lmafia.github.io/authors/dillon/</guid>
+    </author><guid>https://lmafia.github.io/authors/l_mafia/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
