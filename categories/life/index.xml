@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>生活 - 分类 - L_MaFia&#39;s Blog</title>
-        <link>https://lmafia.github.io/categories/life/</link>
+        <link>https://blog.lmafia.info/categories/life/</link>
         <description>生活 - 分类 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
-            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://lmafia.github.io/categories/life/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://blog.lmafia.info/categories/life/" rel="self" type="application/rss+xml" /><item>
     <title>域名购买到博客配置的过程记录</title>
-    <link>https://lmafia.github.io/configure-domain/</link>
+    <link>https://blog.lmafia.info/configure-domain/</link>
     <pubDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://lmafia.github.io/configure-domain/</guid>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/configure-domain/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
             </div><p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
@@ -16,9 +16,9 @@
 这里感谢下赛博佛祖: <code>Cloudfalre</code></p>]]></description>
 </item><item>
     <title>第一篇博客</title>
-    <link>https://lmafia.github.io/first-page/</link>
+    <link>https://blog.lmafia.info/first-page/</link>
     <pubDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://lmafia.github.io/first-page/</guid>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/first-page/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/first-page/image.png" referrerpolicy="no-referrer">
             </div><p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>]]></description>

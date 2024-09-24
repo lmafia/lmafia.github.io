@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>作者 - 作者 - L_MaFia&#39;s Blog</title>
-        <link>https://lmafia.github.io/authors/</link>
+        <link>https://blog.lmafia.info/authors/</link>
         <description>作者 - 作者 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
-            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://lmafia.github.io/authors/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://blog.lmafia.info/authors/" rel="self" type="application/rss+xml" /><item>
     <title>L_MaFia</title>
-    <link>https://lmafia.github.io/authors/l_mafia/</link>
+    <link>https://blog.lmafia.info/authors/l_mafia/</link>
     <pubDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</pubDate><author>
         <name>lmafia</name>
-    </author><guid>https://lmafia.github.io/authors/l_mafia/</guid>
+    </author><guid>https://blog.lmafia.info/authors/l_mafia/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - 分类 - L_MaFia&#39;s Blog</title>
-        <link>https://lmafia.github.io/categories/</link>
+        <link>https://blog.lmafia.info/categories/</link>
         <description>Categories - 分类 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
-            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</lastBuildDate><atom:link href="https://lmafia.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/categories/" rel="self" type="application/rss+xml" /><item>
     <title>生活</title>
-    <link>https://lmafia.github.io/categories/life/</link>
+    <link>https://blog.lmafia.info/categories/life/</link>
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
         <name>lmafia</name>
-    </author><guid>https://lmafia.github.io/categories/life/</guid>
+    </author><guid>https://blog.lmafia.info/categories/life/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
