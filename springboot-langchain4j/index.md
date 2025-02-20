@@ -9,7 +9,7 @@ LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快�
 
 ## 项目架构
 
-{{< mermaid >}}
+``` mermaid
 graph TD
 A[SpringBoot Application] --> B[LangChain4J Config]
 B --> C[ChatLanguageModel]
@@ -26,7 +26,7 @@ style B fill:#bbf,stroke:#333,stroke-width:2px
 style C fill:#dfd,stroke:#333,stroke-width:2px
 style D fill:#dfd,stroke:#333,stroke-width:2px
 style E fill:#fdd,stroke:#333,stroke-width:2px
-{{< /mermaid >}}
+```
 
 ## 环境准备
 
@@ -172,7 +172,7 @@ langchain4j:
 
 ### 对话流程
 
-{{< mermaid >}}
+``` mermaid
 sequenceDiagram
 participant Client
 participant Controller
@@ -189,7 +189,7 @@ ChatService-->>Controller: 返回回复
 Controller-->>Client: 返回响应
 
 note over Client,OpenAI: 完整的对话流程
-{{< /mermaid >}}
+```
 
 ### Prompt 模板使用
 
