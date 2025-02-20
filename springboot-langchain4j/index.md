@@ -213,8 +213,6 @@ note over Client,OpenAI: 完整的对话流程
   }
 ```
 
-
-
 ## 最佳实践
 
 {{< admonition type=tip title="API Key 安全性" open=true >}}
