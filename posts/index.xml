@@ -3,5 +3,13 @@
         <title>所有文章 - L_MaFia&#39;s Blog</title>
         <link>https://blog.lmafia.info/posts/</link>
         <description>所有文章 | L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
+    <link>https://blog.lmafia.info/springboot-langchain4j/</link>
+    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
+            </div>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力]]></description>
+</item></channel>
 </rss>
