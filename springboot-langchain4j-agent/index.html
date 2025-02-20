@@ -6,22 +6,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noodp" /><title>在 SpringBoot 中接入 LangChain4J 开发指南 - L_MaFia&#39;s Blog</title><meta name="Description" content="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力"><meta property="og:url" content="https://blog.lmafia.info/springboot-langchain4j/">
+    <meta name="robots" content="noodp" /><title>SpringBoot &#43; LangChain4j 实现智能 AI Agent - L_MaFia&#39;s Blog</title><meta name="Description" content="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent"><meta property="og:url" content="https://blog.lmafia.info/springboot-langchain4j-agent/">
   <meta property="og:site_name" content="L_MaFia&#39;s Blog">
-  <meta property="og:title" content="在 SpringBoot 中接入 LangChain4J 开发指南">
-  <meta property="og:description" content="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力">
+  <meta property="og:title" content="SpringBoot &#43; LangChain4j 实现智能 AI Agent">
+  <meta property="og:description" content="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-02-20T10:00:00+08:00">
+    <meta property="article:published_time" content="2025-01-20T10:00:00+08:00">
     <meta property="article:modified_time" content="2025-02-20T15:01:27+08:00">
     <meta property="article:tag" content="内容">
     <meta property="og:image" content="https://blog.lmafia.info/images/danta.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://blog.lmafia.info/images/danta.png">
-  <meta name="twitter:title" content="在 SpringBoot 中接入 LangChain4J 开发指南">
-  <meta name="twitter:description" content="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力">
+  <meta name="twitter:title" content="SpringBoot &#43; LangChain4j 实现智能 AI Agent">
+  <meta name="twitter:description" content="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent">
       <meta name="twitter:site" content="@lmafia16">
 <meta name="application-name" content="L_MaFia&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="L_MaFia&#39;s Blog">
@@ -30,11 +30,11 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-<link rel="canonical" href="https://blog.lmafia.info/springboot-langchain4j/" /><link rel="prev" href="https://blog.lmafia.info/springboot-langchain4j-agent/" /><link rel="next" href="https://blog.lmafia.info/langchain4j-tool/" />
+<link rel="canonical" href="https://blog.lmafia.info/springboot-langchain4j-agent/" /><link rel="prev" href="https://blog.lmafia.info/configure-domain/" /><link rel="next" href="https://blog.lmafia.info/springboot-langchain4j/" />
 <link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><meta name="google-site-verification" content="8uyu4spcMrGGo2SeHly3TWn6hSdTWD1fn63zLxh5odw" /><meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B" /><script type="application/ld+json">{"@context":
-"https://schema.org","@type": "BlogPosting", "headline": "在 SpringBoot 中接入 LangChain4J 开发指南", "inLanguage": "zh-CN", "mainEntityOfPage": {
-"@type": "WebPage", "@id": "https://blog.lmafia.info/springboot-langchain4j/" },"image": ["https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg","https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg"],"genre": "posts","keywords":["content"],"wordcount":  935 , "url": "https://blog.lmafia.info/springboot-langchain4j/","datePublished": "2025-02-20T10:00:00+08:00","dateModified": "2025-02-20T15:01:27+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": { "@type": "Organization", "name": "lmafia","logo": { "@type":
-"ImageObject", "url": "https://blog.lmafia.info/images/avatar.webp", "width":  400 , "height":  400  }},"author": [{ "@type": "Person", "name": "lmafia", "url": "https://github.com/lmafia" }],"description": "详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力" }</script></head>
+"https://schema.org","@type": "BlogPosting", "headline": "SpringBoot + LangChain4j 实现智能 AI Agent", "inLanguage": "zh-CN", "mainEntityOfPage": {
+"@type": "WebPage", "@id": "https://blog.lmafia.info/springboot-langchain4j-agent/" },"image": ["https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg","https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg"],"genre": "posts","keywords":["content"],"wordcount":  897 , "url": "https://blog.lmafia.info/springboot-langchain4j-agent/","datePublished": "2025-01-20T10:00:00+08:00","dateModified": "2025-02-20T15:01:27+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": { "@type": "Organization", "name": "lmafia","logo": { "@type":
+"ImageObject", "url": "https://blog.lmafia.info/images/avatar.webp", "width":  400 , "height":  400  }},"author": [{ "@type": "Person", "name": "lmafia", "url": "https://github.com/lmafia" }],"description": "详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent" }</script></head>
 
 
 <body data-instant-intensity="viewport" ><script type="text/javascript">
@@ -165,50 +165,51 @@
         <h2 class="toc-title">目录</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#项目架构">项目架构</a></li>
-    <li><a href="#环境准备">环境准备</a></li>
-    <li><a href="#项目配置">项目配置</a>
+    <li><a href="#什么是-ai-agent">什么是 AI Agent？</a></li>
+    <li><a href="#系统架构">系统架构</a></li>
+    <li><a href="#项目实现">项目实现</a>
       <ul>
-        <li><a href="#maven-依赖">Maven 依赖</a></li>
-        <li><a href="#配置文件">配置文件</a></li>
+        <li><a href="#1-maven-依赖配置">1. Maven 依赖配置</a></li>
+        <li><a href="#2-工具实现">2. 工具实现</a></li>
+        <li><a href="#3-agent-服务实现">3. Agent 服务实现</a></li>
+        <li><a href="#4-controller-实现">4. Controller 实现</a></li>
       </ul>
     </li>
-    <li><a href="#核心实现">核心实现</a>
+    <li><a href="#agent-工作流程">Agent 工作流程</a></li>
+    <li><a href="#示例场景">示例场景</a>
       <ul>
-        <li><a href="#项目结构">项目结构</a></li>
-        <li><a href="#配置类">配置类</a></li>
-        <li><a href="#服务实现">服务实现</a></li>
+        <li><a href="#1-数学计算场景">1. 数学计算场景</a></li>
+        <li><a href="#2-天气查询场景">2. 天气查询场景</a></li>
       </ul>
     </li>
-    <li><a href="#高级特性">高级特性</a>
+    <li><a href="#最佳实践">最佳实践</a>
       <ul>
-        <li><a href="#对话流程">对话流程</a></li>
-        <li><a href="#prompt-模板使用">Prompt 模板使用</a></li>
+        <li><a href="#1-错误处理">1. 错误处理</a></li>
+        <li><a href="#2-性能优化">2. 性能优化</a></li>
+        <li><a href="#3-监控指标">3. 监控指标</a></li>
       </ul>
     </li>
-    <li><a href="#最佳实践">最佳实践</a></li>
-    <li><a href="#常见问题">常见问题</a></li>
+    <li><a href="#安全考虑">安全考虑</a></li>
     <li><a href="#总结">总结</a></li>
     <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title" data-pagefind-meta="date:2025-02-20" data-pagefind-body>在 SpringBoot 中接入 LangChain4J 开发指南</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title" data-pagefind-meta="date:2025-01-20" data-pagefind-body>SpringBoot &#43; LangChain4j 实现智能 AI Agent</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'>
         <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=/images/danta.png   alt="lmafia avatar" height="16" width="16">lmafia</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div>
             <div class="post-meta-line"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2025-02-20">2025-02-20</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2025-01-20">2025-01-20</time>&nbsp;<svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2025-02-20">2025-02-20</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;约 935 字&nbsp;
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;约 897 字&nbsp;
                     <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;预计阅读 5 分钟&nbsp;<span>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;预计阅读 4 分钟&nbsp;<span>
                         <svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 336h-.02c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0C-2.06 328.75.02 320.33.02 336H0c0 44.18 57.31 80 128 80s128-35.82 128-80zM128 176l72 144H56l72-144zm511.98 160c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0-87.12 174.26-85.04 165.84-85.04 181.51H384c0 44.18 57.31 80 128 80s128-35.82 128-80h-.02zM440 320l72-144 72 144H440zm88 128H352V153.25c23.51-10.29 41.16-31.48 46.39-57.25H528c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16H383.64C369.04 12.68 346.09 0 320 0s-49.04 12.68-63.64 32H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h129.61c5.23 25.76 22.87 46.96 46.39 57.25V448H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"/></svg>&nbsp;<span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>&nbsp;
                     </span>&nbsp;</div>
-        </div><div class="featured-image"><img  loading="eager" src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力"  ></div><div class="details toc print:!tw-block" id="toc-static"  kept="">
+        </div><div class="featured-image"><img  loading="eager" src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent"  ></div><div class="details toc print:!tw-block" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span class="details-icon"><svg class="icon"
@@ -216,66 +217,63 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#项目架构">项目架构</a></li>
-    <li><a href="#环境准备">环境准备</a></li>
-    <li><a href="#项目配置">项目配置</a>
+    <li><a href="#什么是-ai-agent">什么是 AI Agent？</a></li>
+    <li><a href="#系统架构">系统架构</a></li>
+    <li><a href="#项目实现">项目实现</a>
       <ul>
-        <li><a href="#maven-依赖">Maven 依赖</a></li>
-        <li><a href="#配置文件">配置文件</a></li>
+        <li><a href="#1-maven-依赖配置">1. Maven 依赖配置</a></li>
+        <li><a href="#2-工具实现">2. 工具实现</a></li>
+        <li><a href="#3-agent-服务实现">3. Agent 服务实现</a></li>
+        <li><a href="#4-controller-实现">4. Controller 实现</a></li>
       </ul>
     </li>
-    <li><a href="#核心实现">核心实现</a>
+    <li><a href="#agent-工作流程">Agent 工作流程</a></li>
+    <li><a href="#示例场景">示例场景</a>
       <ul>
-        <li><a href="#项目结构">项目结构</a></li>
-        <li><a href="#配置类">配置类</a></li>
-        <li><a href="#服务实现">服务实现</a></li>
+        <li><a href="#1-数学计算场景">1. 数学计算场景</a></li>
+        <li><a href="#2-天气查询场景">2. 天气查询场景</a></li>
       </ul>
     </li>
-    <li><a href="#高级特性">高级特性</a>
+    <li><a href="#最佳实践">最佳实践</a>
       <ul>
-        <li><a href="#对话流程">对话流程</a></li>
-        <li><a href="#prompt-模板使用">Prompt 模板使用</a></li>
+        <li><a href="#1-错误处理">1. 错误处理</a></li>
+        <li><a href="#2-性能优化">2. 性能优化</a></li>
+        <li><a href="#3-监控指标">3. 监控指标</a></li>
       </ul>
     </li>
-    <li><a href="#最佳实践">最佳实践</a></li>
-    <li><a href="#常见问题">常见问题</a></li>
+    <li><a href="#安全考虑">安全考虑</a></li>
     <li><a href="#总结">总结</a></li>
     <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content" data-pagefind-body><h2 id="简介" class="headerLink">
-    <a href="#%e7%ae%80%e4%bb%8b" class="header-mark"></a>简介</h2><p>LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快速构建基于大语言模型的应用。本文将详细介绍如何在 SpringBoot 项目中集成 LangChain4J，并实现一个简单的 AI 聊天应用。</p>
-<h2 id="项目架构" class="headerLink">
-    <a href="#%e9%a1%b9%e7%9b%ae%e6%9e%b6%e6%9e%84" class="header-mark"></a>项目架构</h2><pre class="mermaid">graph TD
-A[SpringBoot Application] --&gt; B[LangChain4J Config]
-B --&gt; C[ChatLanguageModel]
-B --&gt; D[MessageMemory]
-C --&gt; E[OpenAI API]
-A --&gt; F[ChatService]
-F --&gt; C
-F --&gt; D
-A --&gt; G[ChatController]
-G --&gt; F
-
-style A fill:#f9f,stroke:#333,stroke-width:2px
-style B fill:#bbf,stroke:#333,stroke-width:2px
-style C fill:#dfd,stroke:#333,stroke-width:2px
-style D fill:#dfd,stroke:#333,stroke-width:2px
-style E fill:#fdd,stroke:#333,stroke-width:2px
+            </div><div class="content" id="content" data-pagefind-body><h2 id="什么是-ai-agent" class="headerLink">
+    <a href="#%e4%bb%80%e4%b9%88%e6%98%af-ai-agent" class="header-mark"></a>什么是 AI Agent？</h2><p>AI Agent 是一个能够自主决策和执行任务的智能代理。它可以：</p>
+<ul>
+<li>理解用户意图</li>
+<li>规划任务步骤</li>
+<li>调用工具完成任务</li>
+<li>处理异常情况</li>
+<li>持续优化决策</li>
+</ul>
+<h2 id="系统架构" class="headerLink">
+    <a href="#%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" class="header-mark"></a>系统架构</h2><pre class="mermaid">graph TD
+    A[用户请求] --&gt; B[Agent Controller]
+    B --&gt; C[Agent Service]
+    C --&gt; D[任务规划器]
+    C --&gt; E[工具注册中心]
+    D --&gt; F[OpenAI]
+    E --&gt; G[计算器]
+    E --&gt; H[搜索引擎]
+    E --&gt; I[天气查询]
+    F --&gt; C
+    G --&gt; C
+    H --&gt; C
+    I --&gt; C
 </pre>
 
-<h2 id="环境准备" class="headerLink">
-    <a href="#%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87" class="header-mark"></a>环境准备</h2><ul>
-<li>JDK 17+</li>
-<li>SpringBoot 3.x</li>
-<li>Maven/Gradle</li>
-<li>OpenAI API Key</li>
-</ul>
-<h2 id="项目配置" class="headerLink">
-    <a href="#%e9%a1%b9%e7%9b%ae%e9%85%8d%e7%bd%ae" class="header-mark"></a>项目配置</h2><h3 id="maven-依赖" class="headerLink">
-    <a href="#maven-%e4%be%9d%e8%b5%96" class="header-mark"></a>Maven 依赖</h3><p>首先在 <code>pom.xml</code> 中添加必要的依赖：</p>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<h2 id="项目实现" class="headerLink">
+    <a href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e7%8e%b0" class="header-mark"></a>项目实现</h2><h3 id="1-maven-依赖配置" class="headerLink">
+    <a href="#1-maven-%e4%be%9d%e8%b5%96%e9%85%8d%e7%bd%ae" class="header-mark"></a>1. Maven 依赖配置</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -369,38 +367,30 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">  <span class="nt">&lt;dependencies&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- SpringBoot 基础依赖 --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+      "><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- SpringBoot --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- LangChain4j 核心依赖 --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>langchain4j<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- LangChain4j --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>langchain4j<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- LangChain4j Spring 集成 --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>langchain4j-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Lombok --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencies&gt;</span></span></span></code></pre>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- LangChain4j Agent --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>langchain4j-agent<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span></span></span></code></pre>
 </div>
-<h3 id="配置文件" class="headerLink">
-    <a href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="header-mark"></a>配置文件</h3><p>在 <code>application.yml</code> 中添加相关配置：</p>
-<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+<h3 id="2-工具实现" class="headerLink">
+    <a href="#2-%e5%b7%a5%e5%85%b7%e5%ae%9e%e7%8e%b0" class="header-mark"></a>2. 工具实现</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -424,7 +414,7 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">yaml</p>
+      <p class="tw-select-none !tw-my-1">java</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -494,18 +484,32 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="nt">langchain4j</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">chat-model</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">openai</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">api-key</span><span class="p">:</span><span class="w"> </span><span class="l">${OPENAI_API_KEY}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">model-name</span><span class="p">:</span><span class="w"> </span><span class="l">gpt-4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="m">0.7</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">60s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">https://your-gpt4-mini-api-endpoint</span><span class="w"> </span><span class="c"># 如果使用自定义 API</span></span></span></code></pre>
+      "><span class="line"><span class="cl"><span class="nd">@Tool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Tool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WeatherService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getWeather</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 调用天气 API</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;晴天，温度 25℃&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre>
 </div>
-<h2 id="核心实现" class="headerLink">
-    <a href="#%e6%a0%b8%e5%bf%83%e5%ae%9e%e7%8e%b0" class="header-mark"></a>核心实现</h2><h3 id="项目结构" class="headerLink">
-    <a href="#%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84" class="header-mark"></a>项目结构</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<h3 id="3-agent-服务实现" class="headerLink">
+    <a href="#3-agent-%e6%9c%8d%e5%8a%a1%e5%ae%9e%e7%8e%b0" class="header-mark"></a>3. Agent 服务实现</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -529,7 +533,7 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">bash</p>
+      <p class="tw-select-none !tw-my-1">java</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -599,21 +603,42 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">  src/main/java/com/example/demo/
-</span></span><span class="line"><span class="cl">  ├── config/
-</span></span><span class="line"><span class="cl">  │   └── LangChain4jConfig.java
-</span></span><span class="line"><span class="cl">  ├── service/
-</span></span><span class="line"><span class="cl">  │   ├── ChatService.java
-</span></span><span class="line"><span class="cl">  │   └── PromptService.java
-</span></span><span class="line"><span class="cl">  ├── controller/
-</span></span><span class="line"><span class="cl">  │   └── ChatController.java
-</span></span><span class="line"><span class="cl">  ├── model/
-</span></span><span class="line"><span class="cl">  │   ├── ChatRequest.java
-</span></span><span class="line"><span class="cl">  │   └── ChatResponse.java
-</span></span><span class="line"><span class="cl">  └── DemoApplication.java</span></span></code></pre>
+      "><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AIAgentService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ToolRegistry</span><span class="w"> </span><span class="n">toolRegistry</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Agent</span><span class="w"> </span><span class="n">agent</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AIAgentService</span><span class="p">(</span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">chatModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">toolRegistry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ToolRegistry</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 注册工具</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">toolRegistry</span><span class="p">.</span><span class="na">registerTool</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Calculator</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">toolRegistry</span><span class="p">.</span><span class="na">registerTool</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WeatherService</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 创建 Agent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Agent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">chatLanguageModel</span><span class="p">(</span><span class="n">chatModel</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">toolRegistry</span><span class="p">(</span><span class="n">toolRegistry</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userInput</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">AgentResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent</span><span class="p">.</span><span class="na">process</span><span class="p">(</span><span class="n">userInput</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getOutput</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Agent 处理失败&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;抱歉，我现在无法处理这个请求&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre>
 </div>
-<h3 id="配置类" class="headerLink">
-    <a href="#%e9%85%8d%e7%bd%ae%e7%b1%bb" class="header-mark"></a>配置类</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<h3 id="4-controller-实现" class="headerLink">
+    <a href="#4-controller-%e5%ae%9e%e7%8e%b0" class="header-mark"></a>4. Controller 实现</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -707,37 +732,48 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Slf4j</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LangChain4jConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+      "><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/api/agent&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${langchain4j.chat-model.api-key}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiKey</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AIAgentService</span><span class="w"> </span><span class="n">agentService</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${langchain4j.chat-model.base-url}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">baseUrl</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="nf">chatLanguageModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">OpenAiChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">apiKey</span><span class="p">(</span><span class="n">apiKey</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">modelName</span><span class="p">(</span><span class="s">&#34;gpt-4&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="n">baseUrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">timeout</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">60</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">temperature</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">7</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">logRequests</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">logResponses</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AgentController</span><span class="p">(</span><span class="n">AIAgentService</span><span class="w"> </span><span class="n">agentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">agentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agentService</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="nf">messageMemory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">MessageMemory</span><span class="p">.</span><span class="na">withMaxMessages</span><span class="p">(</span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/chat&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agentService</span><span class="p">.</span><span class="na">process</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">response</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span></span></span></code></pre>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre>
 </div>
-<h3 id="服务实现" class="headerLink">
-    <a href="#%e6%9c%8d%e5%8a%a1%e5%ae%9e%e7%8e%b0" class="header-mark"></a>服务实现</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<h2 id="agent-工作流程" class="headerLink">
+    <a href="#agent-%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b" class="header-mark"></a>Agent 工作流程</h2><pre class="mermaid">
+sequenceDiagram
+participant User as 用户
+participant Agent as AI Agent
+participant LLM as 大语言模型
+participant Tools as 工具集
+
+    User->>Agent: 发送请求
+    Agent->>LLM: 分析用户意图
+    LLM-->>Agent: 返回任务分解
+    loop 任务执行
+        Agent->>Tools: 调用相关工具
+        Tools-->>Agent: 返回工具结果
+        Agent->>LLM: 结果评估
+        LLM-->>Agent: 下一步计划
+    end
+    Agent->>User: 返回最终结果
+
+
+</pre>
+<h2 id="示例场景" class="headerLink">
+    <a href="#%e7%a4%ba%e4%be%8b%e5%9c%ba%e6%99%af" class="header-mark"></a>示例场景</h2><h3 id="1-数学计算场景" class="headerLink">
+    <a href="#1-%e6%95%b0%e5%ad%a6%e8%ae%a1%e7%ae%97%e5%9c%ba%e6%99%af" class="header-mark"></a>1. 数学计算场景</h3><p>用户输入：</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -761,7 +797,7 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">java</p>
+      <p class="tw-select-none !tw-my-1">text</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -831,53 +867,18 @@ style E fill:#fdd,stroke:#333,stroke-width:2px
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Slf4j</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ChatService</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="n">memory</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ChatService</span><span class="p">(</span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">,</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="n">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">chatModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memory</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userMessage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">memory</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">UserMessage</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">userMessage</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">memory</span><span class="p">.</span><span class="na">messages</span><span class="p">());</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">memory</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">AiMessage</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">response</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;AI 服务调用失败&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AIException</span><span class="p">(</span><span class="s">&#34;AI 服务暂时不可用，请稍后重试&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span></span></span></code></pre>
+      "><span class="line"><span class="cl">请帮我计算：(23 + 45) * 2 是多少？</span></span></code></pre>
 </div>
-<h2 id="高级特性" class="headerLink">
-    <a href="#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" class="header-mark"></a>高级特性</h2><h3 id="对话流程" class="headerLink">
-    <a href="#%e5%af%b9%e8%af%9d%e6%b5%81%e7%a8%8b" class="header-mark"></a>对话流程</h3><pre class="mermaid"> sequenceDiagram
-participant Client
-participant Controller
-participant ChatService
-participant OpenAI
-
-    Client->>Controller: POST /api/chat
-    Controller->>ChatService: chat(message)
-    ChatService->>ChatService: 添加用户消息到记忆
-    ChatService->>OpenAI: 生成回复
-    OpenAI-->>ChatService: 返回回复
-    ChatService->>ChatService: 添加 AI 回复到记忆
-    ChatService-->>Controller: 返回回复
-    Controller-->>Client: 返回响应
-
-note over Client,OpenAI: 完整的对话流程
-
-</pre>
-<h3 id="prompt-模板使用" class="headerLink">
-    <a href="#prompt-%e6%a8%a1%e6%9d%bf%e4%bd%bf%e7%94%a8" class="header-mark"></a>Prompt 模板使用</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<p>Agent 处理流程：</p>
+<ol>
+<li>分析出需要使用计算器工具</li>
+<li>拆分为加法和乘法两步</li>
+<li>调用计算器完成计算</li>
+<li>返回结果</li>
+</ol>
+<h3 id="2-天气查询场景" class="headerLink">
+    <a href="#2-%e5%a4%a9%e6%b0%94%e6%9f%a5%e8%af%a2%e5%9c%ba%e6%99%af" class="header-mark"></a>2. 天气查询场景</h3><p>用户输入：</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -901,7 +902,7 @@ note over Client,OpenAI: 完整的对话流程
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">java</p>
+      <p class="tw-select-none !tw-my-1">text</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -971,74 +972,18 @@ note over Client,OpenAI: 完整的对话流程
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PromptService</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PromptTemplate</span><span class="w"> </span><span class="n">promptTemplate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PromptTemplate</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="s">&#34;你是一个{{role}}，请用专业的角度回答：{{question}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getResponse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">role</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">question</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">promptTemplate</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">Parameters</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;role&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">role</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;question&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">question</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">chatModel</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span></span></span></code></pre>
+      "><span class="line"><span class="cl">北京今天天气怎么样？需要带伞吗？</span></span></code></pre>
 </div>
+<p>Agent 处理流程：</p>
+<ol>
+<li>识别需要查询天气</li>
+<li>调用天气服务获取数据</li>
+<li>分析是否需要带伞</li>
+<li>给出建议</li>
+</ol>
 <h2 id="最佳实践" class="headerLink">
-    <a href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" class="header-mark"></a>最佳实践</h2><div class="details admonition tip open">
-    <div class="details-summary admonition-title">
-        <span class="icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg></span>API Key 安全性<span class="details-icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
-    </div>
-    <div class="details-content">
-        <div class="admonition-content"><ol>
-<li>使用环境变量或配置中心存储 API Key</li>
-<li>避免直接在代码中硬编码敏感信息</li>
-<li>定期轮换 API Key</li>
-</ol>
-</div></div></div>
-<div class="details admonition note open">
-    <div class="details-summary admonition-title">
-        <span class="icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></span>性能优化<span class="details-icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
-    </div>
-    <div class="details-content">
-        <div class="admonition-content"><ol>
-<li>使用异步处理长时间运行的 AI 请求</li>
-<li>实现请求缓存减少 API 调用</li>
-<li>合理设置超时时间和重试策略</li>
-</ol>
-</div></div></div>
-<div class="details admonition warning open">
-    <div class="details-summary admonition-title">
-        <span class="icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg></span>成本控制<span class="details-icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
-    </div>
-    <div class="details-content">
-        <div class="admonition-content"><ol>
-<li>实现 Token 计数和使用统计</li>
-<li>设置调用限额</li>
-<li>监控 API 调用成本</li>
-</ol>
-</div></div></div>
-<h2 id="常见问题" class="headerLink">
-    <a href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" class="header-mark"></a>常见问题</h2><div class="details admonition question open">
-    <div class="details-summary admonition-title">
-        <span class="icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"/></svg></span>如何处理 API 超时？<span class="details-icon"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
-    </div>
-    <div class="details-content">
-        <div class="admonition-content"><p>建议设置合理的超时时间，并实现重试机制：</p>
-<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+    <a href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" class="header-mark"></a>最佳实践</h2><h3 id="1-错误处理" class="headerLink">
+    <a href="#1-%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" class="header-mark"></a>1. 错误处理</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -1132,28 +1077,179 @@ note over Client,OpenAI: 完整的对话流程
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Retryable</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">TimeoutException</span><span class="p">.</span><span class="na">class</span><span class="p">},</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">maxAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">3</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">backoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Backoff</span><span class="p">(</span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1000</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">chatWithRetry</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">chatService</span><span class="p">.</span><span class="na">chat</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span></span></span></code></pre>
-</div></div></div></div>
-<h2 id="总结" class="headerLink">
-    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h2><p>通过本文的介绍，我们学习了如何在 SpringBoot 项目中集成 LangChain4J，实现了一个基础的 AI 聊天应用。主要包括：</p>
-<ol>
-<li>基础配置和依赖管理</li>
-<li>核心功能实现</li>
-<li>高级特性使用</li>
-<li>性能优化和监控</li>
-<li>安全性考虑</li>
+      "><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AgentException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ControllerAdvice</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentExceptionHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">AgentException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleAgentException</span><span class="p">(</span><span class="n">AgentException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre>
+</div>
+<h3 id="2-性能优化" class="headerLink">
+    <a href="#2-%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" class="header-mark"></a>2. 性能优化</h3><div class="details admonition tip open">
+    <div class="details-summary admonition-title">
+        <span class="icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg></span>性能优化建议<span class="details-icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content"><ol>
+<li>使用工具结果缓存</li>
+<li>实现并发任务处理</li>
+<li>设置合理的超时时间</li>
 </ol>
-<p>在实际开发中，建议根据具体需求选择合适的功能特性，同时注意安全性、性能和成本控制等方面的考虑。</p>
+</div></div></div>
+<h3 id="3-监控指标" class="headerLink">
+    <a href="#3-%e7%9b%91%e6%8e%a7%e6%8c%87%e6%a0%87" class="header-mark"></a>3. 监控指标</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">java</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-8" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentMetricsService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordToolUsage</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">toolName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">counter</span><span class="p">(</span><span class="s">&#34;agent.tool.usage&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;tool&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">toolName</span><span class="p">).</span><span class="na">increment</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordProcessingTime</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">milliseconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">timer</span><span class="p">(</span><span class="s">&#34;agent.processing.time&#34;</span><span class="p">).</span><span class="na">record</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre>
+</div>
+<h2 id="安全考虑" class="headerLink">
+    <a href="#%e5%ae%89%e5%85%a8%e8%80%83%e8%99%91" class="header-mark"></a>安全考虑</h2><div class="details admonition warning open">
+    <div class="details-summary admonition-title">
+        <span class="icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg></span>安全注意事项<span class="details-icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content"><ol>
+<li>工具调用权限控制</li>
+<li>用户输入验证</li>
+<li>敏感信息保护</li>
+<li>调用频率限制</li>
+</ol>
+</div></div></div>
+<h2 id="总结" class="headerLink">
+    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h2><p>通过 SpringBoot + LangChain4j 实现的 AI Agent 具有以下优势：</p>
+<ol>
+<li>架构清晰，易于扩展</li>
+<li>工具集成灵活</li>
+<li>错误处理完善</li>
+<li>性能监控到位</li>
+</ol>
+<p>在实际应用中，可以根据具体需求：</p>
+<ul>
+<li>添加更多工具</li>
+<li>优化决策逻辑</li>
+<li>增强安全机制</li>
+<li>提升用户体验</li>
+</ul>
 <h2 id="参考资料" class="headerLink">
     <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="header-mark"></a>参考资料</h2><ul>
-<li><a href="https://docs.langchain4j.dev" target="_blank" rel="noopener noreferrer">LangChain4j 官方文档</a></li>
+<li><a href="https://docs.langchain4j.dev/agent" target="_blank" rel="noopener noreferrer">LangChain4j Agent 文档</a></li>
 <li><a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer">SpringBoot 官方文档</a></li>
 <li><a href="https://platform.openai.com/docs/api-reference" target="_blank" rel="noopener noreferrer">OpenAI API 文档</a></li>
 </ul></div>
@@ -1165,28 +1261,28 @@ note over Client,OpenAI: 完整的对话流程
 <div class="related-container">
     <div class="related-item-container">
             <div class="related-image">
-                <a href="/langchain4j-tool/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力" height="200" width="400"></a>
+                <a href="/langchain4j-tool/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent" height="200" width="400"></a>
             </div><h2 class="related-title">
                 <a href="/langchain4j-tool/">LangChain4J 功能架构详解</a>
             </h2>
         </div>
     <div class="related-item-container">
             <div class="related-image">
-                <a href="/springboot-langchain4j-agent/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力" height="200" width="400"></a>
+                <a href="/springboot-langchain4j/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent" height="200" width="400"></a>
             </div><h2 class="related-title">
-                <a href="/springboot-langchain4j-agent/">SpringBoot &#43; LangChain4j 实现智能 AI Agent</a>
+                <a href="/springboot-langchain4j/">在 SpringBoot 中接入 LangChain4J 开发指南</a>
             </h2>
         </div>
     <div class="related-item-container">
             <div class="related-image">
-                <a href="/configure-domain/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力" height="200" width="400"></a>
+                <a href="/configure-domain/"><img   src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg   alt="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent" height="200" width="400"></a>
             </div><h2 class="related-title">
                 <a href="/configure-domain/">域名购买到博客配置的过程记录</a>
             </h2>
         </div>
     <div class="related-item-container">
             <div class="related-image">
-                <a href="/first-page/"><img   src=/first-page/image.png   alt="详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力" height="200" width="400"></a>
+                <a href="/first-page/"><img   src=/first-page/image.png   alt="详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent" height="200" width="400"></a>
             </div><h2 class="related-title">
                 <a href="/first-page/">第一篇博客</a>
             </h2>
@@ -1217,9 +1313,9 @@ note over Client,OpenAI: 完整的对话流程
         </section>
     </div>
 
-    <div class="post-nav print:tw-hidden"><a href="/springboot-langchain4j-agent/" class="prev" rel="prev" title="SpringBoot &#43; LangChain4j 实现智能 AI Agent"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>SpringBoot &#43; LangChain4j 实现智能 AI Agent</a>
-            <a href="/langchain4j-tool/" class="next" rel="next" title="LangChain4J 功能架构详解">LangChain4J 功能架构详解<svg class="icon"
+    <div class="post-nav print:tw-hidden"><a href="/configure-domain/" class="prev" rel="prev" title="域名购买到博客配置的过程记录"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>域名购买到博客配置的过程记录</a>
+            <a href="/springboot-langchain4j/" class="next" rel="next" title="在 SpringBoot 中接入 LangChain4J 开发指南">在 SpringBoot 中接入 LangChain4J 开发指南<svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div>
 </div>
 </article></div>

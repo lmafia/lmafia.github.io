@@ -9,7 +9,7 @@ LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快�
 
 ## 项目架构
 
-``` mermaid
+```mermaid
 graph TD
 A[SpringBoot Application] --> B[LangChain4J Config]
 B --> C[ChatLanguageModel]
