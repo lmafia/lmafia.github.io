@@ -3,8 +3,7 @@
         <title>L_MaFia&#39;s Blog</title>
         <link>https://blog.lmafia.info/</link>
         <description>L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>lmafiamm@gmail.com (lmafia)</managingEditor>
-            <webMaster>lmafiamm@gmail.com (lmafia)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.lmafia.info/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>域名购买到博客配置的过程记录</title>
@@ -24,5 +23,13 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/first-page/image.png" referrerpolicy="no-referrer">
             </div><p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>]]></description>
+</item><item>
+    <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
+    <link>https://blog.lmafia.info/springboot-langchain4j/</link>
+    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
+            </div>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力]]></description>
 </item></channel>
 </rss>
