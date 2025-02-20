@@ -4,6 +4,14 @@
         <link>https://blog.lmafia.info/authors/l_mafia/</link>
         <description>L_MaFia - 作者 - L_MaFia&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/authors/l_mafia/" rel="self" type="application/rss+xml" /><item>
+    <title>LangChain4J 功能架构详解</title>
+    <link>https://blog.lmafia.info/langchain4j-tool/</link>
+    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
+                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/langchain4j-tool/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
+            </div>通过脑图详细解析 LangChain4J 的功能架构和应用场景]]></description>
+</item><item>
     <title>域名购买到博客配置的过程记录</title>
     <link>https://blog.lmafia.info/configure-domain/</link>
     <pubDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</pubDate><author>
