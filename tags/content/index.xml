@@ -3,47 +3,5 @@
         <title>内容 - 标签 - L_MaFia&#39;s Blog</title>
         <link>https://blog.lmafia.info/tags/content/</link>
         <description>内容 - 标签 - L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://blog.lmafia.info/tags/content/" rel="self" type="application/rss+xml" /><item>
-    <title>LangChain4J 功能架构详解</title>
-    <link>https://blog.lmafia.info/langchain4j-tool/</link>
-    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/langchain4j-tool/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
-            </div>通过脑图详细解析 LangChain4J 的功能架构和应用场景]]></description>
-</item><item>
-    <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
-    <link>https://blog.lmafia.info/springboot-langchain4j/</link>
-    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
-            </div>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力]]></description>
-</item><item>
-    <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
-    <link>https://blog.lmafia.info/springboot-langchain4j-agent/</link>
-    <pubDate>Mon, 20 Jan 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j-agent/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
-            </div>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent]]></description>
-</item><item>
-    <title>域名购买到博客配置的过程记录</title>
-    <link>https://blog.lmafia.info/configure-domain/</link>
-    <pubDate>Sun, 22 Sep 2024 15:53:03 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/configure-domain/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg" referrerpolicy="no-referrer">
-            </div><p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
-旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
-这里感谢下赛博佛祖: <code>Cloudfalre</code></p>]]></description>
-</item><item>
-    <title>第一篇博客</title>
-    <link>https://blog.lmafia.info/first-page/</link>
-    <pubDate>Fri, 29 Sep 2023 16:46:16 &#43;0800</pubDate><author>
-                        <name>lmafia</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/first-page/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/first-page/image.png" referrerpolicy="no-referrer">
-            </div><p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>]]></description>
-</item></channel>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://blog.lmafia.info/tags/content/" rel="self" type="application/rss+xml" /></channel>
 </rss>
