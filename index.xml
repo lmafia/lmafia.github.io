@@ -6,6 +6,14 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.lmafia.info/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>用 Java 来实现高阶函数</title>
+    <link>https://blog.lmafia.info/function-for-java/</link>
+    <pubDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</pubDate><author>
+                        <name>Kyle</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/function-for-java/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png" referrerpolicy="no-referrer">
+            </div><p>如何用 Java 使用高阶函数</p>]]></description>
+</item><item>
     <title>LangChain4J 功能架构详解</title>
     <link>https://blog.lmafia.info/langchain4j-tool/</link>
     <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
