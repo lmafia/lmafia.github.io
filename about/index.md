@@ -5,14 +5,17 @@
 
 Hi, 我是 Kyle
 
-软件开发, 接触过数字城市、海外广告和智能家居
+软件开发, 涉及过数字城市、海外广告和智能家居
+
+一位 Apple 产品重度用户, 拥有 Apple 全家桶
 
 目前正在和 AI 一起做一些有意思的事情
 
+喜欢的编程风格 OOP, FP
 
 #### 后端
 
-- Java
+- Java, Kotlin, Python
 - Spring Boot, Spring Cloud
 - Maven, Gradle
 - Mybatis, Mybatis Plus
@@ -21,7 +24,7 @@ Hi, 我是 Kyle
 
 #### 前端
 
-- Vue3
+- Vue3 Vite
 - Tailwind CSS
 - HTML5
 - CSS3
@@ -38,12 +41,13 @@ Hi, 我是 Kyle
 - IDEA
 - VS Code
 - Postman
+- Cursor
 
 ### 其他
 
 - Ubuntu, CentOS
 - Markdown
-- logseq
+- Logseq
 
 ## 网站历史
 

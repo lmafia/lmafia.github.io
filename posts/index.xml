@@ -3,7 +3,7 @@
         <title>所有文章 - L_MaFia&#39;s Blog</title>
         <link>https://blog.lmafia.info/posts/</link>
         <description>所有文章 | L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/" rel="self" type="application/rss+xml" /><item>
     <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
     <link>https://blog.lmafia.info/springboot-langchain4j-agent/</link>
     <pubDate>Mon, 20 Jan 2025 10:00:00 &#43;0800</pubDate><author>
