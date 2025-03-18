@@ -85,5 +85,5 @@ Function<Function<Integer, Integer>, Function<Integer, Integer>>
 1.  `applyThrice.apply( x -> x + 1 )` 返回了:
     `x -> ( ( ( x + 1 ) + 1 ) + 1 )`
 2.  `applyThrice.apply( x -> x + 1 ).apply(0)` 就是把 0 作为输入 x
-    `( ( ( 0 + 1 ) + 1 ) + 1 )` 结果为 `3
+    `( ( ( 0 + 1 ) + 1 ) + 1 )` 结果为 3
 
