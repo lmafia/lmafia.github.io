@@ -1,21 +1,27 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Categories - 分类 - L_MaFia&#39;s Blog</title>
-        <link>https://blog.lmafia.info/categories/</link>
-        <description>Categories - 分类 - L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>技术</title>
-    <link>https://blog.lmafia.info/categories/techology/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://blog.lmafia.info/categories/techology/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>生活</title>
-    <link>https://blog.lmafia.info/categories/life/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://blog.lmafia.info/categories/life/</guid>
-    <description><![CDATA[]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on KyleGeeks</title>
+    <link>https://blog.lmafia.info/categories/</link>
+    <description>Recent content in Categories on KyleGeeks</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 20 Feb 2025 15:01:27 +0800</lastBuildDate>
+    <atom:link href="https://blog.lmafia.info/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术</title>
+      <link>https://blog.lmafia.info/categories/techology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.lmafia.info/categories/techology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>生活</title>
+      <link>https://blog.lmafia.info/categories/life/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.lmafia.info/categories/life/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

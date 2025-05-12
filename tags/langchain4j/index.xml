@@ -1,31 +1,34 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>LangChain4J - 标签 - L_MaFia&#39;s Blog</title>
-        <link>https://blog.lmafia.info/tags/langchain4j/</link>
-        <description>LangChain4J - 标签 - L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/langchain4j/" rel="self" type="application/rss+xml" /><item>
-    <title>LangChain4J 功能架构详解</title>
-    <link>https://blog.lmafia.info/langchain4j-tool/</link>
-    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/langchain4j-tool/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" referrerpolicy="no-referrer">
-            </div>通过脑图详细解析 LangChain4J 的功能架构和应用场景]]></description>
-</item><item>
-    <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
-    <link>https://blog.lmafia.info/springboot-langchain4j/</link>
-    <pubDate>Thu, 20 Feb 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" referrerpolicy="no-referrer">
-            </div>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力]]></description>
-</item><item>
-    <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
-    <link>https://blog.lmafia.info/springboot-langchain4j-agent/</link>
-    <pubDate>Mon, 20 Jan 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/springboot-langchain4j-agent/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" referrerpolicy="no-referrer">
-            </div>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LangChain4J on KyleGeeks</title>
+    <link>https://blog.lmafia.info/tags/langchain4j/</link>
+    <description>Recent content in LangChain4J on KyleGeeks</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 21 Feb 2025 16:44:50 +0800</lastBuildDate>
+    <atom:link href="https://blog.lmafia.info/tags/langchain4j/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LangChain4J 功能架构详解</title>
+      <link>https://blog.lmafia.info/langchain4j-tool/</link>
+      <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/langchain4j-tool/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
+      <link>https://blog.lmafia.info/springboot-langchain4j/</link>
+      <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/springboot-langchain4j/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
+      <link>https://blog.lmafia.info/springboot-langchain4j-agent/</link>
+      <pubDate>Mon, 20 Jan 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/springboot-langchain4j-agent/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

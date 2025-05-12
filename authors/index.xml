@@ -1,14 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>作者 - 作者 - L_MaFia&#39;s Blog</title>
-        <link>https://blog.lmafia.info/authors/</link>
-        <description>作者 - 作者 - L_MaFia&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://blog.lmafia.info/authors/" rel="self" type="application/rss+xml" /><item>
-    <title>L_MaFia</title>
-    <link>https://blog.lmafia.info/authors/l_mafia/</link>
-    <pubDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://blog.lmafia.info/authors/l_mafia/</guid>
-    <description><![CDATA[]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>作者 on KyleGeeks</title>
+    <link>https://blog.lmafia.info/authors/</link>
+    <description>Recent content in 作者 on KyleGeeks</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://blog.lmafia.info/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>L_MaFia</title>
+      <link>https://blog.lmafia.info/authors/l_mafia/</link>
+      <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/authors/l_mafia/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

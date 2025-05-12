@@ -4,23 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noodp" /><title>用 Java 来实现高阶函数 - L_MaFia&#39;s Blog</title><meta name="Description" content="L_MaFia&#39;s Blog"><meta property="og:url" content="https://blog.lmafia.info/function-for-java/">
-  <meta property="og:site_name" content="L_MaFia&#39;s Blog">
-  <meta property="og:title" content="用 Java 来实现高阶函数">
-  <meta property="og:description" content="如何用 Java 使用高阶函数">
+    <meta name="robots" content="noodp" /><title>SpringWeb 线程泄漏问题排查 - KyleGeeks</title><meta name="Description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。"><meta property="og:url" content="https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/">
+  <meta property="og:site_name" content="KyleGeeks">
+  <meta property="og:title" content="SpringWeb 线程泄漏问题排查">
+  <meta property="og:description" content="现在是什么问题?最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
+周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-19T10:00:00+08:00">
-    <meta property="article:modified_time" content="2025-03-19T01:39:56+08:00">
+    <meta property="article:published_time" content="2025-05-11T10:00:00+08:00">
+    <meta property="article:modified_time" content="2025-05-12T18:09:33+08:00">
     <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="函数编程">
+    <meta property="article:tag" content="Tomcat">
+    <meta property="article:tag" content="SpringBoot">
     <meta property="og:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
-  <meta name="twitter:title" content="用 Java 来实现高阶函数">
-  <meta name="twitter:description" content="如何用 Java 使用高阶函数">
+  <meta name="twitter:title" content="SpringWeb 线程泄漏问题排查">
+  <meta name="twitter:description" content="现在是什么问题?最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
+周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.">
       <meta name="twitter:site" content="@lmafia16">
 <meta name="application-name" content="KyleGeeks">
 <meta name="apple-mobile-web-app-title" content="KyleGeeks">
@@ -29,15 +32,15 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-<link rel="canonical" href="https://blog.lmafia.info/function-for-java/" /><link rel="prev" href="https://blog.lmafia.info/langchain4j-tool/" />
+<link rel="canonical" href="https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/" /><link rel="prev" href="https://blog.lmafia.info/20250319-fucniton-for-java/" />
 <link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><meta name="google-site-verification" content="8uyu4spcMrGGo2SeHly3TWn6hSdTWD1fn63zLxh5odw" /><meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B" /><script type="application/ld+json">{"@context": "https://schema.org","@type": "BlogPosting",
-        "headline": "用 Java 来实现高阶函数",
+        "headline": "SpringWeb 线程泄漏问题排查",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/function-for-java/"
-        },"image": ["https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png","https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png"],"genre": "posts","keywords":["Java","函数编程"],"wordcount":  426 ,
-        "url": "https://blog.lmafia.info/function-for-java/","datePublished": "2025-03-19T10:00:00+08:00","dateModified": "2025-03-19T01:39:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/"
+        },"image": ["https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png","https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png"],"genre": "posts","keywords":["Java","Tomcat","SpringBoot"],"wordcount":  1475 ,
+        "url": "https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/","datePublished": "2025-05-11T10:00:00+08:00","dateModified": "2025-05-12T18:09:33+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "lmafia","logo": {
                     "@type": "ImageObject",
@@ -46,7 +49,7 @@
                     "height":  400 
                 }},"author": [{
                         "@type": "Person",
-                        "name": "Kyle",
+                        "name": "Kyle Lian",
                         "url": "https://github.com/lmafia"
                     }],"description": ""
     }</script></head>
@@ -90,7 +93,7 @@
     <div id="mask"></div><header class="desktop print:!tw-hidden" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="L_MaFia&#39;s Blog"><span class="tw-mr-1"><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d='M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z'/></svg></span>Blog</a>
+            <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item"
@@ -130,7 +133,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="L_MaFia&#39;s Blog"><span class="tw-mr-1"><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d='M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z'/></svg></span>Blog</a>
+                <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -178,15 +181,11 @@
         <h2 class="toc-title">目录</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#funciton-接口的定义">Funciton 接口的定义</a></li>
-        <li><a href="#代码示例">代码示例</a></li>
-        <li><a href="#第一层最外层-function">第一层：最外层 Function</a></li>
-        <li><a href="#第二层输入参数">第二层：输入参数</a></li>
-        <li><a href="#第三层-返回值-functioninteger-integer">第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></a></li>
-      </ul>
-    </li>
+    <li><a href="#现在是什么问题">现在是什么问题?</a></li>
+    <li><a href="#看看怎么个事儿">看看怎么个事儿</a></li>
+    <li><a href="#有点眉目了">有点眉目了</a></li>
+    <li><a href="#终于捉到虫">终于捉到虫</a></li>
+    <li><a href="#学到了啥">学到了啥</a></li>
   </ul>
 </nav></div>
     </div><dialog id="toc-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-full tw-ml-16">
@@ -194,34 +193,30 @@
             <h2 class="tw-mx-0 tw-my-6 tw-uppercase tw-text-2xl">目录</h2>
             <div class="toc-content"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#funciton-接口的定义">Funciton 接口的定义</a></li>
-        <li><a href="#代码示例">代码示例</a></li>
-        <li><a href="#第一层最外层-function">第一层：最外层 Function</a></li>
-        <li><a href="#第二层输入参数">第二层：输入参数</a></li>
-        <li><a href="#第三层-返回值-functioninteger-integer">第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></a></li>
-      </ul>
-    </li>
+    <li><a href="#现在是什么问题">现在是什么问题?</a></li>
+    <li><a href="#看看怎么个事儿">看看怎么个事儿</a></li>
+    <li><a href="#有点眉目了">有点眉目了</a></li>
+    <li><a href="#终于捉到虫">终于捉到虫</a></li>
+    <li><a href="#学到了啥">学到了啥</a></li>
   </ul>
 </nav></div>
         </div>
-    </dialog><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title" data-pagefind-meta="date:2025-03-19" data-pagefind-body>用 Java 来实现高阶函数</h1><div class="post-meta">
+    </dialog><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title" data-pagefind-meta="date:2025-05-11" data-pagefind-body>SpringWeb 线程泄漏问题排查</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle avatar" height="16" width="16">Kyle</a></span>
+        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div>
             <div class="post-meta-line"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2025-03-19">2025-03-19</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2025-03-19">2025-03-19</time>&nbsp;<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;约 426 字&nbsp;
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2025-05-11">2025-05-11</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2025-05-12">2025-05-12</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;约 1475 字&nbsp;
                     <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;预计阅读 2 分钟&nbsp;<span>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;预计阅读 7 分钟&nbsp;<span>
                         <svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 336h-.02c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0C-2.06 328.75.02 320.33.02 336H0c0 44.18 57.31 80 128 80s128-35.82 128-80zM128 176l72 144H56l72-144zm511.98 160c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0-87.12 174.26-85.04 165.84-85.04 181.51H384c0 44.18 57.31 80 128 80s128-35.82 128-80h-.02zM440 320l72-144 72 144H440zm88 128H352V153.25c23.51-10.29 41.16-31.48 46.39-57.25H528c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16H383.64C369.04 12.68 346.09 0 320 0s-49.04 12.68-63.64 32H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h129.61c5.23 25.76 22.87 46.96 46.39 57.25V448H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"/></svg>&nbsp;<span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>&nbsp;
                     </span>&nbsp;</div>
-        </div><div class="featured-image"><img  loading="eager" src=https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png     ></div><div class="details toc print:!tw-block" id="toc-static"  kept="">
+        </div><div class="featured-image"><img  loading="eager" src=https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png     ></div><div class="details toc print:!tw-block" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span class="details-icon"><svg class="icon"
@@ -229,20 +224,31 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#funciton-接口的定义">Funciton 接口的定义</a></li>
-        <li><a href="#代码示例">代码示例</a></li>
-        <li><a href="#第一层最外层-function">第一层：最外层 Function</a></li>
-        <li><a href="#第二层输入参数">第二层：输入参数</a></li>
-        <li><a href="#第三层-返回值-functioninteger-integer">第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></a></li>
-      </ul>
-    </li>
+    <li><a href="#现在是什么问题">现在是什么问题?</a></li>
+    <li><a href="#看看怎么个事儿">看看怎么个事儿</a></li>
+    <li><a href="#有点眉目了">有点眉目了</a></li>
+    <li><a href="#终于捉到虫">终于捉到虫</a></li>
+    <li><a href="#学到了啥">学到了啥</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content" data-pagefind-body><p>如何用 Java 使用高阶函数</p>
-<h3 id="funciton-接口的定义" class="headerLink">
-    <a href="#funciton-%e6%8e%a5%e5%8f%a3%e7%9a%84%e5%ae%9a%e4%b9%89" class="header-mark"></a>Funciton 接口的定义</h3><div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+            </div><div class="content" id="content" data-pagefind-body><h2 id="现在是什么问题" class="headerLink">
+    <a href="#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98" class="header-mark"></a>现在是什么问题?</h2><p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
+<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>
+<p>开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" data-sub-html="<h2>Grafana - JVM</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png     width="1024"></a><figcaption class="image-caption">Grafana - JVM</figcaption>
+    </figure>
+<p>可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
+<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
+<h2 id="看看怎么个事儿" class="headerLink">
+    <a href="#%e7%9c%8b%e7%9c%8b%e6%80%8e%e4%b9%88%e4%b8%aa%e4%ba%8b%e5%84%bf" class="header-mark"></a>看看怎么个事儿</h2><p>开发环境都是丢在一台虚拟机上的, 而且就是直接 <code>java -jar</code> 部署的
+天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 PID</p>
+<p>然后再来一个 <code>jstack</code>:</p>
+<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 dump 出来
+然后再来请上我们的 Linux 三剑客之二: <code>awk</code>, <code>grep</code></p>
+<blockquote>
+  <p>这里你以为我的 Linux 命令用的很溜嘛? 其实都是 ChatGPT 给我的, 没了他我可就是个菜鸡 😭</p>
+</blockquote><p>执行:</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -266,7 +272,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">Java</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -336,27 +342,32 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * Represents a function that accepts one argument and produces a result.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * &lt;p&gt;This is a &lt;a href=&#34;package-summary.html&#34;&gt;functional interface&lt;/a&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * whose functional method is {@link #apply(Object)}.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;T&gt; the type of the input to the function
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;R&gt; the type of the result of the function
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 1.8
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@FunctionalInterface</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span></span></span></code></pre>
+      "><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> tee /dev/tty <span class="p">|</span> wc -l</span></span></code></pre>
 </div>
-<h3 id="代码示例" class="headerLink">
-    <a href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b" class="header-mark"></a>代码示例</h3><p>实现功能:</p>
-<ul>
-<li>2 次函数 apply</li>
-<li>3 次函数 apply</li>
-</ul>
-<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+<p>输出:</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/c5142a3e8061795b159256255ce8d378.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/c5142a3e8061795b159256255ce8d378.png" data-sub-html="<h2>jstack 统计</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/c5142a3e8061795b159256255ce8d378.png     width="1024"></a><figcaption class="image-caption">jstack 统计</figcaption>
+    </figure>
+<p>好家伙, 大部分都是 <code>http-nio-exec-*</code> 证明都是请求没有释放还是咋地啊？</p>
+<p>咱们可是都是 Spring Boot 工程师呢 , 用得当然是我们的 SpringBoot + SpringWeb (Tomcat 内置)</p>
+<p>我们最近也没升级啥 Tomcat 的版本, 也没修改什么配置的, 到底咋个回事?</p>
+<p>挑几个请求的线程看看日志吧, 发现基本都处在 WAITING（Park）状态</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" data-sub-html="<h2>http-nio-exec 上下文</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png     width="1024"></a><figcaption class="image-caption">http-nio-exec 上下文</figcaption>
+    </figure>
+<p>而且几乎所有 WAITING 状态的都来自 Druid 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" data-sub-html="<h2>com.alibaba.druid.pool.DruidDataSource#getConnectionInternal</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/2a4694c704726b8c7a69c745a9689828.png     width="1024"></a><figcaption class="image-caption">com.alibaba.druid.pool.DruidDataSource#getConnectionInternal</figcaption>
+    </figure>
+<p>我们的在服务配置的 max-active = 20, 说明 20 个链接可能都被占着, 一直没还回去.</p>
+<p>难道是高并发? 是不是要直接把 max-active 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 Bug 导致的</p>
+<p>因为还没给 Druid 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 http 请求线程来看.</p>
+<p>发现均来自给设备升级的业务, 这个业务的接口在开发环境一般是了半夜 2 点定时任务触发的, 很少在从客户端请求</p>
+<h2 id="有点眉目了" class="headerLink">
+    <a href="#%e6%9c%89%e7%82%b9%e7%9c%89%e7%9b%ae%e4%ba%86" class="header-mark"></a>有点眉目了</h2><p>本来想看能不能知道几个线程的存活时间, 通过存活时间来推算日志时间来看业务日志, 转念一想, 都已知具体触发时间, 就搭配线程名和业务关键来过滤日志吧, 就在日志的海洋 🌊 里遨游吧, 骚年</p>
+<a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png     width="1024"></a>
+<p>排查了好一会儿, 突然发现有几个 Feign 的调用是报错的, 通过 trace 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" data-sub-html="<h2>wait 报错堆栈</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png     width="1024"></a><figcaption class="image-caption">wait 报错堆栈</figcaption>
+    </figure>
+<p>奇怪, 怎么有一个 wait 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -380,7 +391,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">Java</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -450,26 +461,15 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyTwice</span><span class="w"> </span><span class="o">=</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(x))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyThrice</span><span class="w"> </span><span class="o">=</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(f(x)))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">};</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">};</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">applyThrice</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="p">).</span><span class="na">apply</span><span class="p">(</span><span class="n">0</span><span class="p">));</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span></span></span></code></pre>
+      "><span class="line"><span class="cl">java.lang.InterruptedException: null
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait0<span class="o">(</span>Native Method<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait<span class="o">(</span>Object.java:366<span class="o">)</span></span></span></code></pre>
 </div>
-<h3 id="第一层最外层-function" class="headerLink">
-    <a href="#%e7%ac%ac%e4%b8%80%e5%b1%82%e6%9c%80%e5%a4%96%e5%b1%82-function" class="header-mark"></a>第一层：最外层 Function</h3><div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+<p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 while(可能会真) 里加了个 object.wait(时间).</p>
+<p>那么我们看下这几个一直 wait 的请求吧.对了, 这里的线程应该是为 TIMED_WAITING 状态, 因为是加了等待时间的, 只是一直在 while 里出不来.</p>
+<h2 id="终于捉到虫" class="headerLink">
+    <a href="#%e7%bb%88%e4%ba%8e%e6%8d%89%e5%88%b0%e8%99%ab" class="header-mark"></a>终于捉到虫</h2><p>再次请出我们的 Linux 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     code-block-title 
     
@@ -493,7 +493,7 @@
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">Java</p>
+      <p class="tw-select-none !tw-my-1">bash</p>
     </div>
     <div class="tw-flex">
       <button 
@@ -563,39 +563,55 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span></span></span></code></pre>
+      "><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span></span></span></code></pre>
 </div>
-<p>这个类型的输入是 <code>Function&lt;Integer, Integer&gt;</code>
-输出也是 <code>Function&lt;Integer, Integer&gt;</code>。</p>
-<p>换句话说，这个高阶函数的作用是：</p>
-<ul>
-<li>接收一个函数 <code>Funciotn&lt;Interger, Integer&gt;</code></li>
-<li>返回一个新的函数 <code>Function&lt;Integer, Integer&gt;</code>，</li>
-</ul>
-<h3 id="第二层输入参数" class="headerLink">
-    <a href="#%e7%ac%ac%e4%ba%8c%e5%b1%82%e8%be%93%e5%85%a5%e5%8f%82%e6%95%b0" class="header-mark"></a>第二层：输入参数</h3><p><code>Function&lt;Integer, Integer&gt;</code></p>
-<p>这是 Java 函数接口, 输入输出参数都是 <code>Integer</code></p>
-<p>比如：</p>
-<p><code>Function&lt;Integer, Integer&gt; increment = x -&gt; x + 1;</code>
-<code>Function&lt;Integer, Integer&gt; square = x -&gt; x * x;</code></p>
-<p>这些都是 <code>Function&lt;Integer, Integer&gt;</code> 类型的函数。</p>
-<h3 id="第三层-返回值-functioninteger-integer" class="headerLink">
-    <a href="#%e7%ac%ac%e4%b8%89%e5%b1%82-%e8%bf%94%e5%9b%9e%e5%80%bc-functioninteger-integer" class="header-mark"></a>第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></h3><p>最后 <code>applyThrice</code> 应该返回的是一个<code>Function&lt;Integer, Integer&gt;</code>
-拆解下 <code>applyThrice.apply( x -&gt; x + 1 ).apply(0)</code></p>
-<ol>
-<li><code>applyThrice.apply( x -&gt; x + 1 )</code> 返回了:
-<code>x -&gt; ( ( ( x + 1 ) + 1 ) + 1 )</code></li>
-<li><code>applyThrice.apply( x -&gt; x + 1 ).apply(0)</code> 就是把 0 作为输入 x
-<code>( ( ( 0 + 1 ) + 1 ) + 1 )</code> 结果为 3</li>
-</ol></div>
+<p>输出内容:
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png" data-sub-html="<h2>TIMED_WAITING 线程们</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png     width="1024"></a><figcaption class="image-caption">TIMED_WAITING 线程们</figcaption>
+    </figure></p>
+<p>看了除了 <code>http-nio-exec-280</code> 外的日志, 都是卡在出问题的代码上:</p>
+<figure><a class="lightgallery" href="https://image-s3.lmafia.info/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" title="" data-thumbnail="https://image-s3.lmafia.info/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" data-sub-html="<h2>TIMED_WAITING 报错</h2>"><img  loading="lazy" src=https://image-s3.lmafia.info/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png     width="1024"></a><figcaption class="image-caption">TIMED_WAITING 报错</figcaption>
+    </figure>
+<p>而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.</p>
+<h2 id="学到了啥" class="headerLink">
+    <a href="#%e5%ad%a6%e5%88%b0%e4%ba%86%e5%95%a5" class="header-mark"></a>学到了啥</h2><p>和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.</p>
+<p>虽然 AI 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
+</div>
 
         
+
+
+<h2>相关内容</h2>
+<div class="related-container">
+    <div class="related-item-container">
+            <div class="related-image">
+                <a href="/20250319-fucniton-for-java/"><img   src=https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png    height="200" width="400"></a>
+            </div><h2 class="related-title">
+                <a href="/20250319-fucniton-for-java/">用 Java 来实现高阶函数</a>
+            </h2>
+        </div>
+    <div class="related-item-container">
+            <div class="related-image">
+                <a href="/springboot-langchain4j/"><img   src=https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png    height="200" width="400"></a>
+            </div><h2 class="related-title">
+                <a href="/springboot-langchain4j/">在 SpringBoot 中接入 LangChain4J 开发指南</a>
+            </h2>
+        </div>
+    <div class="related-item-container">
+            <div class="related-image">
+                <a href="/springboot-langchain4j-agent/"><img   src=https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png    height="200" width="400"></a>
+            </div><h2 class="related-title">
+                <a href="/springboot-langchain4j-agent/">SpringBoot &#43; LangChain4j 实现智能 AI Agent</a>
+            </h2>
+        </div>
+    
+
+</div>
 
 <div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2025-03-19</span>
+                <span>更新于 2025-05-12</span>
             </div>
             <div class="post-info-license"><span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
@@ -607,18 +623,18 @@
 
     <div class="post-info-more">
         <section class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/">函数编程</a></section>
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/tomcat/">Tomcat</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a></section>
         <section class="print:!tw-hidden">
             <span><button class="tw-text-fgColor-link-muted hover:tw-text-fgColor-link-muted-hover" onclick="window.history.back();">返回</button></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav print:tw-hidden"><a href="/langchain4j-tool/" class="prev" rel="prev" title="LangChain4J 功能架构详解"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>LangChain4J 功能架构详解</a></div>
+    <div class="post-nav print:tw-hidden"><a href="/20250319-fucniton-for-java/" class="prev" rel="prev" title="用 Java 来实现高阶函数"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>用 Java 来实现高阶函数</a></div>
 </div>
 </article></main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.145.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon"
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.147.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg> DoIt</a>
                 </div><div class="footer-line"><svg class="icon"
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532 0-200-89.451-200-200 0-110.531 89.451-200 200-200 110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43 0-140.484-61.425-140.484-141.567 0-79.152 60.275-139.401 139.762-139.401 55.531 0 88.738 26.62 97.593 34.779a11.965 11.965 0 0 1 1.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303 0-77.916 35.33-77.916 80.082 0 41.589 26.888 83.692 78.277 83.692 32.657 0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947 0 0 1-1.152 15.518z"/></svg>2023 - 2025<span class="author">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
