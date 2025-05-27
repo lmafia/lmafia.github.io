@@ -111,7 +111,7 @@ $$
 #### 当 r = 0 时
 
 - a = bq
-- a + b - 1 = bq + b - 1 = b(q + 1) - 1
+- a + b - 1 = bq + b - 1
 
 代入
 
@@ -120,7 +120,7 @@ $$ \frac{a + b - 1}{b} $$
 得到:
 
 $$
-\frac{a + b - 1}{b} = \frac{bq + b - 1}{b}
+\frac{a + b - 1}{b} = \frac{bq + b - 1}{b} =
 q + \left( \frac{b - 1}{b} \right)
 $$
 
