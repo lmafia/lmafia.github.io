@@ -3,13 +3,21 @@
         <title>KyleGeeks</title>
         <link>https://blog.lmafia.info/</link>
         <description>KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 May 2025 10:00:00 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 May 2025 10:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.lmafia.info/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>整数向上取整公式证明</title>
+    <link>https://blog.lmafia.info/ceil-for-integers/</link>
+    <pubDate>Fri, 23 May 2025 10:00:00 &#43;0800</pubDate><author>
+                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/ceil-for-integers/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://image-s3.lmafia.info/data/2025/05/5f7e3d31d9913ad5395976577b3028d1.jpg" referrerpolicy="no-referrer">
+            </div><p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>]]></description>
+</item><item>
     <title>SpringWeb 线程泄漏问题排查</title>
-    <link>https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/</link>
+    <link>https://blog.lmafia.info/debug-tomcat-thread-issue/</link>
     <pubDate>Sun, 11 May 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/</guid>
+                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/debug-tomcat-thread-issue/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png" referrerpolicy="no-referrer">
             </div><h2 id="现在是什么问题" class="headerLink">
@@ -17,9 +25,9 @@
 <p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>]]></description>
 </item><item>
     <title>用 Java 来实现高阶函数</title>
-    <link>https://blog.lmafia.info/20250319-fucniton-for-java/</link>
+    <link>https://blog.lmafia.info/fucniton-for-java/</link>
     <pubDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/20250319-fucniton-for-java/</guid>
+                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/fucniton-for-java/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png" referrerpolicy="no-referrer">
             </div><p>如何用 Java 使用高阶函数</p>]]></description>

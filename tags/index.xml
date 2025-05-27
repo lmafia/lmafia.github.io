@@ -7,13 +7,20 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 12 May 2025 18:09:33 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 18:02:09 +0800</lastBuildDate>
     <atom:link href="https://blog.lmafia.info/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
       <link>https://blog.lmafia.info/tags/java/</link>
-      <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
+      <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       <guid>https://blog.lmafia.info/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>函数编程</title>
+      <link>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</guid>
       <description></description>
     </item>
     <item>
@@ -28,13 +35,6 @@
       <link>https://blog.lmafia.info/tags/tomcat/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       <guid>https://blog.lmafia.info/tags/tomcat/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>函数编程</title>
-      <link>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</link>
-      <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</guid>
       <description></description>
     </item>
     <item>

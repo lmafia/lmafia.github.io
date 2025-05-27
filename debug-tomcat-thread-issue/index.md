@@ -98,6 +98,8 @@ awk '/^"/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}' th
 
 而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.
 
+因为有个监控会定时调用「登陆」接口来判断服务是否正常, 所以后面 200+ 个请求积压都是来自「登陆」接口.
+
 ## 学到了啥
 
 和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.

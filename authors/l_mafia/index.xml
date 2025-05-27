@@ -7,20 +7,27 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 12 May 2025 18:09:33 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 18:02:09 +0800</lastBuildDate>
     <atom:link href="https://blog.lmafia.info/authors/l_mafia/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>整数向上取整公式证明</title>
+      <link>https://blog.lmafia.info/ceil-for-integers/</link>
+      <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
+      <guid>https://blog.lmafia.info/ceil-for-integers/</guid>
+      <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>SpringWeb 线程泄漏问题排查</title>
-      <link>https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/</link>
+      <link>https://blog.lmafia.info/debug-tomcat-thread-issue/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/20250511-debug-tomcat-thread-issue/</guid>
+      <guid>https://blog.lmafia.info/debug-tomcat-thread-issue/</guid>
       <description>&lt;h2 id=&#34;现在是什么问题&#34; class=&#34;headerLink&#34;&gt;&#xA;    &lt;a href=&#34;#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98&#34; class=&#34;header-mark&#34;&gt;&lt;/a&gt;现在是什么问题?&lt;/h2&gt;&lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;&#xA;&lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;</description>
     </item>
     <item>
       <title>用 Java 来实现高阶函数</title>
-      <link>https://blog.lmafia.info/20250319-fucniton-for-java/</link>
+      <link>https://blog.lmafia.info/fucniton-for-java/</link>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/20250319-fucniton-for-java/</guid>
+      <guid>https://blog.lmafia.info/fucniton-for-java/</guid>
       <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
     </item>
     <item>
