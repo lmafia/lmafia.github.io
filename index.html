@@ -1,468 +1,593 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.147.5">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noodp" /><title>KyleGeeks</title><meta name="Description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。"><meta property="og:url" content="https://blog.lmafia.info/">
-  <meta property="og:site_name" content="KyleGeeks">
-  <meta property="og:title" content="KyleGeeks">
-  <meta property="og:description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="website">
-    <meta property="og:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
+	<meta name="generator" content="Hugo 0.148.2"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>KyleGeeks</title>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
-  <meta name="twitter:title" content="KyleGeeks">
-  <meta name="twitter:description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。">
-      <meta name="twitter:site" content="@lmafia16">
-<meta name="application-name" content="KyleGeeks">
-<meta name="apple-mobile-web-app-title" content="KyleGeeks">
-
-<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><meta name="twitter:creator" content="@lmafia16" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-  
-
-<link rel="canonical" href="https://blog.lmafia.info/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="KyleGeeks">
-    <link rel="feed" href="/index.xml" type="application/rss+xml" title="KyleGeeks">
-<link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><meta name="google-site-verification" content="8uyu4spcMrGGo2SeHly3TWn6hSdTWD1fn63zLxh5odw" /><meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B" /><script type="application/ld+json">
-        {"@context": "https://schema.org",
-        "@graph": [{
-                "@type": "WebSite",
-                "url": "https://blog.lmafia.info/","inLanguage": "zh-CN","description": "KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。","image": "https://blog.lmafia.info/images/Apple-Devices-Preview.png","thumbnailUrl": "https://blog.lmafia.info/images/screenshot.png","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","copyrightYear":  2023 ,"copyrightHolder": {
-                        "@type": "Person",
-                        "name": "true"
-                    },"name": "KyleGeeks"
-            },{"@type": "BlogPosting",
-        "headline": "整数向上取整公式证明",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/ceil-for-integers/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["Java","函数编程"],"wordcount":  1314 ,
-        "url": "https://blog.lmafia.info/ceil-for-integers/","datePublished": "2025-05-23T10:00:00+08:00","dateModified": "2025-05-27T18:23:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": ""
-    },{"@type": "BlogPosting",
-        "headline": "SpringWeb 线程泄漏问题排查",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/debug-tomcat-thread-issue/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["Java","Tomcat","SpringBoot"],"wordcount":  1523 ,
-        "url": "https://blog.lmafia.info/debug-tomcat-thread-issue/","datePublished": "2025-05-11T10:00:00+08:00","dateModified": "2025-05-27T18:02:09+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": ""
-    },{"@type": "BlogPosting",
-        "headline": "用 Java 来实现高阶函数",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/fucniton-for-java/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["Java","函数编程"],"wordcount":  420 ,
-        "url": "https://blog.lmafia.info/fucniton-for-java/","datePublished": "2025-03-19T10:00:00+08:00","dateModified": "2025-05-27T18:02:09+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": ""
-    },{"@type": "BlogPosting",
-        "headline": "LangChain4J 功能架构详解",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/langchain4j-tool/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["LangChain4J"],"wordcount":  414 ,
-        "url": "https://blog.lmafia.info/langchain4j-tool/","datePublished": "2025-02-20T10:00:00+08:00","dateModified": "2025-02-21T16:44:50+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": "通过脑图详细解析 LangChain4J 的功能架构和应用场景"
-    },{"@type": "BlogPosting",
-        "headline": "在 SpringBoot 中接入 LangChain4J 开发指南",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/springboot-langchain4j/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["SpringBoot","LangChain4J"],"wordcount":  935 ,
-        "url": "https://blog.lmafia.info/springboot-langchain4j/","datePublished": "2025-02-20T10:00:00+08:00","dateModified": "2025-02-21T16:44:50+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": "详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力"
-    },{"@type": "BlogPosting",
-        "headline": "SpringBoot + LangChain4j 实现智能 AI Agent",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/springboot-langchain4j-agent/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["SpringBoot","LangChain4J"],"wordcount":  897 ,
-        "url": "https://blog.lmafia.info/springboot-langchain4j-agent/","datePublished": "2025-01-20T10:00:00+08:00","dateModified": "2025-02-21T16:44:50+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": "详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent"
-    },{"@type": "BlogPosting",
-        "headline": "域名购买到博客配置的过程记录",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/configure-domain/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["建站"],"wordcount":  1123 ,
-        "url": "https://blog.lmafia.info/configure-domain/","datePublished": "2024-09-22T15:53:03+08:00","dateModified": "2025-02-21T15:59:35+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": ""
-    },{"@type": "BlogPosting",
-        "headline": "第一篇博客",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://blog.lmafia.info/first-page/"
-        },"image": ["https://blog.lmafia.info/images/Apple-Devices-Preview.png"],"genre": "posts","keywords":["建站"],"wordcount":  1120 ,
-        "url": "https://blog.lmafia.info/first-page/","datePublished": "2023-09-29T16:46:16+08:00","dateModified": "2025-02-21T15:59:35+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "作者"},"author": [{
-                        "@type": "Person",
-                        "name": "L_MaFia",
-                        "url": "https://blog.lmafia.info/authors/l_mafia/"
-                    }],"description": ""
-    }]}
-        </script></head>
+<meta name="description" content="">
+<meta name="author" content="KyleLian">
+<link rel="canonical" href="https://blog.lmafia.info/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.57a5e755e82b6ba44b48df78ff1d9058b53234b083378f0d207b8e97b79c8487.css" integrity="sha256-V6XnVegra6RLSN94/x2QWLUyNLCDN48NIHuOl7echIc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.lmafia.info/favicon.ico">
+<link rel="apple-touch-icon" href="https://blog.lmafia.info/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" href="https://blog.lmafia.info/index.xml">
+<link rel="alternate" type="application/json" href="https://blog.lmafia.info/index.json">
+<link rel="alternate" hreflang="en" href="https://blog.lmafia.info/">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="KyleGeeks" />
+<meta name="twitter:description" content="" />
+<meta property="og:title" content="KyleGeeks" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog.lmafia.info/" />
+    <meta property="og:image" content="https://blog.lmafia.info/data.png"/>
 
 
-<body data-instant-intensity="viewport" class="tw-flex tw-min-h-screen tw-flex-col"><script type="text/javascript">
-    function setTheme(theme) {
-      document.body.setAttribute('theme', theme); 
-      document.documentElement.className = theme;
-      document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
-      if (theme === 'light') {
-        document.documentElement.classList.remove('tw-dark')
-      } else {
-        document.documentElement.classList.add('tw-dark')
-      }
-      window.theme = theme;   
-      window.isDark = window.theme !== 'light' 
-    }
-    function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
-    function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
-    if (window.localStorage && localStorage.getItem('theme')) {
-        let theme = localStorage.getItem('theme');
-        if (theme === 'light' || theme === 'dark') {
-        setTheme(theme);
-        } else {
-            if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                setTheme('dark');
-            } else {
-                setTheme('light');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KyleGeeks",
+  "url": "https://blog.lmafia.info/",
+  "description": "",
+  "thumbnailUrl": "https://blog.lmafia.info/favicon.ico",
+  "sameAs": [
+      "https://github.com/lmafia", "https://x.com/lmafia16", "https://space.bilibili.com/265527861", "lmafiamm@gmail.com"
+  ]
+}
+</script>
+<style>
+  #icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+  }
+  #icons .item {
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+  }
+  #icons .item .name {
+    font-size: 12px;
+    user-select: all;
+    text-align: center;
+  }
+  #icons .item .icon {
+    display: flex;
+    justify-content: center;
+  }
+  #icons .item svg {
+    width: 30px;
+    height: 30px;
+  }
+</style>
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary-bg: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list-page {
+                background: var(--theme);
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
             }
         }
-      } else { 
-        if ('auto' === 'light' || 'auto' === 'dark') 
-            setTheme('auto'), saveTheme('auto'); 
-        else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
-    }
-    let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
-    getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
-    window.switchThemeEventSet = new Set()
-</script><div id="back-to-top"></div>
-    <div id="mask"></div><header class="desktop print:!tw-hidden" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item"
-                    href="/posts/" > 文章 </a><a class="menu-item"
-                    href="/tags/" > 标签 </a><a class="menu-item"
-                    href="/categories/" > 分类 </a><a class="menu-item"
-                    href="/about/" > 关于 </a><a class="menu-item"
-                    href="https://github.com/lmafia"  title="GitHub" 
-                    rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                    <input type="text"
-                        placeholder="搜索文章标题或内容..."
-                        id="search-input-desktop">
-                    <button class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-                    </button>
-                    <button class="search-button search-clear" id="search-clear-desktop" title="清空">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
-                    </button>
-                    <span class="search-button search-loading tw-animate-spin" id="search-loading-desktop">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg>
-                    </span>
-                </span><button class="menu-item theme-select" aria-label="切换主题">
-                    <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-                    <select class="color-theme-select" id="theme-select-desktop" aria-label="切换主题">
-                        <option value="light">浅色</option>
-                        <option value="dark">深色</option>
-                        <option value="auto">跟随系统</option>
-                    </select>
-                </button></div>
-        </div>
-    </div>
-</header><header class="mobile print:!tw-hidden" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                <div class="search mobile" id="search-mobile">
-                    <input type="text"
-                        placeholder="搜索文章标题或内容..."
-                        id="search-input-mobile">
-                    <button class="search-button search-toggle tw-h-10" id="search-toggle-mobile" title="搜索">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-                    </button>
-                    <button class="search-button search-clear tw-h-fit" id="search-clear-mobile" title="清空">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
-                    </button>
-                    <span class="search-button search-loading tw-animate-spin" id="search-loading-mobile">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg>
-                    </span>
-                </div>
-                <button class="search-cancel" id="search-cancel-mobile">
-                    取消
-                </button>
-            </div><a class="menu-item" href="/posts/" title="" >文章</a><a class="menu-item" href="/tags/" title="" >标签</a><a class="menu-item" href="/categories/" title="" >分类</a><a class="menu-item" href="/about/" title="" >关于</a><a class="menu-item" href="https://github.com/lmafia" title="GitHub" 
-                rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg></a><button class="menu-item theme-select tw-w-full" aria-label="切换主题">
-                <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-                <select class="color-theme-select" id="theme-select-mobile" aria-label="切换主题">
-                    <option value="light">浅色</option>
-                    <option value="dark">深色</option>
-                    <option value="auto">跟随系统</option>
-                </select>
-            </button></div>
-    </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div><main class="tw-mx-4 tw-flex-1"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg"  title="文章"  rel="noopener noreferrer" target="_blank" ><img  loading="eager" src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Home avatar" height="100" width="100"></a></div><h1 class="home-title">Kyle Geeks</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/lmafia" title="GitHub" target="_blank" rel="noopener noreferrer me"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a href="https://twitter.com/lmafia16" title="Twitter" target="_blank" rel="noopener noreferrer me"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a><a href="https://space.bilibili.com/265527861" title="bilibili" target="_blank" rel="noopener noreferrer me"><svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Bilibili icon</title><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg></a><a href="mailto:lmafiamm@gmail.com" title="Email" rel=" me"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a></div></div><article class="single summary"><div class="featured-image-preview">
-            <a href="/ceil-for-integers/" aria-label=整数向上取整公式证明>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/05/5f7e3d31d9913ad5395976577b3028d1.jpg  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for 整数向上取整公式证明" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/ceil-for-integers/">整数向上取整公式证明</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-05-23">2025-05-23</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content"><p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p></div><div class="post-footer">
-        <a href="/ceil-for-integers/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/">函数编程</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/debug-tomcat-thread-issue/" aria-label=SpringWeb&#32;线程泄漏问题排查>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for SpringWeb 线程泄漏问题排查" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/debug-tomcat-thread-issue/">SpringWeb 线程泄漏问题排查</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-05-11">2025-05-11</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content"><h2 id="现在是什么问题" class="headerLink">
-    <a href="#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98" class="header-mark"></a>现在是什么问题?</h2><p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
-<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p></div><div class="post-footer">
-        <a href="/debug-tomcat-thread-issue/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/tomcat/">Tomcat</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/fucniton-for-java/" aria-label=用&#32;Java&#32;来实现高阶函数>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for 用 Java 来实现高阶函数" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/fucniton-for-java/">用 Java 来实现高阶函数</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-03-19">2025-03-19</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content"><p>如何用 Java 使用高阶函数</p></div><div class="post-footer">
-        <a href="/fucniton-for-java/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/">函数编程</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/langchain4j-tool/" aria-label=LangChain4J&#32;功能架构详解>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for LangChain4J 功能架构详解" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/langchain4j-tool/">LangChain4J 功能架构详解</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-02-20">2025-02-20</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content">通过脑图详细解析 LangChain4J 的功能架构和应用场景</div><div class="post-footer">
-        <a href="/langchain4j-tool/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/langchain4j/">LangChain4J</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/springboot-langchain4j/" aria-label=在&#32;SpringBoot&#32;中接入&#32;LangChain4J&#32;开发指南>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for 在 SpringBoot 中接入 LangChain4J 开发指南" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/springboot-langchain4j/">在 SpringBoot 中接入 LangChain4J 开发指南</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-02-20">2025-02-20</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content">详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力</div><div class="post-footer">
-        <a href="/springboot-langchain4j/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/langchain4j/">LangChain4J</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/springboot-langchain4j-agent/" aria-label=SpringBoot&#32;&#43;&#32;LangChain4j&#32;实现智能&#32;AI&#32;Agent>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for SpringBoot &#43; LangChain4j 实现智能 AI Agent" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/springboot-langchain4j-agent/">SpringBoot &#43; LangChain4j 实现智能 AI Agent</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2025-01-20">2025-01-20</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content">详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent</div><div class="post-footer">
-        <a href="/springboot-langchain4j-agent/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/langchain4j/">LangChain4J</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/configure-domain/" aria-label=域名购买到博客配置的过程记录>
-                <img  loading="eager" src=https://image-s3.lmafia.info/data/2024/09/2a18736cc635b4c4688a870e98558a7a.jpeg  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for 域名购买到博客配置的过程记录" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/configure-domain/">域名购买到博客配置的过程记录</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-09-22">2024-09-22</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content"><p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
-旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
-这里感谢下赛博佛祖: <code>Cloudfalre</code></p></div><div class="post-footer">
-        <a href="/configure-domain/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/%E5%BB%BA%E7%AB%99/">建站</a></div></div>
-</article>
-<article class="single summary"><div class="featured-image-preview">
-            <a href="/first-page/" aria-label=第一篇博客>
-                <img  loading="eager" src=/first-page/image.png  sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" alt="Featured image for 第一篇博客" height="240" width="800"></a>
-        </div><h1 class="single-title">
-        <a href="/first-page/">第一篇博客</a>
-    </h1><div class="post-meta">
-        <span class="post-author"><span class='author'>
-        <span class='screen-reader-text'>  </span><a href='https://blog.lmafia.info/authors/l_mafia/'><img class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"  src=https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg   alt="Kyle Lian avatar" height="16" width="16">Kyle Lian</a></span>
-        </span>&nbsp;<span class="post-publish">发布于 <time datetime="2023-09-29">2023-09-29</time></span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/techology/"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>技术</a></span></div><div class="content"><p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p></div><div class="post-footer">
-        <a href="/first-page/">阅读全文</a><div class="post-tags"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/%E5%BB%BA%E7%AB%99/">建站</a></div></div>
-</article>
-</div></main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.147.5">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg> DoIt</a>
-                </div><div class="footer-line"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532 0-200-89.451-200-200 0-110.531 89.451-200 200-200 110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43 0-140.484-61.425-140.484-141.567 0-79.152 60.275-139.401 139.762-139.401 55.531 0 88.738 26.62 97.593 34.779a11.965 11.965 0 0 1 1.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303 0-77.916 35.33-77.916 80.082 0 41.589 26.888 83.692 78.277 83.692 32.657 0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947 0 0 1-1.152 15.518z"/></svg>2023 - 2025<span class="author">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-            <div class="footer-line"></div>
-            <div class="footer-line">
-            </div>
-        </div></footer><div class="print:!tw-hidden tw-flex tw-flex-col tw-fixed tw-right-4 tw-bottom-4 tw-gap-2"><a href="#back-to-top" id="back-to-top-button" class="tw-transition-opacity tw-opacity-0 tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="回到顶部">
-      <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg>
-  </a>
 
-  </div>
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.css">
-        <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"></noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/katex/copy-tex.min.css">
-        <noscript><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></noscript>
-<script>window.config={"algoliasearch.min.js":"/lib/algoliasearch/algoliasearch-lite.umd.min.js","autocomplete.min.js":"/lib/autocomplete/autocomplete.min.js","data":{"id-1":"Stay Hungry, Stay Foolish."},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"zh_cn_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script
-    src="/lib/lightgallery/lightgallery.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/lightgallery/lg-thumbnail.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/lightgallery/lg-zoom.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/typeit/typeit.min.js"
-    
-  ></script><script
-    src="/lib/katex/katex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/auto-render.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/copy-tex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/mhchem.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/js/katex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/js/theme.min.js"
-    
-      defer
-    
-  ></script><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26edcc4468d34f4ab1554bb5a718cb30"}'></script>
+    </style>
+</noscript>
 
-<script type="speculationrules">
-  {
-    "prerender": [
-      {
-        "where": { "href_matches": "/*" },
-        "eagerness": "moderate"
+</head>
+
+<body class="list-page type-page kind-home layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
       }
-    ]
   }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
 </script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'auto';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.lmafia.info/" accesskey="h" title="KyleGeeks (Alt + H)">
+                    <img src="https://blog.lmafia.info/images/danta_hu_27dea08d704c9a4a.png" alt="logo" aria-label="logo"
+                        height="30" width="30">KyleGeeks</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.lmafia.info/posts/" title="Posts"
+                >Posts
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/archives/" title="Archives"
+                >Archives
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/about/index.zh-cn/" title="About"
+                >About
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+  
+
+
+
+
+
+<article class="first-entry home-info">
+  <header class="entry-header">
+    <h1>👋 Hi, 欢迎来到我的博客</h1>
+  </header>
+  <section class="entry-content"><h3>
+<span class="mark-line">Stay Hungry, Stay Foolish</span>
+</h3>
+<p></p>
+<section style="margin-bottom: 1rem">
+  <h3>关于我:</h3>
+ <ul style="display: flex; flex-direction: column; gap: 0.5rem; list-style: none; padding: 1;">
+  <li style="white-space: nowrap;">👨‍💻 后端开发</li>
+  <li style="white-space: nowrap;">🧠 第二大脑构建</li>
+  <li style="white-space: nowrap;">🌱 斯多葛主义</li>
+  <li style="white-space: nowrap;">🏃🏻 健身小白</li>
+  <li style="white-space: nowrap;">🆕 信息收集癖</li>
+  <li style="white-space: nowrap;">👦🏻 技术宅</li>
+  <li style="white-space: nowrap;">⚙️ 拟物设计爱好者</li>
+  <li style="white-space: nowrap;">🐱 两只毛孩子的父亲</li>
+</ul>
+</section></section>
+  <footer class="entry-footer"><div class="social-icons">
+    <a href="https://github.com/lmafia" target="_blank" rel="noopener noreferrer me" title="Github-Simple">
+        <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+    </a>
+    <a href="https://x.com/lmafia16" target="_blank" rel="noopener noreferrer me" title="Twitter-Simple">
+        <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+
+    </a>
+    <a href="https://space.bilibili.com/265527861" target="_blank" rel="noopener noreferrer me" title="Bilibili">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.3333" y="6" width="21.333" height="15.333" rx="4" ry="4"/>
+    <path d="m8 12.4v1.2"/>
+    <path d="m16 12.4v1.2"/>
+    <path d="m5.8853 2.6667 2.6667 2.6667"/>
+    <path d="m18.115 2.6667-2.6667 2.6667"/>
+</svg>
+
+    </a>
+    <a href="lmafiamm@gmail.com" target="_blank" rel="noopener noreferrer me" title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+
+    </a>
+</div>
+</footer>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/5f7e3d31d9913ad5395976577b3028d1.jpg" alt="">
+</figure>
+  <header class="entry-header">
+    <h2>整数向上取整公式证明
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-05-23</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/java/">Java</a><a href="https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/">函数编程</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>478 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>3 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 整数向上取整公式证明" href="https://blog.lmafia.info/posts/ceil-for-integers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SpringWeb 线程泄漏问题排查
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>现在是什么问题? 最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
+周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.
+开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况
+可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」
+没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛
+看看怎么个事儿 开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的 天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID
+然后再来一个 jstack:
+通过 jstack pid &gt; thread_dump.log 把线程和上下文都 dump 出来 然后再来请上我们的 Linux 三剑客之二: awk, grep
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-05-11</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/java/">Java</a><a href="https://blog.lmafia.info/tags/tomcat/">Tomcat</a><a href="https://blog.lmafia.info/tags/springboot/">SpringBoot</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>281 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>2 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to SpringWeb 线程泄漏问题排查" href="https://blog.lmafia.info/posts/debug-tomcat-thread-issue/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>用 Java 来实现高阶函数
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>如何用 Java 使用高阶函数
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-03-19</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/java/">Java</a><a href="https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/">函数编程</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>228 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>2 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 用 Java 来实现高阶函数" href="https://blog.lmafia.info/posts/fucniton-for-java/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://image-s3.lmafia.info/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" alt="">
+</figure>
+  <header class="entry-header">
+    <h2>LangChain4J 功能架构详解
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>通过脑图详细解析 LangChain4J 的功能架构和应用场景</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-02-20</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/langchain4j/">LangChain4J</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>108 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to LangChain4J 功能架构详解" href="https://blog.lmafia.info/posts/langchain4j-tool/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>在 SpringBoot 中接入 LangChain4J 开发指南
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-02-20</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/springboot/">SpringBoot</a><a href="https://blog.lmafia.info/tags/langchain4j/">LangChain4J</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>400 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>2 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 在 SpringBoot 中接入 LangChain4J 开发指南" href="https://blog.lmafia.info/posts/springboot-langchain4j/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SpringBoot &#43; LangChain4j 实现智能 AI Agent
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-01-20</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/springboot/">SpringBoot</a><a href="https://blog.lmafia.info/tags/langchain4j/">LangChain4J</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>409 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>2 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to SpringBoot &#43; LangChain4j 实现智能 AI Agent" href="https://blog.lmafia.info/posts/springboot-langchain4j-agent/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>域名购买到博客配置的过程记录
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节. 旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考. 这里感谢下赛博佛祖: Cloudfalre
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2024-09-22</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/">建站</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>183 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 域名购买到博客配置的过程记录" href="https://blog.lmafia.info/posts/configure-domain/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" srcset="https://blog.lmafia.info/posts/first-page/image_hu_7d839dbac091870c.png 360w ,https://blog.lmafia.info/posts/first-page/image_hu_87e0448fad0af19e.png 480w ,https://blog.lmafia.info/posts/first-page/image_hu_7e941b60ee9ac9d7.png 720w ,https://blog.lmafia.info/posts/first-page/image_hu_d16e7de8b712511c.png 1080w ,https://blog.lmafia.info/posts/first-page/image.png 1348w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://blog.lmafia.info/posts/first-page/image.png" alt="" 
+            width="1348" height="586">
+</figure>
+  <header class="entry-header">
+    <h2>第一篇博客
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 COVID-19，都困在家里完成毕业设计和毕业论文。
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2023-09-29</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/">建站</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>98 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 第一篇博客" href="https://blog.lmafia.info/posts/first-page/"></a>
+</article>
+    </main>
+<footer class="footer">
+  <span>&copy; 2025 <a href="https://blog.lmafia.info/">KyleGeeks</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
 </body>
 
 </html>

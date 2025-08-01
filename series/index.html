@@ -1,231 +1,322 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" dir="auto">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noodp" /><title>所有系列 - KyleGeeks</title><meta name="Description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。"><meta property="og:url" content="https://blog.lmafia.info/series/">
-  <meta property="og:site_name" content="KyleGeeks">
-  <meta property="og:title" content="系列">
-  <meta property="og:description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="website">
-    <meta property="og:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://image-s3.lmafia.info/data/2025/02/2f49f218296158b4d47db6c90fd101b9.jpg">
-  <meta name="twitter:title" content="系列">
-  <meta name="twitter:description" content="KyleGeeks 的个人博客，记录生活中的点滴，分享编程、技术、生活等方面的经验和见解。">
-      <meta name="twitter:site" content="@lmafia16">
-<meta name="application-name" content="KyleGeeks">
-<meta name="apple-mobile-web-app-title" content="KyleGeeks">
-
-<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><meta name="twitter:creator" content="@lmafia16" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<link rel="canonical" href="https://blog.lmafia.info/series/" /><link rel="alternate" href="/series/index.xml" type="application/rss+xml" title="KyleGeeks">
-    <link rel="feed" href="/series/index.xml" type="application/rss+xml" title="KyleGeeks">
-<link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><meta name="google-site-verification" content="8uyu4spcMrGGo2SeHly3TWn6hSdTWD1fn63zLxh5odw" /><meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B" /></head>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Series | KyleGeeks</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="KyleLian">
+<link rel="canonical" href="https://blog.lmafia.info/series/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.57a5e755e82b6ba44b48df78ff1d9058b53234b083378f0d207b8e97b79c8487.css" integrity="sha256-V6XnVegra6RLSN94/x2QWLUyNLCDN48NIHuOl7echIc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.lmafia.info/favicon.ico">
+<link rel="apple-touch-icon" href="https://blog.lmafia.info/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" href="https://blog.lmafia.info/series/index.xml">
+<link rel="alternate" hreflang="en" href="https://blog.lmafia.info/series/">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Series | KyleGeeks" />
+<meta name="twitter:description" content="" />
+<meta property="og:title" content="Series | KyleGeeks" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog.lmafia.info/series/" />
+    <meta property="og:image" content="https://blog.lmafia.info/data.png"/>
 
 
-<body data-instant-intensity="viewport" class="tw-flex tw-min-h-screen tw-flex-col"><script type="text/javascript">
-    function setTheme(theme) {
-      document.body.setAttribute('theme', theme); 
-      document.documentElement.className = theme;
-      document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
-      if (theme === 'light') {
-        document.documentElement.classList.remove('tw-dark')
-      } else {
-        document.documentElement.classList.add('tw-dark')
-      }
-      window.theme = theme;   
-      window.isDark = window.theme !== 'light' 
-    }
-    function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
-    function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
-    if (window.localStorage && localStorage.getItem('theme')) {
-        let theme = localStorage.getItem('theme');
-        if (theme === 'light' || theme === 'dark') {
-        setTheme(theme);
-        } else {
-            if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                setTheme('dark');
-            } else {
-                setTheme('light');
+<style>
+  #icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+  }
+  #icons .item {
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+  }
+  #icons .item .name {
+    font-size: 12px;
+    user-select: all;
+    text-align: center;
+  }
+  #icons .item .icon {
+    display: flex;
+    justify-content: center;
+  }
+  #icons .item svg {
+    width: 30px;
+    height: 30px;
+  }
+</style>
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary-bg: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list-page {
+                background: var(--theme);
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
             }
         }
-      } else { 
-        if ('auto' === 'light' || 'auto' === 'dark') 
-            setTheme('auto'), saveTheme('auto'); 
-        else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
-    }
-    let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
-    getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
-    window.switchThemeEventSet = new Set()
-</script><div id="back-to-top"></div>
-    <div id="mask"></div><header class="desktop print:!tw-hidden" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item"
-                    href="/posts/" > 文章 </a><a class="menu-item"
-                    href="/tags/" > 标签 </a><a class="menu-item"
-                    href="/categories/" > 分类 </a><a class="menu-item"
-                    href="/about/" > 关于 </a><a class="menu-item"
-                    href="https://github.com/lmafia"  title="GitHub" 
-                    rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                    <input type="text"
-                        placeholder="搜索文章标题或内容..."
-                        id="search-input-desktop">
-                    <button class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-                    </button>
-                    <button class="search-button search-clear" id="search-clear-desktop" title="清空">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
-                    </button>
-                    <span class="search-button search-loading tw-animate-spin" id="search-loading-desktop">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg>
-                    </span>
-                </span><button class="menu-item theme-select" aria-label="切换主题">
-                    <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-                    <select class="color-theme-select" id="theme-select-desktop" aria-label="切换主题">
-                        <option value="light">浅色</option>
-                        <option value="dark">深色</option>
-                        <option value="auto">跟随系统</option>
-                    </select>
-                </button></div>
-        </div>
-    </div>
-</header><header class="mobile print:!tw-hidden" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="KyleGeeks"><span class="tw-mr-1"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="200" height="200"><path d="M734.834215 609.780185c1.851077 27.132062 25.300677 47.619938 52.468185 45.764923l70.896246-4.84037a49.222892 49.222892 0 0 0 32.988554-15.903507c26.056862-28.506585 30.999631-64.311138 13.568-98.233108-10.815015-21.039262-28.561723-38.403938-45.717662-55.201477-13.2096-12.929969-37.801354-36.997908-36.261415-46.580184 5.521723-34.378831 13.871262-118.752492-26.513723-164.718277a161.681723 161.681723 0 0 0-2.347323-2.788431c-0.098462-0.783754-0.192985-1.516308-0.291446-2.339446-5.474462-44.362831-18.298092-148.247631-109.7216-208.76997C601.533046 1.646277 477.026462-2.347323 313.828431 44.307692l-0.740431 0.220554c-7.435815 2.2528-182.910031 56.938338-250.182892 209.841231-39.400369 89.5488-22.311385 197.242092-1.035816 271.812923 24.556308 86.0672 66.504862 168.743385 109.477416 215.764677 24.296369 26.584615 35.343754 60.947692 47.037046 97.323323 17.144123 53.318892 36.572554 113.754585 102.852923 141.170215 26.084431 10.779569 58.564923 14.942523 93.184 14.938585 116.153108-0.003938 256.212677-46.844062 257.973169-47.482092 1.630523-0.594708 3.209846-1.272123 4.737969-2.016493a318.751508 318.751508 0 0 0 37.754093-14.261169c79.478154-36.013292 133.080615-100.781292 155.013907-187.301415 6.683569-26.356185-9.2672-53.137723-35.619446-59.817354-26.371938-6.691446-53.141662 9.2672-59.817354 35.619446-26.793354 105.668923-115.416615 132.099938-155.407753 138.685046-5.088492-6.955323-10.350277-15.517538-15.785354-24.367261-18.573785-30.223754-41.688615-67.843938-86.764308-96.019693a49.258338 49.258338 0 0 0-17.293785-6.691446c-40.184123-7.301908-78.091815-27.994585-82.684061-40.266831a7.809969 7.809969 0 0 1-0.1024-0.275692c8.4992-3.938462 23.437785-8.373169 33.224861-11.275815 37.978585-11.267938 89.985969-26.702769 108.67397-77.059939 31.2832-84.267323 32.6144-140.965415-40.211693-273.506461-2.134646-4.281108-10.610215-26.513723-4.316554-40.0384 6.088862-13.083569 28.786215-19.786831 41.771324-22.622523 93.959877-20.476062 161.803815 62.385231 164.489846 65.721107 0.626215 0.795569 1.276062 1.575385 1.949538 2.33157 4.395323 6.805662 11.197046 36.867938 3.556431 84.440615-9.617723 59.911877 33.28 101.899815 64.606523 132.5568 1.469046 1.441477 3.052308 2.989292 4.690708 4.608l-14.26117 0.9728c-27.124185 1.855015-47.619938 25.344-45.764923 52.468185z m-200.247138-439.296c-68.155077 14.859815-97.469046 50.223262-110.060308 77.272615-27.667692 59.4432 2.997169 120.895015 6.585108 127.704615l0.421415 0.787693c62.920862 114.368985 53.106215 142.150892 34.74117 191.629784-5.651692 6.069169-30.936615 13.571938-44.638524 17.64037-34.3552 10.196677-77.115077 22.8864-96.417476 61.648738-11.52 23.134523-11.819323 49.652185-0.89797 78.828308 25.032862 66.855385 112.120123 92.679877 146.676185 100.438646 21.330708 15.608123 34.449723 36.875815 48.222523 59.2896-61.924431 11.342769-128 17.112615-160.350523 3.729723-21.949046-9.078154-30.676677-30.337969-46.7456-80.317046-13.059938-40.621292-29.313969-91.175385-68.092062-133.612308-61.373046-67.158646-140.205292-269.674338-91.002092-381.506954C200.932431 185.135262 335.277292 140.8 341.425231 138.826831c132.103877-37.691077 231.727262-37.888 288.122092-0.555323 17.226831 11.405785 29.723569 25.824492 38.935631 41.416861-38.029785-13.831877-83.223631-20.259446-133.895877-9.204184z" p-id="1654"></path></svg></span>KyleGeeks</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                <div class="search mobile" id="search-mobile">
-                    <input type="text"
-                        placeholder="搜索文章标题或内容..."
-                        id="search-input-mobile">
-                    <button class="search-button search-toggle tw-h-10" id="search-toggle-mobile" title="搜索">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-                    </button>
-                    <button class="search-button search-clear tw-h-fit" id="search-clear-mobile" title="清空">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
-                    </button>
-                    <span class="search-button search-loading tw-animate-spin" id="search-loading-mobile">
-                        <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg>
-                    </span>
-                </div>
-                <button class="search-cancel" id="search-cancel-mobile">
-                    取消
-                </button>
-            </div><a class="menu-item" href="/posts/" title="" >文章</a><a class="menu-item" href="/tags/" title="" >标签</a><a class="menu-item" href="/categories/" title="" >分类</a><a class="menu-item" href="/about/" title="" >关于</a><a class="menu-item" href="https://github.com/lmafia" title="GitHub" 
-                rel="noopener noreferrer" target="_blank" ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg></a><button class="menu-item theme-select tw-w-full" aria-label="切换主题">
-                <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-                <select class="color-theme-select" id="theme-select-mobile" aria-label="切换主题">
-                    <option value="light">浅色</option>
-                    <option value="dark">深色</option>
-                    <option value="auto">跟随系统</option>
-                </select>
-            </button></div>
-    </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div><main class="tw-mx-4 tw-flex-1"><div class="page archive"><h2 class="single-title">所有系列</h2><div class="series-card"></div></div></main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.147.5">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg> DoIt</a>
-                </div><div class="footer-line"><svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532 0-200-89.451-200-200 0-110.531 89.451-200 200-200 110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43 0-140.484-61.425-140.484-141.567 0-79.152 60.275-139.401 139.762-139.401 55.531 0 88.738 26.62 97.593 34.779a11.965 11.965 0 0 1 1.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303 0-77.916 35.33-77.916 80.082 0 41.589 26.888 83.692 78.277 83.692 32.657 0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947 0 0 1-1.152 15.518z"/></svg>2023 - 2025<span class="author">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-            <div class="footer-line"></div>
-            <div class="footer-line">
-            </div>
-        </div></footer><div class="print:!tw-hidden tw-flex tw-flex-col tw-fixed tw-right-4 tw-bottom-4 tw-gap-2"><a href="#back-to-top" id="back-to-top-button" class="tw-transition-opacity tw-opacity-0 tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="回到顶部">
-      <svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg>
-  </a>
 
-  </div>
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/lightgallery/lightgallery.min.css">
-        <noscript><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"></noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/katex/copy-tex.min.css">
-        <noscript><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></noscript>
-<script>window.config={"algoliasearch.min.js":"/lib/algoliasearch/algoliasearch-lite.umd.min.js","autocomplete.min.js":"/lib/autocomplete/autocomplete.min.js","lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"zh_cn_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script
-    src="/lib/lightgallery/lightgallery.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/lightgallery/lg-thumbnail.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/lightgallery/lg-zoom.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/katex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/auto-render.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/copy-tex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/lib/katex/mhchem.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/js/katex.min.js"
-    
-      defer
-    
-  ></script><script
-    src="/js/theme.min.js"
-    
-      defer
-    
-  ></script><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26edcc4468d34f4ab1554bb5a718cb30"}'></script>
+    </style>
+</noscript>
 
-<script type="speculationrules">
-  {
-    "prerender": [
-      {
-        "where": { "href_matches": "/*" },
-        "eagerness": "moderate"
+</head>
+
+<body class="list-page type-series kind-taxonomy layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
       }
-    ]
   }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
 </script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'auto';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.lmafia.info/" accesskey="h" title="KyleGeeks (Alt + H)">
+                    <img src="https://blog.lmafia.info/images/danta_hu_27dea08d704c9a4a.png" alt="logo" aria-label="logo"
+                        height="30" width="30">KyleGeeks</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.lmafia.info/posts/" title="Posts"
+                >Posts
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/archives/" title="Archives"
+                >Archives
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/about/index.zh-cn/" title="About"
+                >About
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.lmafia.info/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<header class="page-header">
+    <h1>Series</h1>
+</header>
+
+<ul class="terms-tags">
+</ul>
+    </main>
+<footer class="footer">
+  <span>&copy; 2025 <a href="https://blog.lmafia.info/">KyleGeeks</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
 </body>
 
 </html>

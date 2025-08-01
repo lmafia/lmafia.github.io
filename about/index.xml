@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Abouts on KyleGeeks</title>
+    <link>https://blog.lmafia.info/about/</link>
+    <description>Recent content in Abouts on KyleGeeks</description>
+    <image>
+      <url>https://blog.lmafia.info/images/danta.png</url>
+      <link>https://blog.lmafia.info/images/danta.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Mar 2025 00:20:37 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于</title>
+      <link>https://blog.lmafia.info/about/index.zh-cn/</link>
+      <pubDate>Wed, 19 Mar 2025 00:20:37 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/about/index.zh-cn/</guid>
+      <description>&lt;h2 id=&#34;我是谁&#34;&gt;我是谁&lt;/h2&gt;
+&lt;p&gt;Hi, 我是 Kyle Lian&lt;/p&gt;
+&lt;p&gt;软件开发, 涉及过数字城市、海外广告和智能家居&lt;/p&gt;
+&lt;p&gt;一位 Apple 产品重度用户, 拥有 Apple 全家桶&lt;/p&gt;
+&lt;p&gt;目前正在和 AI 一起做一些有意思的事情&lt;/p&gt;
+&lt;p&gt;喜欢的编程风格 OOP, FP&lt;/p&gt;
+&lt;h4 id=&#34;后端&#34;&gt;后端&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Java, Kotlin, Python&lt;/li&gt;
+&lt;li&gt;Spring Boot, Spring Cloud&lt;/li&gt;
+&lt;li&gt;Maven, Gradle&lt;/li&gt;
+&lt;li&gt;Mybatis, Mybatis Plus&lt;/li&gt;
+&lt;li&gt;MySQL, Redis&lt;/li&gt;
+&lt;li&gt;Kafka, Pulsar, RabbitMQ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;前端&#34;&gt;前端&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Vue3 Vite&lt;/li&gt;
+&lt;li&gt;Tailwind CSS&lt;/li&gt;
+&lt;li&gt;HTML5&lt;/li&gt;
+&lt;li&gt;CSS3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;devops&#34;&gt;DevOps&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Git, GitHub, GitLab&lt;/li&gt;
+&lt;li&gt;Jenkins&lt;/li&gt;
+&lt;li&gt;Grafana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;开发工具&#34;&gt;开发工具&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;IDEA&lt;/li&gt;
+&lt;li&gt;VS Code&lt;/li&gt;
+&lt;li&gt;Postman&lt;/li&gt;
+&lt;li&gt;Cursor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu, CentOS&lt;/li&gt;
+&lt;li&gt;Markdown&lt;/li&gt;
+&lt;li&gt;Logseq&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;网站历史&#34;&gt;网站历史&lt;/h2&gt;
+&lt;p&gt;2024-09-25: 配置自定义域名&lt;/p&gt;
+&lt;p&gt;2023-09-29: 通过 &lt;code&gt;Hugo&lt;/code&gt; + &lt;code&gt;GithubPages&lt;/code&gt; 搭建&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="我是谁">我是谁</h2>
+<p>Hi, 我是 Kyle Lian</p>
+<p>软件开发, 涉及过数字城市、海外广告和智能家居</p>
+<p>一位 Apple 产品重度用户, 拥有 Apple 全家桶</p>
+<p>目前正在和 AI 一起做一些有意思的事情</p>
+<p>喜欢的编程风格 OOP, FP</p>
+<h4 id="后端">后端</h4>
+<ul>
+<li>Java, Kotlin, Python</li>
+<li>Spring Boot, Spring Cloud</li>
+<li>Maven, Gradle</li>
+<li>Mybatis, Mybatis Plus</li>
+<li>MySQL, Redis</li>
+<li>Kafka, Pulsar, RabbitMQ</li>
+</ul>
+<h4 id="前端">前端</h4>
+<ul>
+<li>Vue3 Vite</li>
+<li>Tailwind CSS</li>
+<li>HTML5</li>
+<li>CSS3</li>
+</ul>
+<h4 id="devops">DevOps</h4>
+<ul>
+<li>Docker</li>
+<li>Git, GitHub, GitLab</li>
+<li>Jenkins</li>
+<li>Grafana</li>
+</ul>
+<h4 id="开发工具">开发工具</h4>
+<ul>
+<li>IDEA</li>
+<li>VS Code</li>
+<li>Postman</li>
+<li>Cursor</li>
+</ul>
+<h3 id="其他">其他</h3>
+<ul>
+<li>Ubuntu, CentOS</li>
+<li>Markdown</li>
+<li>Logseq</li>
+</ul>
+<h2 id="网站历史">网站历史</h2>
+<p>2024-09-25: 配置自定义域名</p>
+<p>2023-09-29: 通过 <code>Hugo</code> + <code>GithubPages</code> 搭建</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

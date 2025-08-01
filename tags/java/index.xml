@@ -1,34 +1,307 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Java on KyleGeeks</title>
     <link>https://blog.lmafia.info/tags/java/</link>
     <description>Recent content in Java on KyleGeeks</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 27 May 2025 18:23:29 +0800</lastBuildDate>
-    <atom:link href="https://blog.lmafia.info/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://blog.lmafia.info/images/danta.png</url>
+      <link>https://blog.lmafia.info/images/danta.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>整数向上取整公式证明</title>
-      <link>https://blog.lmafia.info/ceil-for-integers/</link>
+      <link>https://blog.lmafia.info/posts/ceil-for-integers/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/ceil-for-integers/</guid>
+      
+      <guid>https://blog.lmafia.info/posts/ceil-for-integers/</guid>
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
+<h2 id="背景">背景</h2>
+<p>在用 AI 编程的时候，让它给我生成一个分页处理的工具类:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pageSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pageSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&#34;pageSize must be greater than 0&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pageSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">safePage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">totalPages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="n">pageSize</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>在 Review 生成代码的时候，发现求总页数的计算让我有点好奇，为什么它用这个公式
+求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 Mybatis Plus 的代码，发现他也是这么设计的:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 当前分页总页数
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getPages</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">0L</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">getSize</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pages</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pages</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>所以 AI 给我的这个计算方式着实让我好奇:</p>
+<p><code>(total + pageSize - 1) / pageSize;</code></p>
+<p>我很好奇，为什么是加<code>b-1</code> 和除以<code>b</code></p>
+<p>所以后来，我向 Chapt 老师请教了如何证明这个公式是有效的。</p>
+<h2 id="证明过程">证明过程</h2>
+<p>“向上取整除法”的核心公式是：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>前提：</p>
+<ul>
+<li>a ≥ 0, b &gt; 0</li>
+<li>除法采用整数除法（向下取整）</li>
+<li>所有变量为整数</li>
+</ul>
+<h3 id="目标">目标</h3>
+<p>我们要证明这个公式：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>右边是整数除法（向下取整），但通过 +b-1 的技巧实现了向上取整效果。</p>
+<h3 id="整数除法基础商和余">整数除法基础（商和余）</h3>
+<p>设 a = bq + r，其中：</p>
+<ul>
+<li>q = a / b 是向下取整的商</li>
+<li>r = a % b 是余数，满足 0 ≤ r &lt; b</li>
+</ul>
+<p>因此：</p>
+<ul>
+<li>如果 r = 0：说明 a 被 b 整除，结果无需进位。</li>
+<li>如果 r &gt; 0：则需进一位，即向上取整。</li>
+</ul>
+<h3 id="定义">定义</h3>
+<p>定义：</p>
+<p>$$
+\left\lceil \frac{a}{b} \right\rceil =
+\begin{cases}
+q, &amp; \text{if } r = 0 \\
+q + 1, &amp; \text{if } r &gt; 0
+\end{cases}
+$$</p>
+<h3 id="分情况讨论">分情况讨论</h3>
+<h4 id="当-r--0-时">当 r = 0 时</h4>
+<ul>
+<li>a = bq</li>
+<li>a + b - 1 = bq + b - 1</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{bq + b - 1}{b} =
+q + \left( \frac{b - 1}{b} \right)
+$$</p>
+<p>因为整数除法是向下取整的， (b - 1) &lt; b , 所以 (b - 1)/b 为 0</p>
+<p>所以证明得</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{b(q + 1) - 1}{b} = q
+$$</p>
+<h4 id="当-r--0-时-1">当 r &gt; 0 时</h4>
+<ul>
+<li>a = bq + r, 0 &lt; r &lt; b</li>
+<li>a + b - 1 = bq + r + b - 1 = b(q + 1) + (r - 1)</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\left( \frac{a + b - 1}{b} \right)
+= \left( \frac{b(q + 1) + (r - 1)}{b} \right)
+= (q + 1) + \left( \frac{r - 1}{b} \right)
+$$</p>
+<p>讨论 (r - 1) 和 b
+因为 0 &lt; r &lt; b , 所以 -1 &lt; r - 1 &lt; b - 1 &lt; b 得 r-1 &lt; b
+所以</p>
+<p>$$ \left( \frac{r - 1}{b} \right) = 0 $$</p>
+<p>所以证明得, 当 r &gt; 0 时</p>
+<p>$$ \frac{a + b - 1}{b} = (q + 1) + 0 = q + 1 $$</p>
+<h2 id="结语">结语</h2>
+<p>因为只是涉及整数的运算，用不到浮点运算比 JDK <code>Math</code>提供的 <code>ceil</code> 更适合分页的场景
+除此之外，还能用:</p>
+<ul>
+<li>底层的 <code>内存块</code> / <code>缓冲区</code>申请
+<blockquote>
+<p>BTW, 和公司的嵌入式同事强哥提到的时候，他能脱口而出这个公式，看来对嵌入式开发来说比较常用</p></blockquote>
+</li>
+<li>文件的<code>分块</code> ，以实现断点续传或分块并行下载</li>
+<li>分布式任务调度的 <code>分片计算</code></li>
+<li>大数据任务计算的 <code>批处理</code></li>
+</ul>]]></content:encoded>
     </item>
+    
     <item>
       <title>SpringWeb 线程泄漏问题排查</title>
-      <link>https://blog.lmafia.info/debug-tomcat-thread-issue/</link>
+      <link>https://blog.lmafia.info/posts/debug-tomcat-thread-issue/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/debug-tomcat-thread-issue/</guid>
-      <description>&lt;h2 id=&#34;现在是什么问题&#34; class=&#34;headerLink&#34;&gt;&#xA;    &lt;a href=&#34;#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98&#34; class=&#34;header-mark&#34;&gt;&lt;/a&gt;现在是什么问题?&lt;/h2&gt;&lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;&#xA;&lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;</description>
+      
+      <guid>https://blog.lmafia.info/posts/debug-tomcat-thread-issue/</guid>
+      <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
+&lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
+&lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
+&lt;p&gt;开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况&lt;/p&gt;
+&lt;p&gt;
+  &lt;img loading=&#34;lazy&#34; src=&#34;https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png&#34; alt=&#34;Grafana - JVM&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」&lt;/p&gt;
+&lt;p&gt;没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛&lt;/p&gt;
+&lt;h2 id=&#34;看看怎么个事儿&#34;&gt;看看怎么个事儿&lt;/h2&gt;
+&lt;p&gt;开发环境都是丢在一台虚拟机上的, 而且就是直接 &lt;code&gt;java -jar&lt;/code&gt; 部署的
+天然的让我好把日志导出来, 我直接一个 &lt;code&gt;jps -lvm&lt;/code&gt; 查看那个问题服务的 PID&lt;/p&gt;
+&lt;p&gt;然后再来一个 &lt;code&gt;jstack&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;jstack pid &amp;gt; thread_dump.log&lt;/code&gt; 把线程和上下文都 dump 出来
+然后再来请上我们的 Linux 三剑客之二: &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="现在是什么问题">现在是什么问题?</h2>
+<p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
+<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>
+<p>开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" alt="Grafana - JVM"  /></p>
+<p>可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
+<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
+<h2 id="看看怎么个事儿">看看怎么个事儿</h2>
+<p>开发环境都是丢在一台虚拟机上的, 而且就是直接 <code>java -jar</code> 部署的
+天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 PID</p>
+<p>然后再来一个 <code>jstack</code>:</p>
+<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 dump 出来
+然后再来请上我们的 Linux 三剑客之二: <code>awk</code>, <code>grep</code></p>
+<blockquote>
+<p>这里你以为我的 Linux 命令用的很溜嘛? 其实都是 ChatGPT 给我的, 没了他我可就是个菜鸡 😭</p></blockquote>
+<p>执行:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> tee /dev/tty <span class="p">|</span> wc -l
+</span></span></code></pre></div><p>输出:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/c5142a3e8061795b159256255ce8d378.png" alt="jstack 统计"  /></p>
+<p>好家伙, 大部分都是 <code>http-nio-exec-*</code> 证明都是请求没有释放还是咋地啊？</p>
+<p>咱们可是都是 Spring Boot 工程师呢 , 用得当然是我们的 SpringBoot + SpringWeb (Tomcat 内置)</p>
+<p>我们最近也没升级啥 Tomcat 的版本, 也没修改什么配置的, 到底咋个回事?</p>
+<p>挑几个请求的线程看看日志吧, 发现基本都处在 WAITING（Park）状态</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" alt="http-nio-exec 上下文"  /></p>
+<p>而且几乎所有 WAITING 状态的都来自 Druid 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" alt="com.alibaba.druid.pool.DruidDataSource#getConnectionInternal"  />
+我们的在服务配置的 max-active = 20, 说明 20 个链接可能都被占着, 一直没还回去.</p>
+<p>难道是高并发? 是不是要直接把 max-active 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 Bug 导致的</p>
+<p>因为还没给 Druid 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 http 请求线程来看.</p>
+<p>发现均来自给设备升级的业务, 这个业务的接口在开发环境一般是了半夜 2 点定时任务触发的, 很少在从客户端请求</p>
+<h2 id="有点眉目了">有点眉目了</h2>
+<p>本来想看能不能知道几个线程的存活时间, 通过存活时间来推算日志时间来看业务日志, 转念一想, 都已知具体触发时间, 就搭配线程名和业务关键来过滤日志吧, 就在日志的海洋 🌊 里遨游吧, 骚年</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png" alt=""  />
+排查了好一会儿, 突然发现有几个 Feign 的调用是报错的, 通过 trace 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" alt="wait 报错堆栈"  /></p>
+<p>奇怪, 怎么有一个 wait 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java.lang.InterruptedException: null
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait0<span class="o">(</span>Native Method<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait<span class="o">(</span>Object.java:366<span class="o">)</span>
+</span></span></code></pre></div><p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 while(可能会真) 里加了个 object.wait(时间).</p>
+<p>那么我们看下这几个一直 wait 的请求吧.对了, 这里的线程应该是为 TIMED_WAITING 状态, 因为是加了等待时间的, 只是一直在 while 里出不来.</p>
+<h2 id="终于捉到虫">终于捉到虫</h2>
+<p>再次请出我们的 Linux 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span>
+</span></span></code></pre></div><p>输出内容:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png" alt="TIMED_WAITING 线程们"  /></p>
+<p>看了除了 <code>http-nio-exec-280</code> 外的日志, 都是卡在出问题的代码上:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" alt="IMED_WAITING 报错"  /></p>
+<p>而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.</p>
+<p>因为有个监控会定时调用「登陆」接口来判断服务是否正常, 所以后面 200+ 个请求积压都是来自「登陆」接口.</p>
+<h2 id="学到了啥">学到了啥</h2>
+<p>和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.</p>
+<p>虽然 AI 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
+]]></content:encoded>
     </item>
+    
     <item>
       <title>用 Java 来实现高阶函数</title>
-      <link>https://blog.lmafia.info/fucniton-for-java/</link>
+      <link>https://blog.lmafia.info/posts/fucniton-for-java/</link>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
-      <guid>https://blog.lmafia.info/fucniton-for-java/</guid>
+      
+      <guid>https://blog.lmafia.info/posts/fucniton-for-java/</guid>
       <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
+<h3 id="funciton-接口的定义">Funciton 接口的定义</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Represents a function that accepts one argument and produces a result.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * &lt;p&gt;This is a &lt;a href=&#34;package-summary.html&#34;&gt;functional interface&lt;/a&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * whose functional method is {@link #apply(Object)}.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;T&gt; the type of the input to the function
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;R&gt; the type of the result of the function
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 1.8
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@FunctionalInterface</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="代码示例">代码示例</h3>
+<p>实现功能:</p>
+<ul>
+<li>2 次函数 apply</li>
+<li>3 次函数 apply</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyTwice</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(x))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyThrice</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(f(x)))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">applyThrice</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="p">).</span><span class="na">apply</span><span class="p">(</span><span class="n">0</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="第一层最外层-function">第一层：最外层 Function</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>这个类型的输入是 <code>Function&lt;Integer, Integer&gt;</code>
+输出也是 <code>Function&lt;Integer, Integer&gt;</code>。</p>
+<p>换句话说，这个高阶函数的作用是：</p>
+<ul>
+<li>接收一个函数 <code>Funciotn&lt;Interger, Integer&gt;</code></li>
+<li>返回一个新的函数 <code>Function&lt;Integer, Integer&gt;</code>，</li>
+</ul>
+<h3 id="第二层输入参数">第二层：输入参数</h3>
+<p><code>Function&lt;Integer, Integer&gt;</code></p>
+<p>这是 Java 函数接口, 输入输出参数都是 <code>Integer</code></p>
+<p>比如：</p>
+<p><code>Function&lt;Integer, Integer&gt; increment = x -&gt; x + 1;</code>
+<code>Function&lt;Integer, Integer&gt; square = x -&gt; x * x;</code></p>
+<p>这些都是 <code>Function&lt;Integer, Integer&gt;</code> 类型的函数。</p>
+<h3 id="第三层-返回值-functioninteger-integer">第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></h3>
+<p>最后 <code>applyThrice</code> 应该返回的是一个<code>Function&lt;Integer, Integer&gt;</code>
+拆解下 <code>applyThrice.apply( x -&gt; x + 1 ).apply(0)</code></p>
+<ol>
+<li><code>applyThrice.apply( x -&gt; x + 1 )</code> 返回了:
+<code>x -&gt; ( ( ( x + 1 ) + 1 ) + 1 )</code></li>
+<li><code>.apply(0)</code> 就是把 0 作为输入 x
+<code>( ( ( 0 + 1 ) + 1 ) + 1 )</code> 结果为 <code>3</code></li>
+</ol>]]></content:encoded>
     </item>
+    
   </channel>
 </rss>

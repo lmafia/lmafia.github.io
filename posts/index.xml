@@ -1,33 +1,998 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>所有文章 - KyleGeeks</title>
-        <link>https://blog.lmafia.info/posts/</link>
-        <description>所有文章 | KyleGeeks</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 May 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>整数向上取整公式证明</title>
-    <link>https://blog.lmafia.info/ceil-for-integers/</link>
-    <pubDate>Fri, 23 May 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/ceil-for-integers/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/05/5f7e3d31d9913ad5395976577b3028d1.jpg" referrerpolicy="no-referrer">
-            </div><p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>]]></description>
-</item><item>
-    <title>用 Java 来实现高阶函数</title>
-    <link>https://blog.lmafia.info/fucniton-for-java/</link>
-    <pubDate>Wed, 19 Mar 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/fucniton-for-java/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/03/33fea36ef633f997e2b3e84974688404.png" referrerpolicy="no-referrer">
-            </div><p>如何用 Java 使用高阶函数</p>]]></description>
-</item><item>
-    <title>SpringWeb 线程泄漏问题排查</title>
-    <link>https://blog.lmafia.info/debug-tomcat-thread-issue/</link>
-    <pubDate>Sun, 11 May 2025 10:00:00 &#43;0800</pubDate><author>
-                        <name>Kyle Lian</name><uri>https://github.com/lmafia</uri><email>lmafiamm@gmail.com</email></author><guid>https://blog.lmafia.info/debug-tomcat-thread-issue/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://image-s3.lmafia.info/data/2025/05/bf02455739b849933a99d283ce352471.png" referrerpolicy="no-referrer">
-            </div><h2 id="现在是什么问题" class="headerLink">
-    <a href="#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98" class="header-mark"></a>现在是什么问题?</h2><p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
-<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>]]></description>
-</item></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on KyleGeeks</title>
+    <link>https://blog.lmafia.info/posts/</link>
+    <description>Recent content in Posts on KyleGeeks</description>
+    <image>
+      <url>https://blog.lmafia.info/images/danta.png</url>
+      <link>https://blog.lmafia.info/images/danta.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>整数向上取整公式证明</title>
+      <link>https://blog.lmafia.info/posts/ceil-for-integers/</link>
+      <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/ceil-for-integers/</guid>
+      <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
+<h2 id="背景">背景</h2>
+<p>在用 AI 编程的时候，让它给我生成一个分页处理的工具类:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pageSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pageSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&#34;pageSize must be greater than 0&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pageSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">safePage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">totalPages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="n">pageSize</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>在 Review 生成代码的时候，发现求总页数的计算让我有点好奇，为什么它用这个公式
+求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 Mybatis Plus 的代码，发现他也是这么设计的:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 当前分页总页数
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getPages</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">0L</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">getSize</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pages</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pages</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>所以 AI 给我的这个计算方式着实让我好奇:</p>
+<p><code>(total + pageSize - 1) / pageSize;</code></p>
+<p>我很好奇，为什么是加<code>b-1</code> 和除以<code>b</code></p>
+<p>所以后来，我向 Chapt 老师请教了如何证明这个公式是有效的。</p>
+<h2 id="证明过程">证明过程</h2>
+<p>“向上取整除法”的核心公式是：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>前提：</p>
+<ul>
+<li>a ≥ 0, b &gt; 0</li>
+<li>除法采用整数除法（向下取整）</li>
+<li>所有变量为整数</li>
+</ul>
+<h3 id="目标">目标</h3>
+<p>我们要证明这个公式：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>右边是整数除法（向下取整），但通过 +b-1 的技巧实现了向上取整效果。</p>
+<h3 id="整数除法基础商和余">整数除法基础（商和余）</h3>
+<p>设 a = bq + r，其中：</p>
+<ul>
+<li>q = a / b 是向下取整的商</li>
+<li>r = a % b 是余数，满足 0 ≤ r &lt; b</li>
+</ul>
+<p>因此：</p>
+<ul>
+<li>如果 r = 0：说明 a 被 b 整除，结果无需进位。</li>
+<li>如果 r &gt; 0：则需进一位，即向上取整。</li>
+</ul>
+<h3 id="定义">定义</h3>
+<p>定义：</p>
+<p>$$
+\left\lceil \frac{a}{b} \right\rceil =
+\begin{cases}
+q, &amp; \text{if } r = 0 \\
+q + 1, &amp; \text{if } r &gt; 0
+\end{cases}
+$$</p>
+<h3 id="分情况讨论">分情况讨论</h3>
+<h4 id="当-r--0-时">当 r = 0 时</h4>
+<ul>
+<li>a = bq</li>
+<li>a + b - 1 = bq + b - 1</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{bq + b - 1}{b} =
+q + \left( \frac{b - 1}{b} \right)
+$$</p>
+<p>因为整数除法是向下取整的， (b - 1) &lt; b , 所以 (b - 1)/b 为 0</p>
+<p>所以证明得</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{b(q + 1) - 1}{b} = q
+$$</p>
+<h4 id="当-r--0-时-1">当 r &gt; 0 时</h4>
+<ul>
+<li>a = bq + r, 0 &lt; r &lt; b</li>
+<li>a + b - 1 = bq + r + b - 1 = b(q + 1) + (r - 1)</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\left( \frac{a + b - 1}{b} \right)
+= \left( \frac{b(q + 1) + (r - 1)}{b} \right)
+= (q + 1) + \left( \frac{r - 1}{b} \right)
+$$</p>
+<p>讨论 (r - 1) 和 b
+因为 0 &lt; r &lt; b , 所以 -1 &lt; r - 1 &lt; b - 1 &lt; b 得 r-1 &lt; b
+所以</p>
+<p>$$ \left( \frac{r - 1}{b} \right) = 0 $$</p>
+<p>所以证明得, 当 r &gt; 0 时</p>
+<p>$$ \frac{a + b - 1}{b} = (q + 1) + 0 = q + 1 $$</p>
+<h2 id="结语">结语</h2>
+<p>因为只是涉及整数的运算，用不到浮点运算比 JDK <code>Math</code>提供的 <code>ceil</code> 更适合分页的场景
+除此之外，还能用:</p>
+<ul>
+<li>底层的 <code>内存块</code> / <code>缓冲区</code>申请
+<blockquote>
+<p>BTW, 和公司的嵌入式同事强哥提到的时候，他能脱口而出这个公式，看来对嵌入式开发来说比较常用</p></blockquote>
+</li>
+<li>文件的<code>分块</code> ，以实现断点续传或分块并行下载</li>
+<li>分布式任务调度的 <code>分片计算</code></li>
+<li>大数据任务计算的 <code>批处理</code></li>
+</ul>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>SpringWeb 线程泄漏问题排查</title>
+      <link>https://blog.lmafia.info/posts/debug-tomcat-thread-issue/</link>
+      <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/debug-tomcat-thread-issue/</guid>
+      <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
+&lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
+&lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
+&lt;p&gt;开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况&lt;/p&gt;
+&lt;p&gt;
+  &lt;img loading=&#34;lazy&#34; src=&#34;https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png&#34; alt=&#34;Grafana - JVM&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」&lt;/p&gt;
+&lt;p&gt;没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛&lt;/p&gt;
+&lt;h2 id=&#34;看看怎么个事儿&#34;&gt;看看怎么个事儿&lt;/h2&gt;
+&lt;p&gt;开发环境都是丢在一台虚拟机上的, 而且就是直接 &lt;code&gt;java -jar&lt;/code&gt; 部署的
+天然的让我好把日志导出来, 我直接一个 &lt;code&gt;jps -lvm&lt;/code&gt; 查看那个问题服务的 PID&lt;/p&gt;
+&lt;p&gt;然后再来一个 &lt;code&gt;jstack&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;jstack pid &amp;gt; thread_dump.log&lt;/code&gt; 把线程和上下文都 dump 出来
+然后再来请上我们的 Linux 三剑客之二: &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="现在是什么问题">现在是什么问题?</h2>
+<p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
+<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>
+<p>开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" alt="Grafana - JVM"  /></p>
+<p>可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
+<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
+<h2 id="看看怎么个事儿">看看怎么个事儿</h2>
+<p>开发环境都是丢在一台虚拟机上的, 而且就是直接 <code>java -jar</code> 部署的
+天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 PID</p>
+<p>然后再来一个 <code>jstack</code>:</p>
+<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 dump 出来
+然后再来请上我们的 Linux 三剑客之二: <code>awk</code>, <code>grep</code></p>
+<blockquote>
+<p>这里你以为我的 Linux 命令用的很溜嘛? 其实都是 ChatGPT 给我的, 没了他我可就是个菜鸡 😭</p></blockquote>
+<p>执行:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> tee /dev/tty <span class="p">|</span> wc -l
+</span></span></code></pre></div><p>输出:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/c5142a3e8061795b159256255ce8d378.png" alt="jstack 统计"  /></p>
+<p>好家伙, 大部分都是 <code>http-nio-exec-*</code> 证明都是请求没有释放还是咋地啊？</p>
+<p>咱们可是都是 Spring Boot 工程师呢 , 用得当然是我们的 SpringBoot + SpringWeb (Tomcat 内置)</p>
+<p>我们最近也没升级啥 Tomcat 的版本, 也没修改什么配置的, 到底咋个回事?</p>
+<p>挑几个请求的线程看看日志吧, 发现基本都处在 WAITING（Park）状态</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" alt="http-nio-exec 上下文"  /></p>
+<p>而且几乎所有 WAITING 状态的都来自 Druid 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" alt="com.alibaba.druid.pool.DruidDataSource#getConnectionInternal"  />
+我们的在服务配置的 max-active = 20, 说明 20 个链接可能都被占着, 一直没还回去.</p>
+<p>难道是高并发? 是不是要直接把 max-active 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 Bug 导致的</p>
+<p>因为还没给 Druid 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 http 请求线程来看.</p>
+<p>发现均来自给设备升级的业务, 这个业务的接口在开发环境一般是了半夜 2 点定时任务触发的, 很少在从客户端请求</p>
+<h2 id="有点眉目了">有点眉目了</h2>
+<p>本来想看能不能知道几个线程的存活时间, 通过存活时间来推算日志时间来看业务日志, 转念一想, 都已知具体触发时间, 就搭配线程名和业务关键来过滤日志吧, 就在日志的海洋 🌊 里遨游吧, 骚年</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png" alt=""  />
+排查了好一会儿, 突然发现有几个 Feign 的调用是报错的, 通过 trace 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" alt="wait 报错堆栈"  /></p>
+<p>奇怪, 怎么有一个 wait 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java.lang.InterruptedException: null
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait0<span class="o">(</span>Native Method<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait<span class="o">(</span>Object.java:366<span class="o">)</span>
+</span></span></code></pre></div><p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 while(可能会真) 里加了个 object.wait(时间).</p>
+<p>那么我们看下这几个一直 wait 的请求吧.对了, 这里的线程应该是为 TIMED_WAITING 状态, 因为是加了等待时间的, 只是一直在 while 里出不来.</p>
+<h2 id="终于捉到虫">终于捉到虫</h2>
+<p>再次请出我们的 Linux 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span>
+</span></span></code></pre></div><p>输出内容:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png" alt="TIMED_WAITING 线程们"  /></p>
+<p>看了除了 <code>http-nio-exec-280</code> 外的日志, 都是卡在出问题的代码上:</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" alt="IMED_WAITING 报错"  /></p>
+<p>而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.</p>
+<p>因为有个监控会定时调用「登陆」接口来判断服务是否正常, 所以后面 200+ 个请求积压都是来自「登陆」接口.</p>
+<h2 id="学到了啥">学到了啥</h2>
+<p>和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.</p>
+<p>虽然 AI 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>用 Java 来实现高阶函数</title>
+      <link>https://blog.lmafia.info/posts/fucniton-for-java/</link>
+      <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/fucniton-for-java/</guid>
+      <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
+<h3 id="funciton-接口的定义">Funciton 接口的定义</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Represents a function that accepts one argument and produces a result.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * &lt;p&gt;This is a &lt;a href=&#34;package-summary.html&#34;&gt;functional interface&lt;/a&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * whose functional method is {@link #apply(Object)}.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;T&gt; the type of the input to the function
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;R&gt; the type of the result of the function
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 1.8
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@FunctionalInterface</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="代码示例">代码示例</h3>
+<p>实现功能:</p>
+<ul>
+<li>2 次函数 apply</li>
+<li>3 次函数 apply</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyTwice</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(x))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">applyThrice</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">f</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="c1">//f(f(f(x)))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">applyThrice</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="p">).</span><span class="na">apply</span><span class="p">(</span><span class="n">0</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="第一层最外层-function">第一层：最外层 Function</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">Function</span><span class="o">&lt;</span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>这个类型的输入是 <code>Function&lt;Integer, Integer&gt;</code>
+输出也是 <code>Function&lt;Integer, Integer&gt;</code>。</p>
+<p>换句话说，这个高阶函数的作用是：</p>
+<ul>
+<li>接收一个函数 <code>Funciotn&lt;Interger, Integer&gt;</code></li>
+<li>返回一个新的函数 <code>Function&lt;Integer, Integer&gt;</code>，</li>
+</ul>
+<h3 id="第二层输入参数">第二层：输入参数</h3>
+<p><code>Function&lt;Integer, Integer&gt;</code></p>
+<p>这是 Java 函数接口, 输入输出参数都是 <code>Integer</code></p>
+<p>比如：</p>
+<p><code>Function&lt;Integer, Integer&gt; increment = x -&gt; x + 1;</code>
+<code>Function&lt;Integer, Integer&gt; square = x -&gt; x * x;</code></p>
+<p>这些都是 <code>Function&lt;Integer, Integer&gt;</code> 类型的函数。</p>
+<h3 id="第三层-返回值-functioninteger-integer">第三层 返回值 <code>Function&lt;Integer, Integer&gt;</code></h3>
+<p>最后 <code>applyThrice</code> 应该返回的是一个<code>Function&lt;Integer, Integer&gt;</code>
+拆解下 <code>applyThrice.apply( x -&gt; x + 1 ).apply(0)</code></p>
+<ol>
+<li><code>applyThrice.apply( x -&gt; x + 1 )</code> 返回了:
+<code>x -&gt; ( ( ( x + 1 ) + 1 ) + 1 )</code></li>
+<li><code>.apply(0)</code> 就是把 0 作为输入 x
+<code>( ( ( 0 + 1 ) + 1 ) + 1 )</code> 结果为 <code>3</code></li>
+</ol>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>LangChain4J 功能架构详解</title>
+      <link>https://blog.lmafia.info/posts/langchain4j-tool/</link>
+      <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/langchain4j-tool/</guid>
+      <description>通过脑图详细解析 LangChain4J 的功能架构和应用场景</description>
+      <content:encoded><![CDATA[<h2 id="langchain4j-功能架构">LangChain4J 功能架构</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid"> mindmap
+  root((LangChain4J))
+    模型集成
+      OpenAI
+        ChatGPT
+        GPT-4
+      Azure OpenAI
+      Anthropic Claude
+      本地模型
+        Ollama
+    核心功能
+      Prompt Engineering
+        PromptTemplate
+        Few-shot Learning
+        Chain of Thought
+      Memory
+        消息记忆
+        对话历史
+        向量存储
+      Embedding
+        文本向量化
+        相似度搜索
+        知识库构建
+    工具集成
+      RAG
+        文档加载器
+        文本分割
+        向量数据库
+      Agent
+        工具调用
+        任务规划
+        自主决策
+    应用场景
+      智能客服
+        多轮对话
+        知识库问答
+        意图识别
+      文档处理
+        自动摘要
+        信息提取
+        文档分类
+      代码助手
+        代码生成
+        代码解释
+        Bug分析
+</code></pre><h2 id="功能模块详解">功能模块详解</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">	classDiagram
+	class A{
+		&lt;&lt;interface&gt;&gt;
+	}
+
+	class B{
+		&lt;&lt;interface&gt;&gt;
+	}
+
+	A --&gt; B
+</code></pre><h3 id="1-模型集成">1. 模型集成</h3>
+<p>LangChain4J 支持多种大语言模型的接入，包括：</p>
+<ul>
+<li>OpenAI 的 GPT 系列</li>
+<li>Azure OpenAI 服务</li>
+<li>Anthropic Claude</li>
+<li>本地部署的开源模型</li>
+</ul>
+<h3 id="2-核心功能">2. 核心功能</h3>
+<p>核心功能模块提供了构建 AI 应用的基础能力：</p>
+<ul>
+<li>Prompt 工程：模板管理和优化</li>
+<li>记忆系统：对话历史管理</li>
+<li>向量计算：文本嵌入和相似度计算</li>
+</ul>
+<h3 id="3-工具集成">3. 工具集成</h3>
+<p>提供了丰富的工具集成能力：</p>
+<ul>
+<li>RAG：支持文档检索和知识库构建</li>
+<li>Agent：支持复杂任务的规划和执行</li>
+</ul>
+<h3 id="4-应用场景">4. 应用场景</h3>
+<p>常见的应用场景包括：</p>
+<ul>
+<li>智能客服系统</li>
+<li>文档处理自动化</li>
+<li>AI 辅助编程</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>LangChain4J 提供了完整的 AI 应用开发框架，通过合理使用这些功能模块，可以快速构建强大的 AI 应用。</p>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
+      <link>https://blog.lmafia.info/posts/springboot-langchain4j/</link>
+      <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/springboot-langchain4j/</guid>
+      <description>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力</description>
+      <content:encoded><![CDATA[<h2 id="简介">简介</h2>
+<p>LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快速构建基于大语言模型的应用。本文将详细介绍如何在 SpringBoot 项目中集成 LangChain4J，并实现一个简单的 AI 聊天应用。</p>
+<h2 id="项目架构">项目架构</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
+A[SpringBoot Application] --&gt; B[LangChain4J Config]
+B --&gt; C[ChatLanguageModel]
+B --&gt; D[MessageMemory]
+C --&gt; E[OpenAI API]
+A --&gt; F[ChatService]
+F --&gt; C
+F --&gt; D
+A --&gt; G[ChatController]
+G --&gt; F
+
+style A fill:#f9f,stroke:#333,stroke-width:2px
+style B fill:#bbf,stroke:#333,stroke-width:2px
+style C fill:#dfd,stroke:#333,stroke-width:2px
+style D fill:#dfd,stroke:#333,stroke-width:2px
+style E fill:#fdd,stroke:#333,stroke-width:2px
+</code></pre><h2 id="环境准备">环境准备</h2>
+<ul>
+<li>JDK 17+</li>
+<li>SpringBoot 3.x</li>
+<li>Maven/Gradle</li>
+<li>OpenAI API Key</li>
+</ul>
+<h2 id="项目配置">项目配置</h2>
+<h3 id="maven-依赖">Maven 依赖</h3>
+<p>首先在 <code>pom.xml</code> 中添加必要的依赖：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- SpringBoot 基础依赖 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- LangChain4j 核心依赖 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>langchain4j<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- LangChain4j Spring 集成 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>langchain4j-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Lombok --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><h3 id="配置文件">配置文件</h3>
+<p>在 <code>application.yml</code> 中添加相关配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">langchain4j</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">chat-model</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">openai</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">api-key</span><span class="p">:</span><span class="w"> </span><span class="l">${OPENAI_API_KEY}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">model-name</span><span class="p">:</span><span class="w"> </span><span class="l">gpt-4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="m">0.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">60s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">https://your-gpt4-mini-api-endpoint</span><span class="w"> </span><span class="c"># 如果使用自定义 API</span><span class="w">
+</span></span></span></code></pre></div><h2 id="核心实现">核心实现</h2>
+<h3 id="项目结构">项目结构</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  src/main/java/com/example/demo/
+</span></span><span class="line"><span class="cl">  ├── config/
+</span></span><span class="line"><span class="cl">  │   └── LangChain4jConfig.java
+</span></span><span class="line"><span class="cl">  ├── service/
+</span></span><span class="line"><span class="cl">  │   ├── ChatService.java
+</span></span><span class="line"><span class="cl">  │   └── PromptService.java
+</span></span><span class="line"><span class="cl">  ├── controller/
+</span></span><span class="line"><span class="cl">  │   └── ChatController.java
+</span></span><span class="line"><span class="cl">  ├── model/
+</span></span><span class="line"><span class="cl">  │   ├── ChatRequest.java
+</span></span><span class="line"><span class="cl">  │   └── ChatResponse.java
+</span></span><span class="line"><span class="cl">  └── DemoApplication.java
+</span></span></code></pre></div><h3 id="配置类">配置类</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LangChain4jConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${langchain4j.chat-model.api-key}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">apiKey</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${langchain4j.chat-model.base-url}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">baseUrl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="nf">chatLanguageModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">OpenAiChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">apiKey</span><span class="p">(</span><span class="n">apiKey</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">modelName</span><span class="p">(</span><span class="s">&#34;gpt-4&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="n">baseUrl</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">timeout</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">60</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">temperature</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">7</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">logRequests</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">logResponses</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="nf">messageMemory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">MessageMemory</span><span class="p">.</span><span class="na">withMaxMessages</span><span class="p">(</span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="服务实现">服务实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ChatService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="n">memory</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ChatService</span><span class="p">(</span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">,</span><span class="w"> </span><span class="n">MessageMemory</span><span class="w"> </span><span class="n">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">chatModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memory</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userMessage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">memory</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">UserMessage</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">userMessage</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">memory</span><span class="p">.</span><span class="na">messages</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">memory</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">AiMessage</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">response</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;AI 服务调用失败&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AIException</span><span class="p">(</span><span class="s">&#34;AI 服务暂时不可用，请稍后重试&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="高级特性">高级特性</h2>
+<h3 id="对话流程">对话流程</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid"> sequenceDiagram
+participant Client
+participant Controller
+participant ChatService
+participant OpenAI
+
+    Client-&gt;&gt;Controller: POST /api/chat
+    Controller-&gt;&gt;ChatService: chat(message)
+    ChatService-&gt;&gt;ChatService: 添加用户消息到记忆
+    ChatService-&gt;&gt;OpenAI: 生成回复
+    OpenAI--&gt;&gt;ChatService: 返回回复
+    ChatService-&gt;&gt;ChatService: 添加 AI 回复到记忆
+    ChatService--&gt;&gt;Controller: 返回回复
+    Controller--&gt;&gt;Client: 返回响应
+
+note over Client,OpenAI: 完整的对话流程
+</code></pre><h3 id="prompt-模板使用">Prompt 模板使用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PromptService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PromptTemplate</span><span class="w"> </span><span class="n">promptTemplate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PromptTemplate</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="s">&#34;你是一个{{role}}，请用专业的角度回答：{{question}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getResponse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">role</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">question</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">promptTemplate</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">Parameters</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;role&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">role</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;question&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">question</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">chatModel</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="最佳实践">最佳实践</h2>
+<ol>
+<li>
+<p>使用环境变量或配置中心存储 API Key</p>
+</li>
+<li>
+<p>避免直接在代码中硬编码敏感信息</p>
+</li>
+<li>
+<p>定期轮换 API Key</p>
+</li>
+<li>
+<p>使用异步处理长时间运行的 AI 请求</p>
+</li>
+<li>
+<p>实现请求缓存减少 API 调用</p>
+</li>
+<li>
+<p>合理设置超时时间和重试策略</p>
+</li>
+<li>
+<p>实现 Token 计数和使用统计</p>
+</li>
+<li>
+<p>设置调用限额</p>
+</li>
+<li>
+<p>监控 API 调用成本</p>
+</li>
+</ol>
+<h2 id="常见问题">常见问题</h2>
+<p>建议设置合理的超时时间，并实现重试机制：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Retryable</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">TimeoutException</span><span class="p">.</span><span class="na">class</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">maxAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">3</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">backoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Backoff</span><span class="p">(</span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1000</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">chatWithRetry</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">chatService</span><span class="p">.</span><span class="na">chat</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>通过本文的介绍，我们学习了如何在 SpringBoot 项目中集成 LangChain4J，实现了一个基础的 AI 聊天应用。主要包括：</p>
+<ol>
+<li>基础配置和依赖管理</li>
+<li>核心功能实现</li>
+<li>高级特性使用</li>
+<li>性能优化和监控</li>
+<li>安全性考虑</li>
+</ol>
+<p>在实际开发中，建议根据具体需求选择合适的功能特性，同时注意安全性、性能和成本控制等方面的考虑。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://docs.langchain4j.dev">LangChain4j 官方文档</a></li>
+<li><a href="https://spring.io/projects/spring-boot">SpringBoot 官方文档</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference">OpenAI API 文档</a></li>
+</ul>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
+      <link>https://blog.lmafia.info/posts/springboot-langchain4j-agent/</link>
+      <pubDate>Mon, 20 Jan 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/springboot-langchain4j-agent/</guid>
+      <description>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent</description>
+      <content:encoded><![CDATA[<h2 id="什么是-ai-agent">什么是 AI Agent？</h2>
+<p>AI Agent 是一个能够自主决策和执行任务的智能代理。它可以：</p>
+<ul>
+<li>理解用户意图</li>
+<li>规划任务步骤</li>
+<li>调用工具完成任务</li>
+<li>处理异常情况</li>
+<li>持续优化决策</li>
+</ul>
+<h2 id="系统架构">系统架构</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
+    A[用户请求] --&gt; B[Agent Controller]
+    B --&gt; C[Agent Service]
+    C --&gt; D[任务规划器]
+    C --&gt; E[工具注册中心]
+    D --&gt; F[OpenAI]
+    E --&gt; G[计算器]
+    E --&gt; H[搜索引擎]
+    E --&gt; I[天气查询]
+    F --&gt; C
+    G --&gt; C
+    H --&gt; C
+    I --&gt; C
+</code></pre><h2 id="项目实现">项目实现</h2>
+<h3 id="1-maven-依赖配置">1. Maven 依赖配置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- SpringBoot --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- LangChain4j --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>langchain4j<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- LangChain4j Agent --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>dev.langchain4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>langchain4j-agent<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>0.27.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><h3 id="2-工具实现">2. 工具实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Tool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Tool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WeatherService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ToolFunction</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getWeather</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 调用天气 API</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;晴天，温度 25℃&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="3-agent-服务实现">3. Agent 服务实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AIAgentService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ToolRegistry</span><span class="w"> </span><span class="n">toolRegistry</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Agent</span><span class="w"> </span><span class="n">agent</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AIAgentService</span><span class="p">(</span><span class="n">ChatLanguageModel</span><span class="w"> </span><span class="n">chatModel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">chatModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">toolRegistry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ToolRegistry</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 注册工具</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">toolRegistry</span><span class="p">.</span><span class="na">registerTool</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Calculator</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">toolRegistry</span><span class="p">.</span><span class="na">registerTool</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WeatherService</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 创建 Agent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Agent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">chatLanguageModel</span><span class="p">(</span><span class="n">chatModel</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">toolRegistry</span><span class="p">(</span><span class="n">toolRegistry</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userInput</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">AgentResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent</span><span class="p">.</span><span class="na">process</span><span class="p">(</span><span class="n">userInput</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getOutput</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;Agent 处理失败&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;抱歉，我现在无法处理这个请求&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4-controller-实现">4. Controller 实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/api/agent&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AIAgentService</span><span class="w"> </span><span class="n">agentService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AgentController</span><span class="p">(</span><span class="n">AIAgentService</span><span class="w"> </span><span class="n">agentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">agentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agentService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/chat&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agentService</span><span class="p">.</span><span class="na">process</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">response</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="agent-工作流程">Agent 工作流程</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+participant User as 用户
+participant Agent as AI Agent
+participant LLM as 大语言模型
+participant Tools as 工具集
+
+    User-&gt;&gt;Agent: 发送请求
+    Agent-&gt;&gt;LLM: 分析用户意图
+    LLM--&gt;&gt;Agent: 返回任务分解
+    loop 任务执行
+        Agent-&gt;&gt;Tools: 调用相关工具
+        Tools--&gt;&gt;Agent: 返回工具结果
+        Agent-&gt;&gt;LLM: 结果评估
+        LLM--&gt;&gt;Agent: 下一步计划
+    end
+    Agent-&gt;&gt;User: 返回最终结果
+</code></pre><h2 id="示例场景">示例场景</h2>
+<h3 id="1-数学计算场景">1. 数学计算场景</h3>
+<p>用户输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">请帮我计算：(23 + 45) * 2 是多少？
+</span></span></code></pre></div><p>Agent 处理流程：</p>
+<ol>
+<li>分析出需要使用计算器工具</li>
+<li>拆分为加法和乘法两步</li>
+<li>调用计算器完成计算</li>
+<li>返回结果</li>
+</ol>
+<h3 id="2-天气查询场景">2. 天气查询场景</h3>
+<p>用户输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">北京今天天气怎么样？需要带伞吗？
+</span></span></code></pre></div><p>Agent 处理流程：</p>
+<ol>
+<li>识别需要查询天气</li>
+<li>调用天气服务获取数据</li>
+<li>分析是否需要带伞</li>
+<li>给出建议</li>
+</ol>
+<h2 id="最佳实践">最佳实践</h2>
+<h3 id="1-错误处理">1. 错误处理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AgentException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ControllerAdvice</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentExceptionHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">AgentException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleAgentException</span><span class="p">(</span><span class="n">AgentException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-性能优化">2. 性能优化</h3>
+<ol>
+<li>使用工具结果缓存</li>
+<li>实现并发任务处理</li>
+<li>设置合理的超时时间</li>
+</ol>
+<h3 id="3-监控指标">3. 监控指标</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AgentMetricsService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordToolUsage</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">toolName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">counter</span><span class="p">(</span><span class="s">&#34;agent.tool.usage&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;tool&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">toolName</span><span class="p">).</span><span class="na">increment</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordProcessingTime</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">milliseconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">timer</span><span class="p">(</span><span class="s">&#34;agent.processing.time&#34;</span><span class="p">).</span><span class="na">record</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="安全考虑">安全考虑</h2>
+<ol>
+<li>工具调用权限控制</li>
+<li>用户输入验证</li>
+<li>敏感信息保护</li>
+<li>调用频率限制</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>通过 SpringBoot + LangChain4j 实现的 AI Agent 具有以下优势：</p>
+<ol>
+<li>架构清晰，易于扩展</li>
+<li>工具集成灵活</li>
+<li>错误处理完善</li>
+<li>性能监控到位</li>
+</ol>
+<p>在实际应用中，可以根据具体需求：</p>
+<ul>
+<li>添加更多工具</li>
+<li>优化决策逻辑</li>
+<li>增强安全机制</li>
+<li>提升用户体验</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://docs.langchain4j.dev/agent">LangChain4j Agent 文档</a></li>
+<li><a href="https://spring.io/projects/spring-boot">SpringBoot 官方文档</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference">OpenAI API 文档</a></li>
+</ul>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>域名购买到博客配置的过程记录</title>
+      <link>https://blog.lmafia.info/posts/configure-domain/</link>
+      <pubDate>Sun, 22 Sep 2024 15:53:03 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/configure-domain/</guid>
+      <description>&lt;p&gt;这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
+旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
+这里感谢下赛博佛祖: &lt;code&gt;Cloudfalre&lt;/code&gt;&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
+旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
+这里感谢下赛博佛祖: <code>Cloudfalre</code></p>
+<h2 id="选择方案">选择方案</h2>
+<p>因为在国内域名要备案, 秉承着 <code>INTP</code> 的懒人思想, 能避免麻烦就避免选择了在国外注册域名, 当然也想着为以后能做点海外的产品或者网站先铺铺路.
+通过 <code>Google</code> 和询问了群里的大佬, 一般都是在哪里购买域名, 推荐是</p>
+<ul>
+<li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
+<li><a href="https://www.namecheap.com/">namecheap</a></li>
+</ul>
+<p>对比了下 2 个价格, namecheap 会便宜些, 所以就通过 namecheap 注册了</p>
+<h2 id="选择域名">选择域名</h2>
+<p>我一直以来用的 AKA 或者网名都是: L_MaFia , 根据 lmafia 搜索,哪个便宜买哪个, 比如 <code>.info</code>, <code>.xyz</code>, <code>.life</code> 啥的.
+<code>.info</code> 一年只需要 $2.4 左右, 注意购买的时候最好关闭自动续费,一般续费价格就不划算了,我也当做是练手,可能不一定会使用超过一年时间.</p>
+<h2 id="支付方式">支付方式</h2>
+<p><code>namecheap</code> 支持使用 <code>Visa</code>, <code>PayPal</code> 一些常用的国外支付方式, 这也应该难倒了不少网友了,如果我没有 <code>Visa</code> 卡, 全币卡咋办？
+其实,<code>PayPal</code> 是可以关联咱们的银联的储蓄卡的,这次购买一年的域名的花费总购不在 <strong>27RMB</strong>.</p>
+<p>我选择了一张基本不使用的建设银行的储蓄卡,但是在付费扣款时一直出现失败</p>
+<p>询问了群里的大佬,应该是有踩坑的经验: 国内一些银联卡可能会无法支付,他是用招商银行的卡支付的</p>
+<p>我记得我本科的时候,使用 <code>PayPal</code> 购买过 <code>DigitalOcean</code> 的服务器时用过工行卡,想着还是听大佬的先试试看,为了保险起见的话,打不了支付成功后再解绑即可.</p>
+<p>实测下来:</p>
+<ul>
+<li>建设银行-无法支付</li>
+<li>招商银行-成功支付</li>
+</ul>
+<h2 id="让域名指向博客">让域名指向博客</h2>
+<p>我的博客是用 <code>Hugo</code> 搭建的纯静态的网站,白嫖了 <code>Vercel</code> 和 <code>GithPage</code>, 体验下来 <code>Vercel</code> 的访问速度会好些,当然我后续我可能会尝试白嫖 <code>Cloudflare Pages</code></p>
+<h3 id="cloudfalre-添加域名">Cloudfalre 添加域名</h3>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
+<h3 id="cloudflare-的免费-ssl">Cloudflare 的免费 SSL</h3>
+<p>想用 <code>HTTPS</code> 就避免不了需要使用 <code>SSL</code>,不仅因为安全考虑,还有如果需要一些域名解析指向应用服务平台,平台也会一定的安全要求 ,<code>Cloudflare</code> 免费提供了 <code>SSL</code> 够我们开发者的博客内容使用了</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-ssl"  /></p>
+<p>一定要选择 <code>Strict</code> , 不然 <code>Vercel</code> 是不会给是指向过去的</p>
+<h3 id="cloudfalre-提供-dns-服务">Cloudfalre 提供 DNS 服务</h3>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/601c619ea66d25bec14f5bb9eed3b574.png" alt="cf-domain-dns"  /></p>
+<h3 id="namecheap-配置-dns">Namecheap 配置 DNS</h3>
+<p><code>Namecheap</code> 提供也 <code>DNS</code> 了,但是因为我们需要 <strong>白嫖</strong> <code>SSL</code>
+所以需要修改下 <code>DNS</code> 服务列表
+<code>Namecheap</code> 提供的教程:</p>
+<ul>
+<li><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-a-cloudflare-account/">How to set up DNS records for your domain in a Cloudflare account</a></li>
+</ul>
+<p>看其中的第三和第四步,大概也就了解了</p>
+<p>配置好这个之后,可以说我们的域名就可以交给 <code>Cloudfalre</code> 来 「管理」 了</p>
+<h3 id="cloudfalre-添加-dns-record">Cloudfalre 添加 DNS Record</h3>
+<p>这一步就是给用户访问域名的时候, 需要浏览到我们的具体网页地址上
+这里我添加了一个 <code>CNAME</code> 规则</p>
+<ul>
+<li><code>CNAME</code>: 域名解析为另外一个域名</li>
+</ul>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-dns-cname"  /></p>
+<p>当我输入浏览器输入: <code>blog.lmafia.info</code> 时, 会解析到目标地址: <code>Vercel</code> 的博客域名</p>
+<h3 id="vercel-域名添加配置"><code>Vercel</code> 域名添加配置</h3>
+<p>最后一步就是在 <code>Vercel</code> 给我们博客项目配置域名
+我们一直配置好 Cloudfalre 到 <code>Vercel</code> 的单向的配置了
+我估计是 <code>Vercel</code> 因为安全原因,还需要配置这个域名并会自动验证
+验证可用会有 2 个 ✅ 出现</p>
+<p>
+  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
+<h2 id="完成配置">完成配置</h2>
+<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.lmafia.info">https://blog.lmafia.info</a></p>
+<p>成功访问!</p>
+<p>恭喜,我们已经完成了给我们的博客配置一个属于自己的域名啦!</p>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>第一篇博客</title>
+      <link>https://blog.lmafia.info/posts/first-page/</link>
+      <pubDate>Fri, 29 Sep 2023 16:46:16 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/posts/first-page/</guid>
+      <description>&lt;p&gt;我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 &lt;code&gt;COVID-19&lt;/code&gt;，都困在家里完成毕业设计和毕业论文。&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
+<h2 id="为什么创建博客">为什么创建博客</h2>
+<p>主要是因为我没有博客, 所以我想搭一个, 哈哈哈.</p>
+<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
+<p>那会的毕业设计算是接了一个坑，是一个 ROS+SLAM 的机器人，老师给了我一个没有任何中文资料的激光雷达，我又去买了一个刚出树莓派 4B 来做系统。
+当时的中文资料比较有限，只能靠着自己摸索，和翻墙找资料，最后一点一点填出来。我当时想着既然没有啥中文资料，那不如自己写一个，就在 <code>CSDN</code> 上发了一篇关于在树莓派 4B 搭建 ROS 的博客。</p>
+<p>后来毕业之后，就转岗到 <code>Java</code> 开发了，完全从零基础就要上工的过程真的很痛苦，因为我也不是科班的，当时就花钱买了一个网上的培训课程，一心想着学成之后离开那家公司。</p>
+<p>当时上课做的笔记，自己总结一下就放到了 <code>CSDN</code> 上，主要是一种炫耀的心情吧，我自己认为最重要的原因就是想放在简历上，可以让面试官觉得自己稍微有点技术追求之类的。
+现在的 <code>CSDN</code> 已经在国内的技术圈子里开始臭名昭著了，所以我也不太愿意在上面发东西了。所以后面工作和业余的记录就通过 <code>Typroa</code> 写完上传到 <code>Github</code> 上。</p>
+<p>后来就一直用 <code>markdown</code> 记录，不过创建目录、文件应该放在什么位置，对我来说需要耗费心力的事情，我又是一个又懒又拖延的人，这样会让我不愿意去记录东西。后来在网上就刷到了双链笔记的相关文章，非常火的是 <code>notion</code> ，主要我觉得因为它对网络有一定要求，所以不是很喜欢。我还是更希望自己用一个纯本地的文本编辑: <code>obsidian</code> 和 <code>logseq</code>，其实都能满足我的需求了，最后是因为 UI ，选了我自己认为比较轻便的 <code>logseq</code> 。</p>
+<p>就这样，我就在 2022 年底，我过上了几乎每天都在记录的日子，记录自己的想法，自己的读书笔记，记录看技术文章或技术视频，记录看到的推文&hellip;</p>
+<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-01.png" type="" alt="1"  /></p>
+<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-02.png" type="" alt="2"  /></p>
+<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-03.png" type="" alt="3"  /></p>
+<p>随着记录不断增多，让我觉得我可能又只是在做一个小松鼠而已，自己的思考和总结并没有很大的提升。我一昧的记录，对我吸收知识帮助不是特别大。
+最近因为尝试把学习练手 <code>Vue3</code> 的静态网站搭建在 <code>Gitub Pages</code> 上，发现并不难。所以想自己尝试把自己的博客搭建起来，通过写博文的方式，让自己有动力去把日常记录的内容总结一下。</p>
+<h2 id="技术选型">技术选型</h2>
+<h3 id="开源博客">开源博客</h3>
+<ol>
+<li><a href="https://hexo.io/">Hexo</a></li>
+<li><a href="https://gohugo.io/">Hugo</a></li>
+<li><a href="https://vuepress.vuejs.org/">VuePress</a></li>
+<li><a href="https://vitepress.dev/">VitePress</a></li>
+</ol>
+<p>主要是想体验一下不同的技术，所以选择了基于 <code>go</code> 的 <code>hugo</code></p>
+<h3 id="服务器">服务器</h3>
+<p>直接白嫖 <a href="https://pages.github.com/">GitHub Pages</a></p>
+<h3 id="编辑器">编辑器</h3>
+<p><code>Visual Studio Code</code></p>
+<p>它真的非常适合，既能装 <code>markdown</code> 插件，又能作为 <code>Git</code> 的可视化，还能有 <code>terminal</code> 来方便我们敲命令。</p>
+<h2 id="需要会什么">需要会什么</h2>
+<p>折腾技术的最不怕不会任何东西， 应该都会有一颗保持好奇的心， 学习应该算是一件比较简单的事情啦， 又加上搜索引擎， 甚至用上如同 <code>ChatGPT</code> 这种的 <code>AI</code> 工具， 还是能解决我们大部分学习需求的吧。</p>
+<ol>
+<li><code>Git</code>: 毕竟要用到 <code>Github</code>, 而且有一定的版本管理还能方便咱们回溯内容</li>
+<li><code>Shell</code> 命令: 安装</li>
+</ol>]]></content:encoded>
+    </item>
+    
+  </channel>
 </rss>
