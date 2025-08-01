@@ -105,7 +105,6 @@
   }
 </style>
 
-
 <noscript>
     <style>
         #theme-toggle,
@@ -608,6 +607,28 @@ note over Client,OpenAI: 完整的对话流程
     <path d="M12 6H0l6-6z" />
   </svg>
 </a>
+
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<script>
+  
+  Array.from(document.getElementsByClassName("language-mermaid")).forEach(
+    (el) => {
+      el.parentElement.outerHTML = `<div class="mermaid">${el.innerHTML}</div>`;
+    }
+  );
+</script>
+<style>
+   
+  .mermaid svg {
+    display: block;
+    margin: auto;
+  }
+</style>
+
 
 <script>
   (function() {
