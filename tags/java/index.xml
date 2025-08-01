@@ -13,6 +13,142 @@
     <lastBuildDate>Fri, 23 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>整数向上取整公式证明</title>
+      <link>https://blog.lmafia.info/essays/ceil-for-integers/</link>
+      <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.lmafia.info/essays/ceil-for-integers/</guid>
+      <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
+<h2 id="背景">背景</h2>
+<p>在用 AI 编程的时候，让它给我生成一个分页处理的工具类:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pageSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pageSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&#34;pageSize must be greater than 0&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pageSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">safePage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">totalPages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">safePage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pageSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="n">pageSize</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>在 Review 生成代码的时候，发现求总页数的计算让我有点好奇，为什么它用这个公式
+求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 Mybatis Plus 的代码，发现他也是这么设计的:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 当前分页总页数
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getPages</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">0L</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">getSize</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">getTotal</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pages</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pages</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>所以 AI 给我的这个计算方式着实让我好奇:</p>
+<p><code>(total + pageSize - 1) / pageSize;</code></p>
+<p>我很好奇，为什么是加<code>b-1</code> 和除以<code>b</code></p>
+<p>所以后来，我向 Chapt 老师请教了如何证明这个公式是有效的。</p>
+<h2 id="证明过程">证明过程</h2>
+<p>“向上取整除法”的核心公式是：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>前提：</p>
+<ul>
+<li>a ≥ 0, b &gt; 0</li>
+<li>除法采用整数除法（向下取整）</li>
+<li>所有变量为整数</li>
+</ul>
+<h3 id="目标">目标</h3>
+<p>我们要证明这个公式：</p>
+<p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
+<p>右边是整数除法（向下取整），但通过 +b-1 的技巧实现了向上取整效果。</p>
+<h3 id="整数除法基础商和余">整数除法基础（商和余）</h3>
+<p>设 a = bq + r，其中：</p>
+<ul>
+<li>q = a / b 是向下取整的商</li>
+<li>r = a % b 是余数，满足 0 ≤ r &lt; b</li>
+</ul>
+<p>因此：</p>
+<ul>
+<li>如果 r = 0：说明 a 被 b 整除，结果无需进位。</li>
+<li>如果 r &gt; 0：则需进一位，即向上取整。</li>
+</ul>
+<h3 id="定义">定义</h3>
+<p>定义：</p>
+<p>$$
+\left\lceil \frac{a}{b} \right\rceil =
+\begin{cases}
+q, &amp; \text{if } r = 0 \\
+q + 1, &amp; \text{if } r &gt; 0
+\end{cases}
+$$</p>
+<h3 id="分情况讨论">分情况讨论</h3>
+<h4 id="当-r--0-时">当 r = 0 时</h4>
+<ul>
+<li>a = bq</li>
+<li>a + b - 1 = bq + b - 1</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{bq + b - 1}{b} =
+q + \left( \frac{b - 1}{b} \right)
+$$</p>
+<p>因为整数除法是向下取整的， (b - 1) &lt; b , 所以 (b - 1)/b 为 0</p>
+<p>所以证明得</p>
+<p>$$
+\frac{a + b - 1}{b} = \frac{b(q + 1) - 1}{b} = q
+$$</p>
+<h4 id="当-r--0-时-1">当 r &gt; 0 时</h4>
+<ul>
+<li>a = bq + r, 0 &lt; r &lt; b</li>
+<li>a + b - 1 = bq + r + b - 1 = b(q + 1) + (r - 1)</li>
+</ul>
+<p>代入</p>
+<p>$$ \frac{a + b - 1}{b} $$</p>
+<p>得到:</p>
+<p>$$
+\left( \frac{a + b - 1}{b} \right)
+= \left( \frac{b(q + 1) + (r - 1)}{b} \right)
+= (q + 1) + \left( \frac{r - 1}{b} \right)
+$$</p>
+<p>讨论 (r - 1) 和 b
+因为 0 &lt; r &lt; b , 所以 -1 &lt; r - 1 &lt; b - 1 &lt; b 得 r-1 &lt; b
+所以</p>
+<p>$$ \left( \frac{r - 1}{b} \right) = 0 $$</p>
+<p>所以证明得, 当 r &gt; 0 时</p>
+<p>$$ \frac{a + b - 1}{b} = (q + 1) + 0 = q + 1 $$</p>
+<h2 id="结语">结语</h2>
+<p>因为只是涉及整数的运算，用不到浮点运算比 JDK <code>Math</code>提供的 <code>ceil</code> 更适合分页的场景
+除此之外，还能用:</p>
+<ul>
+<li>底层的 <code>内存块</code> / <code>缓冲区</code>申请
+<blockquote>
+<p>BTW, 和公司的嵌入式同事强哥提到的时候，他能脱口而出这个公式，看来对嵌入式开发来说比较常用</p></blockquote>
+</li>
+<li>文件的<code>分块</code> ，以实现断点续传或分块并行下载</li>
+<li>分布式任务调度的 <code>分片计算</code></li>
+<li>大数据任务计算的 <code>批处理</code></li>
+</ul>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>整数向上取整公式证明</title>
       <link>https://blog.lmafia.info/posts/ceil-for-integers/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
