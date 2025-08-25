@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.lmafia.info/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.lmafia.info/notes/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.lmafia.info/tags/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.lmafia.info/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.lmafia.info/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.lmafia.info/notes/2025/20250823/</loc>
+    <lastmod>2025-08-23T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://blog.lmafia.info/categories/</loc>
     <lastmod>2025-05-23T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.lmafia.info/tags/java/</loc>
     <lastmod>2025-05-23T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.lmafia.info/</loc>
-    <lastmod>2025-05-23T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.lmafia.info/posts/</loc>
-    <lastmod>2025-05-23T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.lmafia.info/tags/</loc>
     <lastmod>2025-05-23T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.lmafia.info/categories/techology/</loc>
@@ -34,9 +46,6 @@
   </url><url>
     <loc>https://blog.lmafia.info/tags/tomcat/</loc>
     <lastmod>2025-05-11T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.lmafia.info/notes/</loc>
-    <lastmod>2025-03-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.lmafia.info/tags/unique-programmer/</loc>
     <lastmod>2025-03-23T00:00:00+08:00</lastmod>
