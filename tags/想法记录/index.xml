@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>想法 on KyleGeeks</title>
-    <link>https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95/</link>
-    <description>Recent content in 想法 on KyleGeeks</description>
+    <title>想法记录 on KyleGeeks</title>
+    <link>https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 想法记录 on KyleGeeks</description>
     <image>
       <url>https://blog.lmafia.info/images/danta.png</url>
       <link>https://blog.lmafia.info/images/danta.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>非一般程序员</title>
       <link>https://blog.lmafia.info/notes/2025/20250323/</link>
