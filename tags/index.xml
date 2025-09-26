@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on KyleGeeks</title>
-    <link>https://blog.lmafia.info/tags/</link>
+    <link>https://blog.kylegeeks.com/tags/</link>
     <description>Recent content in Tags on KyleGeeks</description>
     <image>
-      <url>https://blog.lmafia.info/images/danta.png</url>
-      <link>https://blog.lmafia.info/images/danta.png</link>
+      <url>https://blog.kylegeeks.com/images/danta.png</url>
+      <link>https://blog.kylegeeks.com/images/danta.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>亲密关系</title>
-      <link>https://blog.lmafia.info/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</link>
+      <link>https://blog.kylegeeks.com/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>生活记录</title>
-      <link>https://blog.lmafia.info/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</link>
+      <link>https://blog.kylegeeks.com/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>Java</title>
-      <link>https://blog.lmafia.info/tags/java/</link>
+      <link>https://blog.kylegeeks.com/tags/java/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/java/</guid>
+      <guid>https://blog.kylegeeks.com/tags/java/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>函数编程</title>
-      <link>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</link>
+      <link>https://blog.kylegeeks.com/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>SpringBoot</title>
-      <link>https://blog.lmafia.info/tags/springboot/</link>
+      <link>https://blog.kylegeeks.com/tags/springboot/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/springboot/</guid>
+      <guid>https://blog.kylegeeks.com/tags/springboot/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>Tomcat</title>
-      <link>https://blog.lmafia.info/tags/tomcat/</link>
+      <link>https://blog.kylegeeks.com/tags/tomcat/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/tomcat/</guid>
+      <guid>https://blog.kylegeeks.com/tags/tomcat/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>想法记录</title>
-      <link>https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</link>
+      <link>https://blog.kylegeeks.com/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sun, 23 Mar 2025 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>职业发展</title>
-      <link>https://blog.lmafia.info/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</link>
+      <link>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</link>
       <pubDate>Sun, 23 Mar 2025 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>LangChain4J</title>
-      <link>https://blog.lmafia.info/tags/langchain4j/</link>
+      <link>https://blog.kylegeeks.com/tags/langchain4j/</link>
       <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/langchain4j/</guid>
+      <guid>https://blog.kylegeeks.com/tags/langchain4j/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
     <item>
       <title>建站</title>
-      <link>https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/</link>
+      <link>https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/</link>
       <pubDate>Sun, 22 Sep 2024 15:53:03 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/</guid>
+      <guid>https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>想法记录 on KyleGeeks</title>
-    <link>https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</link>
+    <link>https://blog.kylegeeks.com/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/</link>
     <description>Recent content in 想法记录 on KyleGeeks</description>
     <image>
-      <url>https://blog.lmafia.info/images/danta.png</url>
-      <link>https://blog.lmafia.info/images/danta.png</link>
+      <url>https://blog.kylegeeks.com/images/danta.png</url>
+      <link>https://blog.kylegeeks.com/images/danta.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>非一般程序员</title>
-      <link>https://blog.lmafia.info/notes/2025/20250323/</link>
+      <link>https://blog.kylegeeks.com/notes/2025/20250323/</link>
       <pubDate>Sun, 23 Mar 2025 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/notes/2025/20250323/</guid>
+      <guid>https://blog.kylegeeks.com/notes/2025/20250323/</guid>
       <description>&lt;p&gt;我有个不太像一般程序员的特点：我喜欢钻业务。遇到业务问题，我愿意虚心和他们请教交流。不会当下提出我的意见和看法，因为他们才是这方面专家，你过多的建议反而会影响他们对你的看法。&lt;/p&gt;
 &lt;p&gt;我更愿意的做法是，下来自己思考和研究，收集资料和问下其他人与 AI ，参考综合的意见。&lt;/p&gt;
 &lt;p&gt;可以的话，我再把这些内容在技术团队里面来分享，注意注意，大部分搞技术的人是傲慢的，你只能作为尽量低姿态的分享而已，当然，除非你具有一定的个人魅力，或者说你是领导&lt;/p&gt;</description>

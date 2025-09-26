@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>建站 on KyleGeeks</title>
-    <link>https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/</link>
+    <link>https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/</link>
     <description>Recent content in 建站 on KyleGeeks</description>
     <image>
-      <url>https://blog.lmafia.info/images/danta.png</url>
-      <link>https://blog.lmafia.info/images/danta.png</link>
+      <url>https://blog.kylegeeks.com/images/danta.png</url>
+      <link>https://blog.kylegeeks.com/images/danta.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Sep 2024 15:53:03 +0800</lastBuildDate><atom:link href="https://blog.lmafia.info/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Sep 2024 15:53:03 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>域名购买到博客配置的过程记录</title>
-      <link>https://blog.lmafia.info/posts/configure-domain/</link>
+      <link>https://blog.kylegeeks.com/posts/configure-domain/</link>
       <pubDate>Sun, 22 Sep 2024 15:53:03 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/posts/configure-domain/</guid>
+      <guid>https://blog.kylegeeks.com/posts/configure-domain/</guid>
       <description>&lt;p&gt;这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
 旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
 这里感谢下赛博佛祖: &lt;code&gt;Cloudfalre&lt;/code&gt;&lt;/p&gt;</description>
@@ -49,17 +49,17 @@
 <p>我的博客是用 <code>Hugo</code> 搭建的纯静态的网站,白嫖了 <code>Vercel</code> 和 <code>GithPage</code>, 体验下来 <code>Vercel</code> 的访问速度会好些,当然我后续我可能会尝试白嫖 <code>Cloudflare Pages</code></p>
 <h3 id="cloudfalre-添加域名">Cloudfalre 添加域名</h3>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
 <h3 id="cloudflare-的免费-ssl">Cloudflare 的免费 SSL</h3>
 <p>想用 <code>HTTPS</code> 就避免不了需要使用 <code>SSL</code>,不仅因为安全考虑,还有如果需要一些域名解析指向应用服务平台,平台也会一定的安全要求 ,<code>Cloudflare</code> 免费提供了 <code>SSL</code> 够我们开发者的博客内容使用了</p>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-ssl"  /></p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-ssl"  /></p>
 <p>一定要选择 <code>Strict</code> , 不然 <code>Vercel</code> 是不会给是指向过去的</p>
 <h3 id="cloudfalre-提供-dns-服务">Cloudfalre 提供 DNS 服务</h3>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/601c619ea66d25bec14f5bb9eed3b574.png" alt="cf-domain-dns"  /></p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/601c619ea66d25bec14f5bb9eed3b574.png" alt="cf-domain-dns"  /></p>
 <h3 id="namecheap-配置-dns">Namecheap 配置 DNS</h3>
 <p><code>Namecheap</code> 提供也 <code>DNS</code> 了,但是因为我们需要 <strong>白嫖</strong> <code>SSL</code>
 所以需要修改下 <code>DNS</code> 服务列表
@@ -76,27 +76,27 @@
 <li><code>CNAME</code>: 域名解析为另外一个域名</li>
 </ul>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-dns-cname"  /></p>
-<p>当我输入浏览器输入: <code>blog.lmafia.info</code> 时, 会解析到目标地址: <code>Vercel</code> 的博客域名</p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-dns-cname"  /></p>
+<p>当我输入浏览器输入: <code>blog.kylegeeks.com</code> 时, 会解析到目标地址: <code>Vercel</code> 的博客域名</p>
 <h3 id="vercel-域名添加配置"><code>Vercel</code> 域名添加配置</h3>
 <p>最后一步就是在 <code>Vercel</code> 给我们博客项目配置域名
 我们一直配置好 Cloudfalre 到 <code>Vercel</code> 的单向的配置了
 我估计是 <code>Vercel</code> 因为安全原因,还需要配置这个域名并会自动验证
 验证可用会有 2 个 ✅ 出现</p>
 <p>
-  <img loading="lazy" src="https://image-s3.lmafia.info/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
 <h2 id="完成配置">完成配置</h2>
-<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.lmafia.info">https://blog.lmafia.info</a></p>
+<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
 <p>成功访问!</p>
 <p>恭喜,我们已经完成了给我们的博客配置一个属于自己的域名啦!</p>]]></content:encoded>
     </item>
     
     <item>
       <title>第一篇博客</title>
-      <link>https://blog.lmafia.info/posts/first-page/</link>
+      <link>https://blog.kylegeeks.com/posts/first-page/</link>
       <pubDate>Fri, 29 Sep 2023 16:46:16 +0800</pubDate>
       
-      <guid>https://blog.lmafia.info/posts/first-page/</guid>
+      <guid>https://blog.kylegeeks.com/posts/first-page/</guid>
       <description>&lt;p&gt;我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 &lt;code&gt;COVID-19&lt;/code&gt;，都困在家里完成毕业设计和毕业论文。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
 <h2 id="为什么创建博客">为什么创建博客</h2>
