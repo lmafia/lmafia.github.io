@@ -89,9 +89,13 @@
     <loc>https://blog.kylegeeks.com/posts/first-page/</loc>
     <lastmod>2023-09-29T16:46:16+08:00</lastmod>
   </url><url>
+    <loc>https://blog.kylegeeks.com/archives/</loc>
+  </url><url>
     <loc>https://blog.kylegeeks.com/notes/archives/</loc>
   </url><url>
     <loc>https://blog.kylegeeks.com/posts/archives/</loc>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/search/</loc>
   </url><url>
     <loc>https://blog.kylegeeks.com/series/</loc>
   </url>
