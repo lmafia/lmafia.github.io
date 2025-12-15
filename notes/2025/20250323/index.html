@@ -182,7 +182,6 @@ function setPrefTheme(theme) {
 
 const toggleThemeCallbacks = {}
 toggleThemeCallbacks['main'] = (isDark) => {
-  
   if (isDark) {
     setPrefTheme('light');
   } else {
@@ -310,7 +309,49 @@ function toggleThemeListener() {
 </nav>
 
   </footer>
-    <div class="comments-separator"></div>
+    <div class="comments-separator"></div><div class="comments-box utterances-widget">
+  <div id="utterances-widget-container"></div>
+</div>
+<script>
+  (function () {
+    const key = "utterances-widget";
+
+    
+    if (!toggleThemeCallbacks.hasOwnProperty(key)) {
+      toggleThemeCallbacks[key] = (isDark) => {
+        loadUtterances(!isDark);
+      };
+    }
+
+    function loadUtterances(isDark) {
+      const container = document.querySelector("#utterances-widget-container");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      const script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "lmafia/blog-comment");
+      script.setAttribute("issue-term", "pathname");
+      script.setAttribute("crossOrigin", "anonymous");
+      script.setAttribute("async", "true");
+      if (isDark) {
+        console.log("当前主题是 Dark");
+        
+        script.setAttribute("theme", "github-dark");
+      } else {
+        
+        script.setAttribute("theme", "github-light");
+      }
+
+      container.appendChild(script);
+    }
+
+    
+    loadUtterances(isDarkTheme());
+  })();
+</script>
+
 </article>
     </main><footer class="footer">
   <div sytle="">
