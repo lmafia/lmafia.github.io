@@ -7,35 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Hugo 添加 Giscus 作为评论系统 | KyleGeeks</title>
 <meta name="keywords" content="建站, hugo">
-<meta name="description" content="一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。
-可以在 Hugo 的官方翻到 Content Management 里 Commnet
-的内容，虽然内容草草写了下配置 Disqus, 但在最后面提供一些开源评论系统的选择。
-
-Open-source commenting systems:
-
-Cactus Comments
-Comentario
-Comma
-Commento
-Discourse
-Giscus
-Isso
-Remark42
-Staticman
-Talkyard
-Utterances
-
-
-本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。
-这样就只剩下 Giscus 和 Utterances 了
-Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。
-Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。
-接下来就让我们为博客引入 Giscus 吧
-创建 Gitub 仓库
-首先需要新建一个新的公共仓库，仓库需要是公共的，不然访客将无法查看 Discussion；
-我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。
-仓库默认是不打开 Discussions 功能的，需要我们手动开启。
-菜单路径: Settings -&gt; General -&gt; Features -&gt; Discussions">
+<meta name="description" content="Hugo 添加 Giscus 作为评论系统 - KyleGeeks">
 <meta name="author" content="KyleLian">
 <link rel="canonical" href="https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.1487df829b2876adf8b5acbdd3295a759dd5ee34139294fb674b429f016aff62.css" integrity="sha256-FIffgpsodq34tay90yladZ3V7jQTkpT7Z0tCnwFq/2I=" rel="preload stylesheet" as="style">
@@ -44,65 +16,9 @@ Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的�
 <link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Hugo 添加 Giscus 作为评论系统 | KyleGeeks" />
-<meta name="twitter:description" content="一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。
-可以在 Hugo 的官方翻到 Content Management 里 Commnet
-的内容，虽然内容草草写了下配置 Disqus, 但在最后面提供一些开源评论系统的选择。
-
-Open-source commenting systems:
-
-Cactus Comments
-Comentario
-Comma
-Commento
-Discourse
-Giscus
-Isso
-Remark42
-Staticman
-Talkyard
-Utterances
-
-
-本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。
-这样就只剩下 Giscus 和 Utterances 了
-Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。
-Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。
-接下来就让我们为博客引入 Giscus 吧
-创建 Gitub 仓库
-首先需要新建一个新的公共仓库，仓库需要是公共的，不然访客将无法查看 Discussion；
-我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。
-仓库默认是不打开 Discussions 功能的，需要我们手动开启。
-菜单路径: Settings -&gt; General -&gt; Features -&gt; Discussions" />
+<meta name="twitter:description" content="" />
 <meta property="og:title" content="Hugo 添加 Giscus 作为评论系统 | KyleGeeks" />
-<meta property="og:description" content="一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。
-可以在 Hugo 的官方翻到 Content Management 里 Commnet
-的内容，虽然内容草草写了下配置 Disqus, 但在最后面提供一些开源评论系统的选择。
-
-Open-source commenting systems:
-
-Cactus Comments
-Comentario
-Comma
-Commento
-Discourse
-Giscus
-Isso
-Remark42
-Staticman
-Talkyard
-Utterances
-
-
-本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。
-这样就只剩下 Giscus 和 Utterances 了
-Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。
-Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。
-接下来就让我们为博客引入 Giscus 吧
-创建 Gitub 仓库
-首先需要新建一个新的公共仓库，仓库需要是公共的，不然访客将无法查看 Discussion；
-我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。
-仓库默认是不打开 Discussions 功能的，需要我们手动开启。
-菜单路径: Settings -&gt; General -&gt; Features -&gt; Discussions" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/" />
     <meta property="og:image" content="https://blog.kylegeeks.com/kyle-avatar.jpg"/>
@@ -137,7 +53,7 @@ Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的�
   "@type": "BlogPosting",
   "headline": "Hugo 添加 Giscus 作为评论系统 | KyleGeeks",
   "name": "Hugo 添加 Giscus 作为评论系统",
-  "description": "一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。\n可以在 Hugo 的官方翻到 Content Management 里 Commnet 的内容，虽然内容草草写了下配置 Disqus, 但在最后面提供一些开源评论系统的选择。\nOpen-source commenting systems:\nCactus Comments Comentario Comma Commento Discourse Giscus Isso Remark42 Staticman Talkyard Utterances 本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。\n这样就只剩下 Giscus 和 Utterances 了\nGiscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。\nGiscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。\n接下来就让我们为博客引入 Giscus 吧\n创建 Gitub 仓库 首先需要新建一个新的公共仓库，仓库需要是公共的，不然访客将无法查看 Discussion； 我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。\n仓库默认是不打开 Discussions 功能的，需要我们手动开启。\n菜单路径: Settings -\u0026gt; General -\u0026gt; Features -\u0026gt; Discussions\n",
+  "description": "",
   "keywords": [
     "建站", "hugo"
   ],
@@ -526,7 +442,6 @@ function toggleThemeListener() {
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/39cf03a813a537c74c9605f21afcf025.png" alt="适配暗色主题"  /></p>
 <p>以上就是我为我的博客添加 Giscus 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
 <p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>
-
   </div>
 
   <footer class="post-footer">

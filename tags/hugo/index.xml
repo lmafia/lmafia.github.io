@@ -17,35 +17,7 @@
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/</guid>
-      <description>&lt;p&gt;一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。&lt;/p&gt;
-&lt;p&gt;可以在 Hugo 的官方翻到 &lt;code&gt;Content Management&lt;/code&gt; 里 &lt;a href=&#34;https://gohugo.io/content-management/comments/&#34;&gt;Commnet&lt;/a&gt;
-的内容，虽然内容草草写了下配置 &lt;code&gt;Disqus&lt;/code&gt;, 但在最后面提供一些开源评论系统的选择。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Open-source commenting systems:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Cactus Comments&lt;/li&gt;
-&lt;li&gt;Comentario&lt;/li&gt;
-&lt;li&gt;Comma&lt;/li&gt;
-&lt;li&gt;Commento&lt;/li&gt;
-&lt;li&gt;Discourse&lt;/li&gt;
-&lt;li&gt;Giscus&lt;/li&gt;
-&lt;li&gt;Isso&lt;/li&gt;
-&lt;li&gt;Remark42&lt;/li&gt;
-&lt;li&gt;Staticman&lt;/li&gt;
-&lt;li&gt;Talkyard&lt;/li&gt;
-&lt;li&gt;Utterances&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。&lt;/p&gt;
-&lt;p&gt;这样就只剩下 &lt;a href=&#34;https://giscus.app/&#34;&gt;Giscus&lt;/a&gt; 和 &lt;a href=&#34;https://utteranc.es/&#34;&gt;Utterances&lt;/a&gt; 了&lt;/p&gt;
-&lt;p&gt;Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。&lt;/p&gt;
-&lt;p&gt;Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。&lt;/p&gt;
-&lt;p&gt;接下来就让我们为博客引入 Giscus 吧&lt;/p&gt;
-&lt;h2 id=&#34;创建-gitub-仓库&#34;&gt;创建 Gitub 仓库&lt;/h2&gt;
-&lt;p&gt;首先需要新建一个&lt;a href=&#34;https://github.com/new&#34;&gt;新的公共仓库&lt;/a&gt;，仓库需要是公共的，不然访客将无法查看 Discussion；
-我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。&lt;/p&gt;
-&lt;p&gt;仓库默认是不打开 &lt;code&gt;Discussions&lt;/code&gt; 功能的，需要我们手动开启。&lt;/p&gt;
-&lt;p&gt;菜单路径: &lt;code&gt;Settings -&amp;gt; General -&amp;gt; Features -&amp;gt; Discussions&lt;/code&gt;&lt;/p&gt;</description>
+      <description></description>
       <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
 的内容，虽然内容草草写了下配置 <code>Disqus</code>, 但在最后面提供一些开源评论系统的选择。</p>
@@ -176,8 +148,7 @@
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/39cf03a813a537c74c9605f21afcf025.png" alt="适配暗色主题"  /></p>
 <p>以上就是我为我的博客添加 Giscus 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
-<p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>
-]]></content:encoded>
+<p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>]]></content:encoded>
     </item>
     
   </channel>
