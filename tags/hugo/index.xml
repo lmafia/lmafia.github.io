@@ -13,10 +13,10 @@
     <lastBuildDate>Tue, 16 Dec 2025 09:50:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 添加 Giscus 作为评论系统</title>
-      <link>https://blog.kylegeeks.com/posts/2025/12/16/hugo-add-giscus-as-comment-system/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</link>
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/2025/12/16/hugo-add-giscus-as-comment-system/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</guid>
       <description>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</description>
       <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
