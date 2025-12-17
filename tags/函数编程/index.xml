@@ -13,10 +13,10 @@
     <lastBuildDate>Fri, 23 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>整数向上取整公式证明</title>
-      <link>https://blog.kylegeeks.com/posts/ceil-for-integers/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/ceil-for-integers/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</guid>
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
 <h2 id="背景">背景</h2>
@@ -150,10 +150,10 @@ $$</p>
     
     <item>
       <title>用 Java 来实现高阶函数</title>
-      <link>https://blog.kylegeeks.com/posts/fucniton-for-java/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</link>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/fucniton-for-java/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</guid>
       <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
 <h3 id="funciton-接口的定义">Funciton 接口的定义</h3>

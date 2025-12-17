@@ -13,10 +13,10 @@
     <lastBuildDate>Tue, 16 Dec 2025 09:50:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/categories/techology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 添加 Giscus 作为评论系统</title>
-      <link>https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/12/16/hugo-add-giscus-as-comment-system/</link>
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/12/16/hugo-add-giscus-as-comment-system/</guid>
       <description>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</description>
       <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
@@ -153,10 +153,10 @@
     
     <item>
       <title>整数向上取整公式证明</title>
-      <link>https://blog.kylegeeks.com/posts/ceil-for-integers/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/ceil-for-integers/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</guid>
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
 <h2 id="背景">背景</h2>
@@ -290,10 +290,10 @@ $$</p>
     
     <item>
       <title>SpringWeb 线程泄漏问题排查</title>
-      <link>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</guid>
       <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
 &lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
 &lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
@@ -375,10 +375,10 @@ $$</p>
     
     <item>
       <title>用 Java 来实现高阶函数</title>
-      <link>https://blog.kylegeeks.com/posts/fucniton-for-java/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</link>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/fucniton-for-java/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</guid>
       <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
 <h3 id="funciton-接口的定义">Funciton 接口的定义</h3>
@@ -447,10 +447,10 @@ $$</p>
     
     <item>
       <title>LangChain4J 功能架构详解</title>
-      <link>https://blog.kylegeeks.com/posts/langchain4j-tool/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/</link>
       <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/langchain4j-tool/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/</guid>
       <description>通过脑图详细解析 LangChain4J 的功能架构和应用场景</description>
       <content:encoded><![CDATA[<h2 id="langchain4j-功能架构">LangChain4J 功能架构</h2>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid"> mindmap
@@ -543,10 +543,10 @@ $$</p>
     
     <item>
       <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
-      <link>https://blog.kylegeeks.com/posts/springboot-langchain4j/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/02/springboot-langchain4j/</link>
       <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/springboot-langchain4j/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/02/springboot-langchain4j/</guid>
       <description>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力</description>
       <content:encoded><![CDATA[<h2 id="简介">简介</h2>
 <p>LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快速构建基于大语言模型的应用。本文将详细介绍如何在 SpringBoot 项目中集成 LangChain4J，并实现一个简单的 AI 聊天应用。</p>
@@ -779,10 +779,10 @@ note over Client,OpenAI: 完整的对话流程
     
     <item>
       <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
-      <link>https://blog.kylegeeks.com/posts/springboot-langchain4j-agent/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/01/springboot-langchain4j-agent/</link>
       <pubDate>Mon, 20 Jan 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/springboot-langchain4j-agent/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/01/springboot-langchain4j-agent/</guid>
       <description>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent</description>
       <content:encoded><![CDATA[<h2 id="什么是-ai-agent">什么是 AI Agent？</h2>
 <p>AI Agent 是一个能够自主决策和执行任务的智能代理。它可以：</p>
@@ -1013,10 +1013,10 @@ participant Tools as 工具集
     
     <item>
       <title>域名购买到博客配置的过程记录</title>
-      <link>https://blog.kylegeeks.com/posts/configure-domain/</link>
+      <link>https://blog.kylegeeks.com/posts/2024/09/22/configure-domain/</link>
       <pubDate>Sun, 22 Sep 2024 15:53:03 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/configure-domain/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2024/09/22/configure-domain/</guid>
       <description>&lt;p&gt;这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
 旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
 这里感谢下赛博佛祖: &lt;code&gt;Cloudfalre&lt;/code&gt;&lt;/p&gt;</description>
@@ -1093,10 +1093,10 @@ participant Tools as 工具集
     
     <item>
       <title>第一篇博客</title>
-      <link>https://blog.kylegeeks.com/posts/first-page/</link>
+      <link>https://blog.kylegeeks.com/posts/2023/09/29/first-page/</link>
       <pubDate>Fri, 29 Sep 2023 16:46:16 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/first-page/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2023/09/29/first-page/</guid>
       <description>&lt;p&gt;我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 &lt;code&gt;COVID-19&lt;/code&gt;，都困在家里完成毕业设计和毕业论文。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
 <h2 id="为什么创建博客">为什么创建博客</h2>
@@ -1109,9 +1109,9 @@ participant Tools as 工具集
 现在的 <code>CSDN</code> 已经在国内的技术圈子里开始臭名昭著了，所以我也不太愿意在上面发东西了。所以后面工作和业余的记录就通过 <code>Typroa</code> 写完上传到 <code>Github</code> 上。</p>
 <p>后来就一直用 <code>markdown</code> 记录，不过创建目录、文件应该放在什么位置，对我来说需要耗费心力的事情，我又是一个又懒又拖延的人，这样会让我不愿意去记录东西。后来在网上就刷到了双链笔记的相关文章，非常火的是 <code>notion</code> ，主要我觉得因为它对网络有一定要求，所以不是很喜欢。我还是更希望自己用一个纯本地的文本编辑: <code>obsidian</code> 和 <code>logseq</code>，其实都能满足我的需求了，最后是因为 UI ，选了我自己认为比较轻便的 <code>logseq</code> 。</p>
 <p>就这样，我就在 2022 年底，我过上了几乎每天都在记录的日子，记录自己的想法，自己的读书笔记，记录看技术文章或技术视频，记录看到的推文&hellip;</p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-01.png" type="" alt="1"  /></p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-02.png" type="" alt="2"  /></p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-03.png" type="" alt="3"  /></p>
+<p><img loading="lazy" src="/posts/2023/09/29/first-page/2023-logseq-hot-01.png" type="" alt="1"  /></p>
+<p><img loading="lazy" src="/posts/2023/09/29/first-page/2023-logseq-hot-02.png" type="" alt="2"  /></p>
+<p><img loading="lazy" src="/posts/2023/09/29/first-page/2023-logseq-hot-03.png" type="" alt="3"  /></p>
 <p>随着记录不断增多，让我觉得我可能又只是在做一个小松鼠而已，自己的思考和总结并没有很大的提升。我一昧的记录，对我吸收知识帮助不是特别大。
 最近因为尝试把学习练手 <code>Vue3</code> 的静态网站搭建在 <code>Gitub Pages</code> 上，发现并不难。所以想自己尝试把自己的博客搭建起来，通过写博文的方式，让自己有动力去把日常记录的内容总结一下。</p>
 <h2 id="技术选型">技术选型</h2>

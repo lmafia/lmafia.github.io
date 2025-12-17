@@ -5,65 +5,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>SpringWeb 线程泄漏问题排查 | KyleGeeks</title>
-<meta name="keywords" content="Java, Tomcat, SpringBoot">
-<meta name="description" content="现在是什么问题?
-最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
-周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.
-开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况
-
-  
-可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」
-没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛
-看看怎么个事儿
-开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的
-天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID
-然后再来一个 jstack:
-通过 jstack pid &gt; thread_dump.log 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: awk, grep">
+<title>LangChain4J 功能架构详解 | KyleGeeks</title>
+<meta name="keywords" content="LangChain4J">
+<meta name="description" content="通过脑图详细解析 LangChain4J 的功能架构和应用场景">
 <meta name="author" content="KyleLian">
-<link rel="canonical" href="https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/">
+<link rel="canonical" href="https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.1487df829b2876adf8b5acbdd3295a759dd5ee34139294fb674b429f016aff62.css" integrity="sha256-FIffgpsodq34tay90yladZ3V7jQTkpT7Z0tCnwFq/2I=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.kylegeeks.com/favicon.ico">
 <link rel="apple-touch-icon" href="https://blog.kylegeeks.com/apple-touch-icon.png">
-<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/">
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="SpringWeb 线程泄漏问题排查 | KyleGeeks" />
-<meta name="twitter:description" content="现在是什么问题?
-最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
-周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.
-开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况
+<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/">
 
-  
-可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」
-没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛
-看看怎么个事儿
-开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的
-天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID
-然后再来一个 jstack:
-通过 jstack pid &gt; thread_dump.log 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: awk, grep" />
-<meta property="og:title" content="SpringWeb 线程泄漏问题排查 | KyleGeeks" />
-<meta property="og:description" content="现在是什么问题?
-最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
-周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.
-开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况
-
-  
-可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」
-没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛
-看看怎么个事儿
-开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的
-天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID
-然后再来一个 jstack:
-通过 jstack pid &gt; thread_dump.log 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: awk, grep" />
+  <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LangChain4J 功能架构详解 | KyleGeeks" />
+<meta name="twitter:description" content="通过脑图详细解析 LangChain4J 的功能架构和应用场景" />
+<meta property="og:title" content="LangChain4J 功能架构详解 | KyleGeeks" />
+<meta property="og:description" content="通过脑图详细解析 LangChain4J 的功能架构和应用场景" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/" />
-    <meta property="og:image" content="https://blog.kylegeeks.com/kyle-avatar.jpg"/>
-<meta property="article:section" content="posts" />
-  <meta property="article:published_time" content="2025-05-11T10:00:00&#43;08:00" />
-  <meta property="article:modified_time" content="2025-05-11T10:00:00&#43;08:00" />
+<meta property="og:url" content="https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/" />
+    <meta property="og:image" content="https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/https:/image-s3.kylegeeks.com/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" /><meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2025-02-20T10:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2025-02-20T10:00:00&#43;08:00" />
 
 
 <script type="application/ld+json">
@@ -80,8 +41,8 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "SpringWeb 线程泄漏问题排查",
-      "item": "https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/"
+      "name": "LangChain4J 功能架构详解",
+      "item": "https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/"
     }
   ]
 }
@@ -90,23 +51,23 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "SpringWeb 线程泄漏问题排查 | KyleGeeks",
-  "name": "SpringWeb 线程泄漏问题排查",
-  "description": "现在是什么问题? 最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅\n周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.\n开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况\n可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」\n没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛\n看看怎么个事儿 开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的 天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID\n然后再来一个 jstack:\n通过 jstack pid \u0026gt; thread_dump.log 把线程和上下文都 dump 出来 然后再来请上我们的 Linux 三剑客之二: awk, grep\n",
+  "headline": "LangChain4J 功能架构详解 | KyleGeeks",
+  "name": "LangChain4J 功能架构详解",
+  "description": "通过脑图详细解析 LangChain4J 的功能架构和应用场景",
   "keywords": [
-    "Java", "Tomcat", "SpringBoot"
+    "LangChain4J"
   ],
-  "wordCount" : "281",
+  "wordCount" : "108",
   "inLanguage": "en",
-  "datePublished": "2025-05-11T10:00:00+08:00",
-  "dateModified": "2025-05-11T10:00:00+08:00",
+  "image":"https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/https:/image-s3.kylegeeks.com/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png","datePublished": "2025-02-20T10:00:00+08:00",
+  "dateModified": "2025-02-20T10:00:00+08:00",
   "author":[{
     "@type": "Person",
     "name": "KyleLian"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/"
+    "@id": "https://blog.kylegeeks.com/posts/2025/02/langchain4j-tool/"
   },
   "publisher": {
     "@type": "Organization",
@@ -313,21 +274,25 @@ function toggleThemeListener() {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/posts/">Posts</a></div><h1 class="post-title">SpringWeb 线程泄漏问题排查</h1>
+    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/posts/">Posts</a></div><h1 class="post-title">LangChain4J 功能架构详解</h1>
+    <div class="post-description">通过脑图详细解析 LangChain4J 的功能架构和应用场景</div>
     <div class="post-meta"><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
-  <span>2025-05-11</span></span><span class="meta-item">
+  <span>2025-02-20</span></span><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
-  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/java/">Java</a><a href="https://blog.kylegeeks.com/tags/tomcat/">Tomcat</a><a href="https://blog.kylegeeks.com/tags/springboot/">SpringBoot</a></span></span><span class="meta-item">
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/langchain4j/">LangChain4J</a></span></span><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
-  <span>281 words</span></span><span class="meta-item">
+  <span>108 words</span></span><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
-  <span>2 min</span></span>
+  <span>1 min</span></span>
 
       
       
     </div>
-  </header> <div class="toc side right">
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/02/12c0b4edd1e6d92fa6d2bd81f4c44016.png" alt="">
+        
+</figure><div class="toc side right">
     <details  open>
         <summary accesskey="c" title="(Alt + C)">
             <span class="details">Table of Contents</span>
@@ -335,99 +300,129 @@ function toggleThemeListener() {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e7%8e%b0%e5%9c%a8%e6%98%af%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98" aria-label="现在是什么问题?">现在是什么问题?</a></li>
+                    <a href="#langchain4j-%e5%8a%9f%e8%83%bd%e6%9e%b6%e6%9e%84" aria-label="LangChain4J 功能架构">LangChain4J 功能架构</a></li>
                 <li>
-                    <a href="#%e7%9c%8b%e7%9c%8b%e6%80%8e%e4%b9%88%e4%b8%aa%e4%ba%8b%e5%84%bf" aria-label="看看怎么个事儿">看看怎么个事儿</a></li>
+                    <a href="#%e5%8a%9f%e8%83%bd%e6%a8%a1%e5%9d%97%e8%af%a6%e8%a7%a3" aria-label="功能模块详解">功能模块详解</a><ul>
+                        
                 <li>
-                    <a href="#%e6%9c%89%e7%82%b9%e7%9c%89%e7%9b%ae%e4%ba%86" aria-label="有点眉目了">有点眉目了</a></li>
+                    <a href="#1-%e6%a8%a1%e5%9e%8b%e9%9b%86%e6%88%90" aria-label="1. 模型集成">1. 模型集成</a></li>
                 <li>
-                    <a href="#%e7%bb%88%e4%ba%8e%e6%8d%89%e5%88%b0%e8%99%ab" aria-label="终于捉到虫">终于捉到虫</a></li>
+                    <a href="#2-%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd" aria-label="2. 核心功能">2. 核心功能</a></li>
                 <li>
-                    <a href="#%e5%ad%a6%e5%88%b0%e4%ba%86%e5%95%a5" aria-label="学到了啥">学到了啥</a>
+                    <a href="#3-%e5%b7%a5%e5%85%b7%e9%9b%86%e6%88%90" aria-label="3. 工具集成">3. 工具集成</a></li>
+                <li>
+                    <a href="#4-%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="4. 应用场景">4. 应用场景</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a>
                 </li>
             </ul>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><h2 id="现在是什么问题">现在是什么问题?</h2>
-<p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
-<p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>
-<p>开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" alt="Grafana - JVM"  /></p>
-<p>可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
-<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
-<h2 id="看看怎么个事儿">看看怎么个事儿</h2>
-<p>开发环境都是丢在一台虚拟机上的, 而且就是直接 <code>java -jar</code> 部署的
-天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 PID</p>
-<p>然后再来一个 <code>jstack</code>:</p>
-<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: <code>awk</code>, <code>grep</code></p>
-<blockquote>
-<p>这里你以为我的 Linux 命令用的很溜嘛? 其实都是 ChatGPT 给我的, 没了他我可就是个菜鸡 😭</p>
-</blockquote>
-<p>执行:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> tee /dev/tty <span class="p">|</span> wc -l
-</span></span></code></pre></div><p>输出:</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/c5142a3e8061795b159256255ce8d378.png" alt="jstack 统计"  /></p>
-<p>好家伙, 大部分都是 <code>http-nio-exec-*</code> 证明都是请求没有释放还是咋地啊？</p>
-<p>咱们可是都是 Spring Boot 工程师呢 , 用得当然是我们的 SpringBoot + SpringWeb (Tomcat 内置)</p>
-<p>我们最近也没升级啥 Tomcat 的版本, 也没修改什么配置的, 到底咋个回事?</p>
-<p>挑几个请求的线程看看日志吧, 发现基本都处在 WAITING（Park）状态</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" alt="http-nio-exec 上下文"  /></p>
-<p>而且几乎所有 WAITING 状态的都来自 Druid 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" alt="com.alibaba.druid.pool.DruidDataSource#getConnectionInternal"  />
-我们的在服务配置的 max-active = 20, 说明 20 个链接可能都被占着, 一直没还回去.</p>
-<p>难道是高并发? 是不是要直接把 max-active 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 Bug 导致的</p>
-<p>因为还没给 Druid 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 http 请求线程来看.</p>
-<p>发现均来自给设备升级的业务, 这个业务的接口在开发环境一般是了半夜 2 点定时任务触发的, 很少在从客户端请求</p>
-<h2 id="有点眉目了">有点眉目了</h2>
-<p>本来想看能不能知道几个线程的存活时间, 通过存活时间来推算日志时间来看业务日志, 转念一想, 都已知具体触发时间, 就搭配线程名和业务关键来过滤日志吧, 就在日志的海洋 🌊 里遨游吧, 骚年</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png" alt=""  />
-排查了好一会儿, 突然发现有几个 Feign 的调用是报错的, 通过 trace 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" alt="wait 报错堆栈"  /></p>
-<p>奇怪, 怎么有一个 wait 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java.lang.InterruptedException: null
-</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait0<span class="o">(</span>Native Method<span class="o">)</span>
-</span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait<span class="o">(</span>Object.java:366<span class="o">)</span>
-</span></span></code></pre></div><p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 while(可能会真) 里加了个 object.wait(时间).</p>
-<p>那么我们看下这几个一直 wait 的请求吧.对了, 这里的线程应该是为 TIMED_WAITING 状态, 因为是加了等待时间的, 只是一直在 while 里出不来.</p>
-<h2 id="终于捉到虫">终于捉到虫</h2>
-<p>再次请出我们的 Linux 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span>
-</span></span></code></pre></div><p>输出内容:</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/2a77023e10e7ab5583f5093d8f37f9f7.png" alt="TIMED_WAITING 线程们"  /></p>
-<p>看了除了 <code>http-nio-exec-280</code> 外的日志, 都是卡在出问题的代码上:</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" alt="IMED_WAITING 报错"  /></p>
-<p>而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.</p>
-<p>因为有个监控会定时调用「登陆」接口来判断服务是否正常, 所以后面 200+ 个请求积压都是来自「登陆」接口.</p>
-<h2 id="学到了啥">学到了啥</h2>
-<p>和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.</p>
-<p>虽然 AI 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
+  <div class="post-content"><h2 id="langchain4j-功能架构">LangChain4J 功能架构</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid"> mindmap
+  root((LangChain4J))
+    模型集成
+      OpenAI
+        ChatGPT
+        GPT-4
+      Azure OpenAI
+      Anthropic Claude
+      本地模型
+        Ollama
+    核心功能
+      Prompt Engineering
+        PromptTemplate
+        Few-shot Learning
+        Chain of Thought
+      Memory
+        消息记忆
+        对话历史
+        向量存储
+      Embedding
+        文本向量化
+        相似度搜索
+        知识库构建
+    工具集成
+      RAG
+        文档加载器
+        文本分割
+        向量数据库
+      Agent
+        工具调用
+        任务规划
+        自主决策
+    应用场景
+      智能客服
+        多轮对话
+        知识库问答
+        意图识别
+      文档处理
+        自动摘要
+        信息提取
+        文档分类
+      代码助手
+        代码生成
+        代码解释
+        Bug分析
+</code></pre><h2 id="功能模块详解">功能模块详解</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">	classDiagram
+	class A{
+		&lt;&lt;interface&gt;&gt;
+	}
 
+	class B{
+		&lt;&lt;interface&gt;&gt;
+	}
+
+	A --&gt; B
+</code></pre><h3 id="1-模型集成">1. 模型集成</h3>
+<p>LangChain4J 支持多种大语言模型的接入，包括：</p>
+<ul>
+<li>OpenAI 的 GPT 系列</li>
+<li>Azure OpenAI 服务</li>
+<li>Anthropic Claude</li>
+<li>本地部署的开源模型</li>
+</ul>
+<h3 id="2-核心功能">2. 核心功能</h3>
+<p>核心功能模块提供了构建 AI 应用的基础能力：</p>
+<ul>
+<li>Prompt 工程：模板管理和优化</li>
+<li>记忆系统：对话历史管理</li>
+<li>向量计算：文本嵌入和相似度计算</li>
+</ul>
+<h3 id="3-工具集成">3. 工具集成</h3>
+<p>提供了丰富的工具集成能力：</p>
+<ul>
+<li>RAG：支持文档检索和知识库构建</li>
+<li>Agent：支持复杂任务的规划和执行</li>
+</ul>
+<h3 id="4-应用场景">4. 应用场景</h3>
+<p>常见的应用场景包括：</p>
+<ul>
+<li>智能客服系统</li>
+<li>文档处理自动化</li>
+<li>AI 辅助编程</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>LangChain4J 提供了完整的 AI 应用开发框架，通过合理使用这些功能模块，可以快速构建强大的 AI 应用。</p>
   </div>
 
   <footer class="post-footer">
 <nav class="paginav">
-  <a class="prev" href="https://blog.kylegeeks.com/posts/ceil-for-integers/">
+  <a class="prev" href="https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/">
     <span class="title">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left" style="user-select: text;"><line x1="19" y1="12" x2="5" y2="12" style="user-select: text;"></line><polyline points="12 19 5 12 12 5" style="user-select: text;"></polyline></svg>&nbsp;Prev Page</span>
     <br>
-    <span>整数向上取整公式证明</span>
+    <span>用 Java 来实现高阶函数</span>
   </a>
-  <a class="next" href="https://blog.kylegeeks.com/posts/fucniton-for-java/">
+  <a class="next" href="https://blog.kylegeeks.com/posts/2025/02/springboot-langchain4j/">
     <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
     </span>
     <br>
-    <span>用 Java 来实现高阶函数</span>
+    <span>在 SpringBoot 中接入 LangChain4J 开发指南</span>
   </a>
 </nav>
 
@@ -528,6 +523,27 @@ function toggleThemeListener() {
     <path d="M12 6H0l6-6z" />
   </svg>
 </a>
+
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<script>
+  
+  Array.from(document.getElementsByClassName("language-mermaid")).forEach(
+    (el) => {
+      el.parentElement.outerHTML = `<div class="mermaid">${el.innerHTML}</div>`;
+    }
+  );
+</script>
+<style>
+   
+  .mermaid svg {
+    display: block;
+    margin: auto;
+  }
+</style>
 
 
 <script>

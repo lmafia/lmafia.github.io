@@ -13,10 +13,10 @@
     <lastBuildDate>Fri, 23 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>整数向上取整公式证明</title>
-      <link>https://blog.kylegeeks.com/posts/ceil-for-integers/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</link>
       <pubDate>Fri, 23 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/ceil-for-integers/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/ceil-for-integers/</guid>
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
 <h2 id="背景">背景</h2>
@@ -150,10 +150,10 @@ $$</p>
     
     <item>
       <title>SpringWeb 线程泄漏问题排查</title>
-      <link>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</guid>
       <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
 &lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
 &lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
@@ -235,10 +235,10 @@ $$</p>
     
     <item>
       <title>用 Java 来实现高阶函数</title>
-      <link>https://blog.kylegeeks.com/posts/fucniton-for-java/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</link>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/fucniton-for-java/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</guid>
       <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
 <h3 id="funciton-接口的定义">Funciton 接口的定义</h3>

@@ -13,10 +13,10 @@
     <lastBuildDate>Sun, 11 May 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringWeb 线程泄漏问题排查</title>
-      <link>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</link>
       <pubDate>Sun, 11 May 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/</guid>
       <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
 &lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
 &lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
@@ -98,10 +98,10 @@
     
     <item>
       <title>在 SpringBoot 中接入 LangChain4J 开发指南</title>
-      <link>https://blog.kylegeeks.com/posts/springboot-langchain4j/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/02/springboot-langchain4j/</link>
       <pubDate>Thu, 20 Feb 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/springboot-langchain4j/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/02/springboot-langchain4j/</guid>
       <description>详细介绍如何在 SpringBoot 项目中集成 LangChain4J，实现 AI 能力</description>
       <content:encoded><![CDATA[<h2 id="简介">简介</h2>
 <p>LangChain4j 是一个强大的 Java AI 开发框架，它可以帮助我们快速构建基于大语言模型的应用。本文将详细介绍如何在 SpringBoot 项目中集成 LangChain4J，并实现一个简单的 AI 聊天应用。</p>
@@ -334,10 +334,10 @@ note over Client,OpenAI: 完整的对话流程
     
     <item>
       <title>SpringBoot &#43; LangChain4j 实现智能 AI Agent</title>
-      <link>https://blog.kylegeeks.com/posts/springboot-langchain4j-agent/</link>
+      <link>https://blog.kylegeeks.com/posts/2025/01/springboot-langchain4j-agent/</link>
       <pubDate>Mon, 20 Jan 2025 10:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/posts/springboot-langchain4j-agent/</guid>
+      <guid>https://blog.kylegeeks.com/posts/2025/01/springboot-langchain4j-agent/</guid>
       <description>详细介绍如何使用 SpringBoot 和 LangChain4j 实现一个智能 AI Agent</description>
       <content:encoded><![CDATA[<h2 id="什么是-ai-agent">什么是 AI Agent？</h2>
 <p>AI Agent 是一个能够自主决策和执行任务的智能代理。它可以：</p>
