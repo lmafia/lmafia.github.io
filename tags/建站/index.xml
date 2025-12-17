@@ -17,7 +17,7 @@
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/</guid>
-      <description></description>
+      <description>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</description>
       <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
 的内容，虽然内容草草写了下配置 <code>Disqus</code>, 但在最后面提供一些开源评论系统的选择。</p>
