@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>建站 on KyleGeeks</title>
-    <link>https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/</link>
-    <description>Recent content in 建站 on KyleGeeks</description>
+    <title>Hugo on KyleGeeks</title>
+    <link>https://blog.kylegeeks.com/tags/hugo/</link>
+    <description>Recent content in Hugo on KyleGeeks</description>
     <image>
       <url>https://blog.kylegeeks.com/images/kyle-avatar.jpg</url>
       <link>https://blog.kylegeeks.com/images/kyle-avatar.jpg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Dec 2025 09:50:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Dec 2025 09:50:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 添加 Giscus 作为评论系统</title>
       <link>https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/</link>
@@ -178,131 +178,6 @@
 <p>以上就是我为我的博客添加 Giscus 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
 <p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>
 ]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>域名购买到博客配置的过程记录</title>
-      <link>https://blog.kylegeeks.com/posts/configure-domain/</link>
-      <pubDate>Sun, 22 Sep 2024 15:53:03 +0800</pubDate>
-      
-      <guid>https://blog.kylegeeks.com/posts/configure-domain/</guid>
-      <description>&lt;p&gt;这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
-旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
-这里感谢下赛博佛祖: &lt;code&gt;Cloudfalre&lt;/code&gt;&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>这篇记录详细描述了我从购买域名到配置博客的全过程, 包括选择域名, 注册步骤, DNS 设置及博客平台配置等关键环节.
-旨在帮助读者了解每一步的具体操作, 为他们的博客创建提供参考.
-这里感谢下赛博佛祖: <code>Cloudfalre</code></p>
-<h2 id="选择方案">选择方案</h2>
-<p>因为在国内域名要备案, 秉承着 <code>INTP</code> 的懒人思想, 能避免麻烦就避免选择了在国外注册域名, 当然也想着为以后能做点海外的产品或者网站先铺铺路.
-通过 <code>Google</code> 和询问了群里的大佬, 一般都是在哪里购买域名, 推荐是</p>
-<ul>
-<li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
-<li><a href="https://www.namecheap.com/">namecheap</a></li>
-</ul>
-<p>对比了下 2 个价格, namecheap 会便宜些, 所以就通过 namecheap 注册了</p>
-<h2 id="选择域名">选择域名</h2>
-<p>我一直以来用的 AKA 或者网名都是: L_MaFia , 根据 lmafia 搜索,哪个便宜买哪个, 比如 <code>.info</code>, <code>.xyz</code>, <code>.life</code> 啥的.
-<code>.info</code> 一年只需要 $2.4 左右, 注意购买的时候最好关闭自动续费,一般续费价格就不划算了,我也当做是练手,可能不一定会使用超过一年时间.</p>
-<h2 id="支付方式">支付方式</h2>
-<p><code>namecheap</code> 支持使用 <code>Visa</code>, <code>PayPal</code> 一些常用的国外支付方式, 这也应该难倒了不少网友了,如果我没有 <code>Visa</code> 卡, 全币卡咋办？
-其实,<code>PayPal</code> 是可以关联咱们的银联的储蓄卡的,这次购买一年的域名的花费总购不在 <strong>27RMB</strong>.</p>
-<p>我选择了一张基本不使用的建设银行的储蓄卡,但是在付费扣款时一直出现失败</p>
-<p>询问了群里的大佬,应该是有踩坑的经验: 国内一些银联卡可能会无法支付,他是用招商银行的卡支付的</p>
-<p>我记得我本科的时候,使用 <code>PayPal</code> 购买过 <code>DigitalOcean</code> 的服务器时用过工行卡,想着还是听大佬的先试试看,为了保险起见的话,打不了支付成功后再解绑即可.</p>
-<p>实测下来:</p>
-<ul>
-<li>建设银行-无法支付</li>
-<li>招商银行-成功支付</li>
-</ul>
-<h2 id="让域名指向博客">让域名指向博客</h2>
-<p>我的博客是用 <code>Hugo</code> 搭建的纯静态的网站,白嫖了 <code>Vercel</code> 和 <code>GithPage</code>, 体验下来 <code>Vercel</code> 的访问速度会好些,当然我后续我可能会尝试白嫖 <code>Cloudflare Pages</code></p>
-<h3 id="cloudfalre-添加域名">Cloudfalre 添加域名</h3>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/de60df2613b1133f7364f412109858ab.png" alt="cf-domain-add"  /></p>
-<h3 id="cloudflare-的免费-ssl">Cloudflare 的免费 SSL</h3>
-<p>想用 <code>HTTPS</code> 就避免不了需要使用 <code>SSL</code>,不仅因为安全考虑,还有如果需要一些域名解析指向应用服务平台,平台也会一定的安全要求 ,<code>Cloudflare</code> 免费提供了 <code>SSL</code> 够我们开发者的博客内容使用了</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-ssl"  /></p>
-<p>一定要选择 <code>Strict</code> , 不然 <code>Vercel</code> 是不会给是指向过去的</p>
-<h3 id="cloudfalre-提供-dns-服务">Cloudfalre 提供 DNS 服务</h3>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/601c619ea66d25bec14f5bb9eed3b574.png" alt="cf-domain-dns"  /></p>
-<h3 id="namecheap-配置-dns">Namecheap 配置 DNS</h3>
-<p><code>Namecheap</code> 提供也 <code>DNS</code> 了,但是因为我们需要 <strong>白嫖</strong> <code>SSL</code>
-所以需要修改下 <code>DNS</code> 服务列表
-<code>Namecheap</code> 提供的教程:</p>
-<ul>
-<li><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-a-cloudflare-account/">How to set up DNS records for your domain in a Cloudflare account</a></li>
-</ul>
-<p>看其中的第三和第四步,大概也就了解了</p>
-<p>配置好这个之后,可以说我们的域名就可以交给 <code>Cloudfalre</code> 来 「管理」 了</p>
-<h3 id="cloudfalre-添加-dns-record">Cloudfalre 添加 DNS Record</h3>
-<p>这一步就是给用户访问域名的时候, 需要浏览到我们的具体网页地址上
-这里我添加了一个 <code>CNAME</code> 规则</p>
-<ul>
-<li><code>CNAME</code>: 域名解析为另外一个域名</li>
-</ul>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/96c64f4a47229bc5b7bfb92f89c51031.png" alt="cf-domain-dns-cname"  /></p>
-<p>当我输入浏览器输入: <code>blog.kylegeeks.com</code> 时, 会解析到目标地址: <code>Vercel</code> 的博客域名</p>
-<h3 id="vercel-域名添加配置"><code>Vercel</code> 域名添加配置</h3>
-<p>最后一步就是在 <code>Vercel</code> 给我们博客项目配置域名
-我们一直配置好 Cloudfalre 到 <code>Vercel</code> 的单向的配置了
-我估计是 <code>Vercel</code> 因为安全原因,还需要配置这个域名并会自动验证
-验证可用会有 2 个 ✅ 出现</p>
-<p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
-<h2 id="完成配置">完成配置</h2>
-<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
-<p>成功访问!</p>
-<p>恭喜,我们已经完成了给我们的博客配置一个属于自己的域名啦!</p>]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>第一篇博客</title>
-      <link>https://blog.kylegeeks.com/posts/first-page/</link>
-      <pubDate>Fri, 29 Sep 2023 16:46:16 +0800</pubDate>
-      
-      <guid>https://blog.kylegeeks.com/posts/first-page/</guid>
-      <description>&lt;p&gt;我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 &lt;code&gt;COVID-19&lt;/code&gt;，都困在家里完成毕业设计和毕业论文。&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
-<h2 id="为什么创建博客">为什么创建博客</h2>
-<p>主要是因为我没有博客, 所以我想搭一个, 哈哈哈.</p>
-<p>我的第一篇想要输出的博客内容应该是在大四的时候，那时候应该 <code>COVID-19</code>，都困在家里完成毕业设计和毕业论文。</p>
-<p>那会的毕业设计算是接了一个坑，是一个 ROS+SLAM 的机器人，老师给了我一个没有任何中文资料的激光雷达，我又去买了一个刚出树莓派 4B 来做系统。
-当时的中文资料比较有限，只能靠着自己摸索，和翻墙找资料，最后一点一点填出来。我当时想着既然没有啥中文资料，那不如自己写一个，就在 <code>CSDN</code> 上发了一篇关于在树莓派 4B 搭建 ROS 的博客。</p>
-<p>后来毕业之后，就转岗到 <code>Java</code> 开发了，完全从零基础就要上工的过程真的很痛苦，因为我也不是科班的，当时就花钱买了一个网上的培训课程，一心想着学成之后离开那家公司。</p>
-<p>当时上课做的笔记，自己总结一下就放到了 <code>CSDN</code> 上，主要是一种炫耀的心情吧，我自己认为最重要的原因就是想放在简历上，可以让面试官觉得自己稍微有点技术追求之类的。
-现在的 <code>CSDN</code> 已经在国内的技术圈子里开始臭名昭著了，所以我也不太愿意在上面发东西了。所以后面工作和业余的记录就通过 <code>Typroa</code> 写完上传到 <code>Github</code> 上。</p>
-<p>后来就一直用 <code>markdown</code> 记录，不过创建目录、文件应该放在什么位置，对我来说需要耗费心力的事情，我又是一个又懒又拖延的人，这样会让我不愿意去记录东西。后来在网上就刷到了双链笔记的相关文章，非常火的是 <code>notion</code> ，主要我觉得因为它对网络有一定要求，所以不是很喜欢。我还是更希望自己用一个纯本地的文本编辑: <code>obsidian</code> 和 <code>logseq</code>，其实都能满足我的需求了，最后是因为 UI ，选了我自己认为比较轻便的 <code>logseq</code> 。</p>
-<p>就这样，我就在 2022 年底，我过上了几乎每天都在记录的日子，记录自己的想法，自己的读书笔记，记录看技术文章或技术视频，记录看到的推文&hellip;</p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-01.png" type="" alt="1"  /></p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-02.png" type="" alt="2"  /></p>
-<p><img loading="lazy" src="/posts/first-page/2023-logseq-hot-03.png" type="" alt="3"  /></p>
-<p>随着记录不断增多，让我觉得我可能又只是在做一个小松鼠而已，自己的思考和总结并没有很大的提升。我一昧的记录，对我吸收知识帮助不是特别大。
-最近因为尝试把学习练手 <code>Vue3</code> 的静态网站搭建在 <code>Gitub Pages</code> 上，发现并不难。所以想自己尝试把自己的博客搭建起来，通过写博文的方式，让自己有动力去把日常记录的内容总结一下。</p>
-<h2 id="技术选型">技术选型</h2>
-<h3 id="开源博客">开源博客</h3>
-<ol>
-<li><a href="https://hexo.io/">Hexo</a></li>
-<li><a href="https://gohugo.io/">Hugo</a></li>
-<li><a href="https://vuepress.vuejs.org/">VuePress</a></li>
-<li><a href="https://vitepress.dev/">VitePress</a></li>
-</ol>
-<p>主要是想体验一下不同的技术，所以选择了基于 <code>go</code> 的 <code>hugo</code></p>
-<h3 id="服务器">服务器</h3>
-<p>直接白嫖 <a href="https://pages.github.com/">GitHub Pages</a></p>
-<h3 id="编辑器">编辑器</h3>
-<p><code>Visual Studio Code</code></p>
-<p>它真的非常适合，既能装 <code>markdown</code> 插件，又能作为 <code>Git</code> 的可视化，还能有 <code>terminal</code> 来方便我们敲命令。</p>
-<h2 id="需要会什么">需要会什么</h2>
-<p>折腾技术的最不怕不会任何东西， 应该都会有一颗保持好奇的心， 学习应该算是一件比较简单的事情啦， 又加上搜索引擎， 甚至用上如同 <code>ChatGPT</code> 这种的 <code>AI</code> 工具， 还是能解决我们大部分学习需求的吧。</p>
-<ol>
-<li><code>Git</code>: 毕竟要用到 <code>Github</code>, 而且有一定的版本管理还能方便咱们回溯内容</li>
-<li><code>Shell</code> 命令: 安装</li>
-</ol>]]></content:encoded>
     </item>
     
   </channel>

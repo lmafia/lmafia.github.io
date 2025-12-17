@@ -458,6 +458,12 @@ $$</p>
 
   <footer class="post-footer">
 <nav class="paginav">
+  <a class="prev" href="https://blog.kylegeeks.com/posts/hugo-add-giscus-as-comment-system/">
+    <span class="title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left" style="user-select: text;"><line x1="19" y1="12" x2="5" y2="12" style="user-select: text;"></line><polyline points="12 19 5 12 12 5" style="user-select: text;"></polyline></svg>&nbsp;Prev Page</span>
+    <br>
+    <span>Hugo 添加 Giscus 作为评论系统</span>
+  </a>
   <a class="next" href="https://blog.kylegeeks.com/posts/debug-tomcat-thread-issue/">
     <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
     </span>
@@ -467,46 +473,59 @@ $$</p>
 </nav>
 
   </footer>
-    <div class="comments-separator"></div><div class="comments-box utterances-widget">
-  <div id="utterances-widget-container"></div>
+    <div class="comments-separator"></div><div class="comments-box giscus-widget">
+  <div id="giscus-widget-container"></div>
 </div>
 <script>
+  var giscus_config = {
+    "data-repo": "lmafia/blog-comment",
+    "data-repo-id": "R_kgDOQpOURg",
+    "data-category": "Announcements",
+    "data-category-id": "DIC_kwDOQpOURs4Cz2PI",
+    "data-mapping": "pathname",
+    "data-strict": "0",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-lang": "en",
+    "data-theme": "noborder_light",
+  };
+
   (function () {
-    const key = "utterances-widget";
+    const key = "giscus-widget";
 
     
     if (!toggleThemeCallbacks.hasOwnProperty(key)) {
       toggleThemeCallbacks[key] = (isDark) => {
-        loadUtterances(!isDark);
+        loadgiscus(!isDark);
       };
     }
 
-    function loadUtterances(isDark) {
-      const container = document.querySelector("#utterances-widget-container");
+    function loadgiscus(isDark) {
+      const container = document.querySelector("#giscus-widget-container");
       if (!container) return;
 
       container.innerHTML = "";
 
-      const script = document.createElement("script");
-      script.src = "https://utteranc.es/client.js";
-      script.setAttribute("repo", "lmafia/blog-comment");
-      script.setAttribute("issue-term", "pathname");
-      script.setAttribute("crossOrigin", "anonymous");
-      script.setAttribute("async", "true");
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      for (const key in giscus_config) {
+        s.setAttribute(key, giscus_config[key]);
+      }
+      s.async = true;
       if (isDark) {
-        console.log("当前主题是 Dark");
         
-        script.setAttribute("theme", "github-dark");
+        s.setAttribute("data-theme", "noborder_gray");
       } else {
         
-        script.setAttribute("theme", "github-light");
+        s.setAttribute("data-theme", "noborder_light");
       }
-
-      container.appendChild(script);
+      s.setAttribute("data-no-instant", "");
+      container.appendChild(s);
     }
 
     
-    loadUtterances(isDarkTheme());
+    loadgiscus(isDarkTheme());
   })();
 </script>
 

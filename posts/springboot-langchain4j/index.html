@@ -588,46 +588,59 @@ note over Client,OpenAI: 完整的对话流程
 </nav>
 
   </footer>
-    <div class="comments-separator"></div><div class="comments-box utterances-widget">
-  <div id="utterances-widget-container"></div>
+    <div class="comments-separator"></div><div class="comments-box giscus-widget">
+  <div id="giscus-widget-container"></div>
 </div>
 <script>
+  var giscus_config = {
+    "data-repo": "lmafia/blog-comment",
+    "data-repo-id": "R_kgDOQpOURg",
+    "data-category": "Announcements",
+    "data-category-id": "DIC_kwDOQpOURs4Cz2PI",
+    "data-mapping": "pathname",
+    "data-strict": "0",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-lang": "en",
+    "data-theme": "noborder_light",
+  };
+
   (function () {
-    const key = "utterances-widget";
+    const key = "giscus-widget";
 
     
     if (!toggleThemeCallbacks.hasOwnProperty(key)) {
       toggleThemeCallbacks[key] = (isDark) => {
-        loadUtterances(!isDark);
+        loadgiscus(!isDark);
       };
     }
 
-    function loadUtterances(isDark) {
-      const container = document.querySelector("#utterances-widget-container");
+    function loadgiscus(isDark) {
+      const container = document.querySelector("#giscus-widget-container");
       if (!container) return;
 
       container.innerHTML = "";
 
-      const script = document.createElement("script");
-      script.src = "https://utteranc.es/client.js";
-      script.setAttribute("repo", "lmafia/blog-comment");
-      script.setAttribute("issue-term", "pathname");
-      script.setAttribute("crossOrigin", "anonymous");
-      script.setAttribute("async", "true");
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      for (const key in giscus_config) {
+        s.setAttribute(key, giscus_config[key]);
+      }
+      s.async = true;
       if (isDark) {
-        console.log("当前主题是 Dark");
         
-        script.setAttribute("theme", "github-dark");
+        s.setAttribute("data-theme", "noborder_gray");
       } else {
         
-        script.setAttribute("theme", "github-light");
+        s.setAttribute("data-theme", "noborder_light");
       }
-
-      container.appendChild(script);
+      s.setAttribute("data-no-instant", "");
+      container.appendChild(s);
     }
 
     
-    loadUtterances(isDarkTheme());
+    loadgiscus(isDarkTheme());
   })();
 </script>
 
