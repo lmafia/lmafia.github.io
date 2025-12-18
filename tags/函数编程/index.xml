@@ -20,7 +20,7 @@
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
 <h2 id="背景">背景</h2>
-<p>在用 AI 编程的时候，让它给我生成一个分页处理的工具类:</p>
+<p>在用 <code>AI</code> 编程的时候，让它给我生成一个分页处理的工具类:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pageSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
@@ -45,7 +45,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>在 Review 生成代码的时候，发现求总页数的计算让我有点好奇，为什么它用这个公式
-求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 Mybatis Plus 的代码，发现他也是这么设计的:</p>
+求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 <code>Mybatis Plus</code> 的代码，发现他也是这么设计的:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 当前分页总页数
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
@@ -62,9 +62,9 @@
 </span></span></span></code></pre></div><p>所以 AI 给我的这个计算方式着实让我好奇:</p>
 <p><code>(total + pageSize - 1) / pageSize;</code></p>
 <p>我很好奇，为什么是加<code>b-1</code> 和除以<code>b</code></p>
-<p>所以后来，我向 Chapt 老师请教了如何证明这个公式是有效的。</p>
+<p>所以后来，我向 <code>ChaptGPT</code> 老师请教了如何证明这个公式是有效的。</p>
 <h2 id="证明过程">证明过程</h2>
-<p>“向上取整除法”的核心公式是：</p>
+<p><code>向上取整除法</code> 的核心公式是：</p>
 <p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
 <p>前提：</p>
 <ul>
@@ -154,8 +154,8 @@ $$</p>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</guid>
-      <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
+      <description>&lt;p&gt;如何用 &lt;code&gt;Java&lt;/code&gt; 使用高阶函数&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>如何用 <code>Java</code> 使用高阶函数</p>
 <h3 id="funciton-接口的定义">Funciton 接口的定义</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * Represents a function that accepts one argument and produces a result.

@@ -17,8 +17,8 @@
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</guid>
-      <description>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</description>
-      <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
+      <description>给 Hugo 添加 Giscus 的记录过程</description>
+      <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
 的内容，虽然内容草草写了下配置 <code>Disqus</code>, 但在最后面提供一些开源评论系统的选择。</p>
 <blockquote>
@@ -37,13 +37,13 @@
 <li>Utterances</li>
 </ul>
 </blockquote>
-<p>本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。</p>
+<p>本着能免费使用就免费的原则，选择依托于 <code>GitHub</code> 的 <code>feature</code> 搭建的方法，这样就不需要自建数据库了。</p>
 <p>这样就只剩下 <a href="https://giscus.app/">Giscus</a> 和 <a href="https://utteranc.es/">Utterances</a> 了</p>
-<p>Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。</p>
-<p>Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。</p>
-<p>接下来就让我们为博客引入 Giscus 吧</p>
+<p><code>Giscus</code> 是基于 <code>GitHub Discussions</code> 实现的评论系统，而 <code>Utterances</code> 是基于 <code>GitHub Issues</code> 实现的评论系统。</p>
+<p><code>Giscus</code> 是受 <code>Utterances</code> 启发的项目，至少在 <code>README</code> 里是这么写的，会比 <code>Utterances</code> 更新一点。我对比了下 UI，个人更喜欢 <code>Giscus</code> 的扁平一点的风格。</p>
+<p>接下来就让我们为博客引入 <code>Giscus</code> 吧</p>
 <h2 id="创建-gitub-仓库">创建 Gitub 仓库</h2>
-<p>首先需要新建一个<a href="https://github.com/new">新的公共仓库</a>，仓库需要是公共的，不然访客将无法查看 Discussion；
+<p>首先需要新建一个<a href="https://github.com/new">新的公共仓库</a>，仓库需要是公共的，不然访客将无法查看 <code>Discussion</code>
 我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。</p>
 <p>仓库默认是不打开 <code>Discussions</code> 功能的，需要我们手动开启。</p>
 <p>菜单路径: <code>Settings -&gt; General -&gt; Features -&gt; Discussions</code></p>
@@ -54,13 +54,13 @@
 <p>点击 <code>Configure</code> 进入配置， <code>Giscus</code> 的仓库访问权限只要选择我们刚刚创建的新仓库</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/3823c5f38423e88d350ea64c2233e901.png" alt="Giscus Configue"  /></p>
-<h2 id="giscus-的配置">Giscus 的配置</h2>
+<h2 id="giscus-的配置"><code>Giscus</code> 的配置</h2>
 <p>访问 <a href="https://giscus.app/zh-CN">giscus.app</a></p>
-<p>主要填写仓库路径和 Discussion 分类</p>
+<p>主要填写仓库路径和 <code>Discussion</code> 分类</p>
 <p>仓库路径的格式为 <code>{{用户名}}/{{仓库名}}</code>
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/c4d76a2706d728f2c4a1c2a17f97fa31.png" alt="Giscus 仓库路径"  /></p>
-<p>Discussion 分类推荐 Announcements，以确保新 discussion 只能由仓库维护者和 giscus 创建。
+<p><code>Discussion</code> 分类推荐 <code>Announcements</code>, 以确保新 <code>Discussion</code> 只能由仓库维护者和 <code>Giscus</code> 创建。
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/b18fdc003118f12d034c52e95883748f.png" alt="Giscus Discussion 分类"  /></p>
 <p>接下来把要把 <code>启用 giscus</code> 下的 <code>script</code> 代码复制出，待会需要添加到 <code>Hugo</code> 里</p>
@@ -80,7 +80,7 @@
 </span></span><span class="line"><span class="cl">  <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">async</span>
 </span></span><span class="line"><span class="cl"><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="hugo-添加-giscus-评论系统">Hugo 添加 Giscus 评论系统</h2>
+</span></span></code></pre></div><h2 id="hugo-添加-giscus-评论系统">Hugo 添加 <code>Giscus</code> 评论系统</h2>
 <p>我偷懒不想修改现有主题的代码，选择覆盖主题的 <code>comments.html</code> 文件
 在 <code>layouts/partials/</code> 下新建 <code>comments.html</code> 文件</p>
 <p>把刚刚复制出来的代码粘贴到 <code>comments.html</code> 里</p>
@@ -88,11 +88,11 @@
 <p>成功之后，效果如下
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/8450d5bc58ded442cffb5b640d248129.png" alt="添加 Giscus 效果"  /></p>
-<p>这里有一点不足的地方就是选择切换暗色主题后，Giscus 不会自动适配，这需要我们自己写代码适配了</p>
-<p>主要逻辑是在切换主题的时候把 <code>script</code> 的 <code>data-theme</code> attribute 修改为暗色或亮色主题</p>
+<p>这里有一点不足的地方就是选择切换暗色主题后， <code>Giscus</code> 不会自动适配，这需要我们自己写代码适配了</p>
+<p>主要逻辑是在切换主题的时候把 <code>script</code> 的 <code>data-theme</code> <code>attribute</code> 修改为暗色或亮色主题</p>
 <h2 id="支持切换亮色暗色主题">支持切换亮色暗色主题</h2>
-<p>我用的是 <a href="https://github.com/reorx/hugo-PaperModX/">hugo-PaperModX</a> 主题，<code>reorx</code> 已经适配了几款评论系统了，也支持主题色切换，我就参考了他的代码适配了下 Giscus</p>
-<p>把上面的 comment.html 修改为</p>
+<p>我用的是 <a href="https://github.com/reorx/hugo-PaperModX/">hugo-PaperModX</a> 主题，<code>reorx</code> 已经适配了几款评论系统了，也支持主题色切换，我就参考了他的代码适配了下 <code>Giscus</code></p>
+<p>把上面的 <code>comment.html</code> 修改为</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;comments-box giscus-widget&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;giscus-widget-container&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -147,7 +147,7 @@
 </span></span></code></pre></div><p>点击主题切换后, 支持后的暗色主题效果</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/39cf03a813a537c74c9605f21afcf025.png" alt="适配暗色主题"  /></p>
-<p>以上就是我为我的博客添加 Giscus 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
+<p>以上就是我为我的博客添加 <code>Giscus</code> 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
 <p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>]]></content:encoded>
     </item>
     
@@ -170,7 +170,7 @@
 <li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
 <li><a href="https://www.namecheap.com/">namecheap</a></li>
 </ul>
-<p>对比了下 2 个价格, namecheap 会便宜些, 所以就通过 namecheap 注册了</p>
+<p>对比了下 2 个价格, <code>namecheap</code> 会便宜些, 所以就通过 <code>namecheap</code> 注册了</p>
 <h2 id="选择域名">选择域名</h2>
 <p>我一直以来用的 AKA 或者网名都是: L_MaFia , 根据 lmafia 搜索,哪个便宜买哪个, 比如 <code>.info</code>, <code>.xyz</code>, <code>.life</code> 啥的.
 <code>.info</code> 一年只需要 $2.4 左右, 注意购买的时候最好关闭自动续费,一般续费价格就不划算了,我也当做是练手,可能不一定会使用超过一年时间.</p>
@@ -226,7 +226,12 @@
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
 <h2 id="完成配置">完成配置</h2>
-<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
+<p>接下来, 让我们通过域名访问下该站点吧:</p>
+<p><del><a href="https://blog.lmafia.info">https://blog.lmafia.info</a></del></p>
+<blockquote>
+<p>(2025 年域名已升级)</p>
+</blockquote>
+<p><a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
 <p>成功访问!</p>
 <p>恭喜,我们已经完成了给我们的博客配置一个属于自己的域名啦!</p>]]></content:encoded>
     </item>

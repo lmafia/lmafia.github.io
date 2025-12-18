@@ -17,8 +17,8 @@
       <pubDate>Tue, 16 Dec 2025 09:50:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</guid>
-      <description>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</description>
-      <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里。</p>
+      <description>给 Hugo 添加 Giscus 的记录过程</description>
+      <content:encoded><![CDATA[<p>一直在看别人的博客，发现别人的博客都有评论系统，我也想集成一个进我的博客里</p>
 <p>可以在 Hugo 的官方翻到 <code>Content Management</code> 里 <a href="https://gohugo.io/content-management/comments/">Commnet</a>
 的内容，虽然内容草草写了下配置 <code>Disqus</code>, 但在最后面提供一些开源评论系统的选择。</p>
 <blockquote>
@@ -37,13 +37,13 @@
 <li>Utterances</li>
 </ul>
 </blockquote>
-<p>本着能免费使用就免费的原则，选择依托于 GitHub 的 feature 搭建的方法，这样就不需要自建数据库了。</p>
+<p>本着能免费使用就免费的原则，选择依托于 <code>GitHub</code> 的 <code>feature</code> 搭建的方法，这样就不需要自建数据库了。</p>
 <p>这样就只剩下 <a href="https://giscus.app/">Giscus</a> 和 <a href="https://utteranc.es/">Utterances</a> 了</p>
-<p>Giscus 是基于 GitHub Discussions 实现的评论系统，而 Utterances 是基于 GitHub Issues 实现的评论系统。</p>
-<p>Giscus 是受 Utterances 启发的项目，至少在 README 里是这么写的，会比 Utterances 更新一点。我对比了下 UI，个人更喜欢 Giscus 的扁平一点的风格。</p>
-<p>接下来就让我们为博客引入 Giscus 吧</p>
+<p><code>Giscus</code> 是基于 <code>GitHub Discussions</code> 实现的评论系统，而 <code>Utterances</code> 是基于 <code>GitHub Issues</code> 实现的评论系统。</p>
+<p><code>Giscus</code> 是受 <code>Utterances</code> 启发的项目，至少在 <code>README</code> 里是这么写的，会比 <code>Utterances</code> 更新一点。我对比了下 UI，个人更喜欢 <code>Giscus</code> 的扁平一点的风格。</p>
+<p>接下来就让我们为博客引入 <code>Giscus</code> 吧</p>
 <h2 id="创建-gitub-仓库">创建 Gitub 仓库</h2>
-<p>首先需要新建一个<a href="https://github.com/new">新的公共仓库</a>，仓库需要是公共的，不然访客将无法查看 Discussion；
+<p>首先需要新建一个<a href="https://github.com/new">新的公共仓库</a>，仓库需要是公共的，不然访客将无法查看 <code>Discussion</code>
 我推荐不使用旧的仓库，主要是不想和其他已有的项目耦合，我推荐这样的做法。</p>
 <p>仓库默认是不打开 <code>Discussions</code> 功能的，需要我们手动开启。</p>
 <p>菜单路径: <code>Settings -&gt; General -&gt; Features -&gt; Discussions</code></p>
@@ -54,13 +54,13 @@
 <p>点击 <code>Configure</code> 进入配置， <code>Giscus</code> 的仓库访问权限只要选择我们刚刚创建的新仓库</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/3823c5f38423e88d350ea64c2233e901.png" alt="Giscus Configue"  /></p>
-<h2 id="giscus-的配置">Giscus 的配置</h2>
+<h2 id="giscus-的配置"><code>Giscus</code> 的配置</h2>
 <p>访问 <a href="https://giscus.app/zh-CN">giscus.app</a></p>
-<p>主要填写仓库路径和 Discussion 分类</p>
+<p>主要填写仓库路径和 <code>Discussion</code> 分类</p>
 <p>仓库路径的格式为 <code>{{用户名}}/{{仓库名}}</code>
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/c4d76a2706d728f2c4a1c2a17f97fa31.png" alt="Giscus 仓库路径"  /></p>
-<p>Discussion 分类推荐 Announcements，以确保新 discussion 只能由仓库维护者和 giscus 创建。
+<p><code>Discussion</code> 分类推荐 <code>Announcements</code>, 以确保新 <code>Discussion</code> 只能由仓库维护者和 <code>Giscus</code> 创建。
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/b18fdc003118f12d034c52e95883748f.png" alt="Giscus Discussion 分类"  /></p>
 <p>接下来把要把 <code>启用 giscus</code> 下的 <code>script</code> 代码复制出，待会需要添加到 <code>Hugo</code> 里</p>
@@ -80,7 +80,7 @@
 </span></span><span class="line"><span class="cl">  <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">async</span>
 </span></span><span class="line"><span class="cl"><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="hugo-添加-giscus-评论系统">Hugo 添加 Giscus 评论系统</h2>
+</span></span></code></pre></div><h2 id="hugo-添加-giscus-评论系统">Hugo 添加 <code>Giscus</code> 评论系统</h2>
 <p>我偷懒不想修改现有主题的代码，选择覆盖主题的 <code>comments.html</code> 文件
 在 <code>layouts/partials/</code> 下新建 <code>comments.html</code> 文件</p>
 <p>把刚刚复制出来的代码粘贴到 <code>comments.html</code> 里</p>
@@ -88,11 +88,11 @@
 <p>成功之后，效果如下
 
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/8450d5bc58ded442cffb5b640d248129.png" alt="添加 Giscus 效果"  /></p>
-<p>这里有一点不足的地方就是选择切换暗色主题后，Giscus 不会自动适配，这需要我们自己写代码适配了</p>
-<p>主要逻辑是在切换主题的时候把 <code>script</code> 的 <code>data-theme</code> attribute 修改为暗色或亮色主题</p>
+<p>这里有一点不足的地方就是选择切换暗色主题后， <code>Giscus</code> 不会自动适配，这需要我们自己写代码适配了</p>
+<p>主要逻辑是在切换主题的时候把 <code>script</code> 的 <code>data-theme</code> <code>attribute</code> 修改为暗色或亮色主题</p>
 <h2 id="支持切换亮色暗色主题">支持切换亮色暗色主题</h2>
-<p>我用的是 <a href="https://github.com/reorx/hugo-PaperModX/">hugo-PaperModX</a> 主题，<code>reorx</code> 已经适配了几款评论系统了，也支持主题色切换，我就参考了他的代码适配了下 Giscus</p>
-<p>把上面的 comment.html 修改为</p>
+<p>我用的是 <a href="https://github.com/reorx/hugo-PaperModX/">hugo-PaperModX</a> 主题，<code>reorx</code> 已经适配了几款评论系统了，也支持主题色切换，我就参考了他的代码适配了下 <code>Giscus</code></p>
+<p>把上面的 <code>comment.html</code> 修改为</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;comments-box giscus-widget&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;giscus-widget-container&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -147,7 +147,7 @@
 </span></span></code></pre></div><p>点击主题切换后, 支持后的暗色主题效果</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/12/39cf03a813a537c74c9605f21afcf025.png" alt="适配暗色主题"  /></p>
-<p>以上就是我为我的博客添加 Giscus 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
+<p>以上就是我为我的博客添加 <code>Giscus</code> 作为评论系统的主要内容啦，闲暇时间折腾下博客还是挺有意思的。</p>
 <p>现在已经是 2025 年 12 月 了，希望 2026 年的自己能多输出，多分享技术和生活内容，也希望在互联网上有读者来我的博客留下自己的脚步 👣。</p>]]></content:encoded>
     </item>
     
@@ -248,7 +248,7 @@
       <description>&lt;p&gt;数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>数学公式在编程里的应用: 整数向上取整公式，常用于分页，分片的场景</p>
 <h2 id="背景">背景</h2>
-<p>在用 AI 编程的时候，让它给我生成一个分页处理的工具类:</p>
+<p>在用 <code>AI</code> 编程的时候，让它给我生成一个分页处理的工具类:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pageSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">
@@ -273,7 +273,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>在 Review 生成代码的时候，发现求总页数的计算让我有点好奇，为什么它用这个公式
-求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 Mybatis Plus 的代码，发现他也是这么设计的:</p>
+求总页数: 总数除于分页大小, 如果余数大 0，就加一。在编程里，整数相除一般是向下取整，我第一反应想到的逻辑是：先除，后取模，根据取模结果判断是否 +1，btw，看 <code>Mybatis Plus</code> 的代码，发现他也是这么设计的:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 当前分页总页数
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
@@ -290,9 +290,9 @@
 </span></span></span></code></pre></div><p>所以 AI 给我的这个计算方式着实让我好奇:</p>
 <p><code>(total + pageSize - 1) / pageSize;</code></p>
 <p>我很好奇，为什么是加<code>b-1</code> 和除以<code>b</code></p>
-<p>所以后来，我向 Chapt 老师请教了如何证明这个公式是有效的。</p>
+<p>所以后来，我向 <code>ChaptGPT</code> 老师请教了如何证明这个公式是有效的。</p>
 <h2 id="证明过程">证明过程</h2>
-<p>“向上取整除法”的核心公式是：</p>
+<p><code>向上取整除法</code> 的核心公式是：</p>
 <p>$$ \left\lceil \frac{a}{b} \right\rceil = \frac{a + b - 1}{b} $$</p>
 <p>前提：</p>
 <ul>
@@ -385,31 +385,31 @@ $$</p>
       <description>&lt;h2 id=&#34;现在是什么问题&#34;&gt;现在是什么问题?&lt;/h2&gt;
 &lt;p&gt;最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅&lt;/p&gt;
 &lt;p&gt;周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.&lt;/p&gt;
-&lt;p&gt;开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况&lt;/p&gt;
+&lt;p&gt;开发环境虽然是个直接 &lt;code&gt;java -jar&lt;/code&gt; 部署的, 因为有用 &lt;code&gt;mircometer&lt;/code&gt; 来暴露一些监控数据, 我也是把它接入了监控了, 在 &lt;code&gt;Grafana&lt;/code&gt; 就能看到 &lt;code&gt;JVM&lt;/code&gt; 情况&lt;/p&gt;
 &lt;p&gt;
   &lt;img loading=&#34;lazy&#34; src=&#34;https://image-s3.kylegeeks.com/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png&#34; alt=&#34;Grafana - JVM&#34;  /&gt;&lt;/p&gt;
-&lt;p&gt;可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」&lt;/p&gt;
-&lt;p&gt;没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛&lt;/p&gt;
+&lt;p&gt;可以看到 &lt;code&gt;Thread&lt;/code&gt; 和 &lt;code&gt;Waithing&lt;/code&gt; 状态的 &lt;code&gt;Thread&lt;/code&gt; 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」&lt;/p&gt;
+&lt;p&gt;没事没事, 知道有异常出现了, 都好办, 直接上去机器上 &lt;code&gt;dump&lt;/code&gt; 一些 &lt;code&gt;log&lt;/code&gt; 出来看看就好, 我们这不还在「犯罪现场」呢嘛&lt;/p&gt;
 &lt;h2 id=&#34;看看怎么个事儿&#34;&gt;看看怎么个事儿&lt;/h2&gt;
 &lt;p&gt;开发环境都是丢在一台虚拟机上的, 而且就是直接 &lt;code&gt;java -jar&lt;/code&gt; 部署的
-天然的让我好把日志导出来, 我直接一个 &lt;code&gt;jps -lvm&lt;/code&gt; 查看那个问题服务的 PID&lt;/p&gt;
+天然的让我好把日志导出来, 我直接一个 &lt;code&gt;jps -lvm&lt;/code&gt; 查看那个问题服务的 &lt;code&gt;PID&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;然后再来一个 &lt;code&gt;jstack&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;通过 &lt;code&gt;jstack pid &amp;gt; thread_dump.log&lt;/code&gt; 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;&lt;/p&gt;</description>
+&lt;p&gt;通过 &lt;code&gt;jstack pid &amp;gt; thread_dump.log&lt;/code&gt; 把线程和上下文都 &lt;code&gt;dump&lt;/code&gt; 出来
+然后再来请上我们的 &lt;code&gt;Linux&lt;/code&gt; 三剑客之二: &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;grep&lt;/code&gt;&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="现在是什么问题">现在是什么问题?</h2>
 <p>最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅</p>
 <p>周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.</p>
-<p>开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况</p>
+<p>开发环境虽然是个直接 <code>java -jar</code> 部署的, 因为有用 <code>mircometer</code> 来暴露一些监控数据, 我也是把它接入了监控了, 在 <code>Grafana</code> 就能看到 <code>JVM</code> 情况</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/b0b6104f2d306a2c82587bfba8f8ed85.png" alt="Grafana - JVM"  /></p>
-<p>可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
-<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
+<p>可以看到 <code>Thread</code> 和 <code>Waithing</code> 状态的 <code>Thread</code> 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」</p>
+<p>没事没事, 知道有异常出现了, 都好办, 直接上去机器上 <code>dump</code> 一些 <code>log</code> 出来看看就好, 我们这不还在「犯罪现场」呢嘛</p>
 <h2 id="看看怎么个事儿">看看怎么个事儿</h2>
 <p>开发环境都是丢在一台虚拟机上的, 而且就是直接 <code>java -jar</code> 部署的
-天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 PID</p>
+天然的让我好把日志导出来, 我直接一个 <code>jps -lvm</code> 查看那个问题服务的 <code>PID</code></p>
 <p>然后再来一个 <code>jstack</code>:</p>
-<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 dump 出来
-然后再来请上我们的 Linux 三剑客之二: <code>awk</code>, <code>grep</code></p>
+<p>通过 <code>jstack pid &gt; thread_dump.log</code> 把线程和上下文都 <code>dump</code> 出来
+然后再来请上我们的 <code>Linux</code> 三剑客之二: <code>awk</code>, <code>grep</code></p>
 <blockquote>
 <p>这里你以为我的 Linux 命令用的很溜嘛? 其实都是 ChatGPT 给我的, 没了他我可就是个菜鸡 😭</p>
 </blockquote>
@@ -419,33 +419,33 @@ $$</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/c5142a3e8061795b159256255ce8d378.png" alt="jstack 统计"  /></p>
 <p>好家伙, 大部分都是 <code>http-nio-exec-*</code> 证明都是请求没有释放还是咋地啊？</p>
-<p>咱们可是都是 Spring Boot 工程师呢 , 用得当然是我们的 SpringBoot + SpringWeb (Tomcat 内置)</p>
-<p>我们最近也没升级啥 Tomcat 的版本, 也没修改什么配置的, 到底咋个回事?</p>
-<p>挑几个请求的线程看看日志吧, 发现基本都处在 WAITING（Park）状态</p>
+<p>咱们可是都是 <code>Spring Boot</code> 工程师呢 , 用得当然是我们的 <code>SpringBoot</code> + <code>SpringWeb</code> (<code>Tomcat</code> 内置)</p>
+<p>我们最近也没升级啥 <code>Tomcat</code> 的版本, 也没修改什么配置的, 到底咋个回事?</p>
+<p>挑几个请求的线程看看日志吧, 发现基本都处在 <code>WAITING（Park）</code> 状态</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/b6b96bccd7e2a44d6f8843656969b839.png" alt="http-nio-exec 上下文"  /></p>
-<p>而且几乎所有 WAITING 状态的都来自 Druid 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
+<p>而且几乎所有 <code>WAITING</code> 状态的都来自 <code>Druid</code> 数据库连接池获取不到链接, 争抢锁 🔒 时获取不到, 一直等待其他链接的释放.</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/2a4694c704726b8c7a69c745a9689828.png" alt="com.alibaba.druid.pool.DruidDataSource#getConnectionInternal"  />
-我们的在服务配置的 max-active = 20, 说明 20 个链接可能都被占着, 一直没还回去.</p>
-<p>难道是高并发? 是不是要直接把 max-active 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 Bug 导致的</p>
-<p>因为还没给 Druid 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 http 请求线程来看.</p>
+我们的在服务配置的 <code>max-active = 20</code>, 说明 20 个链接可能都被占着, 一直没还回去.</p>
+<p>难道是高并发? 是不是要直接把 <code>max-active</code> 调大就可以解决？ 如果我是初级开发, 我可能就会认为这样就能解决了, 毕竟舔了这堆屎山 💩 已经近 3 年之久, 我的直觉告诉我肯定是哪里有 <code>Bug</code> 导致的</p>
+<p>因为还没给 <code>Druid</code> 配置连接泄漏检测, 所以只能通过业务日志排查.因为是一直有线程占数据库连接「不拉屎」, 导致后面的请求「拉不了屎」, 所以我们可以从日志最前面的几个 <code>http</code> 请求线程来看.</p>
 <p>发现均来自给设备升级的业务, 这个业务的接口在开发环境一般是了半夜 2 点定时任务触发的, 很少在从客户端请求</p>
 <h2 id="有点眉目了">有点眉目了</h2>
 <p>本来想看能不能知道几个线程的存活时间, 通过存活时间来推算日志时间来看业务日志, 转念一想, 都已知具体触发时间, 就搭配线程名和业务关键来过滤日志吧, 就在日志的海洋 🌊 里遨游吧, 骚年</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/7cfa7ff50118b4c730bea53be48968af.png" alt=""  />
-排查了好一会儿, 突然发现有几个 Feign 的调用是报错的, 通过 trace 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
+排查了好一会儿, 突然发现有几个 <code>Feign</code> 的调用是报错的, 通过 <code>trace</code> 来看, 看到本应该 2 点开始出发的请求, 在 9 点还有一个报错堆栈:</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/0725cf4b65711802fef5f1a6225bc9cf.png" alt="wait 报错堆栈"  /></p>
-<p>奇怪, 怎么有一个 wait 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
+<p>奇怪, 怎么有一个 <code>wait</code> 被中断的报错, 而且在 过了 7 个小时才被中断.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java.lang.InterruptedException: null
 </span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait0<span class="o">(</span>Native Method<span class="o">)</span>
 </span></span><span class="line"><span class="cl">	at java.base/java.lang.Object.wait<span class="o">(</span>Object.java:366<span class="o">)</span>
-</span></span></code></pre></div><p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 while(可能会真) 里加了个 object.wait(时间).</p>
-<p>那么我们看下这几个一直 wait 的请求吧.对了, 这里的线程应该是为 TIMED_WAITING 状态, 因为是加了等待时间的, 只是一直在 while 里出不来.</p>
+</span></span></code></pre></div><p>找到对应的代码, 发现是同事在解耦一个业务的时候, 想把一个兜底的定时任务去掉, 写成了一个 <code>while</code>(可能会真) 里加了个 <code>object.wait</code>(时间).</p>
+<p>那么我们看下这几个一直 <code>wait</code> 的请求吧.对了, 这里的线程应该是为 <code>TIMED_WAITING</code> 状态, 因为是加了等待时间的, 只是一直在 <code>while</code> 里出不来.</p>
 <h2 id="终于捉到虫">终于捉到虫</h2>
-<p>再次请出我们的 Linux 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
+<p>再次请出我们的 <code>Linux</code> 剑客帮帮忙吧, 记得把想要找的线程状态改为 <code>TIMED_WAITING</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;/^&#34;/ {thread=$0} /java.lang.Thread.State: TIMED_WAITING/ {print thread}&#39;</span> thread_dump.log <span class="p">|</span> awk -F<span class="s1">&#39;&#34;&#39;</span> <span class="s1">&#39;{print $2}&#39;</span>
 </span></span></code></pre></div><p>输出内容:</p>
 <p>
@@ -453,11 +453,11 @@ $$</p>
 <p>看了除了 <code>http-nio-exec-280</code> 外的日志, 都是卡在出问题的代码上:</p>
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2025/05/c4dba2f0ba6806dabdebdcd3a80ba48f.png" alt="IMED_WAITING 报错"  /></p>
-<p>而且刚好数量和配置的 Druid 的 max-active 一致, 这个 Bug 就在这里被排查出来了.</p>
+<p>而且刚好数量和配置的 <code>Druid</code> 的 <code>max-active</code> 一致, 这个 <code>Bug</code> 就在这里被排查出来了.</p>
 <p>因为有个监控会定时调用「登陆」接口来判断服务是否正常, 所以后面 200+ 个请求积压都是来自「登陆」接口.</p>
 <h2 id="学到了啥">学到了啥</h2>
-<p>和以前排查 bug 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 Google 搜索, 现在首先是发给 ChatGPT.</p>
-<p>虽然 AI 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
+<p>和以前排查 <code>Bug</code> 不同的是, 这次排查问题读组件源码, 通过报错堆栈搜问题, 以前会在首先会 <code>Google</code> 搜索, 现在首先是发给 <code>ChatGPT</code>.</p>
+<p>虽然 <code>AI</code> 输出的内容可能比较全面, 但是还是会误导我们, 比如这次解决问题时候, 他因为不知道我们业务代码, 第一时间是让我修改数据库连接池的最大活跃数, 都是一个治标不治本的做法, 如果想要思考问题透彻点, 还是多问 <code>Why</code>, 多用第一性原理分析 🧐</p>
 ]]></content:encoded>
     </item>
     
@@ -482,8 +482,8 @@ $$</p>
       <pubDate>Wed, 19 Mar 2025 10:00:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</guid>
-      <description>&lt;p&gt;如何用 Java 使用高阶函数&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>如何用 Java 使用高阶函数</p>
+      <description>&lt;p&gt;如何用 &lt;code&gt;Java&lt;/code&gt; 使用高阶函数&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>如何用 <code>Java</code> 使用高阶函数</p>
 <h3 id="funciton-接口的定义">Funciton 接口的定义</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * Represents a function that accepts one argument and produces a result.
@@ -1133,7 +1133,7 @@ participant Tools as 工具集
 <li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
 <li><a href="https://www.namecheap.com/">namecheap</a></li>
 </ul>
-<p>对比了下 2 个价格, namecheap 会便宜些, 所以就通过 namecheap 注册了</p>
+<p>对比了下 2 个价格, <code>namecheap</code> 会便宜些, 所以就通过 <code>namecheap</code> 注册了</p>
 <h2 id="选择域名">选择域名</h2>
 <p>我一直以来用的 AKA 或者网名都是: L_MaFia , 根据 lmafia 搜索,哪个便宜买哪个, 比如 <code>.info</code>, <code>.xyz</code>, <code>.life</code> 啥的.
 <code>.info</code> 一年只需要 $2.4 左右, 注意购买的时候最好关闭自动续费,一般续费价格就不划算了,我也当做是练手,可能不一定会使用超过一年时间.</p>
@@ -1189,7 +1189,12 @@ participant Tools as 工具集
 <p>
   <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2024/09/c897ac0953232354a4cc6862a95228c7.png" alt="vercel-domain-add"  /></p>
 <h2 id="完成配置">完成配置</h2>
-<p>接下来, 让我们通过域名访问下该站点吧: <a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
+<p>接下来, 让我们通过域名访问下该站点吧:</p>
+<p><del><a href="https://blog.lmafia.info">https://blog.lmafia.info</a></del></p>
+<blockquote>
+<p>(2025 年域名已升级)</p>
+</blockquote>
+<p><a href="https://blog.kylegeeks.com">https://blog.kylegeeks.com</a></p>
 <p>成功访问!</p>
 <p>恭喜,我们已经完成了给我们的博客配置一个属于自己的域名啦!</p>]]></content:encoded>
     </item>
