@@ -11,7 +11,7 @@
 <meta name="description" content="KyleGeeks - A blog about technology, programming, and personal growth.">
 <meta name="author" content="KyleLian">
 <link rel="canonical" href="https://blog.kylegeeks.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.0bbd94b37a7bb76442c6b48aed071c8e5bebfa5e46b921447e465560444b5dd5.css" integrity="sha256-C72Us3p7t2RCxrSK7Qccjlvr&#43;l5GuSFEfkZVYERLXdU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.205d9acbde587c18ce56153f1654a3845ae5013446270e64d7f3f9fc730add3e.css" integrity="sha256-IF2ay95YfBjOVhU/FlSjhFrlATRGJw5k1/P5/HMK3T4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.kylegeeks.com/favicon.ico">
 <link rel="apple-touch-icon" href="https://blog.kylegeeks.com/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" href="https://blog.kylegeeks.com/index.xml">
@@ -243,12 +243,12 @@ function toggleThemeListener() {
     <h1>👋 Hi, there</h1>
   </header>
   <section class="entry-content"><h3>
-<span class="mark-line">Stay Hungry, Stay Foolish</span>
+<span class="mark-line">Stay hungry, Stay foolish.</span>
 </h3>
 <p></p>
 <section style="margin-bottom: 1rem">
-  <h3>About Me:</h3>
-  <ul style="display: flex; flex-direction: column; gap: 0.5rem; list-style: none; padding: 1;">
+  <h3 class="home-info-title">About me</h3>
+  <ul style="display: flex; flex-direction: column; gap: 0.5rem; list-style: none; padding: 1; font-size: 0.8rem;">
     <li style="white-space: nowrap;">👨‍💻 Backend Dev</li>
     <li style="white-space: nowrap;">🧠 Building a Second Brain</li>
     <li style="white-space: nowrap;">🌱 Practicing Stoicism</li>
@@ -259,7 +259,9 @@ function toggleThemeListener() {
     <li style="white-space: nowrap;">🐱 Cat Dad (x2)</li>
   </ul>
 </section></section>
-  <footer class="entry-footer"><div class="social-icons">
+  <footer class="entry-footer">
+<h3 class="home-info-title">Connect with me</h3>
+<div class="social-icons">
     <a href="https://github.com/lmafia" target="_blank" rel="noopener noreferrer me" title="Github-Simple">
         <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
 
@@ -287,6 +289,133 @@ function toggleThemeListener() {
 
     </a>
 </div>
+</footer>
+   <footer class="entry-footer"><section class="side-projects">
+  <h3 class="home-info-title">Side projects</h3>
+
+  <ul class="side-projects-list">
+    <li
+      class="side-project-item"
+      data-desc="随机广州地铁和城际的线路与站点"
+    >
+      <a
+        href="https://gz-metro-spin-wheel.kylegeeks.com/"
+        target="_blank"
+      >
+        广州地铁随机轮盘
+      </a>
+    </li>
+
+    <li
+      class="side-project-item"
+      data-desc="模拟拍立得相机拍摄照片的网页应用"
+    >
+      <a
+        href="https://instax-mini.kylegeeks.com/"
+        target="_blank"
+      >
+        Instax Mini
+      </a>
+    </li>
+
+    <li
+      class="side-project-item"
+      data-desc="为 EnglishPod 设计的字幕阅读工具"
+    >
+      <a
+        href="https://englishpod-reader.kylegeeks.com/"
+        target="_blank"
+      >
+        EnglishPod Reader
+      </a>
+    </li>
+  </ul>
+</section>
+<style>
+   
+   
+
+  .side-projects {
+    margin-top: 8px;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-info-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: var(--primary);
+    letter-spacing: 0.04em;
+    background-image: var(--line-yellow);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 4px;
+    padding-bottom: 4px;
+  }
+
+   
+  .side-projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+   
+  .side-project-item {
+    position: relative;
+  }
+
+   
+  .side-project-item a {
+    position: relative;
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 2px;
+    box-shadow: var(--link-underline-shadow);
+    transition: var(--link-transition);
+  }
+
+  .side-project-item a:hover {
+    color: var(--link-hover-color);
+    box-shadow: var(--link-hover-underline-shadow);
+  }
+
+   
+  .side-project-item::after {
+    content: attr(data-desc);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%) translateY(4px);
+    white-space: nowrap;
+
+    font-size: 0.65rem;
+    color: var(--primary-dim);
+    background: var(--entry);
+    padding: 6px 10px;
+    border-radius: calc(var(--radius) / 2);
+    border: 1px solid var(--border);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+   
+  .side-project-item:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+   
+  .dark .side-project-item::after {
+    background: var(--entry);
+    color: var(--primary-dim);
+  }
+</style>
 </footer>
 </article>
 
@@ -543,30 +672,7 @@ function toggleThemeListener() {
     <a class="next" href="https://blog.kylegeeks.com/page/2/">Next Page »</a>
   </nav>
 </footer>
-    </main><footer class="footer">
-  <div sytle="">
-    <h4>Side projects:</h4>
-    <div>
-      <a
-        href="https://gz-metro-spin-wheel.kylegeeks.com/"
-        target="_blank"
-        >广州地铁随机</a
-      >
-      <p></p>
-      <a
-        href="https://instax-mini.kylegeeks.com/"
-        target="_blank"
-        >Instax Mini</a
-      >
-      <p></p>
-      <a
-        href="https://englishpod-reader.kylegeeks.com/"
-        target="_blank"
-        >EnglishPod Reader</a
-      >
-    </div>
-  </div>
-</footer>
+    </main>
 <footer class="footer">
   <span>&copy; 2025 <a href="https://blog.kylegeeks.com/">KyleGeeks</a></span><span style="display: inline-block; margin-left: 1em;">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
