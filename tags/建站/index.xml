@@ -10,7 +10,106 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Dec 2025 09:50:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jan 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare 配置页面重定向</title>
+      <link>https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/</link>
+      <pubDate>Wed, 07 Jan 2026 10:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/</guid>
+      <description></description>
+      <content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>在通过一些 <code>PV</code> 统计工具的时候发现不同的 <code>URL</code> 访问同个 <code>Web</code> 不会累计统计。<br>
+所以想通过重定向的方式来把几个不同的 <code>URL</code> 都统一到一个。</p>
+<h2 id="状态码-重定向">状态码-重定向</h2>
+<p><code>HTTP</code> 通过 <code>Header</code> 的 <code>Location</code> 和 <code>HTTP code</code> 来告诉客户端当前资源不在此，需要访问新的 <code>URL</code>。</p>
+<p>常见重定向类型：</p>
+<p><strong>301</strong>: <code>Moved Permanently</code> 永久重定向</p>
+<ul>
+<li>资源已永久迁移</li>
+<li>浏览器会缓存</li>
+<li>搜索引擎转移权重</li>
+</ul>
+<p><strong>302</strong>: <code>Found</code> 临时重定向</p>
+<ul>
+<li>浏览器不会缓存</li>
+<li>登录页面跳转</li>
+<li>活动页、短链服务</li>
+</ul>
+<h2 id="目标">目标</h2>
+<p>访问 <code>www.kylegeeks.com</code> 重定向到 <code>blog.kylegeeks.com</code></p>
+<h2 id="配置-dns-记录">配置 DNS 记录</h2>
+<p>打开 <strong>DNS</strong> → <strong>记录</strong></p>
+<ol>
+<li>添加一条 <code>DNS</code> 规则</li>
+<li>类型：<code>A</code></li>
+<li>IP 地址：<code>1.2.3.4</code>，任意可保存的 <code>IPv4</code> 地址应该都可以，最后也不会起作用</li>
+<li>记得打开代理</li>
+<li>保存即可</li>
+</ol>
+<p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2026/01/389c1d059867355870631dea6ec0a4d5.png" alt="配置 DNS"  /></p>
+<h2 id="配置页面规则">配置页面规则</h2>
+<p>打开 <strong>规则</strong> → <strong>页面规则</strong> → <strong>创建页面规则</strong></p>
+<ol>
+<li>URL：<code>www.kylegeeks.com/</code></li>
+<li>设置：转发 <code>URL</code></li>
+<li>选择状态码：<code>301</code> - 永久重定向</li>
+<li>输入目标 URL：<code>https://blog.kylegeeks.com</code><br>
+必须 <code>http://</code>、<code>https://</code> 或 <code>/</code> 开头</li>
+<li>保存页面规则</li>
+</ol>
+<p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2026/01/d0be7975fb6ca97b8d9dc71e7141c4ba.png" alt="创建页面规则"  /></p>
+<h2 id="尝试访问">尝试访问</h2>
+<p>可以试一试配置是否生效了</p>
+<ol>
+<li>按下 <code>F12</code> 打开开发者工具</li>
+<li>在浏览器输入 <code>www.kylegeeks.com</code> 并访问</li>
+<li>页面浏览器的 <code>URL</code> 是 <code>https://blog.kylegeeks.com</code>，也是该博客地址</li>
+<li>可以看到 <code>Response Headers</code> 返回状态码 <code>301</code> 和 <code>location</code></li>
+</ol>
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>HTTP/2 <span style="color:#2aa198">301</span>
+</span></span><span style="display:flex;"><span>date: Wed, <span style="color:#2aa198">07</span> Jan <span style="color:#2aa198">2026</span> 13:02:14 GMT
+</span></span><span style="display:flex;"><span>content-length: <span style="color:#2aa198">0</span>
+</span></span><span style="display:flex;"><span>location: https://blog.kylegeeks.com
+</span></span><span style="display:flex;"><span>vary: accept-encoding
+</span></span><span style="display:flex;"><span>report-to: <span style="color:#719e07">{</span><span style="color:#2aa198">&#34;group&#34;</span>:<span style="color:#2aa198">&#34;cf-nel&#34;</span>,<span style="color:#2aa198">&#34;max_age&#34;</span>:604800,<span style="color:#2aa198">&#34;endpoints&#34;</span>:<span style="color:#719e07">[{</span><span style="color:#2aa198">&#34;url&#34;</span>:<span style="color:#2aa198">&#34;https://a.nel.cloudflare.com/report/v4?s=CFYa4R5UXjP0S9GYrl%2FoEgRjKNFs%2BoZ%2Fg1ZVUzoVScgonx%2BjjQcwfib93dP1gv0DhAYsc9eFJ5Ji4OJK%2F5P3XruqDqIagNPclsdWbuy%2FqweZ&#34;</span><span style="color:#719e07">}]}</span>
+</span></span><span style="display:flex;"><span>nel: <span style="color:#719e07">{</span><span style="color:#2aa198">&#34;report_to&#34;</span>:<span style="color:#2aa198">&#34;cf-nel&#34;</span>,<span style="color:#2aa198">&#34;success_fraction&#34;</span>:0.0,<span style="color:#2aa198">&#34;max_age&#34;</span>:604800<span style="color:#719e07">}</span>
+</span></span><span style="display:flex;"><span>server-timing: cfEdge;<span style="color:#268bd2">dur</span><span style="color:#719e07">=</span>3,cfOrigin;<span style="color:#268bd2">dur</span><span style="color:#719e07">=</span><span style="color:#2aa198">0</span>
+</span></span><span style="display:flex;"><span>server: cloudflare
+</span></span><span style="display:flex;"><span>cf-ray: 9ba3a5fd48cf58e6-NRT
+</span></span><span style="display:flex;"><span>alt-svc: <span style="color:#268bd2">h3</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#34;:443&#34;</span>; <span style="color:#268bd2">ma</span><span style="color:#719e07">=</span><span style="color:#2aa198">86400</span>
+</span></span><span style="display:flex;"><span>X-Firefox-Spdy: h2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<ol>
+<li>
+<p><a href="https://ioioxlab.com/posts/use-cloudflare-page-rule-301-redirect/">使用 Cloudflare 的页面规则进行 301 重定向</a></p>
+</li>
+<li>
+<p><a href="https://developer.aliyun.com/article/1669551">301/302 重定向全面指南：从原理到实践</a></p>
+</li>
+</ol>]]></content:encoded>
+    </item>
+    
     <item>
       <title>Hugo 添加 Giscus 作为评论系统</title>
       <link>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</link>

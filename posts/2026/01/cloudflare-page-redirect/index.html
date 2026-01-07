@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Cloudflare 配置页面重定向 | KyleGeeks</title>
+<meta name="keywords" content="建站, Cloudflare">
+<meta name="description" content="Cloudflare 配置页面重定向 - KyleGeeks">
+<meta name="author" content="KyleLian">
+<link rel="canonical" href="https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/">
+<meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.659756254745655c0facc3a5df3247035b0cd7e219fd3d03caeceb6f7e5175d9.css" integrity="sha256-ZZdWJUdFZVwPrMOl3zJHA1sM1&#43;IZ/T0Dyuzrb35Rddk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.kylegeeks.com/favicon.ico">
+<link rel="apple-touch-icon" href="https://blog.kylegeeks.com/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cloudflare 配置页面重定向 | KyleGeeks" />
+<meta name="twitter:description" content="" />
+<meta property="og:title" content="Cloudflare 配置页面重定向 | KyleGeeks" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/" />
+    <meta property="og:image" content="https://blog.kylegeeks.com/kyle-avatar.jpg"/>
+<meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2026-01-07T10:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-01-07T10:00:00&#43;08:00" />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.kylegeeks.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cloudflare 配置页面重定向",
+      "item": "https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cloudflare 配置页面重定向 | KyleGeeks",
+  "name": "Cloudflare 配置页面重定向",
+  "description": "",
+  "keywords": [
+    "建站", "Cloudflare"
+  ],
+  "wordCount" : "148",
+  "inLanguage": "en",
+  "datePublished": "2026-01-07T10:00:00+08:00",
+  "dateModified": "2026-01-07T10:00:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "KyleLian"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KyleGeeks",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.kylegeeks.com/favicon.ico"
+    }
+  }
+}
+</script>
+<script
+  async
+  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+<meta
+  name="referrer"
+  content="no-referrer-when-downgrade"
+/><noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary-bg: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list-page {
+                background: var(--theme);
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+</head>
+
+<body class=" type-posts kind-page layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+      }
+  }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
+</script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'auto';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.kylegeeks.com/" accesskey="h" title="KyleGeeks (Alt + H)">
+                    <img src="https://blog.kylegeeks.com/images/kyle-avatar_hu_c9b5892c730a6112.jpg" alt="logo" aria-label="logo"
+                        height="30" width="30">KyleGeeks</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.kylegeeks.com/posts/" title="Posts" class="active"
+                >Posts
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/notes/" title="Notes"
+                >Notes
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/about/index.zh-cn/" title="About"
+                >About
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/posts/">Posts</a></div><h1 class="post-title">Cloudflare 配置页面重定向</h1>
+    <div class="post-meta"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2026-01-07</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/">建站</a><a href="https://blog.kylegeeks.com/tags/cloudflare/">Cloudflare</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>148 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
+
+      
+      
+    </div>
+  </header> <div class="toc side right">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%83%8c%e6%99%af" aria-label="背景">背景</a></li>
+                <li>
+                    <a href="#%e7%8a%b6%e6%80%81%e7%a0%81-%e9%87%8d%e5%ae%9a%e5%90%91" aria-label="状态码-重定向">状态码-重定向</a></li>
+                <li>
+                    <a href="#%e7%9b%ae%e6%a0%87" aria-label="目标">目标</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae-dns-%e8%ae%b0%e5%bd%95" aria-label="配置 DNS 记录">配置 DNS 记录</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e9%a1%b5%e9%9d%a2%e8%a7%84%e5%88%99" aria-label="配置页面规则">配置页面规则</a></li>
+                <li>
+                    <a href="#%e5%b0%9d%e8%af%95%e8%ae%bf%e9%97%ae" aria-label="尝试访问">尝试访问</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="背景">背景</h2>
+<p>在通过一些 <code>PV</code> 统计工具的时候发现不同的 <code>URL</code> 访问同个 <code>Web</code> 不会累计统计。<br>
+所以想通过重定向的方式来把几个不同的 <code>URL</code> 都统一到一个。</p>
+<h2 id="状态码-重定向">状态码-重定向</h2>
+<p><code>HTTP</code> 通过 <code>Header</code> 的 <code>Location</code> 和 <code>HTTP code</code> 来告诉客户端当前资源不在此，需要访问新的 <code>URL</code>。</p>
+<p>常见重定向类型：</p>
+<p><strong>301</strong>: <code>Moved Permanently</code> 永久重定向</p>
+<ul>
+<li>资源已永久迁移</li>
+<li>浏览器会缓存</li>
+<li>搜索引擎转移权重</li>
+</ul>
+<p><strong>302</strong>: <code>Found</code> 临时重定向</p>
+<ul>
+<li>浏览器不会缓存</li>
+<li>登录页面跳转</li>
+<li>活动页、短链服务</li>
+</ul>
+<h2 id="目标">目标</h2>
+<p>访问 <code>www.kylegeeks.com</code> 重定向到 <code>blog.kylegeeks.com</code></p>
+<h2 id="配置-dns-记录">配置 DNS 记录</h2>
+<p>打开 <strong>DNS</strong> → <strong>记录</strong></p>
+<ol>
+<li>添加一条 <code>DNS</code> 规则</li>
+<li>类型：<code>A</code></li>
+<li>IP 地址：<code>1.2.3.4</code>，任意可保存的 <code>IPv4</code> 地址应该都可以，最后也不会起作用</li>
+<li>记得打开代理</li>
+<li>保存即可</li>
+</ol>
+<p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2026/01/389c1d059867355870631dea6ec0a4d5.png" alt="配置 DNS"  /></p>
+<h2 id="配置页面规则">配置页面规则</h2>
+<p>打开 <strong>规则</strong> → <strong>页面规则</strong> → <strong>创建页面规则</strong></p>
+<ol>
+<li>URL：<code>www.kylegeeks.com/</code></li>
+<li>设置：转发 <code>URL</code></li>
+<li>选择状态码：<code>301</code> - 永久重定向</li>
+<li>输入目标 URL：<code>https://blog.kylegeeks.com</code><br>
+必须 <code>http://</code>、<code>https://</code> 或 <code>/</code> 开头</li>
+<li>保存页面规则</li>
+</ol>
+<p>
+  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2026/01/d0be7975fb6ca97b8d9dc71e7141c4ba.png" alt="创建页面规则"  /></p>
+<h2 id="尝试访问">尝试访问</h2>
+<p>可以试一试配置是否生效了</p>
+<ol>
+<li>按下 <code>F12</code> 打开开发者工具</li>
+<li>在浏览器输入 <code>www.kylegeeks.com</code> 并访问</li>
+<li>页面浏览器的 <code>URL</code> 是 <code>https://blog.kylegeeks.com</code>，也是该博客地址</li>
+<li>可以看到 <code>Response Headers</code> 返回状态码 <code>301</code> 和 <code>location</code></li>
+</ol>
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>HTTP/2 <span style="color:#2aa198">301</span>
+</span></span><span style="display:flex;"><span>date: Wed, <span style="color:#2aa198">07</span> Jan <span style="color:#2aa198">2026</span> 13:02:14 GMT
+</span></span><span style="display:flex;"><span>content-length: <span style="color:#2aa198">0</span>
+</span></span><span style="display:flex;"><span>location: https://blog.kylegeeks.com
+</span></span><span style="display:flex;"><span>vary: accept-encoding
+</span></span><span style="display:flex;"><span>report-to: <span style="color:#719e07">{</span><span style="color:#2aa198">&#34;group&#34;</span>:<span style="color:#2aa198">&#34;cf-nel&#34;</span>,<span style="color:#2aa198">&#34;max_age&#34;</span>:604800,<span style="color:#2aa198">&#34;endpoints&#34;</span>:<span style="color:#719e07">[{</span><span style="color:#2aa198">&#34;url&#34;</span>:<span style="color:#2aa198">&#34;https://a.nel.cloudflare.com/report/v4?s=CFYa4R5UXjP0S9GYrl%2FoEgRjKNFs%2BoZ%2Fg1ZVUzoVScgonx%2BjjQcwfib93dP1gv0DhAYsc9eFJ5Ji4OJK%2F5P3XruqDqIagNPclsdWbuy%2FqweZ&#34;</span><span style="color:#719e07">}]}</span>
+</span></span><span style="display:flex;"><span>nel: <span style="color:#719e07">{</span><span style="color:#2aa198">&#34;report_to&#34;</span>:<span style="color:#2aa198">&#34;cf-nel&#34;</span>,<span style="color:#2aa198">&#34;success_fraction&#34;</span>:0.0,<span style="color:#2aa198">&#34;max_age&#34;</span>:604800<span style="color:#719e07">}</span>
+</span></span><span style="display:flex;"><span>server-timing: cfEdge;<span style="color:#268bd2">dur</span><span style="color:#719e07">=</span>3,cfOrigin;<span style="color:#268bd2">dur</span><span style="color:#719e07">=</span><span style="color:#2aa198">0</span>
+</span></span><span style="display:flex;"><span>server: cloudflare
+</span></span><span style="display:flex;"><span>cf-ray: 9ba3a5fd48cf58e6-NRT
+</span></span><span style="display:flex;"><span>alt-svc: <span style="color:#268bd2">h3</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#34;:443&#34;</span>; <span style="color:#268bd2">ma</span><span style="color:#719e07">=</span><span style="color:#2aa198">86400</span>
+</span></span><span style="display:flex;"><span>X-Firefox-Spdy: h2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<ol>
+<li>
+<p><a href="https://ioioxlab.com/posts/use-cloudflare-page-rule-301-redirect/">使用 Cloudflare 的页面规则进行 301 重定向</a></p>
+</li>
+<li>
+<p><a href="https://developer.aliyun.com/article/1669551">301/302 重定向全面指南：从原理到实践</a></p>
+</li>
+</ol>
+  </div>
+<footer class="donation-footer">
+  <p class="donation-text">如果这篇内容帮你节省了时间, 欢迎请我喝杯咖啡.</p>
+  <div class="donation-container">
+    
+    <div class="donation-wrapper">
+      <div class="donation-qrcode-wrapper">
+        <img
+          src="https://image-s3.kylegeeks.com/data/2025/12/fd02bb11d4b8280805e39a5b864086e9.png"
+          alt="Donate"
+          class="donation-qrcode"
+        />
+      </div>
+      <p class="donation-label">WeChat 赞赏</p>
+    </div>
+
+    <div class="donation-wrapper">
+      <div class="donation-qrcode-wrapper">
+        <img
+          src="https://image-s3.kylegeeks.com/data/2025/12/52926e5b19e8a237dbed6a4092e7acf3.png"
+          alt="Donate"
+          class="donation-qrcode"
+        />
+      </div>
+      <p class="donation-label">AliPay 赞赏</p>
+    </div>
+  </div>
+</footer>
+
+  
+  <footer class="post-footer">
+<nav class="paginav">
+  <a class="next" href="https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/">
+    <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
+    </span>
+    <br>
+    <span>Hugo 添加 Giscus 作为评论系统</span>
+  </a>
+</nav>
+
+  </footer>
+    <div class="comments-separator"></div><div class="comments-box giscus-widget">
+  <div id="giscus-widget-container"></div>
+</div>
+<script>
+  var giscus_config = {
+    "data-repo": "lmafia/blog-comment",
+    "data-repo-id": "R_kgDOQpOURg",
+    "data-category": "Announcements",
+    "data-category-id": "DIC_kwDOQpOURs4Cz2PI",
+    "data-mapping": "pathname",
+    "data-strict": "0",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-lang": "en",
+    "data-theme": "noborder_light",
+  };
+
+  (function () {
+    const key = "giscus-widget";
+
+    
+    if (!toggleThemeCallbacks.hasOwnProperty(key)) {
+      toggleThemeCallbacks[key] = (isDark) => {
+        loadgiscus(!isDark);
+      };
+    }
+
+    function loadgiscus(isDark) {
+      const container = document.querySelector("#giscus-widget-container");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      for (const key in giscus_config) {
+        s.setAttribute(key, giscus_config[key]);
+      }
+      s.async = true;
+      if (isDark) {
+        
+        s.setAttribute("data-theme", "noborder_gray");
+      } else {
+        
+        s.setAttribute("data-theme", "noborder_light");
+      }
+      s.setAttribute("data-no-instant", "");
+      container.appendChild(s);
+    }
+
+    
+    loadgiscus(isDarkTheme());
+  })();
+</script>
+
+</article>
+    </main>
+<footer class="footer">
+  <span>&copy; 2026 <a href="https://blog.kylegeeks.com/">KyleGeeks</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+<footer class="footer">
+  <span id="busuanzi_container_site_pv">
+    本站访问量: <span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  &nbsp;|&nbsp;
+  <span id="busuanzi_container_site_uv">
+    您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+  </span>
+</footer>
+
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+    const container = codeblock.parentNode.parentNode;
+
+    const copybutton = document.createElement('button');
+    copybutton.classList.add('copy-code');
+    copybutton.innerText = 'copy';
+
+    function copyingDone() {
+      copybutton.innerText = 'copied!';
+      setTimeout(() => {
+        copybutton.innerText = 'copy';
+      }, 2000);
+    }
+
+    copybutton.addEventListener('click', (cb) => {
+      if ('clipboard' in navigator) {
+        navigator.clipboard.writeText(codeblock.textContent);
+        copyingDone();
+        return;
+      }
+
+      const range = document.createRange();
+      range.selectNodeContents(codeblock);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      try {
+        document.execCommand('copy');
+        copyingDone();
+      } catch (e) { };
+      selection.removeRange(range);
+    });
+
+    if (container.classList.contains("highlight")) {
+      container.appendChild(copybutton);
+    } else if (container.parentNode.firstChild == container) {
+      
+    } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+      
+      codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+    } else {
+      
+      codeblock.parentNode.appendChild(copybutton);
+    }
+  });
+</script>
+
+
+
+
+<script>
+  
+  
+  (function() {
+    const enableTocScroll = '1' == '1'
+    if (!enableTocScroll) {
+      return
+    }
+    if (!document.querySelector('.toc')) {
+      console.log('no toc found, ignore toc scroll')
+      return
+    }
+    
+
+    
+    const scrollListeners = window.scrollListeners
+    const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+    const activeClass = 'active';
+
+    
+    let activeHeading = headings[0];
+    getLinkByHeading(activeHeading).classList.add(activeClass);
+
+    const onScroll = () => {
+      const passedHeadings = [];
+      for (const h of headings) {
+        
+        if (getOffsetTop(h) < 5) {
+          passedHeadings.push(h)
+        } else {
+          break;
+        }
+      }
+      if (passedHeadings.length > 0) {
+        newActiveHeading = passedHeadings[passedHeadings.length - 1];
+      } else {
+        newActiveHeading = headings[0];
+      }
+      if (activeHeading != newActiveHeading) {
+        getLinkByHeading(activeHeading).classList.remove(activeClass);
+        activeHeading = newActiveHeading;
+        getLinkByHeading(activeHeading).classList.add(activeClass);
+      }
+    }
+
+    let timer = null;
+    const scrollListener = () => {
+      if (timer !== null) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(onScroll, 50)
+    }
+    window.addEventListener('scroll', scrollListener, false);
+    scrollListeners.push(scrollListener)
+
+    function getLinkByHeading(heading) {
+      const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+      return document.querySelector(`.toc ul li a[href="#${id}"]`);
+    }
+
+    function getOffsetTop(heading) {
+      if (!heading.getClientRects().length) {
+        return 0;
+      }
+      let rect = heading.getBoundingClientRect();
+      return rect.top
+    }
+  })();
+  </script>
+<script>
+  mediumZoom('.entry-cover img');
+  mediumZoom('.post-content img:not([no-zoom])');
+</script>
+
+</body>
+
+</html>
