@@ -17,7 +17,9 @@
       <pubDate>Wed, 07 Jan 2026 10:00:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;在通过一些 &lt;code&gt;PV&lt;/code&gt; 统计工具的时候发现不同的 &lt;code&gt;URL&lt;/code&gt; 访问同个 &lt;code&gt;Web&lt;/code&gt; 不会累计统计。&lt;br&gt;
+所以想通过重定向的方式来把几个不同的 &lt;code&gt;URL&lt;/code&gt; 都统一到一个。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="背景">背景</h2>
 <p>在通过一些 <code>PV</code> 统计工具的时候发现不同的 <code>URL</code> 访问同个 <code>Web</code> 不会累计统计。<br>
 所以想通过重定向的方式来把几个不同的 <code>URL</code> 都统一到一个。</p>
