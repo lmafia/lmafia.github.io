@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.kylegeeks.com/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/notes/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E5%BF%83%E7%90%86/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/</loc>
+    <lastmod>2026-01-13T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://blog.kylegeeks.com/categories/</loc>
     <lastmod>2026-01-07T10:00:00+08:00</lastmod>
   </url><url>
@@ -11,13 +29,7 @@
     <loc>https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/</loc>
     <lastmod>2026-01-07T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.kylegeeks.com/</loc>
-    <lastmod>2026-01-07T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.kylegeeks.com/posts/</loc>
-    <lastmod>2026-01-07T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/tags/</loc>
     <lastmod>2026-01-07T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/categories/techology/</loc>
@@ -32,10 +44,7 @@
     <loc>https://blog.kylegeeks.com/posts/2025/12/hugo-add-giscus-as-comment-system/</loc>
     <lastmod>2025-12-16T09:50:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.kylegeeks.com/notes/2025/20250830/</loc>
-    <lastmod>2025-08-30T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/notes/</loc>
+    <loc>https://blog.kylegeeks.com/notes/2025/saturday-in-guangzhou/</loc>
     <lastmod>2025-08-30T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/tags/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB/</loc>
@@ -44,7 +53,7 @@
     <loc>https://blog.kylegeeks.com/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2025-08-30T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.kylegeeks.com/notes/2025/20250823/</loc>
+    <loc>https://blog.kylegeeks.com/notes/2025/straight-man-buying-flowers/</loc>
     <lastmod>2025-08-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/tags/java/</loc>
@@ -71,7 +80,7 @@
     <loc>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/</loc>
     <lastmod>2025-03-23T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.kylegeeks.com/notes/2025/20250323/</loc>
+    <loc>https://blog.kylegeeks.com/notes/2025/unique-programmer/</loc>
     <lastmod>2025-03-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/posts/2025/03/fucniton-for-java/</loc>
