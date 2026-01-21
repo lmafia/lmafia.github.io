@@ -12,18 +12,19 @@
     <language>en</language>
     <lastBuildDate>Wed, 19 Mar 2025 00:20:37 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>关于</title>
+      <title>关于我</title>
       <link>https://blog.kylegeeks.com/about/index.zh-cn/</link>
       <pubDate>Wed, 19 Mar 2025 00:20:37 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/about/index.zh-cn/</guid>
       <description>&lt;h2 id=&#34;我是谁&#34;&gt;我是谁&lt;/h2&gt;
-&lt;p&gt;Hi, 我是 Kyle Lian&lt;/p&gt;
-&lt;p&gt;软件开发, 涉及过数字城市、海外广告和智能家居&lt;/p&gt;
-&lt;p&gt;一位 Apple 产品重度用户, 拥有 Apple 全家桶&lt;/p&gt;
-&lt;p&gt;目前正在和 AI 一起做一些有意思的事情&lt;/p&gt;
-&lt;p&gt;喜欢的编程风格 OOP, FP&lt;/p&gt;
-&lt;h4 id=&#34;后端&#34;&gt;后端&lt;/h4&gt;
+&lt;p&gt;Hi, 我是 Kyle Lian.&lt;/p&gt;
+&lt;p&gt;一位软件开发工程师, 曾做过数字城市、海外广告行业的 SaaS 项目, 目前正从事物联网与智能化平台开发工作.&lt;/p&gt;
+&lt;p&gt;一位 Apple 产品用户.&lt;/p&gt;
+&lt;p&gt;喜欢的编程风格是 OOP, FP.&lt;/p&gt;
+&lt;p&gt;近期正在和 AI 一起 build 有意思的东西.&lt;/p&gt;
+&lt;h2 id=&#34;技能栈&#34;&gt;技能栈&lt;/h2&gt;
+&lt;h4 id=&#34;服务端&#34;&gt;服务端&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Java, Kotlin, Python&lt;/li&gt;
 &lt;li&gt;Spring Boot, Spring Cloud&lt;/li&gt;
@@ -32,9 +33,9 @@
 &lt;li&gt;MySQL, Redis&lt;/li&gt;
 &lt;li&gt;Kafka, Pulsar, RabbitMQ&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;前端&#34;&gt;前端&lt;/h4&gt;
+&lt;h4 id=&#34;web-端&#34;&gt;Web 端&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;Vue3 Vite&lt;/li&gt;
+&lt;li&gt;Vue3&lt;/li&gt;
 &lt;li&gt;Tailwind CSS&lt;/li&gt;
 &lt;li&gt;HTML5&lt;/li&gt;
 &lt;li&gt;CSS3&lt;/li&gt;
@@ -53,21 +54,22 @@
 &lt;li&gt;Postman&lt;/li&gt;
 &lt;li&gt;Cursor&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
+&lt;h4 id=&#34;其他&#34;&gt;其他&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;Ubuntu, CentOS&lt;/li&gt;
+&lt;li&gt;Linux, macOS&lt;/li&gt;
 &lt;li&gt;Markdown&lt;/li&gt;
 &lt;li&gt;Logseq&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;网站历史&#34;&gt;网站历史&lt;/h2&gt;
+&lt;h2 id=&#34;历史&#34;&gt;历史&lt;/h2&gt;
 &lt;p&gt;2023-09-29: 破蛋.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="我是谁">我是谁</h2>
-<p>Hi, 我是 Kyle Lian</p>
-<p>软件开发, 涉及过数字城市、海外广告和智能家居</p>
-<p>一位 Apple 产品重度用户, 拥有 Apple 全家桶</p>
-<p>目前正在和 AI 一起做一些有意思的事情</p>
-<p>喜欢的编程风格 OOP, FP</p>
-<h4 id="后端">后端</h4>
+<p>Hi, 我是 Kyle Lian.</p>
+<p>一位软件开发工程师, 曾做过数字城市、海外广告行业的 SaaS 项目, 目前正从事物联网与智能化平台开发工作.</p>
+<p>一位 Apple 产品用户.</p>
+<p>喜欢的编程风格是 OOP, FP.</p>
+<p>近期正在和 AI 一起 build 有意思的东西.</p>
+<h2 id="技能栈">技能栈</h2>
+<h4 id="服务端">服务端</h4>
 <ul>
 <li>Java, Kotlin, Python</li>
 <li>Spring Boot, Spring Cloud</li>
@@ -76,9 +78,9 @@
 <li>MySQL, Redis</li>
 <li>Kafka, Pulsar, RabbitMQ</li>
 </ul>
-<h4 id="前端">前端</h4>
+<h4 id="web-端">Web 端</h4>
 <ul>
-<li>Vue3 Vite</li>
+<li>Vue3</li>
 <li>Tailwind CSS</li>
 <li>HTML5</li>
 <li>CSS3</li>
@@ -97,13 +99,13 @@
 <li>Postman</li>
 <li>Cursor</li>
 </ul>
-<h3 id="其他">其他</h3>
+<h4 id="其他">其他</h4>
 <ul>
-<li>Ubuntu, CentOS</li>
+<li>Linux, macOS</li>
 <li>Markdown</li>
 <li>Logseq</li>
 </ul>
-<h2 id="网站历史">网站历史</h2>
+<h2 id="历史">历史</h2>
 <p>2023-09-29: 破蛋.</p>
 ]]></content:encoded>
     </item>
