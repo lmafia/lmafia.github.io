@@ -2,10 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.kylegeeks.com/tags/ai/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.kylegeeks.com/categories/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/clash/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/linux/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/posts/2026/03/clash_tailscale_solutions_blog/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/posts/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/tailscale/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/categories/tech/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2026-03-11T11:33:38+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/amy-tam/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/categories/career/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/categories/technology/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/posts/2026/02/the-cost-of-staying/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E7%A7%91%E6%8A%80%E8%A1%8C%E4%B8%9A/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/%E9%80%89%E6%8B%A9/</loc>
+    <lastmod>2026-02-18T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.kylegeeks.com/tags/ai/</loc>
     <lastmod>2026-01-18T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/tags/chris-gregori/</loc>
@@ -14,20 +65,8 @@
     <loc>https://blog.kylegeeks.com/tags/dan-koe/</loc>
     <lastmod>2026-01-18T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.kylegeeks.com/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.kylegeeks.com/categories/life/</loc>
     <lastmod>2026-01-18T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/posts/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/tags/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/categories/technology/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/posts/2026/01/code-is-cheap-now-software-isnt/</loc>
     <lastmod>2026-01-18T12:00:00+08:00</lastmod>
@@ -37,9 +76,6 @@
   </url><url>
     <loc>https://blog.kylegeeks.com/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2026-01-18T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2026-01-18T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.kylegeeks.com/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/</loc>
     <lastmod>2026-01-18T00:00:00+08:00</lastmod>

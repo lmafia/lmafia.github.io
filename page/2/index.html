@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.155.3"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.157.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -37,7 +37,7 @@
   "description": "KyleGeeks - A blog about technology, programming, and personal growth.",
   "thumbnailUrl": "https://blog.kylegeeks.com/favicon.ico",
   "sameAs": [
-      "https://github.com/lmafia", "https://x.com/lmafia16", "https://space.bilibili.com/265527861", "mailto:lmafiamm@gmail.com"
+      "https://github.com/lmafia", "https://x.com/kylegeeks", "https://space.bilibili.com/265527861", "mailto:lmafiamm@gmail.com"
   ]
 }
 </script>
@@ -220,6 +220,59 @@ function toggleThemeListener() {
 
 
 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SpringWeb 线程泄漏问题排查
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>现在是什么问题? 最近开发环境有个服务只要是超过 2 天没有重启/构建上线的话, 都会出现请求超时的问题.弄的前端和嵌入式开发的同事老是找我麻烦 😅
+周末刚好有空去加班, 办公室也比较安静, 比较有耐心来排查这个问题了.
+开发环境虽然是个直接 java -jar 部署的, 因为有用 mircometer 来暴露一些监控数据, 我也是把它接入了监控了, 在 Grafana 就能看到 JVM 情况
+可以看到 Thread 和 Waithing 状态的 Thread 不断增加, 怎么了, 看起来是线程泄漏了? 我们的代码虽然管理是不规范, 到处都有地方开线程池, 但是之前还是用的好好的呀「手动狗头」
+没事没事, 知道有异常出现了, 都好办, 直接上去机器上 dump 一些 log 出来看看就好, 我们这不还在「犯罪现场」呢嘛
+看看怎么个事儿 开发环境都是丢在一台虚拟机上的, 而且就是直接 java -jar 部署的 天然的让我好把日志导出来, 我直接一个 jps -lvm 查看那个问题服务的 PID
+然后再来一个 jstack:
+通过 jstack pid &gt; thread_dump.log 把线程和上下文都 dump 出来 然后再来请上我们的 Linux 三剑客之二: awk, grep
+...</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-05-11</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/java/">Java</a><a href="https://blog.kylegeeks.com/tags/tomcat/">Tomcat</a><a href="https://blog.kylegeeks.com/tags/springboot/">SpringBoot</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>287 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>2 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to SpringWeb 线程泄漏问题排查" href="https://blog.kylegeeks.com/posts/2025/05/debug-tomcat-thread-issue/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>非一般程序员
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>我有个不太像一般程序员的特点：我喜欢钻业务。遇到业务问题，我愿意虚心和他们请教交流。不会当下提出我的意见和看法，因为他们才是这方面专家，你过多的建议反而会影响他们对你的看法。
+我更愿意的做法是，下来自己思考和研究，收集资料和问下其他人与 AI ，参考综合的意见。
+可以的话，我再把这些内容在技术团队里面来分享，注意注意，大部分搞技术的人是傲慢的，你只能作为尽量低姿态的分享而已，当然，除非你具有一定的个人魅力，或者说你是领导
+</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2025-03-23</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E6%83%B3%E6%B3%95%E8%AE%B0%E5%BD%95/">想法记录</a><a href="https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/">职业发展</a></span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 非一般程序员" href="https://blog.kylegeeks.com/notes/2025/unique-programmer/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">

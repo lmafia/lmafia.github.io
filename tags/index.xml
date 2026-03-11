@@ -10,7 +10,97 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Mar 2026 11:33:38 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clash</title>
+      <link>https://blog.kylegeeks.com/tags/clash/</link>
+      <pubDate>Wed, 11 Mar 2026 11:33:38 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/clash/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://blog.kylegeeks.com/tags/linux/</link>
+      <pubDate>Wed, 11 Mar 2026 11:33:38 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Tailscale</title>
+      <link>https://blog.kylegeeks.com/tags/tailscale/</link>
+      <pubDate>Wed, 11 Mar 2026 11:33:38 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/tailscale/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>网络</title>
+      <link>https://blog.kylegeeks.com/tags/%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Wed, 11 Mar 2026 11:33:38 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Amy Tam</title>
+      <link>https://blog.kylegeeks.com/tags/amy-tam/</link>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/amy-tam/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>科技行业</title>
+      <link>https://blog.kylegeeks.com/tags/%E7%A7%91%E6%8A%80%E8%A1%8C%E4%B8%9A/</link>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E7%A7%91%E6%8A%80%E8%A1%8C%E4%B8%9A/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>翻译</title>
+      <link>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</link>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>职业生涯</title>
+      <link>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/</link>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>选择</title>
+      <link>https://blog.kylegeeks.com/tags/%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E9%80%89%E6%8B%A9/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>AI</title>
       <link>https://blog.kylegeeks.com/tags/ai/</link>
@@ -47,16 +137,6 @@
       <pubDate>Sun, 18 Jan 2026 00:00:00 +0800</pubDate>
       
       <guid>https://blog.kylegeeks.com/tags/%E7%94%9F%E6%B4%BB/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>翻译</title>
-      <link>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</link>
-      <pubDate>Sun, 18 Jan 2026 00:00:00 +0800</pubDate>
-      
-      <guid>https://blog.kylegeeks.com/tags/%E7%BF%BB%E8%AF%91/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
