@@ -10,7 +10,57 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Mar 2026 15:40:24 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IoT</title>
+      <link>https://blog.kylegeeks.com/tags/iot/</link>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/iot/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>制造业</title>
+      <link>https://blog.kylegeeks.com/tags/%E5%88%B6%E9%80%A0%E4%B8%9A/</link>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E5%88%B6%E9%80%A0%E4%B8%9A/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>智能化</title>
+      <link>https://blog.kylegeeks.com/tags/%E6%99%BA%E8%83%BD%E5%8C%96/</link>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E6%99%BA%E8%83%BD%E5%8C%96/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>硬件</title>
+      <link>https://blog.kylegeeks.com/tags/%E7%A1%AC%E4%BB%B6/</link>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E7%A1%AC%E4%BB%B6/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>软件</title>
+      <link>https://blog.kylegeeks.com/tags/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/tags/%E8%BD%AF%E4%BB%B6/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>AI</title>
       <link>https://blog.kylegeeks.com/tags/ai/</link>
