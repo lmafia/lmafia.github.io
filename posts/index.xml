@@ -10,7 +10,496 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究</title>
+      <link>https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/</link>
+      <pubDate>Mon, 22 Jun 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/</guid>
+      <description>Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。</description>
+      <content:encoded><![CDATA[<h1 id="bayer-prince-building-production-ready-agentic-ai-systems">Bayer PRINCE: Building Production-Ready Agentic AI Systems</h1>
+<hr>
+<h3 id="-文献信息">📚 文献信息</h3>
+<table>
+	<thead>
+			<tr>
+					<th>字段</th>
+					<th>内容</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>来源</strong></td>
+					<td><a href="https://martinfowler.com/articles/reliable-llm-bayer/">https://martinfowler.com/articles/reliable-llm-bayer/</a></td>
+			</tr>
+			<tr>
+					<td><strong>作者</strong></td>
+					<td>Bayer × ThoughtWorks</td>
+			</tr>
+			<tr>
+					<td><strong>发布日期</strong></td>
+					<td>2026-06-16</td>
+			</tr>
+			<tr>
+					<td><strong>标签</strong></td>
+					<td>agentic-rag, multi-agent, production-ai, context-engineering, harness-engineering, pharma</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="导言一个变革性的机遇">导言：一个变革性的机遇</h2>
+<blockquote>
+<p>A Case Study in building production-ready agentic AI systems.</p>
+</blockquote>
+<p>一个关于构建生产级 Agentic AI 系统的实战案例研究。</p>
+<h3 id="问题背景">问题背景</h3>
+<blockquote>
+<p>Preclinical drug discovery is inherently complex and data-intensive. Researchers face the significant challenge of efficiently accessing and analyzing vast volumes of information generated during this critical phase. Traditional keyword-based search methods, often reliant on rigid Boolean logic, frequently fall short when confronted with the nuanced and intricate nature of preclinical research questions.</p>
+</blockquote>
+<p>临床前药物发现本质上是复杂且数据密集的。研究人员面临着高效访问和分析这一关键阶段产生的海量信息的重大挑战。传统的关键词搜索方法通常依赖僵化的布尔逻辑，面对临床前研究问题的微妙和复杂性时往往力不从心。</p>
+<h3 id="核心机遇llm--rag">核心机遇：LLM + RAG</h3>
+<blockquote>
+<p>The advent of Large Language Models (LLMs) has presented a transformative opportunity. By combining the generative power of LLMs with the precision of information retrieval systems, Retrieval-Augmented Generation (RAG) has emerged as a promising technique. This approach holds the potential to revolutionize preclinical data access, enabling researchers to pose complex questions in natural language and receive accurate, context-rich answers grounded in proprietary data.</p>
+</blockquote>
+<p>大语言模型（LLM）的出现带来了变革性的机遇。通过将 LLM 的生成能力与信息检索系统的精确性相结合，<strong>检索增强生成（RAG）</strong> 作为一种前景广阔的技术应运而生。这种方法有潜力彻底改变临床前数据访问方式，使研究人员能够用自然语言提出复杂问题，并获得基于专有数据的准确、上下文丰富的回答。</p>
+<h3 id="本文主题">本文主题</h3>
+<blockquote>
+<p>In this post, we share that journey—how Bayer&rsquo;s early investment in generative AI has resulted in PRINCE, an agentic AI system built on Agentic RAG. This case study explores the technical architecture, engineering decisions, and lessons learned in transforming preclinical data retrieval from a challenging maze into an intuitive conversational experience.</p>
+</blockquote>
+<p>在本文中，我们分享这段历程——拜耳在生成式 AI 领域的早期投资如何催生了 <strong>PRINCE</strong>，一个基于 Agentic RAG 构建的 Agentic AI 系统。本案例研究探讨了将临床前数据检索从令人望而生畏的迷宫转变为直觉化对话体验的技术架构、工程决策和经验教训。</p>
+<h3 id="两大工程支柱">两大工程支柱</h3>
+<blockquote>
+<p>Many of the engineering decisions behind PRINCE can now be understood through the lens of <strong>context engineering</strong> and <strong>harness engineering</strong>, although when the system was first designed we did not use these terms. Context engineering shaped what information each model received, what it did not receive, and how context moved between specialized steps such as research, reflection, and writing. Harness engineering shaped the scaffolding around the models: orchestration, tool boundaries, state persistence, retries, fallbacks, validation, reflection loops, observability, and human review.</p>
+</blockquote>
+<p>PRINCE 背后的许多工程决策现在可以通过两大核心视角来理解，尽管在系统首次设计时我们并没有使用这些术语：</p>
+<ol>
+<li><strong>上下文工程（Context Engineering）</strong> — 决定每个模型接收什么信息、不接收什么信息，以及上下文如何在研究、反思和写作等专业步骤之间流转。</li>
+<li><strong>脚手架工程（Harness Engineering）</strong> — 塑造模型周围的支撑结构：编排、工具边界、状态持久化、重试、降级、验证、反思循环、可观测性和人工审核。</li>
+</ol>
+<hr>
+<h2 id="挑战穿越临床前数据迷宫">挑战：穿越临床前数据迷宫</h2>
+<blockquote>
+<p>The preclinical research landscape at Bayer, like many large pharmaceutical organizations, is characterized by a diverse and extensive array of data. Researchers frequently encountered significant hurdles:</p>
+</blockquote>
+<p>拜耳的临床前研究环境与许多大型制药组织一样，数据多样且广泛。研究人员经常遇到重大障碍：</p>
+<blockquote>
+<ul>
+<li><strong>Data Silos</strong>: information was fragmented across numerous disparate systems and repositories.</li>
+<li><strong>Limited Search Capabilities</strong>: traditional keyword-based search engines struggled with the complexity of preclinical terminology.</li>
+<li><strong>Time-Consuming Manual Analysis</strong>: extracting specific insights required considerable manual effort.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>数据孤岛</strong>：信息分散在众多不同的系统和存储库中，难以获得全面的整体视图。</li>
+<li><strong>搜索能力有限</strong>：传统关键词搜索引擎难以应对临床前术语的复杂性和多变性，经常返回不相关、不完整或过多的结果。</li>
+<li><strong>人工分析耗时</strong>：从多份文档中提取特定信息或汇编信息需要大量人工操作，将宝贵的研究人员时间从核心科学活动中转移出去。</li>
+</ul>
+<hr>
+<h2 id="解决方案prince-平台">解决方案：PRINCE 平台</h2>
+<blockquote>
+<p>PRINCE (Preclinical Information Center) was conceived as a unified gateway to preclinical data. Its evolution follows three distinct phases:</p>
+</blockquote>
+<p>PRINCE（临床前信息中心）被构想为临床前数据的统一入口。其演进遵循三个截然不同的阶段：</p>
+<blockquote>
+<ol>
+<li><strong>Search</strong>: the initial phase focused on creating a unified gateway to thousands of nonclinical study reports, consolidating multiple in-house data silos into a searchable format, primarily leveraging structured metadata.</li>
+<li><strong>Ask</strong>: this phase introduced RAG-powered question-answering, enabling researchers to derive insights directly from unstructured data by posing questions in natural language.</li>
+<li><strong>Do</strong>: the current phase positions PRINCE as an active research assistant through multi-agent systems, capable of handling intricate queries, orchestrating workflows, and supporting activities like drafting regulatory documents.</li>
+</ol>
+</blockquote>
+<ol>
+<li><strong>搜索（Search）</strong>：初始阶段专注于创建通往数千份非临床研究报告的统一入口，将多个内部数据孤岛整合为可搜索的格式，主要利用结构化元数据。</li>
+<li><strong>提问（Ask）</strong>：这一阶段引入了 RAG 驱动的问答系统，使研究人员能够通过自然语言提问直接从非结构化数据中获取洞察。</li>
+<li><strong>执行（Do）</strong>：当前阶段通过多智能体系统将 PRINCE 定位为主动的研究助手，能够处理复杂查询、编排工作流，并支持起草监管文件等活动。</li>
+</ol>
+<hr>
+<h2 id="系统架构">系统架构</h2>
+<blockquote>
+<p>The system functions as an interactive conversational UI, powered by a robust backend infrastructure. Its architecture, designed for handling complex queries and delivering accurate, context-rich answers, is orchestrated using <em>LangGraph</em> and served via a <em>FastAPI</em> application.</p>
+</blockquote>
+<p>系统以交互式对话 UI 呈现，由强大的后端基础设施驱动。其架构专为处理复杂查询和提供准确、上下文丰富的回答而设计，使用 <strong>LangGraph</strong> 编排，通过 <strong>FastAPI</strong> 应用提供服务。</p>
+<blockquote>
+<p>Figure 1 provides the system context—UI, backend, data stores, LLM fallbacks, and observability.</p>
+</blockquote>
+<p>图 1 展示了系统上下文——UI、后端、数据存储、LLM 降级策略和可观测性。</p>
+<p>
+  <img loading="lazy" src="https://martinfowler.com/articles/reliable-llm-bayer/system-container-view.png" alt="System context and supporting platforms"  /></p>
+<p><em>Figure 1: System context and supporting platforms.</em></p>
+<p>核心组件：</p>
+<blockquote>
+<ul>
+<li><strong>User Request</strong>: the process begins when a user submits a request through the Conversational UI which is built with React.</li>
+<li><strong>Orchestration</strong>: the user&rsquo;s request is routed to a LangGraph-based orchestration layer in the backend.</li>
+<li><strong>Data Retrieval and State Management</strong>: the Researcher agents interact with a comprehensive and distributed data ecosystem — OpenSearch for vector store, Athena for structured data, PostgreSQL for agent state, DynamoDB for application state.</li>
+<li><strong>Resilience and Error Handling</strong>: if a specific LLM fails, the system automatically retries several times before falling back to an alternative model. Agents are provided the context of errors so they can chart a different trajectory.</li>
+<li><strong>Observability</strong>: CloudWatch for system health, Langfuse for detailed traces and evaluation datasets. Evaluation uses RAGAS framework.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>用户请求</strong>：用户通过 React 构建的对话式 UI 提交请求。</li>
+<li><strong>编排层</strong>：请求被路由到后端基于 LangGraph 的编排层。该工作流引擎协调多阶段流程：澄清用户意图 → 思考与规划 → 研究（RAG + Text-to-SQL）→ 数据验证 → 生成响应。</li>
+<li><strong>数据检索与状态管理</strong>：OpenSearch 存储向量（知识库），Athena 访问结构化数据，PostgreSQL 持久化智能体状态（LangGraph checkpointer），DynamoDB 管理应用级状态。</li>
+<li><strong>容错与错误处理</strong>：LLM 失败时自动重试数次再降级到替代模型；重试在调用级别和节点级别均有实现；智能体可获取错误上下文以规划替代路径。</li>
+<li><strong>可观测性</strong>：CloudWatch 监控系统健康，Langfuse 提供详细追踪和评估数据集。评估使用 RAGAS 框架。</li>
+</ul>
+<hr>
+<h3 id="上下文纪律">上下文纪律</h3>
+<blockquote>
+<p>A design principle running through this architecture is <strong>context discipline</strong>. Larger context windows did not remove the need to be selective about what each agent sees. In early iterations, putting too much information into the context made the system harder to steer and harder to evaluate. PRINCE therefore avoids treating the prompt as one large container for all available information. Instead, different stages receive different context:</p>
+</blockquote>
+<p>贯穿整个架构的一个设计原则是<strong>上下文纪律</strong>。更大的上下文窗口并没有消除对每个智能体所见内容进行筛选的必要性。在早期迭代中，向上下文中放入过多信息使系统更难控制和评估。因此 PRINCE 不把提示词当作所有可用信息的大型容器，而是让不同阶段接收不同的上下文：</p>
+<blockquote>
+<ul>
+<li><strong>Planning context</strong> for Think &amp; Plan</li>
+<li><strong>Retrieval context</strong> for the Researcher Agent</li>
+<li><strong>Evidence context</strong> for the Reflection Agent</li>
+<li><strong>Synthesis context</strong> for the Writer Agent</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>规划上下文</strong> → Think &amp; Plan 阶段</li>
+<li><strong>检索上下文</strong> → Researcher Agent</li>
+<li><strong>证据上下文</strong> → Reflection Agent</li>
+<li><strong>合成上下文</strong> → Writer Agent</li>
+</ul>
+<blockquote>
+<p>This reduces context pollution and makes the system easier to debug, evaluate, and improve.</p>
+</blockquote>
+<p>这减少了上下文污染，使系统更易于调试、评估和改进。</p>
+<hr>
+<h2 id="agentic-rag-系统">Agentic RAG 系统</h2>
+<blockquote>
+<p>PRINCE incorporates an agentic RAG system to handle complex user requests that require multiple steps, reasoning, and interaction with different tools or data sources. This setup, implemented using <em>LangGraph</em>, orchestrates the overall workflow and leverages specialized agents for specific tasks.</p>
+</blockquote>
+<p>PRINCE 集成了一个 Agentic RAG 系统，用于处理需要多步骤推理以及与不同工具或数据源交互的复杂用户请求。该系统使用 LangGraph 实现，编排整体工作流，并利用专门的智能体执行特定任务。</p>
+<blockquote>
+<p>Figure 2 zooms into how the system coordinates its specialized agents.</p>
+</blockquote>
+<p>图 2 展示了系统如何协调其专门的智能体。</p>
+<p>
+  <img loading="lazy" src="https://martinfowler.com/articles/reliable-llm-bayer/new-research-workflow.png" alt="The research workflow"  /></p>
+<p><em>Figure 2: The research workflow.</em></p>
+<hr>
+<h3 id="1-澄清用户意图">1. 澄清用户意图</h3>
+<blockquote>
+<p>The <em>Clarify User Intent</em> step serves as the first line of defense against ambiguity. As the system scaled to include diverse domains like toxicology and pharmacology, simple user queries often became ambiguous, making it difficult to automatically select the right tools. Rather than relying on expensive trial-and-error across all data sources, the system proactively asks clarifying questions to pinpoint the specific domain or data type.</p>
+</blockquote>
+<p><strong>澄清用户意图</strong>步骤是对抗歧义的第一道防线。随着系统扩展到涵盖毒理学和药理学等不同领域，简单的用户查询往往变得模糊不清，难以自动选择正确的工具。系统不是依赖在所有数据源上进行代价高昂的试错，而是主动提出澄清问题以确定具体的领域或数据类型。</p>
+<blockquote>
+<p>From a context engineering perspective, this step is the first assembly decision in the workflow: it constrains which tools, domains, and data sources will be in scope before any retrieval begins, ensuring subsequent agents receive a focused rather than open-ended problem.</p>
+</blockquote>
+<p>从上下文工程的角度来看，这一步是工作流中的第一个组装决策：它在任何检索开始之前就限定了哪些工具、领域和数据源在范围内，确保后续智能体接收的是聚焦的而非开放式的问题。</p>
+<hr>
+<h3 id="2-思考与规划过程反思">2. 思考与规划：过程反思</h3>
+<blockquote>
+<p>The <em>Think &amp; Plan</em> step is responsible for devising a strategy to fulfill the user&rsquo;s request. This critical component gives the system a dedicated space to reason about the next steps before taking action—a technique inspired by <a href="https://www.anthropic.com/engineering/claude-think-tool">Anthropic&rsquo;s Think tool</a>. This step performs <strong>process reflection</strong>: evaluating whether the agent is making the right progress toward its end goal and is on right trajectory, rather than evaluating the data itself.</p>
+</blockquote>
+<p><strong>思考与规划</strong>步骤负责制定满足用户请求的策略。这个关键组件为系统提供了一个专用的推理空间，在采取行动之前先思考下一步——受 <a href="https://www.anthropic.com/engineering/claude-think-tool">Anthropic 的 Think 工具</a>启发。这一步执行<strong>过程反思</strong>：评估智能体是否在朝着最终目标做出正确进展、是否在正确的轨道上，而非评估数据本身。</p>
+<blockquote>
+<p>In multi-step agentic workflows, this &ldquo;thinking space&rdquo; has proven particularly valuable in scenarios involving multiple tool calls. When PRINCE was initially developed, it had only a couple of tools. However, as more data sources were integrated, the number of available tools grew significantly. With overlapping concerns across tools, the LLM would sometimes struggle to select the most appropriate tool. By introducing a dedicated thinking step, the system can explicitly reason about which tool best matches the user&rsquo;s intent, leading to a dramatic improvement in tool selection accuracy.</p>
+</blockquote>
+<p>在多步骤 Agentic 工作流中，这个&quot;思考空间&quot;在涉及多次工具调用的场景中被证明尤其有价值。PRINCE 最初只有几个工具，但随着更多数据源的集成，可用工具数量大幅增长。由于不同工具之间存在重叠的关注领域，LLM 有时难以选择最合适的工具。引入专门的思考步骤后，系统可以显式推理哪个工具最匹配用户意图，工具选择的准确性得到了显著提升。</p>
+<hr>
+<h3 id="3-研究者智能体">3. 研究者智能体</h3>
+<blockquote>
+<p>The <em>Researcher Agent</em> serves as the system&rsquo;s primary information gatherer. It employs a <strong>hybrid retriever</strong> approach focused on two distinct patterns:</p>
+</blockquote>
+<p><strong>研究者智能体</strong>是系统的主要信息收集者。它采用<strong>混合检索器</strong>方法，聚焦于两种不同的模式：</p>
+<blockquote>
+<ul>
+<li><strong>Retrieval-Augmented Generation (RAG)</strong>: for processing unstructured data, primarily PDF reports.</li>
+<li><strong>Text-to-SQL</strong>: for querying structured data housed in Amazon Athena.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>RAG</strong>：处理非结构化数据（PDF 报告）</li>
+<li><strong>Text-to-SQL</strong>：查询结构化数据（Amazon Athena）</li>
+</ul>
+<blockquote>
+<p>As PRINCE expands across multiple preclinical domains, a single Researcher agent with a flat tool list becomes increasingly hard to manage. The solution: evolving into a hierarchy of <strong>domain-specific sub-agents</strong>, each owning its own toolset and tailored prompt instructions that encode how that domain&rsquo;s data model works.</p>
+</blockquote>
+<p>随着 PRINCE 在多个临床前领域扩展，拥有扁平工具列表的单一 Researcher agent 变得难以管理。解决方案是：演进为<strong>领域专属子智能体</strong>的层级结构，每个子智能体拥有自己的工具集和定制化的提示词指令，编码该领域数据模型的工作方式。</p>
+<hr>
+<h4 id="rag-流水线">RAG 流水线</h4>
+<blockquote>
+<p>The RAG pipeline comprises a comprehensive ingestion process and a sophisticated query-time architecture.</p>
+</blockquote>
+<p>RAG 流水线包括全面的摄取流程和精密的查询时架构。</p>
+<blockquote>
+<p><strong>Ingestion Process:</strong> Preclinical study reports, mostly PDFs spanning decades and often including scanned documents with complex tables, are first centralized into an S3 data lake and passed through an extraction pipeline tuned for this corpus. The extracted text is normalized into structured JSON and then chunked using a strategy that preserves enough scientific context while keeping chunks efficient for retrieval. Each chunk is enriched with study- and section-level metadata from Amazon Athena, which later enables precise metadata filtering. Finally, these annotated chunks are embedded and indexed in Amazon OpenSearch Service.</p>
+</blockquote>
+<p><strong>摄取流程：</strong> 临床前研究报告（主要是跨越数十年的 PDF，通常包含带复杂表格的扫描文档）首先集中到 S3 数据湖，然后通过针对该语料库调优的提取流水线。提取的文本被规范化为结构化 JSON，然后使用在保留足够科学上下文的同时保持检索效率的策略进行分块。每个文本块都从 Amazon Athena 获取研究和章节级别的元数据进行增强，以便后续进行精确的元数据过滤。最后，这些带标注的文本块被嵌入并索引到 Amazon OpenSearch Service 中。</p>
+<blockquote>
+<p><strong>Query-Time RAG Pipeline:</strong> When a user submits a query, the system initiates a multi-stage retrieval process:</p>
+</blockquote>
+<p><strong>查询时 RAG 流水线：</strong> 用户提交查询时，系统启动多阶段检索流程：</p>
+<blockquote>
+<ol>
+<li><strong>Keyword Extraction</strong> — the user&rsquo;s natural language query is analyzed by an LLM to extract keywords highly relevant for keyword search (e.g., &ldquo;piloerection&rdquo;, &ldquo;ataxia&rdquo;).</li>
+<li><strong>Metadata Filter Generation</strong> — concurrently, the LLM generates a metadata filter based on the query (e.g., <code>eq(study_id, T123456-2)</code>), dynamically generated using few-shot prompting.</li>
+<li><strong>Query Expansion</strong> — to ensure comprehensive retrieval, a smaller, faster model generates n=5 semantically similar queries based on the original question.</li>
+<li><strong>Hybrid Retriever</strong> — information retrieval from OpenSearch combines metadata filtering, semantic vector similarity search (kNN, weight 0.7), and keyword-based retrieval (weight 0.3). Results from all 5 parallel hybrid searches are aggregated, initially retrieving ~20 chunks.</li>
+<li><strong>Reranking</strong> — a cross-encoder model (bge-reranker-large) evaluates relevance of each retrieved chunk against the original question, selecting the top k=7 most relevant chunks.</li>
+<li><strong>Final Prompt Generation</strong> — the refined context (k=7 chunks) is combined with the original question to form the final LLM prompt.</li>
+<li><strong>Response with Citation</strong> — a reasoning model processes the final prompt to generate a response with automatic citations linking back to the specific chunks in the original documents.</li>
+</ol>
+</blockquote>
+<ol>
+<li><strong>关键词提取</strong> — LLM 分析用户的自然语言查询，提取与关键词搜索高度相关的关键词（如&quot;竖毛&quot;、&ldquo;共济失调&rdquo;）。</li>
+<li><strong>元数据过滤生成</strong> — LLM 并行根据查询生成元数据过滤条件（如 <code>eq(study_id, T123456-2)</code>），通过少样本提示动态生成。</li>
+<li><strong>查询扩展</strong> — 为确保全面检索，更小更快的模型基于原始问题生成 n=5 个语义相似的查询。</li>
+<li><strong>混合检索器</strong> — 从 OpenSearch 检索信息，结合元数据过滤、语义向量相似性搜索（kNN，权重 0.7）和关键词检索（权重 0.3）。5 个并行混合搜索的结果被聚合，初始检索约 20 个文本块。</li>
+<li><strong>重排序</strong> — 交叉编码器模型（bge-reranker-large）评估每个检索到的文本块与原始问题的相关性，选出最相关的 k=7 个文本块。</li>
+<li><strong>最终提示词生成</strong> — 精选上下文（k=7 个文本块）与原始问题组合形成最终 LLM 提示词。</li>
+<li><strong>带引用的响应</strong> — 推理模型处理最终提示词，生成自动附带引用的响应，引用链接回原始文档中的具体文本块。</li>
+</ol>
+<hr>
+<h4 id="text-to-sql">Text-to-SQL</h4>
+<blockquote>
+<p>While RAG excels at unstructured data, queries requiring precise filtering, aggregation, or comparison of structured data points are better suited for Text-to-SQL.</p>
+</blockquote>
+<p>虽然 RAG 擅长非结构化数据，但需要精确过滤、聚合或比较结构化数据点的查询更适合使用 Text-to-SQL。</p>
+<p>
+  <img loading="lazy" src="https://martinfowler.com/articles/reliable-llm-bayer/text-to-sql.png" alt="Text-to-SQL tool"  /></p>
+<p><em>Figure 3: Text-to-SQL tool</em></p>
+<blockquote>
+<p>The process involves several key steps:</p>
+</blockquote>
+<p>该流程涉及几个关键步骤：</p>
+<blockquote>
+<ul>
+<li><strong>Dynamic Few-Shot Prompting for SQL Generation</strong> — a collection of carefully hand-picked examples representing various complex query patterns is stored in a separate vector collection. Based on the user&rsquo;s query, relevant examples are retrieved via vector similarity search and included in the prompt, providing in-context learning examples for accurate SQL generation in the correct dialect.</li>
+<li><strong>Schema Understanding</strong> — only the necessary schema components relevant to the user&rsquo;s query are dynamically injected into the LLM&rsquo;s context, reducing complexity and improving accuracy.</li>
+<li><strong>Validation</strong> — only SELECT queries are permitted; DELETE, INSERT, or UPDATE queries are explicitly blocked. Essential columns (study ID, title) are always included in the SELECT query.</li>
+<li><strong>Iterative Error Correction</strong> — if execution fails, the error message along with the generated query and original context is passed back to the LLM to generate a corrected query. This is attempted up to 3 times before giving up.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>动态少样本提示</strong> — 精心挑选的代表各种复杂查询模式的示例存储在单独的向量集合中。根据用户查询，通过向量相似性搜索检索相关示例并包含在提示中，为正确方言的 SQL 生成提供上下文学习示例。</li>
+<li><strong>Schema 理解</strong> — 仅将与用户查询相关的必要 schema 组件动态注入 LLM 的上下文，降低复杂度并提高准确性。</li>
+<li><strong>验证</strong> — 仅允许 SELECT 查询；DELETE、INSERT 或 UPDATE 查询被明确阻止。SELECT 查询始终包含必要的列（研究 ID、标题）。</li>
+<li><strong>迭代错误修正</strong> — 如果执行失败，错误消息连同生成的查询和原始上下文会反馈给 LLM 以生成修正后的查询。最多尝试 3 次后放弃。</li>
+</ul>
+<hr>
+<h3 id="4-反思智能体">4. 反思智能体</h3>
+<blockquote>
+<p>While the <em>Think &amp; Plan</em> step provides process reflection, the <em>Reflection Agent</em> performs a complementary but distinct type of reflection: <strong>data reflection</strong>. This crucial component evaluates whether the data retrieved from various tools is sufficient and relevant to answer the user&rsquo;s question—a fundamentally different concern from whether the workflow itself is progressing correctly.</p>
+</blockquote>
+<p>虽然 Think &amp; Plan 步骤提供过程反思，但<strong>反思智能体</strong>执行的是互补但截然不同的反思类型：<strong>数据反思</strong>。这个关键组件评估从各工具检索到的数据是否足以回答用户的问题——这与工作流本身是否在正确推进是完全不同的关注点。</p>
+<blockquote>
+<p>In multi-step agentic workflows, these two types of reflection serve different but equally important purposes:</p>
+</blockquote>
+<p>在多步骤 Agentic 工作流中，这两种反思类型服务于不同但同样重要的目的：</p>
+<table>
+	<thead>
+			<tr>
+					<th>反思类型</th>
+					<th>关注点</th>
+					<th>捕捉问题</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>过程反思（Think &amp; Plan）</td>
+					<td>工作流是否在正确的路径上？</td>
+					<td>错误轨迹、工具选择失误、排序不当</td>
+			</tr>
+			<tr>
+					<td>数据反思（Reflection Agent）</td>
+					<td>收集的证据是否充分？</td>
+					<td>证据薄弱、上下文缺失、覆盖有缺口</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>If the gathered information is deemed insufficient, the <em>Reflection Agent</em> generates specific follow-up questions designed to acquire the necessary missing information. These follow-up questions are then handed back to the <em>Think &amp; Plan</em> step, which initiates further retrieval steps.</p>
+</blockquote>
+<p>如果收集的信息被认为不足，反思智能体会生成具体的后续问题以获取必要的缺失信息。这些问题随后交回 Think &amp; Plan 步骤，启动进一步的检索。</p>
+<hr>
+<h3 id="5-写作者智能体">5. 写作者智能体</h3>
+<blockquote>
+<p>Once the Researcher Agent has collected the relevant evidence, the <em>Writer Agent</em> is responsible for turning that raw material into the final answer. Its job is not to &ldquo;discover&rdquo; new information, but to synthesize the retrieved context, respect user instructions, and enforce quality constraints during generation.</p>
+</blockquote>
+<p>研究者智能体收集到相关证据后，<strong>写作者智能体</strong>负责将原始素材转化为最终答案。它的职责不是&quot;发现&quot;新信息，而是综合检索到的上下文、遵守用户指令，并在生成过程中强制执行质量约束。</p>
+<blockquote>
+<p>The Writer Agent operates with a few non-negotiable rules: it must ground every claim in the supplied context and attach accurate citations back to the underlying chunks and study IDs, since verifiability is critical in a regulated environment.</p>
+</blockquote>
+<p>写作者智能体遵循几条不可妥协的规则：每个论断都必须基于提供的上下文并附上准确的引用，链接回底层文本块和研究 ID——因为在受监管的环境中，可验证性至关重要。</p>
+<blockquote>
+<p>For more complex responses, the architecture supports extending the Writer Agent with a short internal review loop: draft → check for missing sections or inconsistent tables → revise. This gives PRINCE <strong>three complementary reflection loops</strong>:</p>
+</blockquote>
+<p>对于更复杂的响应，架构支持通过短暂的内部审核循环扩展写作者智能体：草稿 → 检查缺失章节或不一致的表格 → 修订。这使 PRINCE 拥有<strong>三个互补的反思循环</strong>：</p>
+<blockquote>
+<ol>
+<li><strong>Process reflection</strong> (Think &amp; Plan) — is the workflow on the right path?</li>
+<li><strong>Data reflection</strong> (Reflection Agent) — is the gathered evidence sufficient?</li>
+<li><strong>Draft reflection</strong> (Writer Agent) — is the generated output complete?</li>
+</ol>
+</blockquote>
+<ol>
+<li><strong>过程反思</strong>（Think &amp; Plan）— 工作流在正确的路径上吗？</li>
+<li><strong>数据反思</strong>（Reflection Agent）— 收集的证据充分吗？</li>
+<li><strong>草稿反思</strong>（Writer Agent）— 生成的输出完整吗？</li>
+</ol>
+<hr>
+<h2 id="建立信任">建立信任</h2>
+<h3 id="透明性与可解释性">透明性与可解释性</h3>
+<blockquote>
+<p>Intermediate steps executed by the system during query processing are displayed to the user, including the queries formulated and the tools utilized. When relevant context (chunks) is identified, links to these source materials are presented on the screen. Users can hover over any sentence in the generated response to see the corresponding citation, which provides a link to the source document, including the page number and the exact quote from the report used to support that part of the answer.</p>
+</blockquote>
+<p>系统在查询处理期间执行的中间步骤会展示给用户，包括构建的查询和使用的工具。当识别到相关上下文（文本块）时，这些源材料的链接会显示在屏幕上。用户可以悬停在生成响应中的任何句子上查看对应的引用，引用提供指向源文档的链接，包括页码和用于支撑该部分答案的报告原文引述。</p>
+<h3 id="评估体系">评估体系</h3>
+<blockquote>
+<p>Rigorous evaluation is fundamental to building and maintaining a reliable LLM application. PRINCE&rsquo;s performance is assessed through two types of evaluations:</p>
+</blockquote>
+<p>严格的评估对于构建和维护可靠的 LLM 应用至关重要。PRINCE 的性能通过两种评估方式来衡量：</p>
+<table>
+	<thead>
+			<tr>
+					<th>类型</th>
+					<th>触发时机</th>
+					<th>方法</th>
+					<th>指标</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>数据集评估</strong></td>
+					<td>工作流/提示词/模型变更时</td>
+					<td>领域专家准备的带参考答案的精选数据集，存储在 Langfuse</td>
+					<td>忠实度、答案相关性、上下文相关性、答案准确性、语义相似度</td>
+			</tr>
+			<tr>
+					<td><strong>线上流量评估</strong></td>
+					<td>每日批处理</td>
+					<td>真实用户查询（无预设参考答案）</td>
+					<td>忠实度、答案相关性</td>
+			</tr>
+	</tbody>
+</table>
+<blockquote>
+<p>Evaluation uses the <strong>RAGAS</strong> evaluation framework. The live traffic evaluation is done on a daily basis while the dataset evaluation is done whenever significant changes are made to the core workflow, prompts, or underlying models.</p>
+</blockquote>
+<p>评估使用 <strong>RAGAS</strong> 评估框架。线上流量评估每日执行，数据集评估在对核心工作流、提示词或底层模型进行重大变更时执行。</p>
+<hr>
+<h2 id="韧性工程">韧性工程</h2>
+<blockquote>
+<p>Given the complexity of the multi-step workflow, robust error handling and recovery mechanisms are critical. The system is engineered to recover gracefully from failures at various stages without requiring a complete restart.</p>
+</blockquote>
+<p>鉴于多步骤工作流的复杂性，强大的错误处理和恢复机制至关重要。系统被设计为能从各阶段的故障中优雅恢复，无需完全重启。</p>
+<p>关键机制：</p>
+<blockquote>
+<ul>
+<li><strong>State Persistence</strong> — the state of the entire workflow graph is persistently stored in PostgreSQL using a LangGraph checkpointer, enabling the system to resume execution directly from the failed node. Application-level state is stored in DynamoDB.</li>
+<li><strong>Built-in Retries</strong> — if a particular step encounters a transient failure, the system will automatically attempt to re-execute it a predefined number of times.</li>
+<li><strong>User-Initiated Retries</strong> — users can manually retry a failed query. The system leverages persisted state to continue from the point of failure, skipping successfully completed steps.</li>
+<li><strong>LLM Fallbacks</strong> — if a call to a primary LLM fails after retries, the system automatically falls back to an alternative LLM from a different provider.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>状态持久化</strong> — 整个工作流图的状态通过 LangGraph checkpointer 持久化存储在 PostgreSQL 中，使系统能直接从失败节点恢复执行。应用级状态存储在 DynamoDB 中。</li>
+<li><strong>内置重试</strong> — 某个步骤遇到瞬时故障时，系统会自动尝试重新执行预设次数。</li>
+<li><strong>用户主动重试</strong> — 用户可以手动重试失败的查询。系统利用持久化状态从失败点继续执行，跳过已成功完成的步骤。</li>
+<li><strong>LLM 降级</strong> — 如果对主 LLM 的调用在重试后失败，系统自动降级到不同供应商的替代 LLM。</li>
+</ul>
+<hr>
+<h2 id="提升数据质量命名实体识别">提升数据质量：命名实体识别</h2>
+<blockquote>
+<p>Due to historical data migrations and varied annotation practices, the metadata can sometimes be incomplete, missing, or incorrect. To address this, a utility system employs Named Entity Recognition (NER) to extract and create accurate annotations directly from the study PDFs.</p>
+</blockquote>
+<p>由于历史数据迁移和不同的标注实践，元数据有时可能不完整、缺失或不正确。为此，一个工具系统使用命名实体识别（NER）直接从研究报告 PDF 中提取和创建准确的标注。</p>
+<blockquote>
+<p>A confidence scoring system governs automation: fields with a high confidence score automatically update the database. Fields with lower confidence scores are quarantined and flagged for human review, ensuring data accuracy while leveraging automation.</p>
+</blockquote>
+<p>置信度评分系统控制自动化程度：高置信度字段自动更新数据库。低置信度字段被隔离并标记等待人工审核，在利用自动化的同时确保数据准确性。</p>
+<hr>
+<h2 id="核心工程原则">核心工程原则</h2>
+<h3 id="上下文工程context-engineering">上下文工程（Context Engineering）</h3>
+<blockquote>
+<p>The system does not simply keep adding more information to the prompt. It routes the right context to the right capability at the right time:</p>
+</blockquote>
+<p>系统不是简单地往提示词里不断塞更多信息，而是在正确的时间将正确的上下文路由到正确的能力模块：</p>
+<blockquote>
+<ul>
+<li>Text-to-SQL injects only the schema components relevant to the current query rather than the full database schema</li>
+<li>The Reflection Agent receives the original question alongside collected evidence to assess gaps, not the full workflow history</li>
+<li>The Writer Agent receives curated chunks with citation constraints, not raw retrieval output</li>
+</ul>
+</blockquote>
+<ul>
+<li>Text-to-SQL 仅注入与当前查询相关的 schema 组件，而非完整数据库 schema</li>
+<li>Reflection Agent 接收原始问题和收集的证据以评估缺口，而非完整的工作流历史</li>
+<li>Writer Agent 接收带引用约束的精选文本块，而非原始检索输出</li>
+</ul>
+<blockquote>
+<p>Moving from a monolithic agent to this structured workflow meant each agent could be evaluated, debugged, and improved in isolation.</p>
+</blockquote>
+<p>从单一智能体转向这种结构化工作流，意味着每个智能体都可以被独立评估、调试和改进。</p>
+<h3 id="脚手架工程harness-engineering">脚手架工程（Harness Engineering）</h3>
+<blockquote>
+<p>The LangGraph workflow acts as the control layer around the agents: it defines which component can act, which tools it can use, where the workflow can pause, how failures are retried, how state is persisted, and when the system should move from research to reflection to writing. This harness makes the system less opaque and more reliable than an unconstrained autonomous agent.</p>
+</blockquote>
+<p>LangGraph 工作流充当智能体周围的控制层：它定义了哪个组件可以行动、可以使用哪些工具、工作流在哪里可以暂停、失败如何重试、状态如何持久化，以及系统何时应该从研究转向反思再到写作。这个脚手架使系统比不受约束的自主智能体更透明、更可靠。</p>
+<blockquote>
+<p>As model capabilities improve, some parts of today&rsquo;s harness may become thinner or move into native model capabilities. But in enterprise research systems, especially where trust, traceability, and reviewability matter, explicit control over context, workflow state, recovery, reflection, and verification remains essential.</p>
+</blockquote>
+<p>随着模型能力的提升，今天脚手架的某些部分可能会变薄或融入模型原生能力。但在企业研究系统中，尤其是信任、可追溯性和可审核性至关重要的场景下，对上下文、工作流状态、恢复、反思和验证的显式控制仍然不可或缺。</p>
+<hr>
+<h2 id="开发理念">开发理念</h2>
+<blockquote>
+<p>A key principle: building a production-ready LLM application is an iterative process. We don&rsquo;t wait for features to be absolutely perfect before seeking user feedback. Instead, we prioritize delivering value early and continuously refining based on real-world usage.</p>
+</blockquote>
+<p>一个关键原则：构建生产级 LLM 应用是一个迭代过程。我们不会等到功能绝对完美才寻求用户反馈，而是优先尽早交付价值，并基于实际使用持续改进。</p>
+<blockquote>
+<p>In the initial stages, focus was on achieving desired accuracy and performance, even at higher costs. Cost optimization came only after achieving the desired quality level — ensuring efficiency gains didn&rsquo;t compromise user experience.</p>
+</blockquote>
+<p>在初始阶段，重点是达到期望的准确度和性能，即使成本较高。只有在达到期望的质量水平后，才开始成本优化——确保效率提升不会损害用户体验。</p>
+<hr>
+<h2 id="结论">结论</h2>
+<blockquote>
+<p>The broader lesson from PRINCE is that <strong>production-ready agentic AI is not only about better models or better prompts</strong>. Reliability comes from engineering both the context the model sees and the harness within which the model acts. Context engineering helped ensure that each model had the right information, and only the right information, at the right stage of the workflow. Harness engineering helped ensure that the workflow remained bounded, observable, recoverable, and suitable for a regulated research environment.</p>
+</blockquote>
+<p>PRINCE 带来的更广泛启示是：<strong>生产级 Agentic AI 不仅仅是更好的模型或更好的提示词</strong>。可靠性源于同时工程化模型所见的上下文和模型运作的脚手架。上下文工程确保每个模型在工作流的正确阶段拥有正确的信息——且仅拥有正确的信息。脚手架工程确保工作流保持有界、可观测、可恢复，并适合受监管的研究环境。</p>
+<hr>
+<h2 id="架构总结">架构总结</h2>
+<pre tabindex="0"><code>User Query (Natural Language)
+    │
+    ▼
+┌─────────────────────┐
+│ Clarify User Intent │ ← 上下文组装：限定工具/领域/数据源范围
+└─────────┬───────────┘
+          ▼
+┌─────────────────────┐
+│   Think &amp; Plan      │ ← 过程反思：规划执行策略，选择工具
+└─────────┬───────────┘
+          ▼
+┌─────────────────────┐
+│  Researcher Agent   │
+│  ┌───────┬────────┐ │
+│  │  RAG  │Text-to │ │ ← 混合检索：非结构化 + 结构化
+│  │(PDFs) │  SQL   │ │
+│  └───────┴────────┘ │
+└─────────┬───────────┘
+          ▼
+┌─────────────────────┐
+│  Reflection Agent   │ ← 数据反思：证据充分吗？
+│  (sufficient?)      │──── No ──→ 回到 Think &amp; Plan
+└─────────┬───────────┘
+          │ Yes
+          ▼
+┌─────────────────────┐
+│   Writer Agent      │ ← 草稿反思：合成答案，带引用
+│  (draft + review)   │
+└─────────┬───────────┘
+          ▼
+    Final Response
+    (with citations)
+</code></pre><hr>
+<p><code>#agentic-rag</code> <code>#multi-agent</code> <code>#context-engineering</code> <code>#harness-engineering</code> <code>#production-ai</code> <code>#pharma</code> <code>#langgraph</code> <code>#rag</code> <code>#text-to-sql</code> <code>#case-study</code></p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>智能化行业观察：软硬件投入与低成本创新的真实风景</title>
       <link>https://blog.kylegeeks.com/posts/2026/06/2026-06-15-%E6%99%BA%E8%83%BD%E5%8C%96%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/</link>

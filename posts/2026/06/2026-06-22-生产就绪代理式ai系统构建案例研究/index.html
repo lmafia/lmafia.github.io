@@ -1,24 +1,367 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Tech on KyleGeeks</title>
-    <link>https://blog.kylegeeks.com/categories/tech/</link>
-    <description>Recent content in Tech on KyleGeeks</description>
-    <image>
-      <url>https://blog.kylegeeks.com/images/kyle-avatar.jpg</url>
-      <link>https://blog.kylegeeks.com/images/kyle-avatar.jpg</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究</title>
-      <link>https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/</link>
-      <pubDate>Mon, 22 Jun 2026 09:00:00 +0800</pubDate>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究 | KyleGeeks</title>
+<meta name="keywords" content="AI, Agentic AI, RAG, LLM, preclinical">
+<meta name="description" content="Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。">
+<meta name="author" content="KyleLian">
+<link rel="canonical" href="https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/">
+<meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.f08586486297f44175a52eeebc0a008560c371fb797ed9a4b8075dddb78ff9a4.css" integrity="sha256-8IWGSGKX9EF1pS7uvAoAhWDDcft5ftmkuAdd3beP&#43;aQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.kylegeeks.com/favicon.ico">
+<link rel="apple-touch-icon" href="https://blog.kylegeeks.com/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究 | KyleGeeks" />
+<meta name="twitter:description" content="Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。" />
+<meta property="og:title" content="A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究 | KyleGeeks" />
+<meta property="og:description" content="Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/" />
+    <meta property="og:image" content="https://blog.kylegeeks.com/kyle-avatar.jpg"/>
+<meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2026-06-22T09:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-06-22T09:00:00&#43;08:00" />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.kylegeeks.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究",
+      "item": "https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究 | KyleGeeks",
+  "name": "A Case Study in building production-ready agentic AI systems \/ 生产就绪型代理式 AI 系统构建案例研究",
+  "description": "Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。",
+  "keywords": [
+    "AI", "Agentic AI", "RAG", "LLM", "preclinical"
+  ],
+  "wordCount" : "3051",
+  "inLanguage": "en",
+  "datePublished": "2026-06-22T09:00:00+08:00",
+  "dateModified": "2026-06-22T09:00:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "KyleLian"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KyleGeeks",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.kylegeeks.com/favicon.ico"
+    }
+  }
+}
+</script>
+<script
+  async
+  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+<meta
+  name="referrer"
+  content="no-referrer-when-downgrade"
+/><noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary-bg: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list-page {
+                background: var(--theme);
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list-page:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+</head>
+
+<body class=" type-posts kind-page layout-" id="top"><script data-no-instant>
+function switchTheme(theme) {
+  switch (theme) {
+    case 'light':
+      document.body.classList.remove('dark');
+      break;
+    case 'dark':
+      document.body.classList.add('dark');
+      break;
+    
+    default:
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+      }
+  }
+}
+
+function isDarkTheme() {
+  return document.body.className.includes("dark");
+}
+
+function getPrefTheme() {
+  return localStorage.getItem("pref-theme");
+}
+
+function setPrefTheme(theme) {
+  switchTheme(theme)
+  localStorage.setItem("pref-theme", theme);
+}
+
+const toggleThemeCallbacks = {}
+toggleThemeCallbacks['main'] = (isDark) => {
+  if (isDark) {
+    setPrefTheme('light');
+  } else {
+    setPrefTheme('dark');
+  }
+}
+
+
+
+
+window.addEventListener('toggle-theme', function() {
+  
+  const isDark = isDarkTheme()
+  for (const key in toggleThemeCallbacks) {
+    toggleThemeCallbacks[key](isDark)
+  }
+});
+
+
+function toggleThemeListener() {
+  
+  window.dispatchEvent(new CustomEvent('toggle-theme'));
+}
+
+</script>
+<script>
+  
+  (function() {
+    const defaultTheme = 'auto';
+    const prefTheme = getPrefTheme();
+    const theme = prefTheme ? prefTheme : defaultTheme;
+
+    switchTheme(theme);
+  })();
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.kylegeeks.com/" accesskey="h" title="KyleGeeks (Alt + H)">
+                    <img src="https://blog.kylegeeks.com/images/kyle-avatar_hu_c9b5892c730a6112.jpg" alt="logo" aria-label="logo"
+                        height="30" width="30">KyleGeeks</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.kylegeeks.com/posts/" title="Posts" class="active"
+                >Posts
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/notes/" title="Notes"
+                >Notes
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/tags/" title="Tags"
+                >Tags
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/search/" title="Search (Alt &#43; /)"data-no-instant accesskey=/
+                >Search
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.kylegeeks.com/about/index.zh-cn/" title="About"
+                >About
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/posts/">Posts</a></div><h1 class="post-title">A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究</h1>
+    <div class="post-description">Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。</div>
+    <div class="post-meta"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2026-06-22</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/ai/">AI</a><a href="https://blog.kylegeeks.com/tags/agentic-ai/">Agentic AI</a><a href="https://blog.kylegeeks.com/tags/rag/">RAG</a><a href="https://blog.kylegeeks.com/tags/llm/">LLM</a><a href="https://blog.kylegeeks.com/tags/preclinical/">Preclinical</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>3051 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>15 min</span></span>
+
       
-      <guid>https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/</guid>
-      <description>Bayer PRINCE 生产就绪代理式 AI 系统案例研究的英文原文与中文对照版本。</description>
-      <content:encoded><![CDATA[<h1 id="bayer-prince-building-production-ready-agentic-ai-systems">Bayer PRINCE: Building Production-Ready Agentic AI Systems</h1>
+      
+    </div>
+  </header> <div class="toc side right">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#bayer-prince-building-production-ready-agentic-ai-systems" aria-label="Bayer PRINCE: Building Production-Ready Agentic AI Systems">Bayer PRINCE: Building Production-Ready Agentic AI Systems</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#-%e6%96%87%e7%8c%ae%e4%bf%a1%e6%81%af" aria-label="📚 文献信息">📚 文献信息</a></li></ul>
+                    
+                <li>
+                    <a href="#%e5%af%bc%e8%a8%80%e4%b8%80%e4%b8%aa%e5%8f%98%e9%9d%a9%e6%80%a7%e7%9a%84%e6%9c%ba%e9%81%87" aria-label="导言：一个变革性的机遇">导言：一个变革性的机遇</a><ul>
+                        
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e8%83%8c%e6%99%af" aria-label="问题背景">问题背景</a></li>
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e6%9c%ba%e9%81%87llm--rag" aria-label="核心机遇：LLM &#43; RAG">核心机遇：LLM + RAG</a></li>
+                <li>
+                    <a href="#%e6%9c%ac%e6%96%87%e4%b8%bb%e9%a2%98" aria-label="本文主题">本文主题</a></li>
+                <li>
+                    <a href="#%e4%b8%a4%e5%a4%a7%e5%b7%a5%e7%a8%8b%e6%94%af%e6%9f%b1" aria-label="两大工程支柱">两大工程支柱</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%8c%91%e6%88%98%e7%a9%bf%e8%b6%8a%e4%b8%b4%e5%ba%8a%e5%89%8d%e6%95%b0%e6%8d%ae%e8%bf%b7%e5%ae%ab" aria-label="挑战：穿越临床前数据迷宫">挑战：穿越临床前数据迷宫</a></li>
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88prince-%e5%b9%b3%e5%8f%b0" aria-label="解决方案：PRINCE 平台">解决方案：PRINCE 平台</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" aria-label="系统架构">系统架构</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%8a%e4%b8%8b%e6%96%87%e7%ba%aa%e5%be%8b" aria-label="上下文纪律">上下文纪律</a></li></ul>
+                </li>
+                <li>
+                    <a href="#agentic-rag-%e7%b3%bb%e7%bb%9f" aria-label="Agentic RAG 系统">Agentic RAG 系统</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%be%84%e6%b8%85%e7%94%a8%e6%88%b7%e6%84%8f%e5%9b%be" aria-label="1. 澄清用户意图">1. 澄清用户意图</a></li>
+                <li>
+                    <a href="#2-%e6%80%9d%e8%80%83%e4%b8%8e%e8%a7%84%e5%88%92%e8%bf%87%e7%a8%8b%e5%8f%8d%e6%80%9d" aria-label="2. 思考与规划：过程反思">2. 思考与规划：过程反思</a></li>
+                <li>
+                    <a href="#3-%e7%a0%94%e7%a9%b6%e8%80%85%e6%99%ba%e8%83%bd%e4%bd%93" aria-label="3. 研究者智能体">3. 研究者智能体</a><ul>
+                        
+                <li>
+                    <a href="#rag-%e6%b5%81%e6%b0%b4%e7%ba%bf" aria-label="RAG 流水线">RAG 流水线</a></li>
+                <li>
+                    <a href="#text-to-sql" aria-label="Text-to-SQL">Text-to-SQL</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-%e5%8f%8d%e6%80%9d%e6%99%ba%e8%83%bd%e4%bd%93" aria-label="4. 反思智能体">4. 反思智能体</a></li>
+                <li>
+                    <a href="#5-%e5%86%99%e4%bd%9c%e8%80%85%e6%99%ba%e8%83%bd%e4%bd%93" aria-label="5. 写作者智能体">5. 写作者智能体</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%bb%ba%e7%ab%8b%e4%bf%a1%e4%bb%bb" aria-label="建立信任">建立信任</a><ul>
+                        
+                <li>
+                    <a href="#%e9%80%8f%e6%98%8e%e6%80%a7%e4%b8%8e%e5%8f%af%e8%a7%a3%e9%87%8a%e6%80%a7" aria-label="透明性与可解释性">透明性与可解释性</a></li>
+                <li>
+                    <a href="#%e8%af%84%e4%bc%b0%e4%bd%93%e7%b3%bb" aria-label="评估体系">评估体系</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%9f%a7%e6%80%a7%e5%b7%a5%e7%a8%8b" aria-label="韧性工程">韧性工程</a></li>
+                <li>
+                    <a href="#%e6%8f%90%e5%8d%87%e6%95%b0%e6%8d%ae%e8%b4%a8%e9%87%8f%e5%91%bd%e5%90%8d%e5%ae%9e%e4%bd%93%e8%af%86%e5%88%ab" aria-label="提升数据质量：命名实体识别">提升数据质量：命名实体识别</a></li>
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e5%b7%a5%e7%a8%8b%e5%8e%9f%e5%88%99" aria-label="核心工程原则">核心工程原则</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%8a%e4%b8%8b%e6%96%87%e5%b7%a5%e7%a8%8bcontext-engineering" aria-label="上下文工程（Context Engineering）">上下文工程（Context Engineering）</a></li>
+                <li>
+                    <a href="#%e8%84%9a%e6%89%8b%e6%9e%b6%e5%b7%a5%e7%a8%8bharness-engineering" aria-label="脚手架工程（Harness Engineering）">脚手架工程（Harness Engineering）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%bc%80%e5%8f%91%e7%90%86%e5%bf%b5" aria-label="开发理念">开发理念</a></li>
+                <li>
+                    <a href="#%e7%bb%93%e8%ae%ba" aria-label="结论">结论</a></li>
+                <li>
+                    <a href="#%e6%9e%b6%e6%9e%84%e6%80%bb%e7%bb%93" aria-label="架构总结">架构总结</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="bayer-prince-building-production-ready-agentic-ai-systems">Bayer PRINCE: Building Production-Ready Agentic AI Systems</h1>
 <hr>
 <h3 id="-文献信息">📚 文献信息</h3>
 <table>
@@ -497,292 +840,332 @@
     (with citations)
 </code></pre><hr>
 <p><code>#agentic-rag</code> <code>#multi-agent</code> <code>#context-engineering</code> <code>#harness-engineering</code> <code>#production-ai</code> <code>#pharma</code> <code>#langgraph</code> <code>#rag</code> <code>#text-to-sql</code> <code>#case-study</code></p>
-]]></content:encoded>
-    </item>
+
+  </div>
+<footer class="donation-footer">
+  <p class="donation-text">如果这篇内容帮你节省了时间, 欢迎请我喝杯咖啡.</p>
+  <div class="donation-container">
     
-    <item>
-      <title>智能化行业观察：软硬件投入与低成本创新的真实风景</title>
-      <link>https://blog.kylegeeks.com/posts/2026/06/2026-06-15-%E6%99%BA%E8%83%BD%E5%8C%96%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/</link>
-      <pubDate>Mon, 15 Jun 2026 09:00:00 +0800</pubDate>
+    <div class="donation-wrapper">
+      <div class="donation-qrcode-wrapper">
+        <img
+          src="https://image-s3.kylegeeks.com/data/2025/12/fd02bb11d4b8280805e39a5b864086e9.png"
+          alt="Donate"
+          class="donation-qrcode"
+        />
+      </div>
+      <p class="donation-label">WeChat 赞赏</p>
+    </div>
+
+    <div class="donation-wrapper">
+      <div class="donation-qrcode-wrapper">
+        <img
+          src="https://image-s3.kylegeeks.com/data/2025/12/52926e5b19e8a237dbed6a4092e7acf3.png"
+          alt="Donate"
+          class="donation-qrcode"
+        />
+      </div>
+      <p class="donation-label">AliPay 赞赏</p>
+    </div>
+  </div>
+</footer>
+
+  
+  <footer class="post-footer">
+<nav class="paginav">
+  <a class="next" href="https://blog.kylegeeks.com/posts/2026/06/2026-06-15-%E6%99%BA%E8%83%BD%E5%8C%96%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/">
+    <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
+    </span>
+    <br>
+    <span>智能化行业观察：软硬件投入与低成本创新的真实风景</span>
+  </a>
+</nav>
+
+  </footer>
+    <div class="comments-separator"></div><div class="comments-box giscus-widget">
+  <div id="giscus-widget-container"></div>
+</div>
+<script>
+  var giscus_config = {
+    "data-repo": "lmafia/blog-comment",
+    "data-repo-id": "R_kgDOQpOURg",
+    "data-category": "Announcements",
+    "data-category-id": "DIC_kwDOQpOURs4Cz2PI",
+    "data-mapping": "pathname",
+    "data-strict": "0",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "bottom",
+    "data-lang": "en",
+    "data-theme": "noborder_light",
+  };
+
+  (function () {
+    const key = "giscus-widget";
+
+    
+    if (!toggleThemeCallbacks.hasOwnProperty(key)) {
+      toggleThemeCallbacks[key] = (isDark) => {
+        loadgiscus(!isDark);
+      };
+    }
+
+    function loadgiscus(isDark) {
+      const container = document.querySelector("#giscus-widget-container");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      for (const key in giscus_config) {
+        s.setAttribute(key, giscus_config[key]);
+      }
+      s.async = true;
+      if (isDark) {
+        
+        s.setAttribute("data-theme", "noborder_gray");
+      } else {
+        
+        s.setAttribute("data-theme", "noborder_light");
+      }
+      s.setAttribute("data-no-instant", "");
+      container.appendChild(s);
+    }
+
+    
+    loadgiscus(isDarkTheme());
+  })();
+</script>
+
+</article>
+    </main>
+<footer class="footer">
+  <span>&copy; 2026 <a href="https://blog.kylegeeks.com/">KyleGeeks</a></span><span style="display: inline-block; margin-left: 1em;">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+  </span>
+  <span style="display: inline-block; margin-left: 1em;">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+    <a href="https://github.com/reorx/hugo-PaperModX/" rel="noopener" target="_blank">PaperModX</a>
+  </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+<footer class="footer">
+  <span id="busuanzi_container_site_pv">
+    本站访问量: <span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  &nbsp;|&nbsp;
+  <span id="busuanzi_container_site_uv">
+    您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+  </span>
+</footer>
+
+
+<script>
+  (function() {
+     
+    const disableThemeToggle = '' == '1';
+    if (disableThemeToggle) {
+      return;
+    }
+
+    let button = document.getElementById("theme-toggle")
+    
+    button.removeEventListener('click', toggleThemeListener)
+    
+    button.addEventListener('click', toggleThemeListener)
+  })();
+</script>
+
+<script>
+  (function () {
+    let menu = document.getElementById('menu')
+    if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substr(1);
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+        if (id === "top") {
+          history.replaceState(null, null, " ");
+        } else {
+          history.pushState(null, null, `#${id}`);
+        }
+      });
+    });
+  })();
+</script>
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+</script>
+<script>
+  if (window.scrollListeners) {
+    
+    for (const listener of scrollListeners) {
+      window.removeEventListener('scroll', listener)
+    }
+  }
+  window.scrollListeners = []
+</script>
+
+
+
+<script src="/js/medium-zoom.min.js" data-no-instant
+></script>
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+    const container = codeblock.parentNode.parentNode;
+
+    const copybutton = document.createElement('button');
+    copybutton.classList.add('copy-code');
+    copybutton.innerText = 'copy';
+
+    function copyingDone() {
+      copybutton.innerText = 'copied!';
+      setTimeout(() => {
+        copybutton.innerText = 'copy';
+      }, 2000);
+    }
+
+    copybutton.addEventListener('click', (cb) => {
+      if ('clipboard' in navigator) {
+        navigator.clipboard.writeText(codeblock.textContent);
+        copyingDone();
+        return;
+      }
+
+      const range = document.createRange();
+      range.selectNodeContents(codeblock);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      try {
+        document.execCommand('copy');
+        copyingDone();
+      } catch (e) { };
+      selection.removeRange(range);
+    });
+
+    if (container.classList.contains("highlight")) {
+      container.appendChild(copybutton);
+    } else if (container.parentNode.firstChild == container) {
       
-      <guid>https://blog.kylegeeks.com/posts/2026/06/2026-06-15-%E6%99%BA%E8%83%BD%E5%8C%96%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/</guid>
-      <description>从光亚展现场看智能化行业：大多数创新仍在硬件与固件，软件投入有限，制造业生态下的低成本创新与市场现实。</description>
-      <content:encoded><![CDATA[<p>经过近几年的光亚展观察，我对智能化行业的一个判断越来越清晰：软件产品并不是主战场。</p>
-<p>实际上，至少在现阶段的国内智能化生态里，90% 的所谓“创新”仍然发生在硬件形态和硬件固件开发上。把它称为创新，不如更精确地说是一种融合、叠加、做 <code>N + 1</code> 的做法：在现有产品基础上再加一点功能、再改一点外观、再做一点差异化。这对于制造业氛围浓厚的国情来说，并不奇怪。</p>
-<h2 id="1-低成本创新更像是做-one-more-thing">1. 低成本创新更像是“做 one more thing”</h2>
-<p>很多厂商的逻辑其实很简单：成本和效率高于高大上的价值观。不是所有企业都愿意讨论宏大叙事，大多数人在商言商，更在乎能不能卖得动，做得实。</p>
-<p>因此，模仿加一点超越、做 <code>one more thing</code>、做差异化组合——在这个行业里，这种方式反而是合理的、风险最低的创新路径。</p>
-<h2 id="2-软件团队的预算真的很难有">2. 软件团队的预算真的很难有</h2>
-<p>我的同事提到一个关键事实：很多智能化设备厂商实际上没有预算养软件团队。尤其是年营收只有几百万到几千万的厂商，生产、设计、开模、测试的投入已经占掉了很大一部分预算，留给软件研发的钱非常少。</p>
-<p>在这样的前提下，厂商更愿意把资源押在硬件和固件上，因为那是他们最擅长、也是最直接可控的部分。软件产品的投入，就变成了可有可无的“额外成本”。</p>
-<h2 id="3-大部分智能场景的入口还是墙上的面板">3. 大部分智能场景的入口，还是墙上的面板</h2>
-<p>在智能家居和公建智能场景里，用户实际使用产品的时间中，90% 可能是在看墙上的面板，而不是对着 App。</p>
-<p>这说明什么？说明“智能化”很大一部分，是“现场可视可控”的升级，也是“墙面交互体验”的延展，而不是“App 体验”的全面革新。</p>
-<p>因此，那些真正在软件上投入的机会，更多属于产品逻辑复杂、需要手机端承载的单品，比如：</p>
-<ul>
-<li>扫地机器人</li>
-<li>宠物喂食器</li>
-<li>智能监控</li>
-</ul>
-<p>这些产品具有较强的场景需求、较多功能交互，才真正需要 App 作为入口。</p>
-<h2 id="4-云端边缘端侧客户为哪端买单就在哪端投入成本">4. 云端、边缘、端侧：客户为哪端买单，就在哪端投入成本</h2>
-<p>再把视角拉到架构层面：云计算、雾计算、边缘计算、端侧计算。现在的现实是：客户愿意为哪一端的价值买单，行业就在哪里投入成本。</p>
-<ul>
-<li>如果客户为“云服务和 AI 能力”买单，那么产品会更多往云端接入倾斜。</li>
-<li>如果客户为“本地响应、稳定控制”买单，那么投入就会落在边缘或端侧。</li>
-<li>如果产品本身是单品，或者是硬件主导的智能设备，那软件的角色更多是“配角”而非“主角”。</li>
-</ul>
-<h2 id="5-头部厂商和嗷嗷待哺的市场心态">5. 头部厂商和“嗷嗷待哺”的市场心态</h2>
-<p>目前头部硬件厂商，比如小米、涂鸦等，才有能力在软件产品体验上做深耕优化。他们有预算，有经验，也愿意在软件上打磨。</p>
-<p>而更多厂商则像是“嗷嗷待哺的婴儿”，等着这些头部厂商先推新功能，再去模仿。这种现象反映出一个事实：行业还没有形成普遍的“软件驱动”文化，至少现在还没有。</p>
-<h2 id="6-结语理解智能化不等于只看-app">6. 结语：理解智能化，不等于只看 App</h2>
-<p>智能化的定义，从我的观察来看，还是比较接近 HK 大哥说的那句：</p>
-<blockquote>
-<p>“智能的定义是，由需要现场真实操作，变成远端虚疑操作。”</p>
-</blockquote>
-<p>当下，绝大多数人的认识仍停留在“能看 + 能控就算智能”。如果能够从这个现实出发，去理解谁在买单、谁有预算、谁愿意为哪个环节付费，就能更好判断这个行业的机会点。</p>
-<p>在制造业占主导的环境里，规则是清晰的：硬件与固件是基础，软件是增量；能省成本、能提升效率、能让产品更好卖的创新，才是最现实的创新。</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Linux 上 Clash 和 Tailscale 共存实操</title>
-      <link>https://blog.kylegeeks.com/posts/2026/03/clash_tailscale_solutions_blog/</link>
-      <pubDate>Wed, 11 Mar 2026 11:33:38 +0800</pubDate>
+    } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
       
-      <guid>https://blog.kylegeeks.com/posts/2026/03/clash_tailscale_solutions_blog/</guid>
-      <description>&lt;p&gt;目标很直接：&lt;code&gt;Clash&lt;/code&gt; 负责代理，&lt;code&gt;Tailscale&lt;/code&gt; 负责组网，两边同时稳定运行。&lt;/p&gt;
-&lt;p&gt;实际问题通常是这样：Clash 开启 &lt;code&gt;TUN&lt;/code&gt; 后，tailnet 访问异常；Tailscale 接管 DNS 后，Clash 的 &lt;code&gt;fake-ip&lt;/code&gt; 解析又不稳定。&lt;/p&gt;
-&lt;p&gt;可行做法是：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Clash 排除 Tailscale 网段和网卡，Tailscale 关闭 DNS 接管。&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;一为什么会冲突&#34;&gt;一、为什么会冲突&lt;/h2&gt;
-&lt;p&gt;两边都会改路由和 DNS，冲突主要有 3 个：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;路由冲突
-Clash TUN 默认接管系统流量，可能把 Tailscale 的 &lt;code&gt;100.64.0.0/10&lt;/code&gt; 也带进去。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DNS 冲突
-Tailscale 默认启用 MagicDNS，会改系统 DNS；Clash &lt;code&gt;fake-ip&lt;/code&gt; 也依赖 DNS 控制，两边会互相干扰。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;防火墙拦截
-就算前两步都配好了，&lt;code&gt;tailscale0&lt;/code&gt; 没放行的话，入站流量还是会被系统挡掉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;二实操步骤&#34;&gt;二、实操步骤&lt;/h2&gt;
-&lt;h3 id=&#34;1-先改-clash排除-tailscale-流量&#34;&gt;1) 先改 Clash：排除 Tailscale 流量&lt;/h3&gt;
-&lt;p&gt;编辑文件：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~/clashctl/resources/mixin.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;关键配置如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050&#34;&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#268bd2&#34;&gt;tun&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;stack&lt;/span&gt;: system
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;auto-route&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;route-exclude-address&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#2aa198&#34;&gt;100.64.0.0&lt;/span&gt;/10
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;exclude-interface&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - tailscale0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#268bd2&#34;&gt;dns&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;enhanced-mode&lt;/span&gt;: fake-ip
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#268bd2&#34;&gt;fake-ip-filter&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;+.tailscale.net&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#2aa198&#34;&gt;&amp;#34;100.64.0.0/10&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;改完重启 Clash：&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>目标很直接：<code>Clash</code> 负责代理，<code>Tailscale</code> 负责组网，两边同时稳定运行。</p>
-<p>实际问题通常是这样：Clash 开启 <code>TUN</code> 后，tailnet 访问异常；Tailscale 接管 DNS 后，Clash 的 <code>fake-ip</code> 解析又不稳定。</p>
-<p>可行做法是：</p>
-<p><strong>Clash 排除 Tailscale 网段和网卡，Tailscale 关闭 DNS 接管。</strong></p>
-<hr>
-<h2 id="一为什么会冲突">一、为什么会冲突</h2>
-<p>两边都会改路由和 DNS，冲突主要有 3 个：</p>
-<ol>
-<li>
-<p>路由冲突
-Clash TUN 默认接管系统流量，可能把 Tailscale 的 <code>100.64.0.0/10</code> 也带进去。</p>
-</li>
-<li>
-<p>DNS 冲突
-Tailscale 默认启用 MagicDNS，会改系统 DNS；Clash <code>fake-ip</code> 也依赖 DNS 控制，两边会互相干扰。</p>
-</li>
-<li>
-<p>防火墙拦截
-就算前两步都配好了，<code>tailscale0</code> 没放行的话，入站流量还是会被系统挡掉。</p>
-</li>
-</ol>
-<hr>
-<h2 id="二实操步骤">二、实操步骤</h2>
-<h3 id="1-先改-clash排除-tailscale-流量">1) 先改 Clash：排除 Tailscale 流量</h3>
-<p>编辑文件：</p>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/clashctl/resources/mixin.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>关键配置如下：</p>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#268bd2">tun</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">enable</span>: <span style="color:#cb4b16">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">stack</span>: system
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">auto-route</span>: <span style="color:#cb4b16">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">route-exclude-address</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#2aa198">100.64.0.0</span>/10
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">exclude-interface</span>:
-</span></span><span style="display:flex;"><span>    - tailscale0
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">dns</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">enable</span>: <span style="color:#cb4b16">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">enhanced-mode</span>: fake-ip
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">fake-ip-filter</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#2aa198">&#34;+.tailscale.net&#34;</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#2aa198">&#34;100.64.0.0/10&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>改完重启 Clash：</p>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/clashctl/scripts/cmd/clashctl.sh restart
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这一段就看三项：</p>
-<ul>
-<li>排除 Tailscale 网段 <code>100.64.0.0/10</code></li>
-<li>排除网卡 <code>tailscale0</code></li>
-<li>不要把 <code>tailscale.net</code> 和内网段塞进 fake-ip</li>
-</ul>
-<h3 id="2-再改-tailscale关闭-dns-接管">2) 再改 Tailscale：关闭 DNS 接管</h3>
-<p>执行：</p>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tailscale up <span style="color:#cb4b16">\
-</span></span></span><span style="display:flex;"><span>  --ssh <span style="color:#cb4b16">\
-</span></span></span><span style="display:flex;"><span>  --accept-dns<span style="color:#719e07">=</span><span style="color:#b58900">false</span> <span style="color:#cb4b16">\
-</span></span></span><span style="display:flex;"><span>  --netfilter-mode<span style="color:#719e07">=</span>on
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>关键参数：</p>
-<ul>
-<li><code>--accept-dns=false</code>：最关键，避免和 Clash 抢 DNS</li>
-<li><code>--ssh</code>：开启 Tailscale 内置 SSH（可选）</li>
-<li><code>--netfilter-mode=on</code>：让 Tailscale 正常管理自己的网络规则</li>
-</ul>
-<h3 id="3-最后放行防火墙">3) 最后放行防火墙</h3>
-<p>如果你开了 UFW，执行：</p>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow in on tailscale0
-</span></span><span style="display:flex;"><span>sudo ufw allow 22/tcp
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>第一条是放行 Tailscale 网卡入站，第二条是保证 SSH 端口可访问。</p>
-<hr>
-<h2 id="三验证">三、验证</h2>
-<p>按顺序检查：</p>
-<ol>
-<li>检查 Tailscale 状态</li>
-</ol>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tailscale status
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>确认状态是 <code>Online</code>，并且设备地址正常。</p>
-<ol start="2">
-<li>测试 tailnet 内部连通性</li>
-</ol>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ping &lt;peer-tailscale-ip&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果 Clash 开启时也能通，说明 Tailscale 流量没有被错误接管。</p>
-<ol start="3">
-<li>测试 SSH</li>
-</ol>
-<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh &lt;user&gt;@&lt;this-node-tailscale-ip&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以登录，基本说明路由、DNS、防火墙都已打通。</p>
-]]></content:encoded>
-    </item>
+      codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+    } else {
+      
+      codeblock.parentNode.appendChild(copybutton);
+    }
+  });
+</script>
+
+
+
+
+<script>
+  
+  
+  (function() {
+    const enableTocScroll = '1' == '1'
+    if (!enableTocScroll) {
+      return
+    }
+    if (!document.querySelector('.toc')) {
+      console.log('no toc found, ignore toc scroll')
+      return
+    }
     
-  </channel>
-</rss>
+
+    
+    const scrollListeners = window.scrollListeners
+    const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+    const activeClass = 'active';
+
+    
+    let activeHeading = headings[0];
+    getLinkByHeading(activeHeading).classList.add(activeClass);
+
+    const onScroll = () => {
+      const passedHeadings = [];
+      for (const h of headings) {
+        
+        if (getOffsetTop(h) < 5) {
+          passedHeadings.push(h)
+        } else {
+          break;
+        }
+      }
+      if (passedHeadings.length > 0) {
+        newActiveHeading = passedHeadings[passedHeadings.length - 1];
+      } else {
+        newActiveHeading = headings[0];
+      }
+      if (activeHeading != newActiveHeading) {
+        getLinkByHeading(activeHeading).classList.remove(activeClass);
+        activeHeading = newActiveHeading;
+        getLinkByHeading(activeHeading).classList.add(activeClass);
+      }
+    }
+
+    let timer = null;
+    const scrollListener = () => {
+      if (timer !== null) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(onScroll, 50)
+    }
+    window.addEventListener('scroll', scrollListener, false);
+    scrollListeners.push(scrollListener)
+
+    function getLinkByHeading(heading) {
+      const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+      return document.querySelector(`.toc ul li a[href="#${id}"]`);
+    }
+
+    function getOffsetTop(heading) {
+      if (!heading.getClientRects().length) {
+        return 0;
+      }
+      let rect = heading.getBoundingClientRect();
+      return rect.top
+    }
+  })();
+  </script>
+<script>
+  mediumZoom('.entry-cover img');
+  mediumZoom('.post-content img:not([no-zoom])');
+</script>
+
+</body>
+
+</html>
