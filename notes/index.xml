@@ -10,64 +10,23 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Aug 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>服务接口兼容性导致发布线上问题</title>
-      <link>https://blog.kylegeeks.com/notes/2026/service-interface-compatibility-issues-and-solutions/</link>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0800</pubDate>
+      <title>MHS 实现 AI 控制万物</title>
+      <link>https://blog.kylegeeks.com/notes/2026/model-hardware-standard-research-preview/</link>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.kylegeeks.com/notes/2026/service-interface-compatibility-issues-and-solutions/</guid>
-      <description>&lt;p&gt;今天记录一个昨天发布系统出现的一个问题：
-当服务之间 rpc 调用，provider 的接口定义出现大改，我们是从原来 request parameters 改为 request body，这个优化当然是一件好事，但是会出现设计不当和发布流程没考虑的话，在 customer 进行远程调用时候有概率会出现返回 400 错误码。就是因为会有新旧的 customer 和 provider 同时出现在系统导致的。
-那要如何设计的呢？很简单，从 provider 能够向下兼容的来设计。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在 provider 代码新增新版本的接口，但要保留旧接口，业务逻辑保持一致。&lt;/li&gt;
-&lt;li&gt;在 customer 代码全部改为调用新的接口。&lt;/li&gt;
-&lt;li&gt;系统发布时，先把 provider 滚动部署升级再升级 customer
-为什么要先把新的 provider 都部署上去，因为新的 provider 新旧接口都有， 升级 customer 时候会调用新旧接口所以都能成功。如果不先把 provider 全部升级就来升级 customer，会出现新的 customer 可能会调用旧的 provider 出现 400.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;明白，帮你把原文整理得更规范一些，保持技术分享该有的严谨感：&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
-&lt;p&gt;昨天发布系统时，某个 RPC 接口的入参方式从 &lt;strong&gt;request parameters&lt;/strong&gt; 改造为 &lt;strong&gt;request body&lt;/strong&gt;。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 &lt;strong&gt;400 错误&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;根本原因&lt;/strong&gt;：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。&lt;/p&gt;
-&lt;h3 id=&#34;解决方案provider-向下兼容设计&#34;&gt;解决方案：Provider 向下兼容设计&lt;/h3&gt;
-&lt;p&gt;核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>今天记录一个昨天发布系统出现的一个问题：
-当服务之间 rpc 调用，provider 的接口定义出现大改，我们是从原来 request parameters 改为 request body，这个优化当然是一件好事，但是会出现设计不当和发布流程没考虑的话，在 customer 进行远程调用时候有概率会出现返回 400 错误码。就是因为会有新旧的 customer 和 provider 同时出现在系统导致的。
-那要如何设计的呢？很简单，从 provider 能够向下兼容的来设计。</p>
-<ol>
-<li>在 provider 代码新增新版本的接口，但要保留旧接口，业务逻辑保持一致。</li>
-<li>在 customer 代码全部改为调用新的接口。</li>
-<li>系统发布时，先把 provider 滚动部署升级再升级 customer
-为什么要先把新的 provider 都部署上去，因为新的 provider 新旧接口都有， 升级 customer 时候会调用新旧接口所以都能成功。如果不先把 provider 全部升级就来升级 customer，会出现新的 customer 可能会调用旧的 provider 出现 400.</li>
-</ol>
-<p>明白，帮你把原文整理得更规范一些，保持技术分享该有的严谨感：</p>
-<hr>
-<h3 id="问题描述">问题描述</h3>
-<p>昨天发布系统时，某个 RPC 接口的入参方式从 <strong>request parameters</strong> 改造为 <strong>request body</strong>。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 <strong>400 错误</strong>。</p>
-<p><strong>根本原因</strong>：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。</p>
-<h3 id="解决方案provider-向下兼容设计">解决方案：Provider 向下兼容设计</h3>
-<p>核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：</p>
-<ol>
-<li>
-<p><strong>Provider 新增新接口，保留旧接口</strong>
-在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。</p>
-</li>
-<li>
-<p><strong>Customer 切换调用新接口</strong>
-Customer 代码统一改为调用新接口。</p>
-</li>
-<li>
-<p><strong>控制发布顺序：先升级 provider，再升级 customer</strong>
-滚动发布时，先将 provider 全量部署完成，再升级 customer。</p>
-</li>
-</ol>
-<h3 id="为什么发布顺序不能颠倒">为什么发布顺序不能颠倒</h3>
-<ul>
-<li><strong>先升级 provider</strong>：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。</li>
-<li><strong>先升级 customer</strong>：滚动发布过程中会出现&quot;新版本 customer + 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。</li>
-</ul>
+      <guid>https://blog.kylegeeks.com/notes/2026/model-hardware-standard-research-preview/</guid>
+      <description>&lt;p&gt;A 社亲自下场设计大模型设备接入的抽象设计——&lt;a href=&#34;https://www.anthropic.com/news/model-hardware-standard-research-preview&#34;&gt;MHS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;设备通信协议统一化一直以来在国内是一个很大的问题。历史以来，只有那些有话语权的设备厂商才能提出规范协议，让大家适配，解决每个设备厂商都只用自己私有协议的封闭问题。&lt;/p&gt;
+&lt;p&gt;由 LLM 公司提出设备规范协议或许是个不错的选择，在国内大家熟悉的米家、tuya、阿里云是提出设备规范协议(TSL 物模型)的应用/平台公司，也不是传统的设备厂商。当然，现在发展的确实也不好，不太像欧美那边推出一个规范和生态能发展得起来。&lt;/p&gt;
+&lt;p&gt;公司都是趋利的，如果没有用户需要，确实人家也没有必要费力去兼容别人家的协议。像是 A 社出的 MCP、Skill ，AI 时代下如果要用户需要通过 Claude (其他 LLM) 去操作外设，那些软件服务巴不得第二天就出自己的 MCP Servers。&lt;/p&gt;
+&lt;p&gt;对了，我发现大家都喜欢把这个给设备做的 API 叫做驱动。&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>A 社亲自下场设计大模型设备接入的抽象设计——<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">MHS</a></p>
+<p>设备通信协议统一化一直以来在国内是一个很大的问题。历史以来，只有那些有话语权的设备厂商才能提出规范协议，让大家适配，解决每个设备厂商都只用自己私有协议的封闭问题。</p>
+<p>由 LLM 公司提出设备规范协议或许是个不错的选择，在国内大家熟悉的米家、tuya、阿里云是提出设备规范协议(TSL 物模型)的应用/平台公司，也不是传统的设备厂商。当然，现在发展的确实也不好，不太像欧美那边推出一个规范和生态能发展得起来。</p>
+<p>公司都是趋利的，如果没有用户需要，确实人家也没有必要费力去兼容别人家的协议。像是 A 社出的 MCP、Skill ，AI 时代下如果要用户需要通过 Claude (其他 LLM) 去操作外设，那些软件服务巴不得第二天就出自己的 MCP Servers。</p>
+<p>对了，我发现大家都喜欢把这个给设备做的 API 叫做驱动。</p>
 ]]></content:encoded>
     </item>
     

@@ -10,7 +10,64 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://blog.kylegeeks.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>服务接口兼容性导致发布线上问题</title>
+      <link>https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/</link>
+      <pubDate>Wed, 19 Aug 2026 09:00:00 +0800</pubDate>
+      
+      <guid>https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/</guid>
+      <description>&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;昨天发布系统时，某个 RPC 接口的入参方式从 &lt;strong&gt;request parameters&lt;/strong&gt; 改造为 &lt;strong&gt;request body&lt;/strong&gt;。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 &lt;strong&gt;400 错误&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;根本原因&lt;/strong&gt;：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Provider 新增新接口，保留旧接口&lt;/strong&gt;
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Customer 切换调用新接口&lt;/strong&gt;
+Customer 代码统一改为调用新接口。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;控制发布顺序：先升级 provider，再升级 customer&lt;/strong&gt;
+滚动发布时，先将 provider 全量部署完成，再升级 customer。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;发布顺序&#34;&gt;发布顺序&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;先升级 provider&lt;/strong&gt;：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;先升级 customer&lt;/strong&gt;：滚动发布过程中会出现&amp;quot;新版本 customer + 旧版本 provider&amp;quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <content:encoded><![CDATA[<h3 id="问题描述">问题描述</h3>
+<p>昨天发布系统时，某个 RPC 接口的入参方式从 <strong>request parameters</strong> 改造为 <strong>request body</strong>。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 <strong>400 错误</strong>。</p>
+<p><strong>根本原因</strong>：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。</p>
+<h3 id="解决方案">解决方案</h3>
+<p>核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：</p>
+<ol>
+<li>
+<p><strong>Provider 新增新接口，保留旧接口</strong>
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。</p>
+</li>
+<li>
+<p><strong>Customer 切换调用新接口</strong>
+Customer 代码统一改为调用新接口。</p>
+</li>
+<li>
+<p><strong>控制发布顺序：先升级 provider，再升级 customer</strong>
+滚动发布时，先将 provider 全量部署完成，再升级 customer。</p>
+</li>
+</ol>
+<h3 id="发布顺序">发布顺序</h3>
+<ul>
+<li><strong>先升级 provider</strong>：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。</li>
+<li><strong>先升级 customer</strong>：滚动发布过程中会出现&quot;新版本 customer + 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究</title>
       <link>https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/</link>

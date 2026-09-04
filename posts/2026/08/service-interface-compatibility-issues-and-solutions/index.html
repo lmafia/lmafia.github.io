@@ -5,105 +5,96 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>阅读《悉达多》有感 | KyleGeeks</title>
-<meta name="keywords" content="心理, 阅读">
-<meta name="description" content="
-  
-悉达多的前半生，
-一直在「借用答案」。
-那些答案是安全的、完整的，
-也不需要为自己的选择负责。
-他用道义、修行、理论剖析自己，
-却始终回避了一件事——
-直面自己。
-所以《悉达多》讲的，
-不是寻找真理，
-而是一个人如何停止
-用他人的答案，
-来逃避对「我是谁」的凝视。
-很多人的焦虑，
-都藏在一句话里：
-「等我想清楚了，再去面对。」
-这不是懒，
-而是恐惧。
-但只有在面对中，
-问题才会显形，
-而“我是谁”，
-才开始出现。
-如果不知道从哪开始，
-就先把你的焦虑写下来。
-不是为了解决，
-而是为了不再回避。">
+<title>服务接口兼容性导致发布线上问题 | KyleGeeks</title>
+<meta name="keywords" content="软件开发, 服务运维">
+<meta name="description" content="问题描述
+昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。
+根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。
+解决方案
+核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：
+
+
+Provider 新增新接口，保留旧接口
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。
+
+
+Customer 切换调用新接口
+Customer 代码统一改为调用新接口。
+
+
+控制发布顺序：先升级 provider，再升级 customer
+滚动发布时，先将 provider 全量部署完成，再升级 customer。
+
+
+发布顺序
+
+先升级 provider：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。
+先升级 customer：滚动发布过程中会出现&quot;新版本 customer &#43; 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。
+">
 <meta name="author" content="KyleLian">
-<link rel="canonical" href="https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/">
+<link rel="canonical" href="https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/">
 <meta name="msvalidate.01" content="9421BF496807A8560F5AC4B88932EE8B">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.f08586486297f44175a52eeebc0a008560c371fb797ed9a4b8075dddb78ff9a4.css" integrity="sha256-8IWGSGKX9EF1pS7uvAoAhWDDcft5ftmkuAdd3beP&#43;aQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.kylegeeks.com/favicon.ico">
 <link rel="apple-touch-icon" href="https://blog.kylegeeks.com/apple-touch-icon.png">
-<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/">
+<link rel="alternate" hreflang="en" href="https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/">
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="阅读《悉达多》有感 | KyleGeeks" />
-<meta name="twitter:description" content="
-  
-悉达多的前半生，
-一直在「借用答案」。
-那些答案是安全的、完整的，
-也不需要为自己的选择负责。
-他用道义、修行、理论剖析自己，
-却始终回避了一件事——
-直面自己。
-所以《悉达多》讲的，
-不是寻找真理，
-而是一个人如何停止
-用他人的答案，
-来逃避对「我是谁」的凝视。
-很多人的焦虑，
-都藏在一句话里：
-「等我想清楚了，再去面对。」
-这不是懒，
-而是恐惧。
-但只有在面对中，
-问题才会显形，
-而“我是谁”，
-才开始出现。
-如果不知道从哪开始，
-就先把你的焦虑写下来。
-不是为了解决，
-而是为了不再回避。" />
-<meta property="og:title" content="阅读《悉达多》有感 | KyleGeeks" />
-<meta property="og:description" content="
-  
-悉达多的前半生，
-一直在「借用答案」。
-那些答案是安全的、完整的，
-也不需要为自己的选择负责。
-他用道义、修行、理论剖析自己，
-却始终回避了一件事——
-直面自己。
-所以《悉达多》讲的，
-不是寻找真理，
-而是一个人如何停止
-用他人的答案，
-来逃避对「我是谁」的凝视。
-很多人的焦虑，
-都藏在一句话里：
-「等我想清楚了，再去面对。」
-这不是懒，
-而是恐惧。
-但只有在面对中，
-问题才会显形，
-而“我是谁”，
-才开始出现。
-如果不知道从哪开始，
-就先把你的焦虑写下来。
-不是为了解决，
-而是为了不再回避。" />
+<meta name="twitter:title" content="服务接口兼容性导致发布线上问题 | KyleGeeks" />
+<meta name="twitter:description" content="问题描述
+昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。
+根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。
+解决方案
+核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：
+
+
+Provider 新增新接口，保留旧接口
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。
+
+
+Customer 切换调用新接口
+Customer 代码统一改为调用新接口。
+
+
+控制发布顺序：先升级 provider，再升级 customer
+滚动发布时，先将 provider 全量部署完成，再升级 customer。
+
+
+发布顺序
+
+先升级 provider：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。
+先升级 customer：滚动发布过程中会出现&quot;新版本 customer &#43; 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。
+" />
+<meta property="og:title" content="服务接口兼容性导致发布线上问题 | KyleGeeks" />
+<meta property="og:description" content="问题描述
+昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。
+根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。
+解决方案
+核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：
+
+
+Provider 新增新接口，保留旧接口
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。
+
+
+Customer 切换调用新接口
+Customer 代码统一改为调用新接口。
+
+
+控制发布顺序：先升级 provider，再升级 customer
+滚动发布时，先将 provider 全量部署完成，再升级 customer。
+
+
+发布顺序
+
+先升级 provider：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。
+先升级 customer：滚动发布过程中会出现&quot;新版本 customer &#43; 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/" />
+<meta property="og:url" content="https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/" />
     <meta property="og:image" content="https://blog.kylegeeks.com/kyle-avatar.jpg"/>
-<meta property="article:section" content="notes" />
-  <meta property="article:published_time" content="2026-01-13T00:00:00&#43;08:00" />
-  <meta property="article:modified_time" content="2026-01-13T00:00:00&#43;08:00" />
+<meta property="article:section" content="posts" />
+  <meta property="article:published_time" content="2026-08-19T09:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2026-08-19T09:00:00&#43;08:00" />
 
 
 <script type="application/ld+json">
@@ -114,14 +105,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Notes",
-      "item": "https://blog.kylegeeks.com/notes/"
+      "name": "Posts",
+      "item": "https://blog.kylegeeks.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "阅读《悉达多》有感",
-      "item": "https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/"
+      "name": "服务接口兼容性导致发布线上问题",
+      "item": "https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/"
     }
   ]
 }
@@ -130,23 +121,23 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "阅读《悉达多》有感 | KyleGeeks",
-  "name": "阅读《悉达多》有感",
-  "description": " 悉达多的前半生，\n一直在「借用答案」。\n那些答案是安全的、完整的，\n也不需要为自己的选择负责。\n他用道义、修行、理论剖析自己，\n却始终回避了一件事——\n直面自己。\n所以《悉达多》讲的，\n不是寻找真理，\n而是一个人如何停止\n用他人的答案，\n来逃避对「我是谁」的凝视。\n很多人的焦虑，\n都藏在一句话里：\n「等我想清楚了，再去面对。」\n这不是懒，\n而是恐惧。\n但只有在面对中，\n问题才会显形，\n而“我是谁”，\n才开始出现。\n如果不知道从哪开始，\n就先把你的焦虑写下来。\n不是为了解决，\n而是为了不再回避。\n",
+  "headline": "服务接口兼容性导致发布线上问题 | KyleGeeks",
+  "name": "服务接口兼容性导致发布线上问题",
+  "description": "问题描述 昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。\n根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。\n解决方案 核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：\nProvider 新增新接口，保留旧接口 在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。\nCustomer 切换调用新接口 Customer 代码统一改为调用新接口。\n控制发布顺序：先升级 provider，再升级 customer 滚动发布时，先将 provider 全量部署完成，再升级 customer。\n发布顺序 先升级 provider：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。 先升级 customer：滚动发布过程中会出现\u0026quot;新版本 customer + 旧版本 provider\u0026quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。 ",
   "keywords": [
-    "心理", "阅读"
+    "软件开发", "服务运维"
   ],
-  "wordCount" : "25",
+  "wordCount" : "64",
   "inLanguage": "en",
-  "datePublished": "2026-01-13T00:00:00+08:00",
-  "dateModified": "2026-01-13T00:00:00+08:00",
+  "datePublished": "2026-08-19T09:00:00+08:00",
+  "dateModified": "2026-08-19T09:00:00+08:00",
   "author":[{
     "@type": "Person",
     "name": "KyleLian"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/"
+    "@id": "https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/"
   },
   "publisher": {
     "@type": "Organization",
@@ -204,7 +195,7 @@
 
 </head>
 
-<body class=" type-notes kind-page layout-" id="top"><script data-no-instant>
+<body class=" type-posts kind-page layout-" id="top"><script data-no-instant>
 function switchTheme(theme) {
   switch (theme) {
     case 'light':
@@ -303,12 +294,12 @@ function toggleThemeListener() {
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.kylegeeks.com/posts/" title="Posts"
+                <a href="https://blog.kylegeeks.com/posts/" title="Posts" class="active"
                 >Posts
                 </a>
             </li>
             <li>
-                <a href="https://blog.kylegeeks.com/notes/" title="Notes" class="active"
+                <a href="https://blog.kylegeeks.com/notes/" title="Notes"
                 >Notes
                 </a>
             </li>
@@ -334,45 +325,63 @@ function toggleThemeListener() {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/notes/">Notes</a></div><h1 class="post-title">阅读《悉达多》有感</h1>
+    <div class="breadcrumbs"><a href="https://blog.kylegeeks.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.kylegeeks.com/posts/">Posts</a></div><h1 class="post-title">服务接口兼容性导致发布线上问题</h1>
     <div class="post-meta"><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
-  <span>2026-01-13</span></span><span class="meta-item">
+  <span>2026-08-19</span></span><span class="meta-item">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
-  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E5%BF%83%E7%90%86/">心理</a><a href="https://blog.kylegeeks.com/tags/%E9%98%85%E8%AF%BB/">阅读</a></span></span>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a href="https://blog.kylegeeks.com/tags/%E6%9C%8D%E5%8A%A1%E8%BF%90%E7%BB%B4/">服务运维</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>64 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
 
       
       
     </div>
-  </header> 
+  </header> <div class="toc side right">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p>
-  <img loading="lazy" src="https://image-s3.kylegeeks.com/data/2026/01/394e7cee587aaf07c8b60bc6fcfcaa60.png" alt="《悉达多》"  /></p>
-<p>悉达多的前半生，<br>
-一直在「借用答案」。</p>
-<p>那些答案是安全的、完整的，<br>
-也不需要为自己的选择负责。</p>
-<p>他用道义、修行、理论剖析自己，<br>
-却始终回避了一件事——<br>
-直面自己。</p>
-<p>所以《悉达多》讲的，<br>
-不是寻找真理，<br>
-而是一个人如何停止<br>
-用他人的答案，<br>
-来逃避对「我是谁」的凝视。</p>
-<p>很多人的焦虑，<br>
-都藏在一句话里：<br>
-「等我想清楚了，再去面对。」</p>
-<p>这不是懒，<br>
-而是恐惧。</p>
-<p>但只有在面对中，<br>
-问题才会显形，<br>
-而“我是谁”，<br>
-才开始出现。</p>
-<p>如果不知道从哪开始，<br>
-就先把你的焦虑写下来。<br>
-不是为了解决，<br>
-而是为了不再回避。</p>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" aria-label="问题描述">问题描述</a></li>
+                <li>
+                    <a href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="解决方案">解决方案</a></li>
+                <li>
+                    <a href="#%e5%8f%91%e5%b8%83%e9%a1%ba%e5%ba%8f" aria-label="发布顺序">发布顺序</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="问题描述">问题描述</h3>
+<p>昨天发布系统时，某个 RPC 接口的入参方式从 <strong>request parameters</strong> 改造为 <strong>request body</strong>。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 <strong>400 错误</strong>。</p>
+<p><strong>根本原因</strong>：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。</p>
+<h3 id="解决方案">解决方案</h3>
+<p>核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：</p>
+<ol>
+<li>
+<p><strong>Provider 新增新接口，保留旧接口</strong>
+在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。</p>
+</li>
+<li>
+<p><strong>Customer 切换调用新接口</strong>
+Customer 代码统一改为调用新接口。</p>
+</li>
+<li>
+<p><strong>控制发布顺序：先升级 provider，再升级 customer</strong>
+滚动发布时，先将 provider 全量部署完成，再升级 customer。</p>
+</li>
+</ol>
+<h3 id="发布顺序">发布顺序</h3>
+<ul>
+<li><strong>先升级 provider</strong>：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。</li>
+<li><strong>先升级 customer</strong>：滚动发布过程中会出现&quot;新版本 customer + 旧版本 provider&quot;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。</li>
+</ul>
 
   </div>
 <footer class="donation-footer">
@@ -406,17 +415,11 @@ function toggleThemeListener() {
   
   <footer class="post-footer">
 <nav class="paginav">
-  <a class="prev" href="https://blog.kylegeeks.com/notes/2026/model-hardware-standard-research-preview/">
-    <span class="title">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left" style="user-select: text;"><line x1="19" y1="12" x2="5" y2="12" style="user-select: text;"></line><polyline points="12 19 5 12 12 5" style="user-select: text;"></polyline></svg>&nbsp;Prev Page</span>
-    <br>
-    <span>MHS 实现 AI 控制万物</span>
-  </a>
-  <a class="next" href="https://blog.kylegeeks.com/notes/2025/saturday-in-guangzhou/">
+  <a class="next" href="https://blog.kylegeeks.com/posts/2026/06/2026-06-22-%E7%94%9F%E4%BA%A7%E5%B0%B1%E7%BB%AA%E4%BB%A3%E7%90%86%E5%BC%8Fai%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6/">
     <span class="title">Next Page&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right" style="user-select: text;"><line x1="5" y1="12" x2="19" y2="12" style="user-select: text;"></line><polyline points="12 5 19 12 12 19" style="user-select: text;"></polyline></svg>
     </span>
     <br>
-    <span>2025-08 周六的一天</span>
+    <span>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究</span>
   </a>
 </nav>
 

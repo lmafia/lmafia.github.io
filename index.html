@@ -403,6 +403,57 @@ function toggleThemeListener() {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>MHS 实现 AI 控制万物
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>A 社亲自下场设计大模型设备接入的抽象设计——MHS
+设备通信协议统一化一直以来在国内是一个很大的问题。历史以来，只有那些有话语权的设备厂商才能提出规范协议，让大家适配，解决每个设备厂商都只用自己私有协议的封闭问题。
+由 LLM 公司提出设备规范协议或许是个不错的选择，在国内大家熟悉的米家、tuya、阿里云是提出设备规范协议(TSL 物模型)的应用/平台公司，也不是传统的设备厂商。当然，现在发展的确实也不好，不太像欧美那边推出一个规范和生态能发展得起来。
+公司都是趋利的，如果没有用户需要，确实人家也没有必要费力去兼容别人家的协议。像是 A 社出的 MCP、Skill ，AI 时代下如果要用户需要通过 Claude (其他 LLM) 去操作外设，那些软件服务巴不得第二天就出自己的 MCP Servers。
+对了，我发现大家都喜欢把这个给设备做的 API 叫做驱动。
+</p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2026-08-30</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to MHS 实现 AI 控制万物" href="https://blog.kylegeeks.com/notes/2026/model-hardware-standard-research-preview/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>服务接口兼容性导致发布线上问题
+    </h2>
+  </header>
+  <section class="entry-content">
+    
+      <p>问题描述 昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。
+根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。
+解决方案 核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：
+Provider 新增新接口，保留旧接口 在 provider 侧新增支持 request body 的新接口，同时保留原有接口不变，两者业务逻辑保持一致，仅入参方式不同。
+Customer 切换调用新接口 Customer 代码统一改为调用新接口。
+控制发布顺序：先升级 provider，再升级 customer 滚动发布时，先将 provider 全量部署完成，再升级 customer。
+发布顺序 先升级 provider：此时 provider 新旧接口同时在线，无论 customer 处于新版本还是旧版本，调用都能成功。 先升级 customer：滚动发布过程中会出现&#34;新版本 customer &#43; 旧版本 provider&#34;共存的情况，新 customer 调用新接口，但旧 provider 并不支持，从而返回 400。最后旧接口可以在 customer 全部升级完成、确认无流量调用后再下线。一般可以在下一个版本就删掉旧版本接口。 </p>
+    
+  </section>
+  <footer class="entry-footer"><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
+  <span>2026-08-19</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
+  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a href="https://blog.kylegeeks.com/tags/%E6%9C%8D%E5%8A%A1%E8%BF%90%E7%BB%B4/">服务运维</a></span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
+  <span>64 words</span></span><span class="meta-item">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
+  <span>1 min</span></span>
+</footer>
+  <a class="entry-link" aria-label="post link to 服务接口兼容性导致发布线上问题" href="https://blog.kylegeeks.com/posts/2026/08/service-interface-compatibility-issues-and-solutions/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>A Case Study in building production-ready agentic AI systems / 生产就绪型代理式 AI 系统构建案例研究
     </h2>
   </header>
@@ -613,30 +664,6 @@ Claude Code 和 Claude Opus 4.5 为这场 AI 热潮火上浇油。虽然 LLM（�
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>服务接口兼容性导致发布线上问题
-    </h2>
-  </header>
-  <section class="entry-content">
-    
-      <p>今天记录一个昨天发布系统出现的一个问题： 当服务之间 rpc 调用，provider 的接口定义出现大改，我们是从原来 request parameters 改为 request body，这个优化当然是一件好事，但是会出现设计不当和发布流程没考虑的话，在 customer 进行远程调用时候有概率会出现返回 400 错误码。就是因为会有新旧的 customer 和 provider 同时出现在系统导致的。 那要如何设计的呢？很简单，从 provider 能够向下兼容的来设计。
-在 provider 代码新增新版本的接口，但要保留旧接口，业务逻辑保持一致。 在 customer 代码全部改为调用新的接口。 系统发布时，先把 provider 滚动部署升级再升级 customer 为什么要先把新的 provider 都部署上去，因为新的 provider 新旧接口都有， 升级 customer 时候会调用新旧接口所以都能成功。如果不先把 provider 全部升级就来升级 customer，会出现新的 customer 可能会调用旧的 provider 出现 400. 明白，帮你把原文整理得更规范一些，保持技术分享该有的严谨感：
-问题描述 昨天发布系统时，某个 RPC 接口的入参方式从 request parameters 改造为 request body。这个改动方向是对的，但由于接口设计和发布流程未充分考虑兼容性问题，导致 customer 在调用时偶发 400 错误。
-根本原因：滚动发布过程中，新旧版本的 customer 和 provider 会同时存在于系统中。如果版本组合处理不当，就会出现新版本 customer 调用旧版本 provider（或相反）的情况，因参数格式不一致而报错。
-解决方案：Provider 向下兼容设计 核心思路是让 provider 具备向下兼容能力，保证新旧版本共存期间调用链路不受影响。具体分三步：
-...</p>
-    
-  </section>
-  <footer class="entry-footer"><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
-  <span>2026-01-13</span></span><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
-  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a href="https://blog.kylegeeks.com/tags/%E6%9C%8D%E5%8A%A1%E8%BF%90%E7%BB%B4/">服务运维</a></span></span>
-</footer>
-  <a class="entry-link" aria-label="post link to 服务接口兼容性导致发布线上问题" href="https://blog.kylegeeks.com/notes/2026/service-interface-compatibility-issues-and-solutions/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>阅读《悉达多》有感
     </h2>
   </header>
@@ -677,31 +704,6 @@ Claude Code 和 Claude Opus 4.5 为这场 AI 热潮火上浇油。虽然 LLM（�
   <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E5%BF%83%E7%90%86/">心理</a><a href="https://blog.kylegeeks.com/tags/%E9%98%85%E8%AF%BB/">阅读</a></span></span>
 </footer>
   <a class="entry-link" aria-label="post link to 阅读《悉达多》有感" href="https://blog.kylegeeks.com/notes/2026/siddhartha-reading-thoughts/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Cloudflare 配置页面重定向
-    </h2>
-  </header>
-  <section class="entry-content">
-    
-      <p>背景 在通过一些 PV 统计工具的时候发现不同的 URL 访问同个 Web 不会累计统计。
-所以想通过重定向的方式来把几个不同的 URL 都统一到一个。
-...</p>
-    
-  </section>
-  <footer class="entry-footer"><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" style="user-select: text;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" style="user-select: text;"></rect><line x1="16" y1="2" x2="16" y2="6" style="user-select: text;"></line><line x1="8" y1="2" x2="8" y2="6" style="user-select: text;"></line><line x1="3" y1="10" x2="21" y2="10" style="user-select: text;"></line></svg>
-  <span>2026-01-07</span></span><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon" style="user-select: text;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" style="user-select: text;"></path><line x1="7" y1="7" x2="7" y2="7" style="user-select: text;"></line></svg>
-  <span class="post-tags"><a href="https://blog.kylegeeks.com/tags/%E5%BB%BA%E7%AB%99/">建站</a><a href="https://blog.kylegeeks.com/tags/cloudflare/">Cloudflare</a></span></span><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" style="user-select: text;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="user-select: text;"></path><polyline points="14 2 14 8 20 8" style="user-select: text;"></polyline><line x1="16" y1="13" x2="8" y2="13" style="user-select: text;"></line><line x1="16" y1="17" x2="8" y2="17" style="user-select: text;"></line><polyline points="10 9 9 9 8 9" style="user-select: text;"></polyline></svg>
-  <span>148 words</span></span><span class="meta-item">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 15"></polyline></svg>
-  <span>1 min</span></span>
-</footer>
-  <a class="entry-link" aria-label="post link to Cloudflare 配置页面重定向" href="https://blog.kylegeeks.com/posts/2026/01/cloudflare-page-redirect/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
